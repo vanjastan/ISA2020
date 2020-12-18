@@ -1,0 +1,15 @@
+INSERT INTO `authorities` (id, name) VALUES (1, 'ROLE_ADMIN');
+INSERT INTO `authorities` (id, name) VALUES (2, 'ROLE_PATIENT');
+INSERT INTO `authorities` (id, name) VALUES (3, 'ROLE_PHARMACIST');
+INSERT INTO `authorities` (id, name) VALUES (4, 'ROLE_DERMATOLOGIST');
+INSERT INTO `authorities` (id, name) VALUES (5, 'ROLE_SUPPLIER');
+INSERT INTO `authorities` (id, name) VALUES (6, 'ROLE_ADMINPH');
+
+INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 1, 'Vanja', 'Stan', 'admin1', 'Olge Petrov 25', 'Novi Sad','Srbija' ,'890102', 'admin@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_ADMIN', '2017-10-01 21:58:58', true, true);
+
+INSERT INTO `user_authority` (user_id, authority_id) VALUES (1, 1);
+
+INSERT INTO `hospitals` (id, name, api) VALUES (1, 'Bolnica1', '12345');
+
+INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
+

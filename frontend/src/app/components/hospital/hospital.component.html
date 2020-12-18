@@ -1,0 +1,26 @@
+<div class="apoteka">
+    <h1  style="text-align:center">Hospital sign up</h1>
+    <form (ngSubmit)="onSubmitHospital()">
+    <div mat-dialog-content>
+    
+        <p style="text-align:center" >
+            <mat-form-field appearance="outline">
+                    <mat-label>Hospital</mat-label>
+                    <input matInput type="text" placeholder="Name" name="Name" [(ngModel)]="hosp.name">      
+        </mat-form-field>
+        </p>
+
+        <p style="text-align:center" >
+            <mat-form-field appearance="outline">
+                    <mat-label>API key</mat-label>
+                    <input matInput type="text" placeholder="API key" name="Api key" [(ngModel)]="hosp.api">      
+        </mat-form-field>
+        </p>
+
+    </div>
+    <div  style="text-align:center" >
+      <button mat-raised-button type="submit">Sign up</button>
+      
+    </div>
+    </form>
+    </div>

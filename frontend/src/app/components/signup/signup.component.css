@@ -1,0 +1,12 @@
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color:white !important;
+  }
+
+  .apoteka {
+    height:60em;
+    background-size:cover;
+    width:auto;
+    background-position:50% 50%;
+    background-image:url('C:\Users\vanja\Desktop\Projekat\frontend\src\assets\img\apoteka.jpg');
+ }
