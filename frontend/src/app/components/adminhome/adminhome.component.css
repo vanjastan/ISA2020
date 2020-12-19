@@ -16,3 +16,8 @@
   .btn-group button:hover {
     background-color: #3e8e41;
   }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:  #BEF2DB !important;
+    width: 20em;
+}

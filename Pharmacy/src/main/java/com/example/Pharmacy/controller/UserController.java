@@ -4,6 +4,7 @@ import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.service.UserService;
+import com.example.Pharmacy.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +22,8 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	private UserServiceImpl userImpl;
 
     @PostMapping("/public/register")
     public ResponseEntity add(@Valid @RequestBody UserRegistrationDTO user) {

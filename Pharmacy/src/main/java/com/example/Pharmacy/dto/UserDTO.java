@@ -11,6 +11,7 @@ public class UserDTO {
     private Long id;
     private String name;
     private String surname;
+    private String username;
     private String address;
     private String city;
     private String country;
@@ -34,6 +35,7 @@ public class UserDTO {
         number = u.getNumber();
         password = u.getPassword();
         email = u.getEmail();
+        username = u.getUsername();
         roleType = u.getRoleType();
         this.token = null;
         this.authorities = u.getAuthorities().stream()
@@ -134,5 +136,13 @@ public class UserDTO {
 
     public void setToken(UserTokenDTO token) {
         this.token = token;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -1,0 +1,11 @@
+.cdk-overlay-container {
+    z-index: 9999 !important;
+  }
+
+  .apoteka2 {
+    height:60em;
+    background-size:cover;
+    width:auto;
+    background-position:50% 50%;
+    background-image:url('C:\Users\vanja\Desktop\ISA2020\frontend\src\assets\img\apoteka2.jpg');
+ }

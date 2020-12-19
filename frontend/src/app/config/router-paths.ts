@@ -15,3 +15,6 @@ export const USER_HOME_PATH = 'user';
 export const SUPPLIER_HOME_PATH = 'supplier';
 export const SUPPLIER_PROFILE_PATH = 'supplier/supplierprofile';
 
+// Medicaments
+export const MEDICAMENTS_LIST_PATH = 'admin/medicamentslist';
+

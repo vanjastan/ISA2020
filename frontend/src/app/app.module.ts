@@ -17,6 +17,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatList, MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSelect, MatSelectModule} from '@angular/material/select';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import { SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import { SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
+import { MedicamentsListComponent} from './components/medicamentslist/medicamentslist.component';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { SupplierProfileComponent} from './components/supplierprofile/supplierpr
     AdminHomeComponent,
     SupplierHomeComponent,
     SupplierProfileComponent,
+    MedicamentsListComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -62,6 +65,7 @@ import { SupplierProfileComponent} from './components/supplierprofile/supplierpr
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    MatSelectModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },

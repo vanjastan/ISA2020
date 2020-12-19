@@ -11,4 +11,5 @@ import javax.persistence.Entity;
 @Entity
 
 public class Dermatologist extends User{
+
 }

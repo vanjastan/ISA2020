@@ -28,5 +28,4 @@ export class UserService {
   getUser(userId: number): Observable<any> {
     return this.http.get(`http://localhost:8080/api/users/logged/${userId}`);
   }
-
 }

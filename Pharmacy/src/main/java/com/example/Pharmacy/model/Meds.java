@@ -1,0 +1,166 @@
+package com.example.Pharmacy.model;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "medicaments")
+public class Meds {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "code")
+    private String code;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "contradictions")
+    private String contradictions;
+
+    @Column(name = "ingredients")
+    private String ingredients;
+
+    @Column(name = "dailydose")
+    private String dailydose;
+
+    @Column(name = "replacement")
+    private String replacement;
+
+    @Column(name = "shape")
+    private String shape;
+
+    @Column(name = "manufacturer")
+    private String manufacturer;
+
+    @Column(name = "issuing")
+    private String issuing;
+
+    @Column(name = "notes")
+    private String notes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getContradictions() {
+        return contradictions;
+    }
+
+    public void setContradictions(String contradictions) {
+        this.contradictions = contradictions;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getDailydose() {
+        return dailydose;
+    }
+
+    public void setDailydose(String dailydose) {
+        this.dailydose = dailydose;
+    }
+
+    public String getReplacement() {
+        return replacement;
+    }
+
+    public void setReplacement(String replacement) {
+        this.replacement = replacement;
+    }
+
+    public String getShape() {
+        return shape;
+    }
+
+    public void setShape(String shape) {
+        this.shape = shape;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getIssuing() {
+        return issuing;
+    }
+
+    public void setIssuing(String issuing) {
+        this.issuing = issuing;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Meds(String name, String code, String type, String contradictions, String ingridients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes) {
+        this.name = name;
+        this.code = code;
+        this.type = type;
+        this.contradictions = contradictions;
+        this.ingredients = ingridients;
+        this.dailydose = dailydose;
+        this.replacement = replacement;
+        this.shape = shape;
+        this.manufacturer = manufacturer;
+        this.issuing = issuing;
+        this.notes = notes;
+    }
+
+    public Meds() {
+
+    }
+}
