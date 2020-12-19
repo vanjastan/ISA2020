@@ -4,8 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from '../app/components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
-import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH } from './config/router-paths';
+import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH } from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
+import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
+import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
 
 
 
@@ -25,6 +27,14 @@ const routes: Routes = [
   {
     path: ADMIN_HOME_PATH,
     component: AdminHomeComponent
+  },
+  {
+    path: SUPPLIER_HOME_PATH,
+    component: SupplierHomeComponent
+  },
+  {
+    path: SUPPLIER_PROFILE_PATH,
+    component: SupplierProfileComponent
   },
 ];
 

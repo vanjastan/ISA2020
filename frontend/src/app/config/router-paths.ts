@@ -11,3 +11,7 @@ export const ADMIN_HOME_PATH = 'admin';
 // User paths
 export const USER_HOME_PATH = 'user';
 
+// Supplier paths
+export const SUPPLIER_HOME_PATH = 'supplier';
+export const SUPPLIER_PROFILE_PATH = 'supplier/supplierprofile';
+
