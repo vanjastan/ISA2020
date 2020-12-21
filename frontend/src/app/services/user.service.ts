@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import UserRegistrationDTO from '../components/models/user-registration-dto.model';
+import { Supplier } from '../components/adminreg/supplier';
 
 
 @Injectable({
@@ -27,5 +28,9 @@ export class UserService {
 
   getUser(userId: number): Observable<any> {
     return this.http.get(`http://localhost:8080/api/users/logged/${userId}`);
+  }
+
+  registerSup(user: UserRegistrationDTO): Observable<any> {
+    return this.http.post(`http://localhost:8080/api/users/registersup`, user);
   }
 }

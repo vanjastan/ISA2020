@@ -7,6 +7,7 @@ export const HOSPITAL_REG = 'hospital';
 
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';
+export const ADMIN_REG_PATH = 'admin/adminreg';
 
 // User paths
 export const USER_HOME_PATH = 'user';
@@ -17,4 +18,5 @@ export const SUPPLIER_PROFILE_PATH = 'supplier/supplierprofile';
 
 // Medicaments
 export const MEDICAMENTS_LIST_PATH = 'admin/medicamentslist';
+
 

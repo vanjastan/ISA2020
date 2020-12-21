@@ -2,6 +2,8 @@ package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.Meds;
 
+import java.util.List;
+
 public class MedsDTO {
 
     private Long id;
@@ -16,25 +18,8 @@ public class MedsDTO {
     private String manufacturer;
     private String issuing;
     private String notes;
-
-    public MedsDTO(Long id, String name, String code, String type, String contradictions, String ingredients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes) {
-        this.id = id;
-        this.name = name;
-        this.code = code;
-        this.type = type;
-        this.contradictions = contradictions;
-        this.ingredients = ingredients;
-        this.dailydose = dailydose;
-        this.replacement = replacement;
-        this.shape = shape;
-        this.manufacturer = manufacturer;
-        this.issuing = issuing;
-        this.notes = notes;
-    }
-
-    public MedsDTO() {
-
-    }
+    private int quantity;
+    private int points;
 
     public MedsDTO(Meds meds) {
         this.id = meds.getId();
@@ -49,6 +34,8 @@ public class MedsDTO {
         this.manufacturer = meds.getManufacturer();
         this.issuing = meds.getIssuing();
         this.notes = meds.getNotes();
+        this.quantity = meds.getQuantity();
+        this.points = meds.getPoints();
     }
 
     public Long getId() {
@@ -145,5 +132,21 @@ public class MedsDTO {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }

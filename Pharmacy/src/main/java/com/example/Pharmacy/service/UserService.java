@@ -14,6 +14,7 @@ public interface UserService {
     List<User> findAll();
 	User save(UserRequest userRequest);
     User addUser(UserRegistrationDTO userInfo);
+    User addUserSup(UserRegistrationDTO userInfo);
     void delete(Long id);
     void activateUser(Long id);
 }

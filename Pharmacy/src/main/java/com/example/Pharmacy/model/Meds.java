@@ -1,14 +1,19 @@
 package com.example.Pharmacy.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "medicaments")
 public class Meds {
 
@@ -49,6 +54,12 @@ public class Meds {
 
     @Column(name = "notes")
     private String notes;
+
+    @Column(name = "quantity")
+    private int quantity;
+
+    @Column(name = "points")
+    private int points;
 
     public Long getId() {
         return id;
@@ -146,21 +157,20 @@ public class Meds {
         this.name = name;
     }
 
-    public Meds(String name, String code, String type, String contradictions, String ingridients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes) {
-        this.name = name;
-        this.code = code;
-        this.type = type;
-        this.contradictions = contradictions;
-        this.ingredients = ingridients;
-        this.dailydose = dailydose;
-        this.replacement = replacement;
-        this.shape = shape;
-        this.manufacturer = manufacturer;
-        this.issuing = issuing;
-        this.notes = notes;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public Meds() {
-
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
 }

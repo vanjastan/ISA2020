@@ -12,5 +12,7 @@ export class Meds {
         public manufacturer: string,
         public issuing: string,
         public notes: string,
+        public quantity: number,
+        public points: number,
     ){}
 }

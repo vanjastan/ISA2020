@@ -1,13 +1,15 @@
 package com.example.Pharmacy.model;
 
-import lombok.Data;
+
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
-@NoArgsConstructor
 @Entity
 public class Patient extends User{
+
 }

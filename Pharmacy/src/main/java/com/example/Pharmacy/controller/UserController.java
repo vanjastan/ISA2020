@@ -1,7 +1,9 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.HospitalDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
+import com.example.Pharmacy.mappers.UserMapper;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.UserServiceImpl;
@@ -30,6 +32,13 @@ public class UserController {
         userService.addUser(user);
         return ResponseEntity.ok().build();
     }
+
+	@PostMapping("/registersup")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public ResponseEntity addSup(@Valid @RequestBody UserRegistrationDTO user) {
+		userService.addUserSup(user);
+		return ResponseEntity.ok().build();
+	}
 
 	// Za pristup ovoj metodi neophodno je da ulogovani korisnik ima ADMIN ulogu
 	// Ukoliko nema, server ce vratiti gresku 403 Forbidden

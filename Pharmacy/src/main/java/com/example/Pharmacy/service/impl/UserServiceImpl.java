@@ -3,15 +3,13 @@ package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.common.TimeProvider;
 import com.example.Pharmacy.config.consts.UserRoles;
+import com.example.Pharmacy.dto.HospitalDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.exception.ApiRequestException;
 import com.example.Pharmacy.exception.ResourceNotFoundException;
 import com.example.Pharmacy.mappers.UserMapper;
-import com.example.Pharmacy.model.Authority;
-import com.example.Pharmacy.model.ConfirmationToken;
-import com.example.Pharmacy.model.User;
-import com.example.Pharmacy.model.UserRequest;
+import com.example.Pharmacy.model.*;
 import com.example.Pharmacy.repository.AuthorityRepository;
 import com.example.Pharmacy.repository.ConfirmationTokenRepository;
 import com.example.Pharmacy.repository.UserRepository;
@@ -110,6 +108,30 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	public User addUserSup(UserRegistrationDTO userInfo) {
+		if (userRepository.findByUsername(userInfo.getUsername()) != null) {
+			throw new ApiRequestException("Username '" + userInfo.getUsername() + "' already exists.");
+		}
+
+		/*if (!userInfo.getPassword().equals(userInfo.getRepeatPassword())) {
+			throw new ApiRequestException("Provided passwords must be the same.");
+		}*/
+
+		if (userRepository.findByEmail(userInfo.getEmail()) != null) {
+			throw new ApiRequestException("Email '" + userInfo.getEmail() + "' is taken.");
+		}
+
+		User user = createNewUserObjectSup(userInfo);
+		userRepository.save(user);
+
+		ConfirmationToken token = new ConfirmationToken(user);
+		tokenRepository.save(token);
+
+		//mailSenderService.sendRegistrationMail(token);
+
+		return user;
+	}
+
 	private User createNewUserObject(UserRegistrationDTO userInfo) {
 		User user = UserMapper.toUserEntity(userInfo);
 		user.setPassword(passwordEncoder.encode(userInfo.getPassword()));
@@ -122,6 +144,26 @@ public class UserServiceImpl implements UserService {
 		user.setCity(userInfo.getCity());
 		user.setCountry(userInfo.getCountry());
 		user.setRoleType(UserRoles.ROLE_PATIENT);
+		user.setNumber(userInfo.getPhone());
+
+		//aktivacija naloga
+		user.setEnabled(true);
+
+		return user;
+	}
+
+	private User createNewUserObjectSup(UserRegistrationDTO userInfo) {
+		User user = UserMapper.toUserEntity(userInfo);
+		user.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+		user.setLastPasswordResetDate(timeProvider.nowTimestamp());
+		user.getUserAuthorities().add(authorityRepository.findByName(UserRoles.ROLE_SUPPLIER));
+		user.setName(userInfo.getName());
+		user.setSurname(userInfo.getSurname());
+		user.setEmail(userInfo.getEmail());
+		user.setAddress(userInfo.getAddress());
+		user.setCity(userInfo.getCity());
+		user.setCountry(userInfo.getCountry());
+		user.setRoleType(UserRoles.ROLE_SUPPLIER);
 		user.setNumber(userInfo.getPhone());
 
 		//aktivacija naloga
