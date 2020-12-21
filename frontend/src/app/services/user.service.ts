@@ -33,4 +33,8 @@ export class UserService {
   registerSup(user: UserRegistrationDTO): Observable<any> {
     return this.http.post(`http://localhost:8080/api/users/registersup`, user);
   }
+
+  registerDerm(user: UserRegistrationDTO): Observable<any> {
+    return this.http.post(`http://localhost:8080/api/users/registerderm`, user);
+  }
 }

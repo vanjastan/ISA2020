@@ -33,6 +33,7 @@ import { SupplierHomeComponent} from './components/supplierhome/supplierhome.com
 import { SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
 import { MedicamentsListComponent} from './components/medicamentslist/medicamentslist.component';
 import { AdminRegComponent} from './components/adminreg/adminreg.component';
+import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { AdminRegComponent} from './components/adminreg/adminreg.component';
     SupplierProfileComponent,
     MedicamentsListComponent,
     AdminRegComponent,
+    AdminRegDermComponent,
   ],
   imports: [
     AppRoutingModule,

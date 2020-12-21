@@ -40,6 +40,13 @@ public class UserController {
 		return ResponseEntity.ok().build();
 	}
 
+	@PostMapping("/registerderm")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public ResponseEntity addDerm(@Valid @RequestBody UserRegistrationDTO user) {
+		userService.addUserDerm(user);
+		return ResponseEntity.ok().build();
+	}
+
 	// Za pristup ovoj metodi neophodno je da ulogovani korisnik ima ADMIN ulogu
 	// Ukoliko nema, server ce vratiti gresku 403 Forbidden
 	// Korisnik jeste autentifikovan, ali nije autorizovan da pristupi resursu

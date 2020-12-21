@@ -8,6 +8,7 @@ export const HOSPITAL_REG = 'hospital';
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';
 export const ADMIN_REG_PATH = 'admin/adminreg';
+export const ADMIN_REG_DERM_PATH = 'admin/adminregderm';
 
 // User paths
 export const USER_HOME_PATH = 'user';
