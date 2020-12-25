@@ -7,7 +7,7 @@
     background-size:cover;
     width:auto;
     background-position:100% 100%;
-    background-image:url('C:\Users\vanja\Desktop\ISA2020\frontend\src\assets\img\apoteka1.jpg');
+    background-image:url('src\assets\img\apoteka1.jpg');
  }
 
  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {

@@ -55,12 +55,6 @@ public class Meds {
     @Column(name = "notes")
     private String notes;
 
-    @Column(name = "quantity")
-    private int quantity;
-
-    @Column(name = "points")
-    private int points;
-
     public Long getId() {
         return id;
     }
@@ -155,22 +149,6 @@ public class Meds {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 
 }

@@ -1,9 +1,13 @@
 package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.Meds;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class MedsDTO {
 
     private Long id;
@@ -18,8 +22,6 @@ public class MedsDTO {
     private String manufacturer;
     private String issuing;
     private String notes;
-    private int quantity;
-    private int points;
 
     public MedsDTO(Meds meds) {
         this.id = meds.getId();
@@ -34,8 +36,6 @@ public class MedsDTO {
         this.manufacturer = meds.getManufacturer();
         this.issuing = meds.getIssuing();
         this.notes = meds.getNotes();
-        this.quantity = meds.getQuantity();
-        this.points = meds.getPoints();
     }
 
     public Long getId() {
@@ -134,19 +134,4 @@ public class MedsDTO {
         this.notes = notes;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
 }

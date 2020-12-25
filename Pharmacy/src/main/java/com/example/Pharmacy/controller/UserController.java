@@ -82,4 +82,21 @@ public class UserController {
 		return new ResponseEntity<>(new UserDTO(user), HttpStatus.OK);
 	}
 
+	@CrossOrigin
+	@PutMapping(value = "/edit")
+	public ResponseEntity<UserDTO> editUser(@RequestBody UserDTO userDTO) {
+
+		User userInfo = userService.findById(userDTO.getId());
+		userInfo.setName(userDTO.getName());
+		userInfo.setSurname(userDTO.getSurname());
+		userInfo.setUsername(userDTO.getUsername());
+		userInfo.setCountry(userDTO.getCountry());
+		userInfo.setCity(userDTO.getCity());
+		userInfo.setAddress(userDTO.getAddress());
+		userInfo.setNumber(userDTO.getNumber());
+
+		userInfo = userService.save(userInfo);
+
+		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
+	}
 }
