@@ -139,6 +139,24 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	public User addUserAdmin(UserRegistrationDTO userInfo) {
+		if (userRepository.findByUsername(userInfo.getUsername()) != null) {
+			throw new ApiRequestException("Username '" + userInfo.getUsername() + "' already exists.");
+		}
+
+		if (userRepository.findByEmail(userInfo.getEmail()) != null) {
+			throw new ApiRequestException("Email '" + userInfo.getEmail() + "' is taken.");
+		}
+
+		User user = createNewUserObjectAdmin(userInfo);
+		userRepository.save(user);
+
+		ConfirmationToken token = new ConfirmationToken(user);
+		tokenRepository.save(token);
+
+		return user;
+	}
+
 	private User createNewUserObject(UserRegistrationDTO userInfo) {
 		User user = UserMapper.toUserEntity(userInfo);
 		user.setPassword(passwordEncoder.encode(userInfo.getPassword()));
@@ -191,6 +209,26 @@ public class UserServiceImpl implements UserService {
 		user.setCity(userInfo.getCity());
 		user.setCountry(userInfo.getCountry());
 		user.setRoleType(UserRoles.ROLE_DERMATOLOGIST);
+		user.setNumber(userInfo.getPhone());
+
+		//aktivacija naloga
+		user.setEnabled(true);
+
+		return user;
+	}
+
+	private User createNewUserObjectAdmin(UserRegistrationDTO userInfo) {
+		User user = UserMapper.toUserEntity(userInfo);
+		user.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+		user.setLastPasswordResetDate(timeProvider.nowTimestamp());
+		user.getUserAuthorities().add(authorityRepository.findByName(UserRoles.ROLE_ADMIN));
+		user.setName(userInfo.getName());
+		user.setSurname(userInfo.getSurname());
+		user.setEmail(userInfo.getEmail());
+		user.setAddress(userInfo.getAddress());
+		user.setCity(userInfo.getCity());
+		user.setCountry(userInfo.getCountry());
+		user.setRoleType(UserRoles.ROLE_ADMIN);
 		user.setNumber(userInfo.getPhone());
 
 		//aktivacija naloga

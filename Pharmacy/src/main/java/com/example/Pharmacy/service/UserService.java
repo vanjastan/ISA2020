@@ -17,6 +17,7 @@ public interface UserService {
     User addUser(UserRegistrationDTO userInfo);
     User addUserSup(UserRegistrationDTO userInfo);
     User addUserDerm(UserRegistrationDTO userInfo);
+    User addUserAdmin(UserRegistrationDTO userInfo);
     User editUser(UserDTO user);
     void delete(Long id);
     void activateUser(Long id);

@@ -47,6 +47,13 @@ public class UserController {
 		return ResponseEntity.ok().build();
 	}
 
+	@PostMapping("/registeradmin")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public ResponseEntity addAdmin(@Valid @RequestBody UserRegistrationDTO user) {
+		userService.addUserAdmin(user);
+		return ResponseEntity.ok().build();
+	}
+
 	// Za pristup ovoj metodi neophodno je da ulogovani korisnik ima ADMIN ulogu
 	// Ukoliko nema, server ce vratiti gresku 403 Forbidden
 	// Korisnik jeste autentifikovan, ali nije autorizovan da pristupi resursu

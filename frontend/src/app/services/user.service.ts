@@ -41,6 +41,10 @@ export class UserService {
     return this.http.post(`http://localhost:8080/api/users/registerderm`, user);
   }
   
+  registerAdmin(user: UserRegistrationDTO): Observable<any> {
+    return this.http.post(`http://localhost:8080/api/users/registeradmin`, user);
+  }
+
   public getUserInfo(): Observable<any> {
     const userId = localStorage.getItem(USER_ID_KEY);
     return this.http.get(`http://localhost:8080/api/users/logged/${userId}`);
