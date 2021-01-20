@@ -1,5 +1,5 @@
 <mat-toolbar color="blue">
-    <mat-toolbar-row style="background-color: #BEF2DB;">
+   <mat-toolbar-row style="background-color: #BEF2DB;"> 
       <span><a style="color:black;">Pharmacy</a></span>
       <button mat-button style="position: absolute; right: 0; margin-right: 1cm;"><a style="color: black;" [routerLink]="['login']" *ngIf="!isUserLoggedIn()">Log in </a></button>
 
@@ -9,6 +9,6 @@
 
       <button mat-button style="position: absolute; right: 0; margin-right: 5cm;"><a style="color: black;" (click)="onClickHospital()">Hospital sign up</a></button>
   
-    </mat-toolbar-row>
+   </mat-toolbar-row>
 
 </mat-toolbar>

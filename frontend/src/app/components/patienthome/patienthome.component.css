@@ -1,0 +1,29 @@
+  
+.page-container {
+    display: flex;
+    height: 100%;
+}
+
+.page-content-container {
+    padding: 50px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    background: rgba(222, 208, 223, 0.2);
+}
+
+.list-items {
+    padding-top: 20px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 18px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 10px 20px;
+    cursor: pointer;
+}

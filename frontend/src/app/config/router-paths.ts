@@ -21,4 +21,8 @@ export const SUPPLIER_PROFILE_PATH = 'supplier/supplierprofile';
 // Medicaments
 export const MEDICAMENTS_LIST_PATH = 'admin/medicamentslist';
 
+//patient
+export const PATIENT_HOME_PATH = 'patient';
+export const PATIENT_PROFILE_PATH = 'patient/patientprofile';
+
 

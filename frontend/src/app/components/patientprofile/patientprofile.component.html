@@ -1,0 +1,38 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="paper scrollable-content">
+        <mat-card-header class="navb">
+            <div>
+                <p style="font-size:18px"></p>
+            </div>
+
+        </mat-card-header>
+        <mat-card-content>
+            <p style="font-size: 18px;">Name: {{user.name}}</p>
+        <br/>
+            <p style="font-size: 18px;">Surname: {{user.surname}}</p>
+        <br/>
+            <p style="font-size: 18px;">Username: {{user.username}}</p>
+        <br/>
+            <p style="font-size: 18px;">Email: {{user.email}}</p>
+        <br/>
+            <p style="font-size: 18px;">Address: {{user.address}}</p>
+        <br/>
+            <p style="font-size: 18px;">City: {{user.city}}</p>
+        <br/>
+            <p style="font-size: 18px;">Country: {{user.country}}</p>
+        <br/>
+            <p style="font-size: 18px;">Phone number: {{user.number}}</p>
+        <br/>
+    </mat-card-content>
+
+        <hr>
+    <mat-card-header>
+        <div>
+            <button mat-button style="font-size:18px; margin-left: 368px;">Change password</button>
+        </div>
+        <div>
+            <button mat-button style="font-size: 18px; margin-left: 100px;" (click)="edit()">Edit profile</button>
+        </div>
+    </mat-card-header>
+    </mat-card>
+</div>

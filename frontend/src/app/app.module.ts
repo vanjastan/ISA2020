@@ -18,6 +18,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatList, MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelect, MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -35,6 +36,9 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent} from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
+import { PatienthomeComponent } from './components/patienthome/patienthome.component';
+import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
+import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
 
 
 @NgModule({
@@ -51,6 +55,9 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
     AdminRegComponent,
     AdminRegDermComponent,
     AdminAddComponent,
+    PatienthomeComponent,
+    PatientprofileComponent,
+    EditprofileComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -72,6 +79,7 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
     MatListModule,
     MatIconModule,
     MatSelectModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },
