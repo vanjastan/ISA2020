@@ -1,0 +1,34 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 80px;">
+
+    <mat-card class="paper">
+      <mat-card-header>
+      <mat-card-title style="font-size: 30px;">Pharmacies</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Search">
+          </mat-form-field>
+          <hr>
+        <table mat-table style="padding-left: 35px;" class="mat-elevation-z2">
+  
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 35px;"> Name </th>
+            <td mat-cell style="padding-left: 35px;"></td>
+          </ng-container>  
+          
+          <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 35px;">Address</th>
+              <td mat-cell style="padding-left: 35px;"> </td>
+            </ng-container>
+            
+            <tr mat-header-row></tr>
+            <tr mat-row></tr>
+        </table>
+  
+      </mat-card-content>
+  
+    </mat-card>
+  
+  </div>
+  

@@ -4,7 +4,6 @@ import {RouterModule} from '@angular/router'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -39,7 +38,11 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
-
+import { EditpassComponent } from './components/patientprofile/editpass/editpass.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -58,9 +61,16 @@ import { EditprofileComponent } from './components/patientprofile/editprofile/ed
     PatienthomeComponent,
     PatientprofileComponent,
     EditprofileComponent,
+    EditpassComponent,
+    AllpharmaciesComponent,
+  ],
+  entryComponents: [
+    EditprofileComponent,
+    EditpassComponent
   ],
   imports: [
     AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatToolbarModule,
@@ -79,7 +89,8 @@ import { EditprofileComponent } from './components/patientprofile/editprofile/ed
     MatListModule,
     MatIconModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },

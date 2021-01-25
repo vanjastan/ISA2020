@@ -1,8 +1,7 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.model.Medicament;
-import com.example.Pharmacy.repository.MedicamentRepository;
-import com.example.Pharmacy.service.impl.MedicamentServiceImpl;
+import com.example.Pharmacy.model.Pharmacies;
+import com.example.Pharmacy.repository.PharmacyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +12,12 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/medicament")
-public class MedicamentController {
+@RequestMapping("/pharmacies")
+public class PharmacyController {
 
     @Autowired
-    private MedicamentServiceImpl medicament;
-
-    @Autowired
-    private MedicamentRepository medicamentRepository;
+    PharmacyRepository pharmacyRepository;
 
     @RequestMapping(value="", method = RequestMethod.GET)
-    public List<Medicament> loadAllMedicaments() {return this.medicamentRepository.findAll();}
+    public List<Pharmacies> loadAllPh() {return this.pharmacyRepository.findAll();}
 }
