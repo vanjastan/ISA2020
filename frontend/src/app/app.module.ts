@@ -45,6 +45,16 @@ import { AllpharmaciesComponent } from './components/patientprofile/allpharmacie
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ExaminationsComponent } from './components/patientprofile/examinations/examinations.component';
 import { ExaminationsPharmComponent } from './components/patientProfile/examinations-pharm/examinations-pharm.component';
+import { PrescriptionsComponent } from './components/prescriptions/prescriptions.component';
+import { SheduledExaminationsComponent } from './components/patienthome/sheduled-examinations/sheduled-examinations.component';
+import { ReservedMedsComponent } from './components/patienthome/reserved-meds/reserved-meds.component';
+import { PenalsComponent } from './components/patienthome/penals/penals.component';
+import { EMedsComponent } from './components/patienthome/e-meds/e-meds.component';
+import { SubscribedPharmaciesComponent } from './components/patienthome/subscribed-pharmacies/subscribed-pharmacies.component';
+import { ComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
+import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
+import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +77,16 @@ import { ExaminationsPharmComponent } from './components/patientProfile/examinat
     AllpharmaciesComponent,
     ExaminationsComponent,
     ExaminationsPharmComponent,
+    PrescriptionsComponent,
+    SheduledExaminationsComponent,
+    ReservedMedsComponent,
+    PenalsComponent,
+    EMedsComponent,
+    SubscribedPharmaciesComponent,
+    ComplaintsComponent,
+    TakeMedicineComponent,
+    ScheduleConsultationsComponent,
+    ScheduleExaminationsComponent,
   ],
   entryComponents: [
     EditprofileComponent,

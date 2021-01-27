@@ -1,7 +1,30 @@
-  
+.home{
+    background: linear-gradient(
+        rgba(156, 166, 170, 0.7),
+        rgba(156, 166, 170, 0.7)
+      ),url("C:\Users\USER\Desktop\Fitness\ISA2020\frontend\src\assets\img\heart.jpg");
+      background-size: 1150px 800px;
+      width: 1350px;
+      height: 593px;
+}
+
 .page-container {
     display: flex;
-    height: 100%;
+}
+
+.page-container2 {
+    display: flex;
+    margin-top: 20px;
+}
+
+.page-container3 {
+    display: flex;
+    margin-top: 20px;
+}
+
+.page-container4{
+    display: flex;
+    margin-top: 20px;
 }
 
 .page-content-container {
@@ -22,8 +45,78 @@
     display: flex;
     align-items: center;
     position: relative;
-    font-size: 18px;
+    font-size: 30px;
     color: rgba(17, 14, 14, 0.85);
-    padding: 10px 20px;
+    padding: 10px 70px;
+    cursor: pointer;
+}
+
+.schedule{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 1px 80px;
+    cursor: pointer;
+}
+
+.building{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 10px 80px;
+    cursor: pointer;
+}
+
+.examination{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 10px 80px;
+    cursor: pointer;
+}
+
+.examinationPh{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 1px 80px;
+    cursor: pointer;
+}
+
+.prescription{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 10px 80px;
+    cursor: pointer;
+}
+
+.meds{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 1px 70px;
+    cursor: pointer;
+}
+
+.subPh{
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 30px;
+    color: rgba(17, 14, 14, 0.85);
+    padding: 1px 80px;
     cursor: pointer;
 }

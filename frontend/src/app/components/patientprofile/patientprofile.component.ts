@@ -49,4 +49,20 @@ export class PatientprofileComponent implements OnInit {
       console.log('Dialog result: ${result}');
     });
   }
+
+  allergies(){
+      
+  }
+
+  points(){
+
+  }
+
+  category(){
+
+  }
+
+  loyalty(){
+    
+  }
 }

@@ -8,7 +8,7 @@ import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS,
-PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST} from './config/router-paths';
+PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -21,6 +21,16 @@ import { PatientprofileComponent } from './components/patientprofile/patientprof
 import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
 import { ExaminationsComponent } from './components/patientprofile/examinations/examinations.component';
 import { ExaminationsPharmComponent } from './components/patientProfile/examinations-pharm/examinations-pharm.component';
+import { PrescriptionsComponent } from './components/prescriptions/prescriptions.component';
+import { SheduledExaminationsComponent } from './components/patienthome/sheduled-examinations/sheduled-examinations.component';
+import { ReservedMedsComponent } from './components/patienthome/reserved-meds/reserved-meds.component';
+import { PenalsComponent } from './components/patienthome/penals/penals.component';
+import { EMedsComponent } from './components/patienthome/e-meds/e-meds.component';
+import { SubscribedPharmaciesComponent } from './components/patienthome/subscribed-pharmacies/subscribed-pharmacies.component';
+import { ComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
+import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
+import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
 
 const routes: Routes = [
   {
@@ -68,8 +78,48 @@ const routes: Routes = [
     component: ExaminationsPharmComponent
   },
   {
+    path: PATIENT_PROFILE_PRESCRIPTIONS,
+    component: PrescriptionsComponent
+  },
+  {
+    path: SHEDULED_EXAMINATIONS,
+    component: SheduledExaminationsComponent
+  },
+  {
+    path: RESERVED_MEDS,
+    component: ReservedMedsComponent
+  },
+  {
+    path: PATIENT_PENALS,
+    component: PenalsComponent
+  },
+  {
+    path: PATIENT_E_MEDICINES,
+    component: EMedsComponent
+  },
+  {
     path: MEDICAMENTS_LIST_PATH,
     component: MedicamentsListComponent
+  },
+  {
+    path: SUBSCRIBED_PHARMACIES,
+    component: SubscribedPharmaciesComponent
+  },
+  {
+    path: PATIENT_COMPLAINTS,
+    component: ComplaintsComponent
+  },
+  {
+    path: TAKE_MEDICINE,
+    component: TakeMedicineComponent
+  },
+  {
+    path: SCHEDULE_CONSULTATION,
+    component: ScheduleConsultationsComponent
+  },
+  {
+    path: SCHEDULE_EXAMINATION,
+    component: ScheduleExaminationsComponent
   },
   {
     path: ADMIN_REG_PATH,
