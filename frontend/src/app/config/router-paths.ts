@@ -25,5 +25,7 @@ export const MEDICAMENTS_LIST_PATH = 'admin/medicamentslist';
 export const PATIENT_HOME_PATH = 'patient';
 export const PATIENT_PROFILE_PATH = 'patient/patientprofile';
 export const PATIENT_PROFILE_PHARMACIES = 'patient/allPharmacies'
+export const PATIENT_PROFILE_EXAMINATIONS = 'patient/examinationsHistoryDer';
+export const PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST = 'patient/examinationsHistoryPhar';
 
 

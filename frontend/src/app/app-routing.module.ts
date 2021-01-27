@@ -6,7 +6,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, 
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
-PATIENT_PROFILE_PHARMACIES} from './config/router-paths';
+PATIENT_PROFILE_PHARMACIES,
+PATIENT_PROFILE_EXAMINATIONS,
+PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -17,6 +19,8 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
+import { ExaminationsComponent } from './components/patientprofile/examinations/examinations.component';
+import { ExaminationsPharmComponent } from './components/patientProfile/examinations-pharm/examinations-pharm.component';
 
 const routes: Routes = [
   {
@@ -54,6 +58,14 @@ const routes: Routes = [
   {
     path: PATIENT_PROFILE_PHARMACIES,
     component: AllpharmaciesComponent
+  },
+  {
+    path: PATIENT_PROFILE_EXAMINATIONS,
+    component: ExaminationsComponent
+  },
+  {
+    path: PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST,
+    component: ExaminationsPharmComponent
   },
   {
     path: MEDICAMENTS_LIST_PATH,

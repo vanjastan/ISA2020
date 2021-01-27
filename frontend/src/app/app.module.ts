@@ -43,6 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ExaminationsComponent } from './components/patientprofile/examinations/examinations.component';
+import { ExaminationsPharmComponent } from './components/patientProfile/examinations-pharm/examinations-pharm.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     EditprofileComponent,
     EditpassComponent,
     AllpharmaciesComponent,
+    ExaminationsComponent,
+    ExaminationsPharmComponent,
   ],
   entryComponents: [
     EditprofileComponent,

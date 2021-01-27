@@ -19,5 +19,11 @@ INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
 
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', '/');
 
-INSERT INTO `pharmacies` (id, name) VALUES (1, 'Benu');
-INSERT INTO `pharmacies` (id, name) VALUES (2, 'Jankovic');
+INSERT INTO `pharmacies` (id, name, address, city, rate) VALUES (1, 'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well');
+INSERT INTO `pharmacies` (id, name, address, city, rate) VALUES (2, 'Jankovic', 'Preradoviceva 21a', 'Petrovaradin', 'Excellent');
+
+INSERT INTO `examinations` (id, price, duration, dateE) VALUES (1, 2000, '1h', '11.11.2020.');
+INSERT INTO `examinations` (id, price, duration, dateE) VALUES (2, 5000, '2h', '01.01.2021.');
+
+INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (1, 2500, '1h', '08.12.2020.');
+INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (2, 3000, '1h', '05.01.2021.');
