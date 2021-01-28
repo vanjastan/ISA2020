@@ -12,7 +12,7 @@ import { Pharmacies } from '../components/models/pharmacies';
         this.getPharmacies();
     }
 
-    getPharmacies():Observable<any>{
-        return this.http.get(`http://localhost:8080/pharmacies`);
+    getPharmacies():Observable<Pharmacies[]>{
+        return this.http.get<Pharmacies[]>(`http://localhost:8080/pharmacies`);
     }
   }
