@@ -1,29 +1,40 @@
-<div class="dialog" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card-header>
-        <mat-card-title>Schedule examination</mat-card-title>
-    </mat-card-header>
-    <form class="form">
-    <div>
-        <mat-form-field class="full-width">
-            <label>Date</label>
-            <input matInput type="input" placeholder="Date" enable/>
-        </mat-form-field>
-    </div>
-    <div>
-            <mat-form-field class="full-width">
-                <label>Time</label>
-                <input matInput type="input" placeholder="Time" enable/>
-            </mat-form-field>
-    </div>
-    <div>
-            <mat-form-field class="full-width">
-                <label>Type</label>
-                <input matInput type="input" placeholder="Type" enable/>
-            </mat-form-field>
-        </div>
-        </form>
-</div>
-
-<div>
-    <button mat-raised-button matTooltip="Schedule">Schedule</button>
-</div>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;">
+    <mat-card class="paper">
+      <mat-card-header>
+      <mat-card-title style="font-size: 30px;">Examinations</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Search by price">
+          </mat-form-field>
+          <hr>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Search by rate">
+          </mat-form-field>
+          <hr>
+        </mat-card-content>
+          <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 80px;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th id="Date">Date</th>  
+                      <th id="Time">Time</th>
+                      <th id="Dermatologist">Dermatologist</th>
+                      <th id="Price">Price</th>
+                      <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button mat-button>Reserve</button></td>
+                    </tr>
+                </tbody>
+          </table>
+          </div>
+    </mat-card>
+  </div>

@@ -20,6 +20,7 @@ import {MatSelect, MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
@@ -103,6 +104,7 @@ import { ScheduleExaminationsComponent } from './components/patienthome/schedule
     MatInputModule,
     NgbModule,
     RouterModule,
+    FlexLayoutModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -113,6 +115,7 @@ import { ScheduleExaminationsComponent } from './components/patienthome/schedule
     MatListModule,
     MatIconModule,
     MatSelectModule,
+    MatPaginatorModule,
     MatCardModule,
     ToastrModule.forRoot()
   ],
