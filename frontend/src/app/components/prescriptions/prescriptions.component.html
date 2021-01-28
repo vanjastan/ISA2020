@@ -1,0 +1,33 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;">
+    <mat-card class="paper">
+      <mat-card-header>
+      <mat-card-title style="font-size: 30px;">Prescriptions</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Search">
+          </mat-form-field>
+          <hr>
+        </mat-card-content>
+          <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 80px;">
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th id="Date">Date</th>
+                    <th id="Medicine">Medicine</th>
+                    <th id="State">State</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let dataItem of PrescriptionList">
+                      <td>{{dataItem.date}}</td>
+                      <td>{{dataItem.medicine}}</td>
+                      <td>{{dataItem.state}}</td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+  
+    </mat-card>
+  </div>

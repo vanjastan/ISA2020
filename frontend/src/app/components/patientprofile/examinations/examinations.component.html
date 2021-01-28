@@ -1,0 +1,59 @@
+<div class="examinations">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;">
+
+    <mat-card class="paper">
+      <mat-card-header>
+      <mat-card-title style="font-size: 30px;">Examinations</mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+     <!--   <mat-form-field>
+            <input matInput type="text" placeholder="Search">
+          </mat-form-field>
+          <hr>
+        </mat-card-content>
+          <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 80px;">
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th id="Date">Date</th>
+                    <th id="Duration">Duration</th>
+                    <th id="Price">Price</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 <tr *ngFor="let dataItem of ExaminationList">
+                      <td>{{dataItem.date}}</td>
+                      <td>{{dataItem.duration}}</td>
+                      <td>{{dataItem.price}}</td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>-->
+          <mat-form-field>
+            <input matInput type="text" placeholder="Enter date">
+          </mat-form-field>
+          <hr>
+          <table mat-table class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
+            <ng-container matColumnDef="date">
+              <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+              <td mat-cell *matCellDef="let element">{{element.date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="duration">
+              <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
+              <td mat-cell *matCellDef="let element">{{element.duration}}</td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+              <td mat-cell *matCellDef="let element">{{element.price}}</td>
+            </ng-container>
+            <tr style="width: 200px;" mat-header-row ></tr>
+            <tr mat-row *matRowDef="let row;"></tr>
+          </table>
+          </mat-card-content>
+  
+    </mat-card>
+  
+  </div>
+</div>
+  

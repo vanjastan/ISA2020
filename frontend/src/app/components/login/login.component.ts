@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import LoginDTO from '../models/login-dto.model';
 import { USER_ID_KEY, USER_ROLE_KEY, USERNAME_KEY, USER_TOKEN_KEY } from 'src/app/config/local-storage-keys';
-import { ROLE_ADMIN,  ROLE_USER, ROLE_SUPPLIER } from 'src/app/config/user-roles-keys';
-import { ADMIN_HOME_PATH,  USER_HOME_PATH, SUPPLIER_HOME_PATH } from 'src/app/config/router-paths';
+import { ROLE_ADMIN,  ROLE_USER, ROLE_SUPPLIER, ROLE_PATIENT } from 'src/app/config/user-roles-keys';
+import { ADMIN_HOME_PATH,  USER_HOME_PATH, SUPPLIER_HOME_PATH, PATIENT_HOME_PATH } from 'src/app/config/router-paths';
 
 @Component({
   selector: 'app-login',
@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
         case ROLE_ADMIN:  this.router.navigate([ADMIN_HOME_PATH]); break;
         case ROLE_USER: this.router.navigate([USER_HOME_PATH]); break;
         case ROLE_SUPPLIER: this.router.navigate([SUPPLIER_HOME_PATH]); break;
+        case ROLE_PATIENT: this.router.navigate([PATIENT_HOME_PATH]); break;
       }
     }, error => {
       this.loginSuccess = false;
