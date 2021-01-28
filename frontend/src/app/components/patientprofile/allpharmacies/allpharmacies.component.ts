@@ -24,7 +24,7 @@ export class AllpharmaciesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private service: PharmaciesService, private http: HttpClient) { 
-    //this.dataSource.data = this.Pharmacies.slice();
+   // this.dataSource.data = this.Pharmacies.slice();
   }
 
   ngOnInit(): void {
@@ -46,8 +46,8 @@ export class AllpharmaciesComponent implements OnInit, AfterViewInit {
     });
   }
 
-  Search(){
-
+  public doFilter = (value:string)=>{
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 }
 
