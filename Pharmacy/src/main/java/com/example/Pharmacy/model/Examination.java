@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Examination {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "exam_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -26,6 +26,10 @@ public class Examination {
 
     @Column(name = "dateE")
     private String dateOfEx;
+
+  /*  @ManyToOne
+    @JoinColumn(name="id", nullable = false)
+    private Patient patient;*/
 
     public int getId() {
         return id;

@@ -1,0 +1,9 @@
+.scheduled{
+    background: linear-gradient(
+        rgba(150, 185, 199, 0.7),
+        rgba(147, 162, 168, 0.7)
+      );
+      background-size: 1150px 800px;
+      width: 1365px;
+      height: 553px;
+}

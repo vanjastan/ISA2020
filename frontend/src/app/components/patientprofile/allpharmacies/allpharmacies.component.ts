@@ -24,7 +24,6 @@ export class AllpharmaciesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private service: PharmaciesService, private http: HttpClient) { 
-   // this.dataSource.data = this.Pharmacies.slice();
   }
 
   ngOnInit(): void {
