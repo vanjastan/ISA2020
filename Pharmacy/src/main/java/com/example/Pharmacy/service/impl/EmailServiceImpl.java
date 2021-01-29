@@ -22,13 +22,13 @@ public class EmailServiceImpl implements EmailService {
     public void sendMessageWithAttachment(
             String to, String pathToAttachment) throws MessagingException {
 
-        String text = "Mail notification";
+        String text = "You have successfully reserved examination!";
         MimeMessage message = emailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
         helper.setTo("patientU45@gmail.com");
-        helper.setSubject("SUBJECT ATTEMPT");
+        helper.setSubject("Reserved examination");
         helper.setText(text);
 
         emailSender.send(message);
