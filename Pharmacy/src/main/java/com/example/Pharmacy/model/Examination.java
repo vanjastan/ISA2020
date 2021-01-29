@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Examination {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "exam_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 

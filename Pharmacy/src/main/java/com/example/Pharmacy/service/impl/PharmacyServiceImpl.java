@@ -1,6 +1,5 @@
 package com.example.Pharmacy.service.impl;
 
-import com.example.Pharmacy.model.Medicament;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.repository.PharmacyRepository;
 import com.example.Pharmacy.service.PharmacyService;

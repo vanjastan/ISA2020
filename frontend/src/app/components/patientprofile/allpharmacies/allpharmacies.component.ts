@@ -13,6 +13,7 @@ import { MatSort } from '@angular/material/sort';
 export class AllpharmaciesComponent implements OnInit, AfterViewInit {
 
   Pharmacies: Pharmacies[];
+  PharmaciesResults: Pharmacies[];
   name:string;
   address:string;
   city:string;
@@ -24,7 +25,6 @@ export class AllpharmaciesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private service: PharmaciesService, private http: HttpClient) { 
-   // this.dataSource.data = this.Pharmacies.slice();
   }
 
   ngOnInit(): void {
@@ -47,7 +47,17 @@ export class AllpharmaciesComponent implements OnInit, AfterViewInit {
   }
 
   public doFilter = (value:string)=>{
-    this.dataSource.filter = value.trim().toLocaleLowerCase();
-  }
+    if(this.search == ""){
+        this.dataSource.data = this.Pharmacies;
+    }else{
+        this.PharmaciesResults = this.Pharmacies.filter( result =>
+          { 
+            return result.name.toLocaleLowerCase().match(this.search.toLocaleLowerCase()) ||
+              result.city.toLocaleLowerCase().match(this.search.toLocaleLowerCase())
+          } );
+            this.dataSource.data = this.PharmaciesResults;
+    }   
+        this.dataSource.filter = value.trim().toLocaleLowerCase();
+    }
 }
 
