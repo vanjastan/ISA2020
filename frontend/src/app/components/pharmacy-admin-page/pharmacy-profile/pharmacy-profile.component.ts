@@ -11,5 +11,4 @@ export class PharmacyProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

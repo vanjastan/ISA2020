@@ -1,4 +1,4 @@
-/*import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EditpassComponent } from './editpass.component';
 
@@ -22,4 +22,4 @@ describe('EditpassComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});*/
+});

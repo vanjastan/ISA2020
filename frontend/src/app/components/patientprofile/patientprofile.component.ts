@@ -50,6 +50,8 @@ export class PatientprofileComponent implements OnInit {
     });
   }*/
 
+  changePass(){}
+
   allergies(){
       
   }
