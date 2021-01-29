@@ -4,6 +4,7 @@ import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.repository.ExaminationRepository;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +24,7 @@ public class ExaminationController {
     @Autowired
     EmailServiceImpl serviceImpl;
 
-    @RequestMapping(value="", method = RequestMethod.GET)
+    @RequestMapping(value="", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<Examination> loadAllExaminations() {
         return this.examinationRepository.findAll();
     }

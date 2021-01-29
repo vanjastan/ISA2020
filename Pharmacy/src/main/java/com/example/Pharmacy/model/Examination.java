@@ -27,10 +27,6 @@ public class Examination {
     @Column(name = "dateE")
     private String dateOfEx;
 
-  /*  @ManyToOne
-    @JoinColumn(name="id", nullable = false)
-    private Patient patient;*/
-
     public int getId() {
         return id;
     }
