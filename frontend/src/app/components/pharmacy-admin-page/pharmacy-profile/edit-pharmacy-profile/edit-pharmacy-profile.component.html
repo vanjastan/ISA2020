@@ -1,0 +1,18 @@
+<div class="dialog" fxLayout="row" fxLayoutAlign="center center" >
+    <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Change pharmacy profile</mat-card-title>
+        </mat-card-header>
+            <form class="form" #formControl="ngForm">
+                <mat-card-content>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="name" name="name" [(ngModel)]="user.name" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="address" name="address" [(ngModel)]="user.address" required>
+                </mat-form-field>
+                <button mat-raised-button (click)="save()" [disabled]="!formControl.valid" style="background: rgb(179, 241, 220); margin-left: 300px;">Save</button>
+                <button mat-raised-button (click)="closeD()" style="background: rgb(179, 241, 220); margin-left: 80px;">Cancel</button>
+            </form>
+    </mat-card>
+    </div>

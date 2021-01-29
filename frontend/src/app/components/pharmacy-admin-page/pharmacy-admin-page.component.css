@@ -4,8 +4,8 @@
         rgba(156, 166, 170, 0.7)
       ),url();
       background-size: 1150px 800px;
-      width: 1350px;
-      height: 593px;
+      width: 1600x;
+      height: 700px;
 }
 
 .page-container {
@@ -41,7 +41,7 @@
     padding-top: 20px;
 }
 
-.list-item {
+.ph-names {
     display: flex;
     align-items: center;
     position: relative;
@@ -61,7 +61,7 @@
     cursor: pointer;
 }
 
-.building{
+.address{
     display: flex;
     align-items: center;
     position: relative;
@@ -71,7 +71,7 @@
     cursor: pointer;
 }
 
-.examination{
+.description{
     display: flex;
     align-items: center;
     position: relative;
@@ -81,7 +81,7 @@
     cursor: pointer;
 }
 
-.examinationPh{
+.freeap{
     display: flex;
     align-items: center;
     position: relative;
@@ -91,7 +91,7 @@
     cursor: pointer;
 }
 
-.prescription{
+.med{
     display: flex;
     align-items: center;
     position: relative;
@@ -101,7 +101,7 @@
     cursor: pointer;
 }
 
-.meds{
+.ph{
     display: flex;
     align-items: center;
     position: relative;

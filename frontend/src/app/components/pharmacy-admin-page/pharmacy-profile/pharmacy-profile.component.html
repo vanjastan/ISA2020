@@ -1,0 +1,30 @@
+<div class="pharmacyProfile">
+    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="paper scrollable-content" style="background-color: rgb(250, 249, 249);">
+            <mat-card-header class="navb">
+                <div>
+                    <p style="font-size:18px"></p>
+                </div>
+
+            </mat-card-header>
+            <mat-card-content>
+                <p style="font-size: 18px;">Name: {{user.name}}</p>
+            <br/>
+                <p style="font-size: 18px;">Address: {{user.address}}</p>
+            <br/>
+                <p style="font-size: 18px;">Description: {{user.description}}</p>
+            <br/>
+        </mat-card-content>
+
+            <hr>
+        <mat-card-header>
+            <div>
+                <button mat-raised-button style="font-size:18px; margin-left: -38px;" (click)="changePass()">Change password</button>
+            </div>
+            <div>
+                <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="edit()">Edit profile</button>
+            </div>
+        </mat-card-header>
+        </mat-card>
+    </div>
+</div>

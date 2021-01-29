@@ -8,7 +8,8 @@ import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS,
-PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION} from './config/router-paths';
+PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
+ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -31,6 +32,8 @@ import { ComplaintsComponent } from './components/patienthome/complaints/complai
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
+import {PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
+import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 
 const routes: Routes = [
   {
@@ -133,10 +136,18 @@ const routes: Routes = [
     path: ADMIN_REG_ADMIN_PATH,
     component: AdminAddComponent
   },
+  {
+    path: ADMINPH_HOME_PATH,
+    component: PharmacyAdminPageComponent
+  },
+  {
+    path: ADMINPH_PROFILE_PATH,
+    component: PharmacyProfileComponent
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
