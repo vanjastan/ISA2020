@@ -14,7 +14,6 @@ import javax.mail.internet.MimeMessage;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -54,16 +53,6 @@ public class ExaminationControllerTest extends ApplicationTests {
 
     @Test
     public void sendNotification() throws MessagingException, IOException {
-       /* String to = "patientU45@gmail.com";
-        String subject = "Reserved examination";
-        String msg = "You have successfully reserved examination!";
 
-        // when
-        emailService.sendMessageWithAttachment(to, subject);
-
-        // then
-        assertEquals(to, mimeMessage.getAllRecipients()[0].toString());
-        assertEquals(subject, mimeMessage.getSubject());
-        assertEquals(msg, mimeMessage.getContent().toString());*/
     }
 }
