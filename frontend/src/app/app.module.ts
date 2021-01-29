@@ -87,7 +87,7 @@ import { ScheduleExaminationsComponent } from './components/patienthome/schedule
     ComplaintsComponent,
     TakeMedicineComponent,
     ScheduleConsultationsComponent,
-    ScheduleExaminationsComponent,
+    ScheduleExaminationsComponent
   ],
   entryComponents: [
     EditprofileComponent,

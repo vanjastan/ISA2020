@@ -4,6 +4,7 @@ import { ExaminationsService } from 'src/app/services/examinations.service';
 import { Examinations } from '../../models/examination';
 import { HttpClient } from '@angular/common/http';
 import { MatSort } from '@angular/material/sort';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-schedule-examinations',
@@ -19,15 +20,21 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
   price: number;
   rate: string;
   search: string;
+  ex:Examinations;
+  exL: any=[]
   displayedColumns: string[] = ['date', 'time', 'price', 'rate', 'schedule'];
 
   dataSource = new MatTableDataSource<Examinations>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private service: ExaminationsService, private http: HttpClient) { }
+  constructor(private service: ExaminationsService, private http: HttpClient, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllExaminations();
+    this.date = this.ex.date;
+    this.time = this.ex.time;
+    this.price = this.ex.price;
+    this.rate = this.ex.rate;
   }
 
   ngAfterViewInit(): void{
@@ -59,4 +66,21 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
+  scheduleEx(){
+    var val = {
+      date: this.exL.date,
+      time: this.exL.time,
+      price: this.exL.price,
+      rate: this.exL.rate
+    }
+
+    this.service.schedule(val).subscribe(data => {
+      console.log(this.exL);
+      this.exL = data;
+      this.toastr.success('Successfully scheduled!', '');
+    }, 
+    error => {
+      console.log(error);
+    })
+  }
 }
