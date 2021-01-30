@@ -33,3 +33,4 @@ INSERT INTO `examinations` (exam_id, price, duration, dateE) VALUES (2, 5000, '2
 INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (1, 2500, '1h', '08.12.2020.');
 INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (2, 3000, '1h', '05.01.2021.');
 
+INSERT INTO `order_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
