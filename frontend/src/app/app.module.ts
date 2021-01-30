@@ -59,6 +59,8 @@ import { ScheduleExaminationsComponent } from './components/patienthome/schedule
 import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
+import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
+import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 
@@ -96,6 +98,8 @@ import { MedicationListComponent } from './components/pharmacy-admin-page/medica
     PharmacyAdminPageComponent,
     PharmacyProfileComponent,
     MedicationListComponent,
+    PharmacyAdminProfileComponent,
+    EditPharmacyAdminComponent,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
   ],
