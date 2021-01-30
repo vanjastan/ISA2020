@@ -6,10 +6,10 @@
             <form class="form" #formControl="ngForm">
                 <mat-card-content>
                         <mat-form-field class="full-width">
-                        <input matInput placeholder="New password" type="password" name="New password" required>
+                        <input matInput placeholder="New password" type="password" name="New password" [(ngModel)]="newPass" required>
                         </mat-form-field>
                         <mat-form-field class="full-width">
-                            <input matInput placeholder="Confirm Password" type="password" name="Confirm Password" required>
+                            <input matInput placeholder="Confirm Password" type="password" name="Confirm Password" [(ngModel)]="confirmedPass" required>
                         </mat-form-field>
                 </mat-card-content>
                 <button mat-raised-button (click)="savePass()" [disabled]="!formControl.valid" style="background: rgb(179, 241, 220); margin-left: 180px;">Save</button>

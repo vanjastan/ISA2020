@@ -30,7 +30,7 @@ public class ExaminationController {
     }
 
     @RequestMapping(value="/reserve", method = RequestMethod.POST)
-    public void sendNotification() throws MessagingException {
-        serviceImpl.sendMessageWithAttachment("patientU45@gmail.com", "");
+    public void sendNotification(Examination e) throws MessagingException {
+        serviceImpl.sendMessageWithAttachment("patientU45@gmail.com", "", e);
     }
 }

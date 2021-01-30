@@ -27,6 +27,12 @@ public class Examination {
     @Column(name = "dateE")
     private String dateOfEx;
 
+    @Column(name = "rate")
+    private String rate;
+
+    @Column(name = "time_exam")
+    private String time_exam;
+
     public int getId() {
         return id;
     }
@@ -57,5 +63,21 @@ public class Examination {
 
     public void setDate(String dateOfEx) {
         this.dateOfEx = dateOfEx;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public String getTime() {
+        return time_exam;
+    }
+
+    public void setTime(String time_exam) {
+        this.time_exam = time_exam;
     }
 }

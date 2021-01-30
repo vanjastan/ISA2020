@@ -39,7 +39,7 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
-//import { EditpassComponent } from './components/patientprofile/editpass/editpass.component';
+import { EditpassComponent } from './components/patientprofile/editpass/editpass.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
@@ -81,7 +81,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     PatienthomeComponent,
     PatientprofileComponent,
     EditprofileComponent,
-   // EditpassComponent,
+    EditpassComponent,
     AllpharmaciesComponent,
     ExaminationsComponent,
     ExaminationsPharmComponent,
@@ -105,7 +105,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
   ],
   entryComponents: [
     EditprofileComponent,
-   // EditpassComponent
+    EditpassComponent
   ],
   imports: [
     AppRoutingModule,
