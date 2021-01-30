@@ -6,7 +6,7 @@ import UserRegistrationDTO from '../components/models/user-registration-dto.mode
 import { Supplier } from '../components/adminreg/supplier';
 import { USER_ID_KEY } from '../config/local-storage-keys';
 import { User } from '../components/models/user';
-import {map} from 'rxjs/operators';
+
 
 
 @Injectable({

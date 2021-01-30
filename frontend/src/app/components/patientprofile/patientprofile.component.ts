@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditprofileComponent } from './editprofile/editprofile.component';
-import { EditpassComponent } from './editpass/editpass.component';
+//import { EditpassComponent } from './editpass/editpass.component';
 
 @Component({
   selector: 'app-patientprofile',
@@ -40,7 +40,7 @@ export class PatientprofileComponent implements OnInit {
     });
   }
 
-  changePass() : void{
+  /*changePass() : void{
     let dialogRef = this.dialog.open(EditpassComponent, {
       width: '650px',
       data: { name: 'JEKA' }
@@ -48,7 +48,9 @@ export class PatientprofileComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');
     });
-  }
+  }*/
+
+  changePass(){}
 
   allergies(){
       

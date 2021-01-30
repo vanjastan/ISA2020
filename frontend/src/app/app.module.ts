@@ -56,6 +56,13 @@ import { ComplaintsComponent } from './components/patienthome/complaints/complai
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
+import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
+import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
+import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
+import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
+import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+//import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
+//import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +94,14 @@ import { ScheduleExaminationsComponent } from './components/patienthome/schedule
     ComplaintsComponent,
     TakeMedicineComponent,
     ScheduleConsultationsComponent,
-    ScheduleExaminationsComponent
+    ScheduleExaminationsComponent,
+    PharmacyAdminPageComponent,
+    PharmacyProfileComponent,
+    MedicationListComponent,
+    PharmacyAdminProfileComponent,
+    EditPharmacyAdminComponent,
+   // EditPharmacyProfileComponent,
+   // ChangePasswordComponent,
   ],
   entryComponents: [
     EditprofileComponent,

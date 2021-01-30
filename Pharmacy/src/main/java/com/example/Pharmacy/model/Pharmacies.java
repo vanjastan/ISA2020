@@ -30,6 +30,9 @@ public class Pharmacies {
     @Column(name = "rate")
     private String rate;
 
+    @Column(name = "description")
+    private String description;
+
     public String getName() {
         return name;
     }
@@ -57,4 +60,8 @@ public class Pharmacies {
     public String getRate(){ return rate; }
 
     public void setRate(String rate){ this.rate = rate; }
+
+    public String getDescription(){ return description; }
+
+    public void setDescription(String description){ this.description = description; }
 }
