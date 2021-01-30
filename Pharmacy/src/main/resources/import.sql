@@ -28,3 +28,7 @@ INSERT INTO `examinations` (exam_id, price, duration, dateE, rate, time_exam) VA
 
 INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (1, 2500, '1h', '08.12.2020.');
 INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (2, 3000, '1h', '05.01.2021.');
+
+INSERT INTO `e_prescriptions` (prescription_id, date_of_pub, status, patient_id) VALUES (1, '05.01.2021.', 'NEW', 3);
+INSERT INTO `e_prescriptions` (prescription_id, date_of_pub, status, patient_id) VALUES (2, '12.12.2020.', 'REJECTED', 3);
+INSERT INTO `e_prescriptions` (prescription_id, date_of_pub, status, patient_id) VALUES (3, '10.11.2020.', 'PROCESSED', 3);

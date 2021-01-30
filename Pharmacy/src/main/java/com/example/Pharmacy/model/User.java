@@ -35,6 +35,7 @@ public class User implements UserDetails{
     private String surname;
 
     @Column(name = "username", unique = true, nullable = false)
+    @GeneratedValue
     private String username;
 
     @Column
@@ -72,6 +73,9 @@ public class User implements UserDetails{
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<EPrescription> ePrescriptions;
 
     public User() {
 
