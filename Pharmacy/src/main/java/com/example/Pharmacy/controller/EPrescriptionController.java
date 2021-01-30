@@ -1,12 +1,9 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.model.EPrescription;
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.repository.EPrescriptionRepository;
 import com.example.Pharmacy.service.impl.EPrescriptionServiceImpl;
-import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

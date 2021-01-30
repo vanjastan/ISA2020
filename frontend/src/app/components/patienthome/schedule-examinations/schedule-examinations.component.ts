@@ -73,7 +73,7 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
       price: this.exL.price,
       rate: this.exL.rate
     }
-    console.log(this.exL);
+    console.log(this.ex);
     this.service.schedule(val).subscribe(data => {
       this.exL = data;
       this.toastr.success('Successfully scheduled!', '');

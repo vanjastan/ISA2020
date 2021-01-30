@@ -14,7 +14,7 @@ export class PrescriptionsComponent implements OnInit, AfterViewInit {
 
   PrescriptionList: Prescription[];
   PrescriptionResults: Prescription[];
-  date: string;
+  date_of_pub: string;
   status: string;
   medicine: string;
   search: string;
@@ -46,8 +46,8 @@ export class PrescriptionsComponent implements OnInit, AfterViewInit {
     }else{
         this.PrescriptionResults = this.PrescriptionList.filter( result =>
           { 
-            return result.date.toLocaleLowerCase().match(this.search.toLocaleLowerCase()) ||
-              result.status.toLocaleLowerCase().match(this.search.toLocaleLowerCase())
+            return result.date_of_pub.toLocaleLowerCase().match(this.search.toLocaleLowerCase()) ||
+             result.status.toLocaleLowerCase().match(this.search.toLocaleLowerCase())
           } );
             this.dataSource.data = this.PrescriptionResults;
     }   
