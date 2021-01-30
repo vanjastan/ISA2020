@@ -1,5 +1,7 @@
 package com.example.Pharmacy.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +9,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Getter
@@ -21,7 +21,7 @@ import java.util.List;
 @DiscriminatorColumn(name="user_type", discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue("0")
 @Table(name = "users")
-public class User implements UserDetails{
+public class User implements UserDetails, Serializable {
 
     @Id
     @Column(name = "id")
@@ -35,7 +35,6 @@ public class User implements UserDetails{
     private String surname;
 
     @Column(name = "username", unique = true, nullable = false)
-    @GeneratedValue
     private String username;
 
     @Column
@@ -74,11 +73,16 @@ public class User implements UserDetails{
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private List<EPrescription> ePrescriptions;
 
     public User() {
 
+    }
+
+    public List<EPrescription> getePrescriptions(){
+        return ePrescriptions;
     }
 
     public String getUsername() {

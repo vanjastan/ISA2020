@@ -1,16 +1,19 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "e_prescriptions")
+@Table(name = "prescription")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class EPrescription {
 
     @Id
@@ -24,8 +27,8 @@ public class EPrescription {
     @Enumerated(EnumType.STRING)
     private EPrescriptionStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id", referencedColumnName = "id")
     private User user;
 
     public int getId() {
