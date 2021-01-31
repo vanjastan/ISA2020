@@ -36,7 +36,7 @@ export class SupplierProfileComponent implements OnInit {
   }
 
   onClickSave(){
-    this.userService.editUsers(this.user)
+    this.userService.editUser(this.user)
     .subscribe(
       data=> {
         alert('Request has been sent!');

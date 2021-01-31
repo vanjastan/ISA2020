@@ -17,13 +17,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatList, MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelect, MatSelectModule} from '@angular/material/select';
-<<<<<<< HEAD
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
-=======
 import {MatCardModule} from '@angular/material/card';
->>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -42,10 +38,8 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent} from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
-<<<<<<< HEAD
 import { SupplierTenderComponent} from './components/suppliertender/suppliertender.component';
 
-=======
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
@@ -73,7 +67,6 @@ import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
->>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
 
 @NgModule({
   declarations: [
@@ -89,9 +82,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     AdminRegComponent,
     AdminRegDermComponent,
     AdminAddComponent,
-<<<<<<< HEAD
     SupplierTenderComponent,
-=======
     PatienthomeComponent,
     PatientprofileComponent,
     EditprofileComponent,
@@ -120,7 +111,6 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
   entryComponents: [
     EditprofileComponent,
     EditpassComponent
->>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
   ],
   imports: [
     AppRoutingModule,
@@ -145,13 +135,10 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
-<<<<<<< HEAD
     MatNativeDateModule,
     MatMomentDateModule,
-=======
     MatCardModule,
     ToastrModule.forRoot()
->>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },

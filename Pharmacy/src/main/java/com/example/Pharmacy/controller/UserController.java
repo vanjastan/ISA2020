@@ -143,4 +143,20 @@ public class UserController {
 
 		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
 	}
+
+	@CrossOrigin
+	@PostMapping(value = "/editPassSup")
+	@PreAuthorize("hasRole('ROLE_SUPPLIER')")
+	public ResponseEntity<UserDTO> editPassSup(@RequestBody UserDTO userDTO) {
+
+		User userInfo = userService.findById(userDTO.getId());
+		if(userInfo == null){
+			return null;
+		}
+		userInfo.setPassword(userDTO.getPassword());
+
+		userInfo = userService.save(userInfo);
+
+		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
+	}
 }
