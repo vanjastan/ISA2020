@@ -6,25 +6,25 @@
           <form class="form" #formControl="ngForm">
               <mat-card-content>
               <mat-form-field class="full-width">
-                <input matInput placeholder="firstname" name="firstname" [(ngModel)]="user.name" required>
+                <input matInput placeholder="firstname" name="firstname" [(ngModel)]="data.name" required>
               </mat-form-field>
               <mat-form-field class="full-width">
-                <input matInput placeholder="lastname" name="lastname" [(ngModel)]="user.surname" required>
+                <input matInput placeholder="lastname" name="lastname" [(ngModel)]="data.surname" required>
               </mat-form-field>
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="email" name="username" [(ngModel)]="user.username" disabled="true">
+                  <input matInput placeholder="username" name="username" [(ngModel)]="data.username">
                 </mat-form-field>
                   <mat-form-field class="full-width">
-                    <input matInput placeholder="address" name="address" [(ngModel)]="user.address" required>
+                    <input matInput placeholder="address" name="address" [(ngModel)]="data.address" required>
                   </mat-form-field>
               <mat-form-field class="full-width">
-                <input matInput placeholder="city" name="city" [(ngModel)]="user.city" required>
+                <input matInput placeholder="city" name="city" [(ngModel)]="data.city" required>
               </mat-form-field>
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="country" name="country" [(ngModel)]="user.country" required>
+                  <input matInput placeholder="country" name="country" [(ngModel)]="data.country" required>
                 </mat-form-field>
                     <mat-form-field class="full-width">
-                      <input matInput placeholder="phoneNumber" name="phoneNumber" [(ngModel)]="user.number" required>
+                      <input matInput placeholder="phoneNumber" name="phoneNumber" [(ngModel)]="data.number" required>
                     </mat-form-field>
                     </mat-card-content>
               <button mat-raised-button (click)="save()" [disabled]="!formControl.valid" style="background: rgb(179, 241, 220); margin-left: 300px;">Save</button>

@@ -1,37 +1,50 @@
 <div class="profile">
-    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-        <mat-card class="paper scrollable-content" style="background-color: rgb(250, 249, 249);">
-            <mat-card-header class="navb">
+    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" *ngIf="user">
+        <mat-card class="paper scrollable-content" style="background-color: rgb(227, 232, 233); width: 1600px;">
+            <mat-card-header>
                 <div>
-                    <p style="font-size:18px"></p>
+                   <p style="font-size:30px; margin-left: 470px;"> Welcome {{user.name}} ! <i class="fa fa-user-circle" aria-hidden="true"></i></p>
+                   <br/> 
+                   <button mat-raised-button style="font-size:15px; margin-left: 10px;" (click)="changePass(user.id, user.password, user.name, user.surname, user.username,
+                     user.email, user.address, user.city, user.country, user.number)">Change password</button>
+                    <button mat-raised-button style="font-size: 15px; margin-left: 60px;" (click)="edit(user.id, user.name, user.surname, user.username,
+                     user.address, user.city, user.country, user.number)">Edit profile</button>
+                    <button mat-raised-button style="font-size: 15px; margin-left: 60px;" (click)="allergies()">Enter allergies</button>
+                    <button mat-raised-button style="font-size: 15px; margin-left: 60px;" (click)="points()">Show my points</button>
+                    <button mat-raised-button style="font-size: 15px; margin-left: 60px;" (click)="category()">Show my category</button>
+                    <button mat-raised-button style="font-size: 15px; margin-left: 60px;" (click)="loyalty()">Loyalty program</button>
                 </div>
             </mat-card-header>
-            <mat-card-content>
-                <p style="font-size: 18px;">Name: {{user.name}}</p>
-            <br/>
-                <p style="font-size: 18px;">Surname: {{user.surname}}</p>
-            <br/>
-                <p style="font-size: 18px;">Username: {{user.username}}</p>
-            <br/>
-                <p style="font-size: 18px;">Email: {{user.email}}</p>
-            <br/>
-                <p style="font-size: 18px;">Address: {{user.address}}</p>
-            <br/>
-                <p style="font-size: 18px;">City: {{user.city}}</p>
-            <br/>
-                <p style="font-size: 18px;">Country: {{user.country}}</p>
-            <br/>
-                <p style="font-size: 18px;">Phone number: {{user.number}}</p>
-            <br/>
-        </mat-card-content>
-            <hr>
-        <mat-card-header>
+                <br/>
+            <mat-card-content style="margin-left: 20px;">
+                <mat-card>
+                    <p style="font-size: 18px;">Name: {{user.name}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">Surname: {{user.surname}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">Username: {{user.username}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">Email: {{user.email}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">Address: {{user.address}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">City: {{user.city}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">Country: {{user.country}}</p>
+                        <br/>
+                    <p style="font-size: 18px;">Phone number: {{user.number}}</p>
+                        <br/>
+                </mat-card>
+            </mat-card-content>
+                <hr>
+           <!-- <mat-card-header>
             <div>
                 <button mat-raised-button style="font-size:18px; margin-left: -38px;" (click)="changePass(user.id, user.password, user.name, user.surname, user.username,
                  user.email, user.address, user.city, user.country, user.number)">Change password</button>
             </div>
             <div>
-                <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="edit()">Edit profile</button>
+                <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="edit(user.id, user.name, user.surname, user.username,
+                 user.address, user.city, user.country, user.number)">Edit profile</button>
             </div>
             <div>
                 <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="allergies()">Enter allergies</button>
@@ -45,7 +58,7 @@
             <div>
                 <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="loyalty()">Loyalty program</button>
             </div>
-        </mat-card-header>
+        </mat-card-header>--> 
         </mat-card>
     </div>
 </div>

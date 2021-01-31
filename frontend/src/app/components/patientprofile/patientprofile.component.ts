@@ -30,10 +30,13 @@ export class PatientprofileComponent implements OnInit {
     });
   }
 
-  edit() : void{
+  edit(id: number, name: string, surname: string, username: string,
+     address: string, city: string, country: string, number: string) : void{
     let dialogRef = this.dialog.open(EditprofileComponent, {
       width: '650px',
-      data: { name: 'JEKA' }
+      data: { id: id, name: name, surname: surname, 
+        username: username, address: address, city: city, country: country,
+        number: number }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');
