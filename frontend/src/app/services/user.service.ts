@@ -54,8 +54,16 @@ export class UserService {
     return  this.http.post<User>(`http://localhost:8080/api/users/edit/patient`, user);
   }
 
+  editAdminPH(user: User) : Observable<User> {
+    return  this.http.post<User>(`http://localhost:8080/api/users/edit/adminph`, user);
+  }
+
   setNewPass(user: User): Observable<User>{
     return this.http.post<User>(`http://localhost:8080/api/users/editPass`, user)
+  }
+
+  setNewPassword(user: User): Observable<User>{
+    return this.http.post<User>(`http://localhost:8080/api/users/changePassword`, user)
   }
 
   editUser(user: User) : Observable<User> {

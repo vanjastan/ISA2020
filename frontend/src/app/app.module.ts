@@ -68,9 +68,8 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
 import { Header1Component } from './components/header1/header1.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
-//import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
-//import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 import { EditpassSupComponent } from './components/supplierprofile/editPassSup/editPassSup.component';
+import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
 
 
 @NgModule({
@@ -113,9 +112,8 @@ import { EditpassSupComponent } from './components/supplierprofile/editPassSup/e
     Header1Component,
     Header2Component,
     Header3Component,
-   // EditPharmacyProfileComponent,
-   // ChangePasswordComponent,
     EditpassSupComponent,
+   ChangeAdminphPasswordComponent,
   ],
   entryComponents: [
     EditprofileComponent,

@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "adminPH": {
+      "projectType": "library",
+      "root": "projects/admin-ph",
+      "sourceRoot": "projects/admin-ph/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/admin-ph/tsconfig.lib.json",
+            "project": "projects/admin-ph/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/admin-ph/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/admin-ph/src/test.ts",
+            "tsConfig": "projects/admin-ph/tsconfig.spec.json",
+            "karmaConfig": "projects/admin-ph/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/admin-ph/tsconfig.lib.json",
+              "projects/admin-ph/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "appFrontend",
