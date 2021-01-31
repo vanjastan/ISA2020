@@ -39,7 +39,7 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
-//import { EditpassComponent } from './components/patientprofile/editpass/editpass.component';
+import { EditpassComponent } from './components/patientprofile/editpass/editpass.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
@@ -61,8 +61,9 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
-//import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
-//import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
+import { Header1Component } from './components/header1/header1.component';
+import { Header2Component } from './components/header2/header2.component';
+import { Header3Component } from './components/header3/header3.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     PatienthomeComponent,
     PatientprofileComponent,
     EditprofileComponent,
-   // EditpassComponent,
+    EditpassComponent,
     AllpharmaciesComponent,
     ExaminationsComponent,
     ExaminationsPharmComponent,
@@ -100,12 +101,13 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     MedicationListComponent,
     PharmacyAdminProfileComponent,
     EditPharmacyAdminComponent,
-   // EditPharmacyProfileComponent,
-   // ChangePasswordComponent,
+    Header1Component,
+    Header2Component,
+    Header3Component,
   ],
   entryComponents: [
     EditprofileComponent,
-   // EditpassComponent
+    EditpassComponent
   ],
   imports: [
     AppRoutingModule,

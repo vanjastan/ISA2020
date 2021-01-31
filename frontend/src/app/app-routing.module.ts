@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from '../app/components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
-import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, 
+import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, 
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS,
@@ -32,10 +32,13 @@ import { ComplaintsComponent } from './components/patienthome/complaints/complai
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
-import {PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
+import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
+import { Header1Component } from './components/header1/header1.component';
+import { Header2Component } from './components/header2/header2.component';
+import { Header3Component } from './components/header3/header3.component';
 
 const routes: Routes = [
   {
@@ -49,6 +52,18 @@ const routes: Routes = [
   {
     path: HOSPITAL_REG,
     component: HospitalComponent
+  },
+  {
+    path: HEADER,
+    component: Header1Component
+  },
+  {
+    path: HEADER1,
+    component: Header2Component
+  },
+  {
+    path: HEADER2,
+    component: Header3Component
   },
   {
     path: ADMIN_HOME_PATH,

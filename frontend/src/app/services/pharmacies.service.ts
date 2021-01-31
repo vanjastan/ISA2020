@@ -24,6 +24,18 @@ import { User } from '../components/models/user';
       return this.http.get(`http://localhost:8080/pharmacies/logged/${userId}`);
     }
 
+    public getJankovicInfo(): Observable<any> {
+      return this.http.get(`http://localhost:8080/pharmacies/2`);
+    }
+
+    public getBenuInfo(): Observable<any> {
+      return this.http.get(`http://localhost:8080/pharmacies/1`);
+    }
+
+    public getBenu2Info(): Observable<any> {
+      return this.http.get(`http://localhost:8080/pharmacies/3`);
+    }
+
     public getUserInfo(): Observable<any> {
       const userId = localStorage.getItem(USER_ID_KEY);
       return this.http.get(`http://localhost:8080/api/users/logged/${userId}`);

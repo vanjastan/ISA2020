@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PharmacyServiceImpl implements PharmacyService {
 
     @Autowired
@@ -23,15 +25,8 @@ public class PharmacyServiceImpl implements PharmacyService {
         return ph;
     }
 
-    @Override
-    public Pharmacies findById(int admin_id) {
-        return null;
-    }
-
-
-    public Pharmacies findById(Long admin_id) throws AccessDeniedException {
-        Pharmacies ph = pharmacyRepository.findById(admin_id).orElseGet(null);
+    public Pharmacies findById(Long id) throws AccessDeniedException {
+        Pharmacies ph = pharmacyRepository.findById(id).orElseGet(null);
         return ph;
     }
-
 }

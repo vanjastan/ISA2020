@@ -69,10 +69,10 @@ public class User implements UserDetails{
     @Column (name = "isAdmin")
     private boolean isAdmin;
 
-    @JsonIgnore
+   /* @JsonIgnore
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn(name = "pharmacy_id")
-    private Pharmacies ph_admin;
+    private Pharmacies ph_admin;*/
 
 
     @ManyToMany(fetch = FetchType.EAGER)

@@ -27,9 +27,9 @@ INSERT INTO `medicament` (id, name, quantity) VALUES (2, 'Brufen', 50);
 
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament');
 
-INSERT INTO `pharmacies` (id, admin_id ,name, address, city, rate, description) VALUES (1, 5, 'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments');
-INSERT INTO `pharmacies` (id, admin_id, name, address, city, rate, description) VALUES (2, 4, 'Jankovic', 'Preradoviceva 21a', 'Petrovaradin', 'Excellent', 'The cheapest pharmacy in town');
-INSERT INTO `pharmacies` (id, admin_id, name, address, city, rate, description) VALUES (3, 6, 'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions');
+INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments');
+INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (2,  'Jankovic', 'Preradoviceva 21a', 'Petrovaradin', 'Excellent', 'The cheapest pharmacy in town');
+INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (3,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions');
 
 INSERT INTO `examinations` (exam_id, price, duration, dateE) VALUES (1, 2000, '1h', '11.11.2020.');
 INSERT INTO `examinations` (exam_id, price, duration, dateE) VALUES (2, 5000, '2h', '01.01.2021.');

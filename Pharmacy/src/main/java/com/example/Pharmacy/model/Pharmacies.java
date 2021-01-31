@@ -16,10 +16,10 @@ public class Pharmacies {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @OneToMany(mappedBy = "ph_admin")
-    private List<User> admin;
+    /*@OneToMany(mappedBy = "ph_admin")
+    private List<User> admin;*/
 
     @Column(name = "name")
     private String name;
@@ -57,11 +57,11 @@ public class Pharmacies {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

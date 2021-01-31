@@ -20,15 +20,15 @@ import java.util.List;
 public class PharmacyController {
 
     @Autowired
-    PharmacyRepository pharmacyRepository;
+    private PharmacyRepository pharmacyRepository;
+    @Autowired
     private PharmacyService pharmacyService;
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public List<Pharmacies> loadAllPh() {return this.pharmacyRepository.findAll();}
 
-    @GetMapping("/logged/{id}")
-    public ResponseEntity<PharmaciesDTO> getPharmacies(@PathVariable int id) {
-        Pharmacies ph = pharmacyService.findById(id);
-        return new ResponseEntity<>(new PharmaciesDTO(ph), HttpStatus.OK);
+    @RequestMapping(value="/{id}", method = RequestMethod.GET)
+    public Pharmacies loadPhById(@PathVariable Long id){
+        return this.pharmacyService.findById(id);
     }
 }
