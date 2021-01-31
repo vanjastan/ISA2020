@@ -1,6 +1,5 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.HospitalDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.mappers.UserMapper;
@@ -101,6 +100,44 @@ public class UserController {
 		userInfo.setCity(userDTO.getCity());
 		userInfo.setAddress(userDTO.getAddress());
 		userInfo.setNumber(userDTO.getNumber());
+
+		userInfo = userService.save(userInfo);
+
+		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
+	}
+
+	@CrossOrigin
+	@PutMapping(value = "/edit/patient")
+	@PreAuthorize("hasRole('ROLE_PATIENT')")
+	public ResponseEntity<UserDTO> editPatient(@RequestBody UserDTO userDTO) {
+
+		User userInfo = userService.findById(userDTO.getId());
+		if(userInfo == null){
+			return null;
+		}
+		userInfo.setName(userDTO.getName());
+		userInfo.setSurname(userDTO.getSurname());
+		userInfo.setUsername(userDTO.getUsername());
+		userInfo.setCountry(userDTO.getCountry());
+		userInfo.setCity(userDTO.getCity());
+		userInfo.setAddress(userDTO.getAddress());
+		userInfo.setNumber(userDTO.getNumber());
+
+		userInfo = userService.save(userInfo);
+
+		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
+	}
+
+	@CrossOrigin
+	@PostMapping(value = "/editPass")
+	@PreAuthorize("hasRole('ROLE_PATIENT')")
+	public ResponseEntity<UserDTO> editPass(@RequestBody UserDTO userDTO) {
+
+		User userInfo = userService.findById(userDTO.getId());
+		if(userInfo == null){
+			return null;
+		}
+		userInfo.setPassword(userDTO.getPassword());
 
 		userInfo = userService.save(userInfo);
 

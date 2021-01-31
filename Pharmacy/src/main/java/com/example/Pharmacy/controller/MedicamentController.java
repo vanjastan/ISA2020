@@ -22,27 +22,6 @@ public class MedicamentController {
     @Autowired
     private MedicamentRepository medicamentRepository;
 
-   /* private final HttpClientService client;
-
-    public MedicamentController(HttpClientService client) {
-        this.client = client;
-    }
-
-    @RequestMapping(value="", method = RequestMethod.GET)
-    public ResponseEntity<?> getMed(){
-        ResponseEntity<?> result;
-        try{
-            List<MedicamentDTO> dtoList = client.getMed();
-                    result = dtoList == null ?
-                    ResponseEntity.badRequest().body("Bad request!") : new ResponseEntity<>(dtoList, HttpStatus.OK);
-        }catch (Exception e){
-            e.printStackTrace();
-            result = ResponseEntity.badRequest().body("Bad request!");
-        }
-        return result;
-    }*/
-
-    //@GetMapping("/all")
     @RequestMapping(value="", method = RequestMethod.GET)
     public List<Medicament> loadAllMedicaments() {return this.medicamentRepository.findAll();}
 }

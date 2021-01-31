@@ -4,7 +4,6 @@ import {RouterModule} from '@angular/router'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -18,11 +17,16 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatList, MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelect, MatSelectModule} from '@angular/material/select';
+<<<<<<< HEAD
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+=======
+import {MatCardModule} from '@angular/material/card';
+>>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
@@ -38,8 +42,38 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent} from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
+<<<<<<< HEAD
 import { SupplierTenderComponent} from './components/suppliertender/suppliertender.component';
 
+=======
+import { PatienthomeComponent } from './components/patienthome/patienthome.component';
+import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
+import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
+import { EditpassComponent } from './components/patientprofile/editpass/editpass.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ExaminationsComponent } from './components/patientprofile/examinations/examinations.component';
+import { ExaminationsPharmComponent } from './components/patientProfile/examinations-pharm/examinations-pharm.component';
+import { PrescriptionsComponent } from './components/prescriptions/prescriptions.component';
+import { SheduledExaminationsComponent } from './components/patienthome/sheduled-examinations/sheduled-examinations.component';
+import { ReservedMedsComponent } from './components/patienthome/reserved-meds/reserved-meds.component';
+import { PenalsComponent } from './components/patienthome/penals/penals.component';
+import { EMedsComponent } from './components/patienthome/e-meds/e-meds.component';
+import { SubscribedPharmaciesComponent } from './components/patienthome/subscribed-pharmacies/subscribed-pharmacies.component';
+import { ComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
+import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
+import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
+import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
+import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
+import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
+import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
+import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+//import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
+//import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
+>>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
 
 @NgModule({
   declarations: [
@@ -55,10 +89,42 @@ import { SupplierTenderComponent} from './components/suppliertender/suppliertend
     AdminRegComponent,
     AdminRegDermComponent,
     AdminAddComponent,
+<<<<<<< HEAD
     SupplierTenderComponent,
+=======
+    PatienthomeComponent,
+    PatientprofileComponent,
+    EditprofileComponent,
+    EditpassComponent,
+    AllpharmaciesComponent,
+    ExaminationsComponent,
+    ExaminationsPharmComponent,
+    PrescriptionsComponent,
+    SheduledExaminationsComponent,
+    ReservedMedsComponent,
+    PenalsComponent,
+    EMedsComponent,
+    SubscribedPharmaciesComponent,
+    ComplaintsComponent,
+    TakeMedicineComponent,
+    ScheduleConsultationsComponent,
+    ScheduleExaminationsComponent,
+    PharmacyAdminPageComponent,
+    PharmacyProfileComponent,
+    MedicationListComponent,
+    PharmacyAdminProfileComponent,
+    EditPharmacyAdminComponent,
+   // EditPharmacyProfileComponent,
+   // ChangePasswordComponent,
+  ],
+  entryComponents: [
+    EditprofileComponent,
+    EditpassComponent
+>>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
   ],
   imports: [
     AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatToolbarModule,
@@ -67,6 +133,7 @@ import { SupplierTenderComponent} from './components/suppliertender/suppliertend
     MatInputModule,
     NgbModule,
     RouterModule,
+    FlexLayoutModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -78,8 +145,13 @@ import { SupplierTenderComponent} from './components/suppliertender/suppliertend
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
+<<<<<<< HEAD
     MatNativeDateModule,
     MatMomentDateModule,
+=======
+    MatCardModule,
+    ToastrModule.forRoot()
+>>>>>>> e69a8afed50e5c805007b8bc749ad18770f0829c
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },

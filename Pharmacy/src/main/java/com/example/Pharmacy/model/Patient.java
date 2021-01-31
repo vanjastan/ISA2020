@@ -1,15 +1,14 @@
 package com.example.Pharmacy.model;
 
+import lombok.Getter;
+import lombok.Setter;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.Set;
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@Table(name = "patients")
 public class Patient extends User{
 
 }
