@@ -23,4 +23,15 @@ public class PharmacyServiceImpl implements PharmacyService {
         return ph;
     }
 
+    @Override
+    public Pharmacies findById(int admin_id) {
+        return null;
+    }
+
+
+    public Pharmacies findById(Long admin_id) throws AccessDeniedException {
+        Pharmacies ph = pharmacyRepository.findById(admin_id).orElseGet(null);
+        return ph;
+    }
+
 }

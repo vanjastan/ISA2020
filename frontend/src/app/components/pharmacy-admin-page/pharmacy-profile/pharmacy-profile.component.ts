@@ -21,7 +21,7 @@ export class PharmacyProfileComponent implements OnInit {
   }
 
   getPharmaciesInfo(){
-    this.pharmaciesService.getUserInfo().subscribe(data => {
+    this.pharmaciesService.getPharmacyInfo().subscribe(data => {
       this.pharmacies = data;
     }, error => {
       console.log("Error in getting pharmacies data!")

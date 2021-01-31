@@ -1,51 +1,31 @@
-package com.example.Pharmacy.model;
+package com.example.Pharmacy.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.Pharmacy.model.Pharmacies;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 
-@Entity
-@Getter
-@Setter
-@Table(name = "pharmacies")
-public class Pharmacies {
+public class PharmaciesDTO {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "admin_id")
     private Long admin_id;
-
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "address")
     private String address;
-
-    @Column(name = "city")
     private String city;
-
-    @Column(name = "rate")
     private String rate;
-
-    @Column(name = "description")
     private String description;
 
-    public Pharmacies(){
+    public PharmaciesDTO(){
 
     }
 
-    public Pharmacies(String name, String address, String city, String rate, String description){
-        this.name = name;
-        this.address = address;
-        this.city = city;
-        this.rate = rate;
-        this.description = description;
-
+    public PharmaciesDTO(Pharmacies ph){
+        id = ph.getId();
+        admin_id = ph.getAdmin_id();
+        name = ph.getName();
+        address = ph.getAddress();
+        city = ph.getCity();
+        rate = ph.getRate();
+        description = ph.getDescription();
     }
 
     public String getName() {

@@ -1,6 +1,9 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.PharmaciesDTO;
+import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Pharmacies;
+import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.PharmacyRepository;
 import com.example.Pharmacy.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +26,9 @@ public class PharmacyController {
     @RequestMapping(value="", method = RequestMethod.GET)
     public List<Pharmacies> loadAllPh() {return this.pharmacyRepository.findAll();}
 
-
+    @GetMapping("/logged/{id}")
+    public ResponseEntity<PharmaciesDTO> getPharmacies(@PathVariable int id) {
+        Pharmacies ph = pharmacyService.findById(id);
+        return new ResponseEntity<>(new PharmaciesDTO(ph), HttpStatus.OK);
+    }
 }

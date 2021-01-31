@@ -21,7 +21,7 @@ import { User } from '../components/models/user';
 
     public getPharmacyInfo(): Observable<any> {
       const userId = localStorage.getItem(USER_ID_KEY);
-      return this.http.get(`http://localhost:8080/pharmacies/${userId}`);
+      return this.http.get(`http://localhost:8080/pharmacies/logged/${userId}`);
     }
 
     public getUserInfo(): Observable<any> {
