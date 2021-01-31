@@ -162,8 +162,7 @@ public class UserController {
 		if(userInfo == null){
 			return null;
 		}
-		userInfo.setPassword(userDTO.getPassword());
-
+		userInfo.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 		userInfo = userService.save(userInfo);
 
 		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);

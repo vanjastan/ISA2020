@@ -67,6 +67,7 @@ import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
+import { EditpassSupComponent } from './components/supplierprofile/editPassSup/editPassSup.component';
 
 @NgModule({
   declarations: [
@@ -107,10 +108,12 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     EditPharmacyAdminComponent,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
+    EditpassSupComponent,
   ],
   entryComponents: [
     EditprofileComponent,
-    EditpassComponent
+    EditpassComponent,
+    EditpassSupComponent
   ],
   imports: [
     AppRoutingModule,
