@@ -5,7 +5,7 @@ import {LoginComponent} from '../app/components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, 
-MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH} from './config/router-paths';
+MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, SUPPLIER_TENDER} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -13,6 +13,7 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent } from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
+import { SupplierTenderComponent} from './components/suppliertender/suppliertender.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: ADMIN_REG_ADMIN_PATH,
     component: AdminAddComponent
+  },
+  {
+    path: SUPPLIER_TENDER,
+    component: SupplierTenderComponent
   },
 ];
 

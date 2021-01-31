@@ -3,7 +3,6 @@ package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.common.TimeProvider;
 import com.example.Pharmacy.config.consts.UserRoles;
-import com.example.Pharmacy.dto.HospitalDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.exception.ApiRequestException;
@@ -271,4 +270,5 @@ public class UserServiceImpl implements UserService {
 		}
 		userRepository.save(user);
 	}
+
 }

@@ -18,6 +18,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatList, MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelect, MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -35,6 +38,7 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent} from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
+import { SupplierTenderComponent} from './components/suppliertender/suppliertender.component';
 
 
 @NgModule({
@@ -51,6 +55,7 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
     AdminRegComponent,
     AdminRegDermComponent,
     AdminAddComponent,
+    SupplierTenderComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -72,6 +77,9 @@ import { AdminAddComponent} from './components/adminhome/addadmin.component';
     MatListModule,
     MatIconModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },

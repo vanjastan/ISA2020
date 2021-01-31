@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SupplierProfileComponent implements OnInit {
 
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   categories = [];
   user: User = new User("","","","","","","","","");
   form: FormGroup;
