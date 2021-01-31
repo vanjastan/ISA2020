@@ -29,10 +29,12 @@
             <hr>
         <mat-card-header>
             <div>
-                <button mat-raised-button style="font-size:18px; margin-left: -38px;" >Change password</button>
+                <button mat-raised-button style="font-size:18px; margin-left: -38px;" (click)="changePassword(user.id, user.password, user.name, user.surname, user.username,
+                user.email, user.address, user.city, user.country, user.number)">Change password</button>
             </div>
             <div>
-                <button mat-raised-button style="font-size: 18px; margin-left: 80px;" >Edit profile</button>
+                <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="editAdminPH(user.id, user.name, user.surname, user.username,
+                user.address, user.city, user.country, user.number)">Edit profile</button>
             </div>
         </mat-card-header>
         </mat-card>

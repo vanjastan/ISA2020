@@ -10,9 +10,10 @@ SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,
 //SUPPLIER_TENDER,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
-PATIENT_PROFILE_EXAMINATIONS,
+PATIENT_PROFILE_EXAMINATIONS, 
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
-ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH} from './config/router-paths';
+ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
+EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -43,6 +44,8 @@ import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/
 import { Header1Component } from './components/header1/header1.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
+import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
 
 const routes: Routes = [
   {
@@ -72,6 +75,14 @@ const routes: Routes = [
   {
     path: ADMIN_HOME_PATH,
     component: AdminHomeComponent
+  },
+  {
+    path: EDIT_ADMINPH_PROFILE,
+    component: EditPharmacyAdminComponent
+  },
+  {
+    path: CHANGE_ADMINPH_PASSWORD,
+    component: ChangeAdminphPasswordComponent
   },
   {
     path: SUPPLIER_HOME_PATH,

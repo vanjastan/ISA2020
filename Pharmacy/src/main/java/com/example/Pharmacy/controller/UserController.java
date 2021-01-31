@@ -133,9 +133,47 @@ public class UserController {
 	}
 
 	@CrossOrigin
+	@PostMapping(value = "/edit/adminph")
+	@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	public ResponseEntity<UserDTO> editAdminPH(@RequestBody UserDTO userDTO) {
+
+		User userInfo = userService.findById(userDTO.getId());
+		if(userInfo == null){
+			return null;
+		}
+		userInfo.setName(userDTO.getName());
+		userInfo.setSurname(userDTO.getSurname());
+		userInfo.setUsername(userDTO.getUsername());
+		userInfo.setCountry(userDTO.getCountry());
+		userInfo.setCity(userDTO.getCity());
+		userInfo.setAddress(userDTO.getAddress());
+		userInfo.setNumber(userDTO.getNumber());
+
+		userInfo = userService.save(userInfo);
+
+		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
+	}
+
+	@CrossOrigin
 	@PostMapping(value = "/editPass")
 	@PreAuthorize("hasRole('ROLE_PATIENT')")
 	public ResponseEntity<UserDTO> editPass(@RequestBody UserDTO userDTO) {
+
+		User user = userService.findById(userDTO.getId());
+		if(user == null){
+			return null;
+		}
+
+		user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+		user = userService.save(user);
+
+		return new ResponseEntity<>(UserMapper.toDto(user), HttpStatus.OK);
+	}
+
+	@CrossOrigin
+	@PostMapping(value = "/changePassword")
+	@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	public ResponseEntity<UserDTO> changePassword(@RequestBody UserDTO userDTO) {
 
 		User user = userService.findById(userDTO.getId());
 		if(user == null){
