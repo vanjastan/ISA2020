@@ -27,8 +27,8 @@ public class EPrescription {
     private EPrescriptionStatus status;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "patient_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "patient_id")
+    private User patient;
 
     public int getId() {
         return id;
@@ -55,10 +55,10 @@ public class EPrescription {
     }
 
     public User getPatient(){
-        return user;
+        return patient;
     }
 
     public void setPatient(User patient){
-        this.user = patient;
+        this.patient = patient;
     }
 }

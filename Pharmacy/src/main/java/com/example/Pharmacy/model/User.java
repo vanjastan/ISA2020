@@ -72,15 +72,15 @@ public class User implements UserDetails, Serializable {
     private List<Authority> authorities;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-    private List<EPrescription> ePrescriptions;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<EPrescription> prescriptions;
+
+    public List<EPrescription> getPrescriptions() {
+        return prescriptions;
+    }
 
     public User() {
 
-    }
-
-    public List<EPrescription> getePrescriptions(){
-        return ePrescriptions;
     }
 
     public String getUsername() {
