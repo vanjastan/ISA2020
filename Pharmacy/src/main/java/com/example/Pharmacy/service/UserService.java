@@ -3,7 +3,6 @@ package com.example.Pharmacy.service;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.model.User;
-import com.example.Pharmacy.model.UserRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -17,6 +17,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatList, MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelect, MatSelectModule} from '@angular/material/select';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatCardModule} from '@angular/material/card';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -36,6 +38,8 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent} from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
+import { SupplierTenderComponent} from './components/suppliertender/suppliertender.component';
+
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { EditprofileComponent } from './components/patientprofile/editprofile/editprofile.component';
@@ -78,6 +82,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     AdminRegComponent,
     AdminRegDermComponent,
     AdminAddComponent,
+    SupplierTenderComponent,
     PatienthomeComponent,
     PatientprofileComponent,
     EditprofileComponent,
@@ -130,6 +135,8 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
     MatCardModule,
     ToastrModule.forRoot()
   ],

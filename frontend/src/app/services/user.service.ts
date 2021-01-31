@@ -57,4 +57,8 @@ export class UserService {
   setNewPass(user: User): Observable<User>{
     return this.http.post<User>(`http://localhost:8080/api/users/editPass`, user)
   }
+
+  editUser(user: User) : Observable<User> {
+    return  this.http.put<User>(`http://localhost:8080/api/users/edit`, user);
+  }
 }
