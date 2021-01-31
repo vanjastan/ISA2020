@@ -1,5 +1,5 @@
-<div class="dialog" fxLayout="row" fxLayoutAlign="center center" >
-    <mat-card class="box">
+<div class="dialog" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box" style="width: 600px;">
         <mat-card-header>
           <mat-card-title>Change password</mat-card-title>
         </mat-card-header>
@@ -12,7 +12,7 @@
                             <input matInput placeholder="Confirm Password" type="password" name="Confirm Password" [(ngModel)]="confirmedPass" required>
                         </mat-form-field>
                 </mat-card-content>
-                <button mat-raised-button (click)="savePass()" [disabled]="!formControl.valid" style="background: rgb(179, 241, 220); margin-left: 180px;">Save</button>
+                <button mat-raised-button (click)="savePass()" [disabled]="!formControl.valid" style="background: rgb(179, 241, 220); margin-left: 100px;">Save</button>
                 <button mat-raised-button (click)="closeD()" style="background: rgb(179, 241, 220); margin-left: 40px;">Cancel</button>
             </form>
     </mat-card>

@@ -32,7 +32,7 @@ export class EditpassComponent implements OnInit {
         }
       );
     }
-
+    this.closeD();
   }
 
   closeD(): void{

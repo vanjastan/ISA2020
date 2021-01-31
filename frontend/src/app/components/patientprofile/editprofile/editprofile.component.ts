@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'; 
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
-import { User } from '../../models/user';
+import { Patient } from '../../models/patient';
 
 @Component({
   selector: 'app-editprofile',
@@ -12,7 +12,6 @@ import { User } from '../../models/user';
 export class EditprofileComponent implements OnInit {
 
   categories = [];
-  user: User = new User("","","","","","","","","");
 
   constructor(public dialogRef: MatDialogRef<EditprofileComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any, private toastr: ToastrService, private userService: UserService) { }
@@ -22,12 +21,10 @@ export class EditprofileComponent implements OnInit {
 
   closeD(){
     this.dialogRef.close();
-    this.toastr.success("Successfully closed!", "");
   }
 
-  save(){
-    console.log(this.user);
-    this.userService.editUsers(this.user).subscribe(
+  save(): void{
+    this.userService.editUsers(this.data).subscribe(
       data => {
         this.toastr.success("Successfully saved!", "");
         console.log(data);
