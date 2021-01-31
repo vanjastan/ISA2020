@@ -6,7 +6,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,SUPPLIER_TENDER,
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,
+//SUPPLIER_TENDER,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS,
@@ -156,10 +157,10 @@ const routes: Routes = [
     path: ADMIN_REG_ADMIN_PATH,
     component: AdminAddComponent
   },
-  {
+  /*{
     path: SUPPLIER_TENDER,
     component: SupplierTenderComponent
-  },
+  },*/
   {
     path: ADMINPH_HOME_PATH,
     component: PharmacyAdminPageComponent

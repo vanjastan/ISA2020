@@ -1,11 +1,17 @@
 .container {
     display: flex;
-    
     justify-content: center;
-    background-image:url('src\assets\img\apoteka2.jpg');
     background-size:cover;
     height:60em;
 }
+
+.apoteka2 {
+    height:60em;
+    background-size:cover;
+    width:auto;
+    background-position:100% 100%;
+    background-image:url('src\assets\img\apoteka2.jpg');
+ }
 
 .input-field {
     margin-right: 10px;
@@ -16,6 +22,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 30px;
+    margin-top: 100px;
 }
 .user-info-container-row {
     display: flex;
