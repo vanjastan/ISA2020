@@ -111,7 +111,7 @@ public class UserController {
 	}
 
 	@CrossOrigin
-	@PutMapping(value = "/edit/patient")
+	@PostMapping(value = "/edit/patient")
 	@PreAuthorize("hasRole('ROLE_PATIENT')")
 	public ResponseEntity<UserDTO> editPatient(@RequestBody UserDTO userDTO) {
 
