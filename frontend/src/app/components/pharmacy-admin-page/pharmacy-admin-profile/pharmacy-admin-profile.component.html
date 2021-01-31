@@ -1,0 +1,40 @@
+<div class="adminprofile">
+    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="paper scrollable-content" style="background-color: rgb(250, 249, 249);">
+            <mat-card-header class="navb">
+                <div>
+                    <p style="font-size:18px"></p>
+                </div>
+
+            </mat-card-header>
+            <mat-card-content>
+                <p style="font-size: 18px;">Name: {{user.name}}</p>
+            <br/>
+                <p style="font-size: 18px;">Surname: {{user.surname}}</p>
+            <br/>
+                <p style="font-size: 18px;">Username: {{user.username}}</p>
+            <br/>
+                <p style="font-size: 18px;">Email: {{user.email}}</p>
+            <br/>
+                <p style="font-size: 18px;">Address: {{user.address}}</p>
+            <br/>
+                <p style="font-size: 18px;">City: {{user.city}}</p>
+            <br/>
+                <p style="font-size: 18px;">Country: {{user.country}}</p>
+            <br/>
+                <p style="font-size: 18px;">Phone number: {{user.number}}</p>
+            <br/>
+        </mat-card-content>
+
+            <hr>
+        <mat-card-header>
+            <div>
+                <button mat-raised-button style="font-size:18px; margin-left: -38px;" >Change password</button>
+            </div>
+            <div>
+                <button mat-raised-button style="font-size: 18px; margin-left: 80px;" >Edit profile</button>
+            </div>
+        </mat-card-header>
+        </mat-card>
+    </div>
+</div>

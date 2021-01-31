@@ -14,6 +14,8 @@ export const ADMIN_REG_ADMIN_PATH = 'admin/addadmin';
 //Pharmacy admin - AdminPH paths
 export const ADMINPH_HOME_PATH = 'adminph';
 export const ADMINPH_PROFILE_PATH = 'adminph/pharmacyprofile';
+export const ADMINPH_MEDICATION_LIST = 'adminph/listofallmedications';
+export const ADMINPH_PROFILEPAGE_PATH = 'adminph/adminprofile';
 
 // User paths
 export const USER_HOME_PATH = 'user';

@@ -1,4 +1,4 @@
-/*import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'; 
 import { ToastrService } from 'ngx-toastr';
 
@@ -23,4 +23,4 @@ export class EditpassComponent implements OnInit {
     this.dialogRef.close();
     this.toastr.success("Successfully closed!", '');
   }
-}*/
+}

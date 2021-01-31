@@ -9,7 +9,7 @@ MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
-ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH} from './config/router-paths';
+ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -34,6 +34,8 @@ import { ScheduleConsultationsComponent } from './components/patienthome/schedul
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
 import {PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
+import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
+import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 
 const routes: Routes = [
   {
@@ -143,6 +145,14 @@ const routes: Routes = [
   {
     path: ADMINPH_PROFILE_PATH,
     component: PharmacyProfileComponent
+  },
+  {
+    path: ADMINPH_MEDICATION_LIST,
+    component: MedicationListComponent
+  },
+  {
+    path: ADMINPH_PROFILEPAGE_PATH,
+    component: PharmacyAdminProfileComponent
   },
 ];
 

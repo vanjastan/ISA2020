@@ -1,12 +1,16 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.PharmaciesDTO;
+import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Pharmacies;
+import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.PharmacyRepository;
+import com.example.Pharmacy.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +21,14 @@ public class PharmacyController {
 
     @Autowired
     PharmacyRepository pharmacyRepository;
+    private PharmacyService pharmacyService;
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public List<Pharmacies> loadAllPh() {return this.pharmacyRepository.findAll();}
+
+    @GetMapping("/logged/{id}")
+    public ResponseEntity<PharmaciesDTO> getPharmacies(@PathVariable int id) {
+        Pharmacies ph = pharmacyService.findById(id);
+        return new ResponseEntity<>(new PharmaciesDTO(ph), HttpStatus.OK);
+    }
 }

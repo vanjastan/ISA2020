@@ -4,5 +4,6 @@ export class Pharmacies{
         public address: string,
         public city: string,
         public rate: string,
+        public description: string,
         ){}
 }
