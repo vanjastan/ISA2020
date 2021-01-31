@@ -4,7 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from '../app/components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
-import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, 
+
+import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,SUPPLIER_TENDER,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS,
@@ -17,6 +19,7 @@ import { MedicamentsListComponent} from './components/medicamentslist/medicament
 import { AdminRegComponent } from './components/adminreg/adminreg.component';
 import { AdminRegDermComponent} from './components/adminregderm/adminregderm.component';
 import { AdminAddComponent} from './components/adminhome/addadmin.component';
+import { SupplierTenderComponent} from './components/suppliertender/suppliertender.component';
 import { PatienthomeComponent } from './components/patienthome/patienthome.component';
 import { PatientprofileComponent } from './components/patientprofile/patientprofile.component';
 import { AllpharmaciesComponent } from './components/patientprofile/allpharmacies/allpharmacies.component';
@@ -152,6 +155,10 @@ const routes: Routes = [
   {
     path: ADMIN_REG_ADMIN_PATH,
     component: AdminAddComponent
+  },
+  {
+    path: SUPPLIER_TENDER,
+    component: SupplierTenderComponent
   },
   {
     path: ADMINPH_HOME_PATH,

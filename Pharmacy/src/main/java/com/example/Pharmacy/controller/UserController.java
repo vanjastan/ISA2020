@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,6 +26,9 @@ public class UserController {
 	private UserService userService;
 
 	private UserServiceImpl userImpl;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
     @PostMapping("/public/register")
     public ResponseEntity add(@Valid @RequestBody UserRegistrationDTO user) {
@@ -107,7 +111,7 @@ public class UserController {
 	}
 
 	@CrossOrigin
-	@PutMapping(value = "/edit/patient")
+	@PostMapping(value = "/edit/patient")
 	@PreAuthorize("hasRole('ROLE_PATIENT')")
 	public ResponseEntity<UserDTO> editPatient(@RequestBody UserDTO userDTO) {
 
@@ -122,6 +126,43 @@ public class UserController {
 		userInfo.setCity(userDTO.getCity());
 		userInfo.setAddress(userDTO.getAddress());
 		userInfo.setNumber(userDTO.getNumber());
+
+		userInfo = userService.save(userInfo);
+
+		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
+	}
+
+	@CrossOrigin
+	@PostMapping(value = "/editPass")
+	@PreAuthorize("hasRole('ROLE_PATIENT')")
+	public ResponseEntity<UserDTO> editPass(@RequestBody UserDTO userDTO) {
+
+		User user = userService.findById(userDTO.getId());
+		if(user == null){
+			return null;
+		}
+
+		user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+		user = userService.save(user);
+
+		return new ResponseEntity<>(UserMapper.toDto(user), HttpStatus.OK);
+	}
+
+	@GetMapping("/{userId}")
+	public User findPatient(@PathVariable Long userId) {
+		return this.userService.findById(userId);
+	}
+
+	@CrossOrigin
+	@PostMapping(value = "/editPassSup")
+	@PreAuthorize("hasRole('ROLE_SUPPLIER')")
+	public ResponseEntity<UserDTO> editPassSup(@RequestBody UserDTO userDTO) {
+
+		User userInfo = userService.findById(userDTO.getId());
+		if(userInfo == null){
+			return null;
+		}
+		userInfo.setPassword(userDTO.getPassword());
 
 		userInfo = userService.save(userInfo);
 

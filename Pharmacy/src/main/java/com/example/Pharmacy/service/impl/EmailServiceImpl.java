@@ -1,5 +1,6 @@
 package com.example.Pharmacy.service.impl;
 
+import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -16,10 +17,10 @@ public class EmailServiceImpl implements EmailService {
     private JavaMailSender emailSender;
 
     @Override
-    public void sendMessageWithAttachment(
-            String to, String pathToAttachment) throws MessagingException {
+    public void sendMessageWithAttachment(String to, String pathToAttachment, Examination e) throws MessagingException {
 
-        String text = "You have successfully reserved examination!";
+        String text = "You have successfully reserved examination!" +
+                "Your examination is scheduled for: " + e.getDate() + "," + e.getTime();
         MimeMessage message = emailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
