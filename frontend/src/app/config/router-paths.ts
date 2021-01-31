@@ -4,6 +4,9 @@ export const LOGIN_PATH = 'login';
 export const REGISTRATION_PATH = 'register';
 export const VERIFY_ACCOUNT = 'verify';
 export const HOSPITAL_REG = 'hospital';
+export const HEADER = 'mainpage';
+export const HEADER1 = 'mainpage1';
+export const HEADER2 = 'mainpage2';
 
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';

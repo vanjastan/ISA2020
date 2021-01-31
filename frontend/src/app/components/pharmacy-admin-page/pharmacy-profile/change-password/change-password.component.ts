@@ -1,4 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-change-password',
@@ -12,4 +12,4 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}*/
+}

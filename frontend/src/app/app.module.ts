@@ -65,9 +65,13 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+import { Header1Component } from './components/header1/header1.component';
+import { Header2Component } from './components/header2/header2.component';
+import { Header3Component } from './components/header3/header3.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 import { EditpassSupComponent } from './components/supplierprofile/editPassSup/editPassSup.component';
+
 
 @NgModule({
   declarations: [
@@ -106,6 +110,9 @@ import { EditpassSupComponent } from './components/supplierprofile/editPassSup/e
     MedicationListComponent,
     PharmacyAdminProfileComponent,
     EditPharmacyAdminComponent,
+    Header1Component,
+    Header2Component,
+    Header3Component,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
     EditpassSupComponent,

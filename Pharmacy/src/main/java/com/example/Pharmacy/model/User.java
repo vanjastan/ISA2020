@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,10 @@ import java.util.*;
 @DiscriminatorColumn(name="user_type", discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue("0")
 @Table(name = "users")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 public class User implements UserDetails, Serializable {
+
 
     @Id
     @Column(name = "id")
@@ -64,6 +68,12 @@ public class User implements UserDetails, Serializable {
 
     @Column (name = "isAdmin")
     private boolean isAdmin;
+
+   /* @JsonIgnore
+    @ManyToOne( fetch = FetchType.EAGER)
+    @JoinColumn(name = "pharmacy_id")
+    private Pharmacies ph_admin;*/
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority",
