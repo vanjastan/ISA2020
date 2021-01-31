@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditprofileComponent } from './editprofile/editprofile.component';
-//import { EditpassComponent } from './editpass/editpass.component';
+import { EditpassComponent } from './editpass/editpass.component';
+import { Patient } from '../models/patient';
 
 @Component({
   selector: 'app-patientprofile',
@@ -14,7 +14,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 export class PatientprofileComponent implements OnInit {
 
   categories = [];
-  user: User = new User("","","","","","","","","");
+  user: Patient;
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
     public dialogPass: MatDialog) { }
 
@@ -40,17 +40,18 @@ export class PatientprofileComponent implements OnInit {
     });
   }
 
-  /*changePass() : void{
+  changePass(id: number, name: string, surname: string, username: string,
+    email: string, password: string, address: string, city: string, country: string, number: string) : void{
     let dialogRef = this.dialog.open(EditpassComponent, {
       width: '650px',
-      data: { name: 'JEKA' }
+      data: { id: id, password: password, name: name, surname: surname, 
+        username: username, address: address, city: city, country: country,
+        number: number, email: email }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');
     });
-  }*/
-
-  changePass(){}
+  }
 
   allergies(){
       

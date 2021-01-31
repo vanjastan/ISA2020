@@ -5,7 +5,6 @@
                 <div>
                     <p style="font-size:18px"></p>
                 </div>
-
             </mat-card-header>
             <mat-card-content>
                 <p style="font-size: 18px;">Name: {{user.name}}</p>
@@ -25,11 +24,11 @@
                 <p style="font-size: 18px;">Phone number: {{user.number}}</p>
             <br/>
         </mat-card-content>
-
             <hr>
         <mat-card-header>
             <div>
-                <button mat-raised-button style="font-size:18px; margin-left: -38px;" (click)="changePass()">Change password</button>
+                <button mat-raised-button style="font-size:18px; margin-left: -38px;" (click)="changePass(user.id, user.password, user.name, user.surname, user.username,
+                 user.email, user.address, user.city, user.country, user.number)">Change password</button>
             </div>
             <div>
                 <button mat-raised-button style="font-size: 18px; margin-left: 80px;" (click)="edit()">Edit profile</button>

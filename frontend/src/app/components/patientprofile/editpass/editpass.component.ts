@@ -28,7 +28,7 @@ export class EditpassComponent implements OnInit {
       this.data.password = this.newPass;
       this.service.setNewPass(this.data).subscribe(
         res =>{
-          alert('Successfully changed!');
+          this.toastr.success("Successfully changed!", '');
         }
       );
     }
