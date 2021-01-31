@@ -20,7 +20,6 @@ public class PharmaciesDTO {
 
     public PharmaciesDTO(Pharmacies ph){
         id = ph.getId();
-        admin_id = ph.getAdmin_id();
         name = ph.getName();
         address = ph.getAddress();
         city = ph.getCity();

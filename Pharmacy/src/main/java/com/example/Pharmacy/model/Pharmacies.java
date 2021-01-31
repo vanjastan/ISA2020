@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,8 +18,8 @@ public class Pharmacies {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "admin_id")
-    private Long admin_id;
+    @OneToMany(mappedBy = "ph_admin")
+    private List<User> admin;
 
     @Column(name = "name")
     private String name;
@@ -64,13 +65,6 @@ public class Pharmacies {
         this.id = id;
     }
 
-    public Long getAdmin_id() {
-        return admin_id;
-    }
-
-    public void setAdmin_id(Long admin_id) {
-        this.admin_id = admin_id;
-    }
 
     public String getAddress(){ return address; }
 

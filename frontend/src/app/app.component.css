@@ -1,0 +1,9 @@
+.row{
+    background: linear-gradient(
+        rgba(156, 166, 170, 0.7),
+        rgba(156, 166, 170, 0.7)
+      ),url();
+      background-size: 1150px 800px;
+      width: 1600x;
+      height: 700px;
+}
