@@ -10,7 +10,7 @@ import { AddcomplaintComponent } from './addcomplaint/addcomplaint.component';
 })
 export class ComplaintsComponent implements OnInit {
   
-  constructor(public dialog: MatDialog,) { }
+  constructor(public dialog: MatDialog, public dialogCo: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -25,11 +25,11 @@ export class ComplaintsComponent implements OnInit {
   }
 
   writeCompl(): void{
-    let dialogRef = this.dialog.open(AddcomplaintComponent, {
-      width: '1050px'
+   /* let dialogRef = this.dialogCo.open(AddcomplaintComponent, {
+      width: '200px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');
-    });
+    });*/
   }
 }
