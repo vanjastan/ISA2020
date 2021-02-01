@@ -27,6 +27,11 @@ public class ExaminationPh {
     @Column(name = "date_examination")
     private String dateExamination;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id")
+    private User patient;
+
+
     public int getId() {
         return id;
     }

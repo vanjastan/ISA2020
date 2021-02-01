@@ -33,8 +33,9 @@ public class Examination {
     @Column(name = "time_exam")
     private String time_exam;
 
-    @Column(name = "patient_id")
-    private int patientId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id")
+    private User patient;
 
     public int getId() {
         return id;
@@ -42,14 +43,6 @@ public class Examination {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
     }
 
     public double getPrice() {
