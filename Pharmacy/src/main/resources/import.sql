@@ -38,12 +38,10 @@ INSERT INTO `examinations_p` (id, price, duration, date_examination) VALUES (2, 
 
 INSERT INTO `oder_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
 
-INSERT INTO `dermatologist` (id, name) VALUES (1, "Sofija Maj")
-INSERT INTO `dermatologist` (id, name) VALUES (2, "Tijana Simic")
-
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (1, '05.01.2021.', 'NEW', 3);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (2, '12.12.2020.', 'REJECTED', 3);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (3, '10.11.2020.', 'PROCESSED', 3);
 
-
+INSERT INTO `actions_and_promotions` (id, name, end_date) VALUES (1, "Brufen na akciji 20%", '05.04.2021.');
+INSERT INTO `actions_and_promotions` (id, name, end_date) VALUES (2, "Akcija na sve 5%", '15.04.2021.');
 

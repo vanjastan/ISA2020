@@ -8,6 +8,7 @@ import { HospitalComponent } from './components/hospital/hospital.component';
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
 SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,
 //SUPPLIER_TENDER,
+ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS, 
@@ -46,6 +47,7 @@ import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
 import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
+import { ActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/actions-and-promotions.component';
 
 const routes: Routes = [
   {
@@ -71,6 +73,10 @@ const routes: Routes = [
   {
     path: HEADER2,
     component: Header3Component
+  },
+  {
+    path: ACTIONS_AND_PROMOTIONS,
+    component: ActionsAndPromotionsComponent
   },
   {
     path: ADMIN_HOME_PATH,

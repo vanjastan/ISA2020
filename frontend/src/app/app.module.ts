@@ -70,6 +70,7 @@ import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
 import { EditpassSupComponent } from './components/supplierprofile/editPassSup/editPassSup.component';
 import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
+import { ActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/actions-and-promotions.component';
 
 
 @NgModule({
@@ -114,6 +115,7 @@ import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page
     Header3Component,
     EditpassSupComponent,
    ChangeAdminphPasswordComponent,
+   ActionsAndPromotionsComponent,
   ],
   entryComponents: [
     EditprofileComponent,

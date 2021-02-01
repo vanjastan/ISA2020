@@ -21,6 +21,7 @@ export const ADMINPH_MEDICATION_LIST = 'adminph/listofallmedications';
 export const ADMINPH_PROFILEPAGE_PATH = 'adminph/adminprofile';
 export const EDIT_ADMINPH_PROFILE = 'adminph/edit';
 export const CHANGE_ADMINPH_PASSWORD = 'adminph/changepassword';
+export const ACTIONS_AND_PROMOTIONS = 'adminph/action';
 
 // User paths
 export const USER_HOME_PATH = 'user';
