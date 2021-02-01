@@ -26,6 +26,10 @@ public class Complaint {
     @Column(name = "content")
     private String content;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id")
+    private User patient;
+
     public Long getId() {
         return id;
     }
@@ -40,5 +44,13 @@ public class Complaint {
 
     public void setDate_of_complaint(String date_of_complaint) {
         this.date_of_complaint = date_of_complaint;
+    }
+
+    public String getContent(){
+        return content;
+    }
+
+    public void setContent(String content){
+        this.content = content;
     }
 }

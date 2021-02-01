@@ -13,5 +13,10 @@ import { Complaints } from '../components/models/complaints';
 
     getComplaints():Observable<Complaints[]>{
       return this.http.get<Complaints[]>(`http://localhost:8080/complaints`);
-  }
+    }
+
+    saveComplaint(val:Complaints):Observable<any>{
+      return this.http.post(`http://localhost:8080/complaints/addComplaint`, val);
+    }
+
   }

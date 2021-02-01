@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ComplaintService {
     List<Complaint> findAll();
+    List<Complaint> findByPatientId(Long id);
 }

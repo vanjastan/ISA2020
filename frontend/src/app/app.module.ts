@@ -115,7 +115,9 @@ import { AddcomplaintComponent } from './components/patienthome/complaints/addco
   ],
   entryComponents: [
     EditprofileComponent,
-    EditpassComponent
+    EditpassComponent,
+    ShowcomplaintsComponent,
+    AddcomplaintComponent
   ],
   imports: [
     AppRoutingModule,

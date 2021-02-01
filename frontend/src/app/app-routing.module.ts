@@ -114,10 +114,7 @@ const routes: Routes = [
   },
   {
     path: PATIENT_COMPLAINTS,
-    component: ComplaintsComponent,
-      children: [
-        {path: 'all', component: ShowcomplaintsComponent}
-      ]
+    component: ComplaintsComponent
   },
   {
     path: TAKE_MEDICINE,

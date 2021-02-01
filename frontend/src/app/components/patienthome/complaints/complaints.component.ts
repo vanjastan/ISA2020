@@ -25,11 +25,12 @@ export class ComplaintsComponent implements OnInit {
   }
 
   writeCompl(): void{
-   /* let dialogRef = this.dialogCo.open(AddcomplaintComponent, {
-      width: '200px'
+    let dialogRef = this.dialogCo.open(AddcomplaintComponent, {
+      width: '800px',
+      height: '500px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');
-    });*/
+    });
   }
 }
