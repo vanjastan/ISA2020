@@ -22,7 +22,7 @@ INSERT INTO `user_authority` (user_id, authority_id) VALUES (6, 6);
 INSERT INTO `hospitals` (id, name, api) VALUES (1, 'Bolnica1', '12345');
 
 INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
-INSERT INTO `medicament` (id, name, quantity) VALUES (2, 'Brufen', 50);
+
 
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament');
 
@@ -44,4 +44,6 @@ INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VA
 
 INSERT INTO `actions_and_promotions` (id, name, end_date) VALUES (1, "Brufen na akciji 20%", '05.04.2021.');
 INSERT INTO `actions_and_promotions` (id, name, end_date) VALUES (2, "Akcija na sve 5%", '15.04.2021.');
+
+INSERT INTO `pricelist` (id,price, from_date, to_date) VALUES (1,  120, '15.09.2020.', '28.11.2021.');
 
