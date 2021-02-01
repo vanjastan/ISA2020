@@ -20,6 +20,7 @@ import {MatSelect, MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -65,6 +66,8 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
+import { AddcomplaintComponent } from './components/patienthome/complaints/addcomplaint/addcomplaint.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 
@@ -105,6 +108,8 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     MedicationListComponent,
     PharmacyAdminProfileComponent,
     EditPharmacyAdminComponent,
+    ShowcomplaintsComponent,
+    AddcomplaintComponent,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
   ],
@@ -138,6 +143,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
     MatNativeDateModule,
     MatMomentDateModule,
     MatCardModule,
+    MatCheckboxModule,
     ToastrModule.forRoot()
   ],
   providers: [

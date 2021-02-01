@@ -1,7 +1,6 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.model.EPrescription;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.EPrescriptionRepository;
 import com.example.Pharmacy.service.EPrescriptionService;
 import com.example.Pharmacy.service.UserService;

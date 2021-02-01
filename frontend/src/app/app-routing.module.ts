@@ -37,6 +37,7 @@ import {PharmacyAdminPageComponent } from './components/pharmacy-admin-page/phar
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
+import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
 
 const routes: Routes = [
   {
@@ -113,7 +114,10 @@ const routes: Routes = [
   },
   {
     path: PATIENT_COMPLAINTS,
-    component: ComplaintsComponent
+    component: ComplaintsComponent,
+      children: [
+        {path: 'all', component: ShowcomplaintsComponent}
+      ]
   },
   {
     path: TAKE_MEDICINE,
