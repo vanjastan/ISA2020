@@ -1,0 +1,24 @@
+<div class="dialog" fxLayout="row" fxLayoutAlign="center center" >
+    <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Add actions/promotions</mat-card-title>
+        </mat-card-header>
+        <hr/>
+            <form class="form" #formControl="ngForm" style="width: 600px; height: 350px;">
+                <mat-card-content>
+                <mat-form-field class="full-width">
+                  <mat-label>Enter end date</mat-label>
+                  <input matInput placeholder="Today's date" name="date" required [(ngModel)]="complaints.end_date">
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <mat-label>Enter action/promotion</mat-label>
+                    <textarea matInput placeholder="Enter comment" name="content" required [(ngModel)]="complaints.name" ></textarea>
+                  </mat-form-field>
+                </mat-card-content>
+                <button mat-raised-button [disabled]="!formControl.valid" (click)="saveAP()" style="background: rgb(179, 241, 220); margin-left: 10px; margin-top: 50px;">Save</button>
+                <button mat-raised-button (click)="cancelAP()" style="background: rgb(179, 241, 220); margin-left: 80px;">Cancel</button>
+            </form>
+    </mat-card>
+    </div> 
