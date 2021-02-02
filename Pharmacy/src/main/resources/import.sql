@@ -31,8 +31,8 @@ INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (1,
 INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (2,  'Jankovic', 'Preradoviceva 21a', 'Petrovaradin', 'Excellent', 'The cheapest pharmacy in town');
 INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (3,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions');
 
-INSERT INTO `examinations` (exam_id, price, duration, dateE, rate, time_exam, patient_id, scheduled) VALUES (1, 2000, '1h', '11.11.2020.', 'Excellent', '11:03', 3, false);
-INSERT INTO `examinations` (exam_id, price, duration, dateE, rate, time_exam, patient_id, scheduled) VALUES (2, 5000, '2h', '11.02.2021.', 'Not bad', '12:00', 5, true);
+INSERT INTO `examinations` (exam_id, price, duration, dateE, rate, time_exam, patient_id) VALUES (1, 2000, '1h', '11.11.2020.', 'Excellent', '11:03', 3);
+INSERT INTO `examinations` (exam_id, price, duration, dateE, rate, time_exam, patient_id) VALUES (2, 5000, '2h', '11.02.2021.', 'Not bad', '12:00', 5);
 
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (1, 2500, '1h', '08.12.2020.', 3);
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (2, 3000, '1h', '05.01.2021.', 5);

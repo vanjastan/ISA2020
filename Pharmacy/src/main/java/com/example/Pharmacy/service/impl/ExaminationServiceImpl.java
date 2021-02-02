@@ -32,4 +32,10 @@ public class ExaminationServiceImpl implements ExaminationService {
         List<Examination> result = examinationRepository.findByPatientId(id);
         return result;
     }
+
+    @Override
+    public Examination save(Examination e) {
+        return examinationRepository.save(e);
+    }
+
 }
