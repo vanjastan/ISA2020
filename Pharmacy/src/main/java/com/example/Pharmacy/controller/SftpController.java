@@ -26,4 +26,9 @@ public class SftpController {
     public void downloadReport() throws IOException {
         sftpServiceImpl.downloadReport();
     }
+
+    @RequestMapping(value = "/downloadUrgentOrder", method = RequestMethod.GET)
+    public void downloadUrgentOrder() throws IOException {
+        sftpServiceImpl.downloadUrgentOrder();
+    }
 }

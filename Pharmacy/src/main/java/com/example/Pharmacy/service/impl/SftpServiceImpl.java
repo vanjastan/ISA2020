@@ -27,6 +27,15 @@ public class SftpServiceImpl {
         return client;
     }
 
+    private SSHClient setupForOrder() throws IOException{
+        SSHClient client = new SSHClient();
+        client.addHostKeyVerifier(new PromiscuousVerifier());
+        client.connect("192.168.0.13", 22);
+        client.authPassword("user", "password");
+        return client;
+    }
+
+
     public void downloadPrescription() throws IOException {
         SSHClient sshClient = setup();
         SFTPClient sftpClient = sshClient.newSFTPClient();
@@ -46,5 +55,16 @@ public class SftpServiceImpl {
         sftpClient.close();
         sshClient.disconnect();
     }
+
+    public void downloadUrgentOrder() throws IOException {
+        SSHClient sshClient = setupForOrder();
+        SFTPClient sftpClient = sshClient.newSFTPClient();
+        String localDir = "src/main/Files";
+        sftpClient.get("UrgentOrder_23-01-2021.json",  "UrgentOrder.json");
+
+        sftpClient.close();
+        sshClient.disconnect();
+    }
+
 }
 
