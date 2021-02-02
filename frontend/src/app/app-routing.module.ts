@@ -4,12 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from '../app/components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
-import { LOGIN_PATH, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, SUPPLIER_TENDER,
+
+import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,
+//SUPPLIER_TENDER,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
-PATIENT_PROFILE_EXAMINATIONS,
+PATIENT_PROFILE_EXAMINATIONS, 
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
-ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH} from './config/router-paths';
+ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
+EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -33,11 +37,16 @@ import { ComplaintsComponent } from './components/patienthome/complaints/complai
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
-import {PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
+import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pharmacy-admin-page.component';
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
+import { Header1Component } from './components/header1/header1.component';
+import { Header2Component } from './components/header2/header2.component';
+import { Header3Component } from './components/header3/header3.component';
+import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
 
 const routes: Routes = [
   {
@@ -53,8 +62,28 @@ const routes: Routes = [
     component: HospitalComponent
   },
   {
+    path: HEADER,
+    component: Header1Component
+  },
+  {
+    path: HEADER1,
+    component: Header2Component
+  },
+  {
+    path: HEADER2,
+    component: Header3Component
+  },
+  {
     path: ADMIN_HOME_PATH,
     component: AdminHomeComponent
+  },
+  {
+    path: EDIT_ADMINPH_PROFILE,
+    component: EditPharmacyAdminComponent
+  },
+  {
+    path: CHANGE_ADMINPH_PASSWORD,
+    component: ChangeAdminphPasswordComponent
   },
   {
     path: SUPPLIER_HOME_PATH,
@@ -140,10 +169,10 @@ const routes: Routes = [
     path: ADMIN_REG_ADMIN_PATH,
     component: AdminAddComponent
   },
-  {
+  /*{
     path: SUPPLIER_TENDER,
     component: SupplierTenderComponent
-  },
+  },*/
   {
     path: ADMINPH_HOME_PATH,
     component: PharmacyAdminPageComponent

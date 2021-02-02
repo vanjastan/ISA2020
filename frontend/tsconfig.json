@@ -1,6 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "admin-ph": [
+        "dist/admin-ph/admin-ph",
+        "dist/admin-ph"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

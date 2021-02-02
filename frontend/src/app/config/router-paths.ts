@@ -4,6 +4,9 @@ export const LOGIN_PATH = 'login';
 export const REGISTRATION_PATH = 'register';
 export const VERIFY_ACCOUNT = 'verify';
 export const HOSPITAL_REG = 'hospital';
+export const HEADER = 'mainpage';
+export const HEADER1 = 'mainpage1';
+export const HEADER2 = 'mainpage2';
 
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';
@@ -16,6 +19,8 @@ export const ADMINPH_HOME_PATH = 'adminph';
 export const ADMINPH_PROFILE_PATH = 'adminph/pharmacyprofile';
 export const ADMINPH_MEDICATION_LIST = 'adminph/listofallmedications';
 export const ADMINPH_PROFILEPAGE_PATH = 'adminph/adminprofile';
+export const EDIT_ADMINPH_PROFILE = 'adminph/edit';
+export const CHANGE_ADMINPH_PASSWORD = 'adminph/changepassword';
 
 // User paths
 export const USER_HOME_PATH = 'user';

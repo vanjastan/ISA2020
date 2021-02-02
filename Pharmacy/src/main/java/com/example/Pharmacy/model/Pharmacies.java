@@ -5,18 +5,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @Table(name = "pharmacies")
 public class Pharmacies {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
+
+    /*@OneToMany(mappedBy = "ph_admin")
+    private List<User> admin;*/
 
     @Column(name = "name")
     private String name;
@@ -33,6 +36,19 @@ public class Pharmacies {
     @Column(name = "description")
     private String description;
 
+    public Pharmacies(){
+
+    }
+
+    public Pharmacies(String name, String address, String city, String rate, String description){
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.rate = rate;
+        this.description = description;
+
+    }
+
     public String getName() {
         return name;
     }
@@ -41,13 +57,14 @@ public class Pharmacies {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getAddress(){ return address; }
 

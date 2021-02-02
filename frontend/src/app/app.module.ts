@@ -72,6 +72,12 @@ import { AlergiesComponent } from './components/patientprofile/alergies/alergies
 import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprogram/loyaltyprogram.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
+import { Header1Component } from './components/header1/header1.component';
+import { Header2Component } from './components/header2/header2.component';
+import { Header3Component } from './components/header3/header3.component';
+import { EditpassSupComponent } from './components/supplierprofile/editPassSup/editPassSup.component';
+import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
+
 
 @NgModule({
   declarations: [
@@ -116,6 +122,11 @@ import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprog
     LoyaltyprogramComponent,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
+    Header1Component,
+    Header2Component,
+    Header3Component,
+    EditpassSupComponent,
+   ChangeAdminphPasswordComponent
   ],
   entryComponents: [
     EditprofileComponent,
@@ -123,7 +134,8 @@ import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprog
     ShowcomplaintsComponent,
     AddcomplaintComponent,
     AlergiesComponent,
-    LoyaltyprogramComponent
+    LoyaltyprogramComponent,
+    EditpassSupComponent
   ],
   imports: [
     AppRoutingModule,

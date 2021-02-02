@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { User } from 'src/app/components/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { EditPharmacyAdminComponent } from 'src/app/components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+import { AdminPH } from 'src/app/components/models/adminPH';
+import { ChangeAdminphPasswordComponent } from 'src/app/components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
 
 @Component({
   selector: 'app-pharmacy-admin-profile',
@@ -14,7 +14,7 @@ import { EditPharmacyAdminComponent } from 'src/app/components/pharmacy-admin-pa
 export class PharmacyAdminProfileComponent implements OnInit {
 
   categories = [];
-  user: User = new User("","","","","","","","","");
+  user: AdminPH;
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
     public dialogPass: MatDialog) { }
 
@@ -30,13 +30,29 @@ export class PharmacyAdminProfileComponent implements OnInit {
     });
   }
 
-  editAdminPH() : void{
-    let dialogRef = this.dialog.open(EditPharmacyAdminComponent, {
-      width: '650px',
-      data: { name: '' }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog result: ${result}');
-    });
-  }
+  editAdminPH(id: number, name: string, surname: string, username: string,
+    address: string, city: string, country: string, number: string) : void{
+   let dialogRef = this.dialog.open(EditPharmacyAdminComponent, {
+     width: '650px',
+     data: { id: id, name: name, surname: surname, 
+       username: username, address: address, city: city, country: country,
+       number: number }
+   });
+   dialogRef.afterClosed().subscribe(result => {
+     console.log('Dialog result: ${result}');
+   });
+ }
+
+ changePassword(id: number, name: string, surname: string, username: string,
+  email: string, password: string, address: string, city: string, country: string, number: string) : void{
+  let dialogRef = this.dialog.open(ChangeAdminphPasswordComponent, {
+    width: '650px',
+    data: { id: id, password: password, name: name, surname: surname, 
+      username: username, address: address, city: city, country: country,
+      number: number, email: email }
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('Dialog result: ${result}');
+  });
+ }
 }
