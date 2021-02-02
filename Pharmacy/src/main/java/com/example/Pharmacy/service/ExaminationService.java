@@ -7,5 +7,5 @@ import java.util.List;
 public interface ExaminationService {
     List<Examination> findAll();
     Examination findById(Long id);
-    List<Examination> getByPatientId(Long id);
+    List<Examination> findByPatientId(Long id);
 }

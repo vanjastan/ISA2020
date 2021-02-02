@@ -1,17 +1,16 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
+import com.example.Pharmacy.service.ExaminationService;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.ExaminationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import java.util.List;
@@ -28,7 +27,10 @@ public class ExaminationController {
     EmailServiceImpl serviceImpl;
 
     @Autowired
-    ExaminationServiceImpl examinationService;
+    ExaminationServiceImpl examinationServiceImpl;
+
+    @Autowired
+    ExaminationService examinationService;
 
     @Autowired
     private UserService userService;
@@ -42,12 +44,11 @@ public class ExaminationController {
     public void sendNotification(Examination e) throws MessagingException {
         serviceImpl.sendMessageWithAttachment("patientU45@gmail.com", "", e);
     }
-//OVDE PADA PROVERI ZASTO!!!!!!!!!!!!!!!
-   /* @RequestMapping(value="/scheduled", method = RequestMethod.GET)
-    public List<Examination> scheduledExaminations(User u) {
-        User user = userService.findById(u.getId());
-        List<Examination> setEx = examinationService.getByPatientId(user.getId());
-        return setEx;
-    }*/
+
+    @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
+    public List<Examination> findExaminationByPatientId(@PathVariable("id") Long id) {
+        List<Examination> examinations = examinationService.findByPatientId(id);
+        return examinations;
+    }
 
 }

@@ -41,6 +41,7 @@ import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pha
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
+import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
 import { Header1Component } from './components/header1/header1.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';

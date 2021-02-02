@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { EditpassComponent } from './editpass/editpass.component';
+import { AlergiesComponent } from './alergies/alergies.component';
 import { Patient } from '../models/patient';
+import { LoyaltyprogramComponent } from './loyaltyprogram/loyaltyprogram.component';
 
 @Component({
   selector: 'app-patientprofile',
@@ -16,7 +18,7 @@ export class PatientprofileComponent implements OnInit {
   categories = [];
   user: Patient;
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog,
-    public dialogPass: MatDialog) { }
+    public dialogPass: MatDialog, public dialogAlergies: MatDialog, public dialogLoyPro: MatDialog) { }
 
   ngOnInit(): void {
     this.getPatientInfo();
@@ -57,18 +59,21 @@ export class PatientprofileComponent implements OnInit {
   }
 
   allergies(){
-      
-  }
-
-  points(){
-
-  }
-
-  category(){
-
+    let dialogRef = this.dialogAlergies.open(AlergiesComponent, {
+      width: '1060px',
+      data: { }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
+    });
   }
 
   loyalty(){
-    
+    let dialogRef = this.dialogLoyPro.open(LoyaltyprogramComponent, {
+      width: '1060px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
+    });
   }
 }
