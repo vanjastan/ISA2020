@@ -1,5 +1,6 @@
 package com.example.Pharmacy.service.impl;
 
+import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
@@ -29,7 +30,13 @@ public class ExaminationServiceImpl implements ExaminationService {
     }
 
     @Override
+    public List<Examination> findByPatientId(Long id) {
+        List<Examination> result = examinationRepository.findByPatientId(id);
+        return result;
+    }
+
+    /*@Override
     public List<Examination> getByPatientId(Long id) {
         return examinationRepository.findByPatientId(id);
-    }
+    }*/
 }

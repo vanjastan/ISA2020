@@ -18,7 +18,7 @@ public class EPrescription {
     @Id
     @Column(name = "prescription_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "date_of_pub")
     private String date_of_pub;
@@ -27,14 +27,14 @@ public class EPrescription {
     private EPrescriptionStatus status;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "patient_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "patient_id")
+    private User patient;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -55,10 +55,10 @@ public class EPrescription {
     }
 
     public User getPatient(){
-        return user;
+        return patient;
     }
 
     public void setPatient(User patient){
-        this.user = patient;
+        this.patient = patient;
     }
 }

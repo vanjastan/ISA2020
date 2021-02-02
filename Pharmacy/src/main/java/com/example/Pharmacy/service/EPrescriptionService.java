@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface EPrescriptionService {
     List<EPrescription> findAll();
+    List<EPrescription> findByPatientId(Long id);
 }

@@ -20,6 +20,7 @@ import {MatSelect, MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -65,6 +66,12 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
+import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
+import { AddcomplaintComponent } from './components/patienthome/complaints/addcomplaint/addcomplaint.component';
+import { AlergiesComponent } from './components/patientprofile/alergies/alergies.component';
+import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprogram/loyaltyprogram.component';
+//import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
+//import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 import { Header1Component } from './components/header1/header1.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
@@ -111,17 +118,31 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
     MedicationListComponent,
     PharmacyAdminProfileComponent,
     EditPharmacyAdminComponent,
+    ShowcomplaintsComponent,
+    AddcomplaintComponent,
+    AlergiesComponent,
+    LoyaltyprogramComponent,
+   // EditPharmacyProfileComponent,
+   // ChangePasswordComponent,
     Header1Component,
     Header2Component,
     Header3Component,
     EditpassSupComponent,
+<<<<<<< HEAD
    ChangeAdminphPasswordComponent,
    ActionsAndPromotionsComponent,
    AddActionsAndPromotionsComponent,
+=======
+   ChangeAdminphPasswordComponent
+>>>>>>> 1186c28a2ea783c36c5d55e844c3fca824c53e46
   ],
   entryComponents: [
     EditprofileComponent,
     EditpassComponent,
+    ShowcomplaintsComponent,
+    AddcomplaintComponent,
+    AlergiesComponent,
+    LoyaltyprogramComponent,
     EditpassSupComponent
   ],
   imports: [
@@ -150,6 +171,7 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
     MatNativeDateModule,
     MatMomentDateModule,
     MatCardModule,
+    MatCheckboxModule,
     ToastrModule.forRoot()
   ],
   providers: [
