@@ -68,6 +68,8 @@ import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
 import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
 import { AddcomplaintComponent } from './components/patienthome/complaints/addcomplaint/addcomplaint.component';
+import { AlergiesComponent } from './components/patientprofile/alergies/alergies.component';
+import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprogram/loyaltyprogram.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
 
@@ -110,6 +112,8 @@ import { AddcomplaintComponent } from './components/patienthome/complaints/addco
     EditPharmacyAdminComponent,
     ShowcomplaintsComponent,
     AddcomplaintComponent,
+    AlergiesComponent,
+    LoyaltyprogramComponent,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
   ],
@@ -117,7 +121,9 @@ import { AddcomplaintComponent } from './components/patienthome/complaints/addco
     EditprofileComponent,
     EditpassComponent,
     ShowcomplaintsComponent,
-    AddcomplaintComponent
+    AddcomplaintComponent,
+    AlergiesComponent,
+    LoyaltyprogramComponent
   ],
   imports: [
     AppRoutingModule,
