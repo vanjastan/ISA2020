@@ -33,6 +33,9 @@ public class Examination {
     @Column(name = "time_exam")
     private String time_exam;
 
+    @Column(name = "scheduled")
+    private boolean scheduled;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
@@ -83,5 +86,13 @@ public class Examination {
 
     public void setTime(String time_exam) {
         this.time_exam = time_exam;
+    }
+
+    public boolean getScheduled(){
+        return scheduled;
+    }
+
+    public void setScheduled(boolean scheduled){
+        this.scheduled = scheduled;
     }
 }
