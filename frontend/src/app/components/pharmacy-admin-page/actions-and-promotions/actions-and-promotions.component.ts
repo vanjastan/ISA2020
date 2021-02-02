@@ -5,7 +5,8 @@ import { ActionsAndPromotions } from '../../models/actions';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { ToastrService } from 'ngx-toastr';
-
+import { Router } from '@angular/router';
+import { ADD_ACTIONS_AND_PROMOTIONS, EDIT_ADMINPH_PROFILE } from 'src/app/config/router-paths';
 
 @Component({
   selector: 'app-actions-and-promotions',
@@ -27,7 +28,7 @@ export class ActionsAndPromotionsComponent implements OnInit {
   dataSource = new MatTableDataSource<ActionsAndPromotions>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private service: ActionService, private http: HttpClient, private toastr: ToastrService) { }
+  constructor(private service: ActionService, private http: HttpClient, private toastr: ToastrService,  private router: Router,) { }
 
   ngOnInit(): void {
     this.getAllActions();
@@ -62,7 +63,7 @@ export class ActionsAndPromotionsComponent implements OnInit {
   }
 
   addAction(){
-    
+    this.router.navigate([ADD_ACTIONS_AND_PROMOTIONS]);
   }
 
 }
