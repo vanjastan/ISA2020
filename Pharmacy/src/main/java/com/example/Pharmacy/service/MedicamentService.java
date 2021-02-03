@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface MedicamentService {
     List<Medicament> findAll();
+    Medicament findByName(String name);
 }

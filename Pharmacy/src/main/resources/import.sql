@@ -39,6 +39,11 @@ INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id)
 
 INSERT INTO `oder_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
 
+INSERT INTO `dermatologist` (id, name) VALUES (1, "Sofija Maj")
+INSERT INTO `dermatologist` (id, name) VALUES (2, "Tijana Simic")
+
+INSERT INTO `customer_order` (id, name, quantity) VALUES (2, 'Aspirin', 40);
+
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (1, '05.01.2021.', 'NEW', 3);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (2, '12.12.2020.', 'REJECTED', 5);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (3, '10.11.2020.', 'PROCESSED', 3);
