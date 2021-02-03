@@ -16,7 +16,7 @@ public class Examination {
     @Id
     @Column(name = "exam_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "price")
     private double price;
@@ -24,7 +24,7 @@ public class Examination {
     @Column(name = "duration")
     private String duration;
 
-    @Column(name = "dateE")
+    @Column(name = "date_examination")
     private String dateOfEx;
 
     @Column(name = "rate")
@@ -37,11 +37,11 @@ public class Examination {
     @JoinColumn(name = "patient_id")
     private User patient;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -83,5 +83,13 @@ public class Examination {
 
     public void setTime(String time_exam) {
         this.time_exam = time_exam;
+    }
+
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
     }
 }

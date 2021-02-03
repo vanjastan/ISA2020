@@ -1,6 +1,5 @@
 package com.example.Pharmacy.service;
 
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.ExaminationPh;
 
 import java.util.List;

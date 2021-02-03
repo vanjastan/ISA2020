@@ -1,8 +1,8 @@
 export class ExaminationsPharmaciest{
     constructor(
-        public date: string,
-        public duration: string,
-        public price: number,
-        public scheduled: boolean
+        public datePh: string,
+        public durationPh: string,
+        public pricePh: number,
+        public rate:string
         ){}
 }

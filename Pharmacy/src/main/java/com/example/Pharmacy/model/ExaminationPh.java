@@ -63,4 +63,12 @@ public class ExaminationPh {
     public void setDate(String dateExamination) {
         this.dateExamination = dateExamination;
     }
+
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
 }

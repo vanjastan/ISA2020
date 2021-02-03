@@ -20,6 +20,7 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
   price: number;
   rate: string;
   search: string;
+  duration:string;
   ex:Examinations;
   exL: any=[]
   displayedColumns: string[] = ['date', 'time', 'price', 'rate', 'schedule'];
@@ -35,6 +36,7 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
     this.time = this.ex.time;
     this.price = this.ex.price;
     this.rate = this.ex.rate;
+    this.duration = this.ex.duration;
   }
 
   ngAfterViewInit(): void{
@@ -71,7 +73,8 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
       date: this.exL.date,
       time: this.exL.time,
       price: this.exL.price,
-      rate: this.exL.rate
+      rate: this.exL.rate,
+      duration: this.exL.duration
     }
     console.log(this.ex);
     this.service.schedule(val).subscribe(data => {

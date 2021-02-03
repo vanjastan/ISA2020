@@ -2,7 +2,7 @@
     <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;">
         <mat-card class="paper" style="width: 2000px;">
           <mat-card-header>
-          <mat-card-title style="font-size: 30px;">Scheduled examinations</mat-card-title>
+          <mat-card-title style="font-size: 30px;">Scheduled examinations with dermatologist</mat-card-title>
           </mat-card-header>
           <hr>
           <mat-card-content>
@@ -10,32 +10,70 @@
               <mat-label>Search</mat-label>
             </div>
               <mat-form-field>
-                <input matInput type="text" placeholder="Enter date">
+                <input matInput type="text" placeholder="Enter date" (keyup)="doFilter($event.target.value)" [(ngModel)]="search">
               </mat-form-field>
               <hr>
-              <table mat-table class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
                 <ng-container matColumnDef="doctor">
                   <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Doctor</th>
-                  <td mat-cell *matCellDef="let element"></td>
+                  <td mat-cell *matCellDef="let element">{{element.doctor}}</td>
                 </ng-container>
                 <ng-container matColumnDef="date">
                   <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-                  <td mat-cell *matCellDef="let element"></td>
+                  <td mat-cell *matCellDef="let element">{{element.date}}</td>
                 </ng-container>
                 <ng-container matColumnDef="duration">
                   <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
-                  <td mat-cell *matCellDef="let element"></td>
+                  <td mat-cell *matCellDef="let element">{{element.duration}}</td>
                 </ng-container>
                 <ng-container matColumnDef="price">
                   <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-                  <td mat-cell *matCellDef="let element"></td>
+                  <td mat-cell *matCellDef="let element">{{element.price}}</td>
                 </ng-container>
-                <tr style="width: 200px;" mat-header-row ></tr>
-                <tr mat-row *matRowDef="let row;"></tr>
+                <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
               </mat-card-content>
               <mat-paginator [pageSize]="1" [pageSizeOptions]="[1, 2, 3, 4, 5, 6]" style="margin-right: 310px;">
               </mat-paginator>
         </mat-card>
+        <hr/>
       </div>
+      <hr/>
+      <mat-card class="paper" style="width: 2000px;">
+        <mat-card-header>
+        <mat-card-title style="font-size: 30px;">Scheduled consultations with pharmaciest</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content>
+          <div>
+            <mat-label>Search</mat-label>
+          </div>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Enter date" (keyup)="doFilterPh($event.target.value)" [(ngModel)]="search">
+            </mat-form-field>
+            <hr>
+            <table mat-table [dataSource]="dataSourcePh" class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
+              <ng-container matColumnDef="datePh">
+                <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                <td mat-cell *matCellDef="let elementPh">{{elementPh.dateExamination}}</td>
+              </ng-container>
+              <ng-container matColumnDef="durationPh">
+                <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Duration</th>
+                <td mat-cell *matCellDef="let elementPh">{{elementPh.duration}}</td>
+              </ng-container>
+              <ng-container matColumnDef="pricePh">
+                <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+                <td mat-cell *matCellDef="let elementPh">{{elementPh.price}}</td>
+              </ng-container>
+              <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumnsPh"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsPh;"></tr>
+            </table>
+            </mat-card-content>
+            <mat-paginator [pageSize]="1" [pageSizeOptions]="[1, 2, 3, 4, 5, 6]" style="margin-right: 950px;">
+            </mat-paginator>
+      </mat-card>
+    </div>
+    <div>
+  
     </div>

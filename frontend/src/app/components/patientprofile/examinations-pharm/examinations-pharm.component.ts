@@ -26,14 +26,14 @@ export class ExaminationsPharmComponent implements OnInit, AfterViewInit {
   constructor(private service: ExaminationsService) { }
 
   ngOnInit(): void {
-    this.getAllExaminations();
+    this.getAllPhExaminations();
   }
 
   ngAfterViewInit(): void{
     this.dataSource.sort = this.sort;
   }
 
-  getAllExaminations(){
+  getAllPhExaminations(){
     this.service.getExaminationsPharm().subscribe(data => {
       console.log(data);
       this.ExaminationPharmList = data;
