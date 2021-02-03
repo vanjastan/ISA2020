@@ -6,7 +6,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH,
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE,
 //SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
@@ -50,6 +50,7 @@ import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pha
 import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
 import { ActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/actions-and-promotions.component';
 import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/add-actions-and-promotions/add-actions-and-promotions.component';
+import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: HOSPITAL_REG,
     component: HospitalComponent
+  },
+  {
+    path: PHARMACY_HOMEPAGE,
+    component: PharmacyProfilePageComponent
   },
   {
     path: HEADER,

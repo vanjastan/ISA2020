@@ -79,6 +79,7 @@ import { EditpassSupComponent } from './components/supplierprofile/editPassSup/e
 import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/change-adminph-password/change-adminph-password.component';
 import { ActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/actions-and-promotions.component';
 import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/add-actions-and-promotions/add-actions-and-promotions.component';
+import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
 
 
 @NgModule({
@@ -132,7 +133,9 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
    ActionsAndPromotionsComponent,
    AddActionsAndPromotionsComponent,
 
-   ChangeAdminphPasswordComponent
+   ChangeAdminphPasswordComponent,
+
+   PharmacyProfilePageComponent
 
   ],
   entryComponents: [

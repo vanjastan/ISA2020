@@ -7,6 +7,7 @@ export const HOSPITAL_REG = 'hospital';
 export const HEADER = 'mainpage';
 export const HEADER1 = 'mainpage1';
 export const HEADER2 = 'mainpage2';
+export const PHARMACY_HOMEPAGE = 'phhomepage';
 
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';
