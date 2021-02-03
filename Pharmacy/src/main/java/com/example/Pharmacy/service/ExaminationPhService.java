@@ -8,4 +8,5 @@ public interface ExaminationPhService {
     List<ExaminationPh> findAll();
     ExaminationPh findById(Long id);
     List<ExaminationPh> findByPatientId(Long id);
+    ExaminationPh save(ExaminationPh e);
 }

@@ -15,6 +15,7 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   ExaminationList: Examinations[];
   ExaminationResults: Examinations[];
+  id:number;
   date: string;
   time: string;
   price: number;
@@ -32,6 +33,7 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllExaminations();
+    this.id = this.ex.id;
     this.date = this.ex.date;
     this.time = this.ex.time;
     this.price = this.ex.price;
@@ -70,6 +72,7 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   scheduleEx(){
     var val = {
+      id: this.exL.id,
       date: this.exL.date,
       time: this.exL.time,
       price: this.exL.price,
