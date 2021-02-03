@@ -6,15 +6,18 @@
       </mat-card-header>
      
         <mat-card-header>
-          <th>Enter your email and subscribe to receive notifications about actions/promotions   </th>
+          <p>Enter your email and subscribe to receive notifications about actions/promotions</p>
           <th style="margin-left: 40px;">
-            <input type="subscribe" >
+            <input required [(ngModel)]="sub.email" >
           </th>
-
-        <div>
-          <button mat-raised-button style="margin-left:40px;"> Subscribe </button>
-        </div>
+          <button mat-raised-button style="margin-left:40px;" (click)="subscribe()"> Subscribe </button>
+        
         </mat-card-header>
+
+      <mat-card-header>
+        <p>Add new action or promotion<p>
+        <button mat-raised-button style="margin-left: 40px;" (click)="writeAP()">Add</button>
+      </mat-card-header>
     
       <hr>
       <mat-card-content>
@@ -22,22 +25,21 @@
         <mat-label>Search</mat-label>
       </div>
         <mat-form-field>
-            <input matInput type="text" placeholder="Enter name" (keyup)="doFilter($event.target.value)" [(ngModel)]="search">
+            <input matInput type="text" placeholder="Enter end date" (keyup)="doFilter($event.target.value)" [(ngModel)]="search">
           </mat-form-field>
           <hr>
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
             <ng-container matColumnDef="name">
-              <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Action or promotion</th>
               <td mat-cell *matCellDef="let element">{{element.name}}</td>
             </ng-container>
             <ng-container matColumnDef="end_date">
               <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>End date</th>
               <td mat-cell *matCellDef="let element">{{element.end_date}}</td>
-            </ng-container>
-            <ng-container matColumnDef="add">
+            </ng-container> <ng-container matColumnDef="add">
               <th style="width: 200px;" mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
-                <button mat-raised-button routerLink="addAP" routerLinkActive="selected">Add</button>
+                
               </td>
             </ng-container>
             <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>

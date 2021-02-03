@@ -13,8 +13,8 @@ import { ActionService } from 'src/app/services/action.service';
 export class AddActionsAndPromotionsComponent implements OnInit {
 
   actions= new ActionsAndPromotions(null, null);
-  date_of_complaint:string;
-  content:string;
+  end_date:string;
+  name:string;
 
   constructor(public dialogRef: MatDialogRef<AddActionsAndPromotionsComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any, private service: ActionService,

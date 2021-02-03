@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActionsAndPromotions } from 'src/app/components/models/actions';
+import { Subscribe } from '../components/models/subscribe';
 
 @Injectable({
     providedIn: 'root'
@@ -18,5 +19,9 @@ import { ActionsAndPromotions } from 'src/app/components/models/actions';
 
     saveActions(val:ActionsAndPromotions):Observable<any>{
       return this.http.post(`http://localhost:8080/actions/addActionPromotion`, val);
+    }
+
+    subEmail(val:Subscribe):Observable<any>{
+      return this.http.post(`http://localhost:8080/subscribed/addEmail` , val);
     }
   }

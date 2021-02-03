@@ -128,13 +128,12 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
     Header2Component,
     Header3Component,
     EditpassSupComponent,
-<<<<<<< HEAD
    ChangeAdminphPasswordComponent,
    ActionsAndPromotionsComponent,
    AddActionsAndPromotionsComponent,
-=======
+
    ChangeAdminphPasswordComponent
->>>>>>> 1186c28a2ea783c36c5d55e844c3fca824c53e46
+
   ],
   entryComponents: [
     EditprofileComponent,

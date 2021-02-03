@@ -53,3 +53,5 @@ INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) 
 
 INSERT INTO `pricelist` (id,price, from_date, to_date) VALUES (1,  120, '15.09.2020.', '28.11.2021.');
 
+INSERT INTO `subscribed` (email) VALUES ('dacaa9977@gmail.com');
+
