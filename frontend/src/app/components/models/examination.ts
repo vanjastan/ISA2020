@@ -1,8 +1,9 @@
 export class Examinations{
     constructor(
-        public date: string,
-        public time: string,
+        public date:string,
+        public duration:string,
         public price: number,
-        public rate: string
+        public rate:string,
+        public time:string
         ){}
 }

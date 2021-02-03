@@ -24,7 +24,7 @@ public class Examination {
     @Column(name = "duration")
     private String duration;
 
-    @Column(name = "dateE")
+    @Column(name = "date_examination")
     private String dateOfEx;
 
     @Column(name = "rate")

@@ -27,4 +27,14 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
     schedule(val:Examinations):Observable<any>{
       return this.http.post(`http://localhost:8080/examinations/reserve`, val);
     }
+
+    public getScheduledEx():Observable<any>{
+      const userId = localStorage.getItem(USER_ID_KEY);
+      return this.http.get(`http://localhost:8080/examinations/scheduled/${userId}`);
+    }
+
+    public getScheduledCons():Observable<any>{
+      const userId = localStorage.getItem(USER_ID_KEY);
+      return this.http.get(`http://localhost:8080/examinationsPh/scheduled/${userId}`);
+    }
   }
