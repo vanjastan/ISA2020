@@ -32,4 +32,8 @@ public class ExaminationPhServiceImpl implements ExaminationPhService {
         List<ExaminationPh> result = examinationPhRepository.findByPatientId(id);
         return result;
     }
+
+    public ExaminationPh save(ExaminationPh e) {
+        return examinationPhRepository.save(e);
+    }
 }

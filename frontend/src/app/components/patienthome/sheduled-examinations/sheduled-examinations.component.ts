@@ -4,6 +4,7 @@ import { ExaminationsService } from 'src/app/services/examinations.service';
 import { Examinations } from '../../models/examination';
 import { ExaminationsPharmaciest } from '../../models/examinationPharm';
 import { MatSort } from '@angular/material/sort';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sheduled-examinations',
@@ -23,9 +24,9 @@ export class SheduledExaminationsComponent implements OnInit {
   durationPh:string;
   pricePh: number;
   search: string;
-  displayedColumns: string[] = ['date', 'duration', 'price'];
+  displayedColumns: string[] = ['date', 'duration', 'price', 'unschedule'];
 
-  displayedColumnsPh: string[] = ['datePh', 'durationPh', 'pricePh'];
+  displayedColumnsPh: string[] = ['datePh', 'durationPh', 'pricePh', 'unschedule'];
 
   dataSource = new MatTableDataSource<Examinations>();
   @ViewChild(MatSort) sort: MatSort;
@@ -33,7 +34,7 @@ export class SheduledExaminationsComponent implements OnInit {
   dataSourcePh = new MatTableDataSource<ExaminationsPharmaciest>();
   @ViewChild(MatSort) sortPh: MatSort;
 
-  constructor(private service: ExaminationsService) { }
+  constructor(private service: ExaminationsService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getScheduledExaminations();
@@ -92,4 +93,26 @@ export class SheduledExaminationsComponent implements OnInit {
       }   
           this.dataSource.filter = value.trim().toLocaleLowerCase();
       }
+
+    unschedule(id:number){
+      console.log(id);
+      this.service.unscheduleExamination(id).subscribe(data => {
+        console.log(data);
+        this.toastr.success('Successfully unscheduled!', '');
+      }, 
+      error => {
+        console.log(error);
+      })
+    }
+
+    unscheduleConsultation(id:number){
+      console.log(id);
+      this.service.unscheduleConsultation(id).subscribe(data => {
+        console.log(data);
+        this.toastr.success('Successfully unscheduled!', '');
+      }, 
+      error => {
+        console.log(error);
+      })
+    }
 }

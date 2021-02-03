@@ -80,6 +80,7 @@ public class ExaminationController {
         return examinations;
     }
 
+    @CrossOrigin()
     @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
     public ResponseEntity<Examination> unsubscribeExamination(@PathVariable("id") Long id){
         Examination patientExamination = examinationService.findById(id);

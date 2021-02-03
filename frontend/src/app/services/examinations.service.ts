@@ -37,4 +37,12 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
       const userId = localStorage.getItem(USER_ID_KEY);
       return this.http.get(`http://localhost:8080/examinationsPh/scheduled/${userId}`);
     }
+
+    public unscheduleExamination(id:number){
+      return this.http.post(`http://localhost:8080/examinations/unsubscribe/`+ id, {});
+    }
+
+    public unscheduleConsultation(id:number){
+      return this.http.post(`http://localhost:8080/examinationsPh/unsubscribe/`+ id, {});
+    }
   }
