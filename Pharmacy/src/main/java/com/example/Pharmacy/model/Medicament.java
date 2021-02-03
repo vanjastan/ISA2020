@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,6 +25,10 @@ public class Medicament {
     @Column(name = "quantity")
     private int quantity;
 
+    @OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Pricelist pricelist;
+
     public String getName() {
         return name;
     }
@@ -43,4 +48,8 @@ public class Medicament {
     public int getQuantity(){ return quantity; }
 
     public void setQuantity(int quantity) { this.quantity = quantity; }
+
+    public Pricelist getPricelist() { return pricelist; }
+
+    public void setPricelist(Pricelist pricelist) { this.pricelist = pricelist; }
 }

@@ -94,7 +94,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/examinationsPh").permitAll()
 				.antMatchers("/prescriptions/**").permitAll()
 				.antMatchers("/api/users/{userId}").permitAll()
+				.antMatchers("/actions/**").permitAll()
 				.antMatchers("/complaints/**").permitAll()
+				.antMatchers("/subscribed/**").permitAll()
+
 
 
 
