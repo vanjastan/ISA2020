@@ -24,7 +24,7 @@ INSERT INTO `user_authority` (user_id, authority_id) VALUES (7, 2);
 INSERT INTO `hospitals` (id, name, api) VALUES (1, 'Bolnica1', '12345');
 
 INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
-INSERT INTO `medicament` (id, name, quantity) VALUES (2, 'Brufen', 50);
+
 
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament');
 
@@ -50,7 +50,15 @@ INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VA
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (2, '12.12.2020.', 'REJECTED', 5);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (3, '10.11.2020.', 'PROCESSED', 3);
 
+
+INSERT INTO `actions_and_promotions` (name, end_date) VALUES ( "Brufen na akciji 20%", '05.04.2021.');
+INSERT INTO `actions_and_promotions` (name, end_date) VALUES ( "Akcija na sve 5%", '15.04.2021.');
+
 INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) VALUES (1, '12-01-2021.', 'Doctor Milan was very impolite.', 3);
 INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) VALUES (2, '03-11-2020.', 'Doctor Jovana was not paying attention to me at all.', 5);
 
+
+INSERT INTO `pricelist` (id,price, from_date, to_date) VALUES (1,  120, '15.09.2020.', '28.11.2021.');
+
+INSERT INTO `subscribed` (email) VALUES ('dacaa9977@gmail.com');
 
