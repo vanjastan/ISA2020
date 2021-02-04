@@ -1,16 +1,21 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "pharmacies")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Pharmacies {
 
     @Id
@@ -18,8 +23,23 @@ public class Pharmacies {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /*@OneToMany(mappedBy = "ph_admin")
-    private List<User> admin;*/
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "admin_id")
+    private User adminPh;
+
+    @ManyToMany(mappedBy = "pharmaciesD")
+    private Set<User> dermatologistPh = new HashSet<User>();
+
+    @ManyToMany(mappedBy = "pharmaciesP")
+    private Set<User> pharmacistPh = new HashSet<User>();
+
+    @ManyToMany(mappedBy = "pharmaciesMed")
+    private Set<Meds> medicamentPh = new HashSet<Meds>();
+
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "dermatologist_id")
+    private User dermatologist;
 
     @Column(name = "name")
     private String name;
@@ -30,6 +50,7 @@ public class Pharmacies {
     @Column(name = "city")
     private String city;
 
+    //ocene su nam opisne
     @Column(name = "rate")
     private String rate;
 
@@ -57,6 +78,7 @@ public class Pharmacies {
         this.name = name;
     }
 
+
     public Long getId() {
         return id;
     }
@@ -65,6 +87,13 @@ public class Pharmacies {
         this.id = id;
     }
 
+    public Set<User> getDermatologistPh() {
+        return dermatologistPh;
+    }
+
+    public Set<User> getPharmacistPh() { return pharmacistPh; }
+
+    public Set<Meds> getMedicamentPh() { return medicamentPh; }
 
     public String getAddress(){ return address; }
 
@@ -81,4 +110,6 @@ public class Pharmacies {
     public String getDescription(){ return description; }
 
     public void setDescription(String description){ this.description = description; }
+
+
 }
