@@ -45,10 +45,15 @@ public class MedsServiceImpl implements MedsService {
     }
 
     @Override
+    public Meds findOne(Long id) {
+        return medsRepository.findById(id).orElseGet(null);
+    }
+
+   /* @Override
     public List<Meds> findByPrescriptionId(Long id) {
         List<Meds> result = medsRepository.findByPrescriptionId(id);
         return result;
-    }
+    }*/
 
     public Meds addMeds(MedsDTO mdto) {
         Meds med = new Meds();

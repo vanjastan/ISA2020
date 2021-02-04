@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -64,8 +65,12 @@ public class Meds {
 
     //NECE DA DODA U BAZU BACI OKO!!!!!!!!!!!!!
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "eprescription_id")
+    @JoinColumn(name = "p_id")
     private EPrescription prescription;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
+    private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
 
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
@@ -161,6 +166,14 @@ public class Meds {
         this.notes = notes;
     }
 
+    public Set<Pharmacies> getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(Set<Pharmacies> pharmacies) {
+        this.pharmacies = pharmacies;
+    }
+
     public String getName() {
         return name;
     }
@@ -177,11 +190,11 @@ public class Meds {
         this.patient = patient;
     }
 
-    public EPrescription getPrescription(){
+    /*public EPrescription getPrescription(){
         return prescription;
     }
 
     public void setPrescription(EPrescription prescription){
         this.prescription = prescription;
-    }
+    }*/
 }

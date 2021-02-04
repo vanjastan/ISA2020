@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class MedsDTO {
 
     private Long id;
@@ -22,6 +20,12 @@ public class MedsDTO {
     private String manufacturer;
     private String issuing;
     private String notes;
+
+    private UserDTO patient;
+
+    public MedsDTO(){
+
+    }
 
     public MedsDTO(Meds meds) {
         this.id = meds.getId();
@@ -132,6 +136,14 @@ public class MedsDTO {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public UserDTO getPatient() {
+        return patient;
+    }
+
+    public void setPatient(UserDTO patient) {
+        this.patient = patient;
     }
 
 }

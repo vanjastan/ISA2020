@@ -21,7 +21,6 @@ import java.util.*;
 @DiscriminatorValue("0")
 @Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
 public class User implements UserDetails, Serializable {
 
 
@@ -106,7 +105,7 @@ public class User implements UserDetails, Serializable {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Meds> reservedMeds;
+    private Set<Meds> reservedMeds = new HashSet<Meds>();
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "adminPh", cascade = CascadeType.ALL)
     private Pharmacies pharmacies;
@@ -149,6 +148,14 @@ public class User implements UserDetails, Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Meds> getReservedMeds() {
+        return reservedMeds;
+    }
+
+    public void setReservedMeds(Set<Meds> reservedMeds) {
+        this.reservedMeds = reservedMeds;
     }
 
     public void setAuthorities(List<Authority> authorities) {

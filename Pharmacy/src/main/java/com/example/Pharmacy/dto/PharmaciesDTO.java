@@ -13,6 +13,7 @@ public class PharmaciesDTO {
     private String city;
     private String rate;
     private String description;
+    private MedsDTO medicine;
 
     public PharmaciesDTO(){
 
@@ -66,4 +67,12 @@ public class PharmaciesDTO {
     public String getDescription(){ return description; }
 
     public void setDescription(String description){ this.description = description; }
+
+    public MedsDTO getMedicine(){
+        return medicine;
+    }
+
+    public void setMedicine(MedsDTO medicine){
+        this.medicine = medicine;
+    }
 }
