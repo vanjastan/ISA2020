@@ -72,7 +72,6 @@ import { AlergiesComponent } from './components/patientprofile/alergies/alergies
 import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprogram/loyaltyprogram.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
 //import { ChangePasswordComponent } from './components/pharmacy-admin-page/pharmacy-profile/change-password/change-password.component';
-import { Header1Component } from './components/header1/header1.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
 import { EditpassSupComponent } from './components/supplierprofile/editPassSup/editPassSup.component';
@@ -80,6 +79,8 @@ import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page
 import { ActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/actions-and-promotions.component';
 import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/add-actions-and-promotions/add-actions-and-promotions.component';
 import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
+import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
+import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
 
 
 @NgModule({
@@ -125,7 +126,6 @@ import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page
     LoyaltyprogramComponent,
    // EditPharmacyProfileComponent,
    // ChangePasswordComponent,
-    Header1Component,
     Header2Component,
     Header3Component,
     EditpassSupComponent,
@@ -135,7 +135,11 @@ import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page
 
    ChangeAdminphPasswordComponent,
 
-   PharmacyProfilePageComponent
+   PharmacyProfilePageComponent,
+
+   DermatologistComponent,
+
+   PharmacistComponent
 
   ],
   entryComponents: [

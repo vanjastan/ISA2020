@@ -24,16 +24,12 @@ import { User } from '../components/models/user';
       return this.http.get(`http://localhost:8080/pharmacies/logged/${userId}`);
     }
 
-    public getJankovicInfo(): Observable<any> {
-      return this.http.get(`http://localhost:8080/pharmacies/2`);
-    }
-
     public getBenuInfo(): Observable<any> {
       return this.http.get(`http://localhost:8080/pharmacies/1`);
     }
 
     public getBenu2Info(): Observable<any> {
-      return this.http.get(`http://localhost:8080/pharmacies/3`);
+      return this.http.get(`http://localhost:8080/pharmacies/2`);
     }
 
     public getUserInfo(): Observable<any> {
@@ -47,5 +43,21 @@ import { User } from '../components/models/user';
 
     editUsers(user: User) : Observable<User> {
       return  this.http.put<User>(`http://localhost:8080/api/users/edit`, user);
+    }
+
+    public getDermatologist():Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/1/dermatologist`);
+    }
+
+    public getDermatologistt():Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/2/dermatologist`);
+    }
+
+    public getPharmacist():Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/1/pharmacist`);
+    }
+
+    public getPharmacistt():Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/2/pharmacist`);
     }
   }

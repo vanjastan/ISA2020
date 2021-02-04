@@ -7,6 +7,7 @@ import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
 SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE,
+DERMATOLOGIST, PHARMACIST,
 //SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
@@ -43,7 +44,6 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
-import { Header1Component } from './components/header1/header1.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
@@ -51,6 +51,8 @@ import { ChangeAdminphPasswordComponent } from './components/pharmacy-admin-page
 import { ActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/actions-and-promotions.component';
 import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-page/actions-and-promotions/add-actions-and-promotions/add-actions-and-promotions.component';
 import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
+import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
+import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
 
 const routes: Routes = [
   {
@@ -70,16 +72,20 @@ const routes: Routes = [
     component: PharmacyProfilePageComponent
   },
   {
-    path: HEADER,
-    component: Header1Component
-  },
-  {
     path: HEADER1,
     component: Header2Component
   },
   {
     path: HEADER2,
     component: Header3Component
+  },
+  {
+    path: DERMATOLOGIST,
+    component: DermatologistComponent
+  },
+  {
+    path: PHARMACIST,
+    component: PharmacistComponent
   },
   {
     path: ACTIONS_AND_PROMOTIONS,

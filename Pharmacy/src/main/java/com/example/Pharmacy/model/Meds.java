@@ -1,11 +1,13 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "medicaments")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Meds {
 
     @Id
@@ -54,6 +57,13 @@ public class Meds {
 
     @Column(name = "notes")
     private String notes;
+
+    @ManyToMany
+    @JoinTable(name = "pharmacy_meds",
+            joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
+    private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
+
 
     public Long getId() {
         return id;
