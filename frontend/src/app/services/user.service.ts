@@ -7,8 +7,6 @@ import { Supplier } from '../components/adminreg/supplier';
 import { USER_ID_KEY } from '../config/local-storage-keys';
 import { User } from '../components/models/user';
 
-
-
 @Injectable({
   providedIn: 'root'
 })

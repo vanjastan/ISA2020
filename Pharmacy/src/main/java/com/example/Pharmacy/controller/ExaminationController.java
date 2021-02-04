@@ -1,5 +1,7 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.UserDTO;
+import com.example.Pharmacy.mappers.UserMapper;
 import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.User;
@@ -9,10 +11,13 @@ import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.ExaminationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -51,4 +56,37 @@ public class ExaminationController {
         return examinations;
     }
 
+    @RequestMapping(value="/scheduled/{patientId}", method = RequestMethod.GET)
+    public List<Examination> findScheduledForPatient(@PathVariable("patientId") Long patientId) {
+        List<Examination> patientExaminations = examinationService.findByPatientId(patientId);
+        List<Examination> examinations = new ArrayList<>();
+        for(Examination e: patientExaminations){
+            if(e.getPatient() != null) {
+                examinations.add(e);
+            }
+        }
+        return examinations;
+    }
+
+    @RequestMapping(value="/notScheduled/{patientId}", method = RequestMethod.GET)
+    public List<Examination> findNotScheduledExaminations(@PathVariable("patientId") Long patientId) {
+        List<Examination> patientExaminations = examinationService.findByPatientId(patientId);
+        List<Examination> examinations = new ArrayList<>();
+        for(Examination e: patientExaminations){
+            if(e.getPatient() == null) {
+                examinations.add(e);
+            }
+        }
+        return examinations;
+    }
+
+    @CrossOrigin()
+    @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Examination> unsubscribeExamination(@PathVariable("id") Long id){
+        Examination patientExamination = examinationService.findById(id);
+        patientExamination.setPatient(null);
+        patientExamination = examinationService.save(patientExamination);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

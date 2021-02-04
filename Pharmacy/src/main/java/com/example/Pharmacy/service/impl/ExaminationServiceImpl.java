@@ -1,8 +1,6 @@
 package com.example.Pharmacy.service.impl;
 
-import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
 import com.example.Pharmacy.service.ExaminationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +33,9 @@ public class ExaminationServiceImpl implements ExaminationService {
         return result;
     }
 
-    /*@Override
-    public List<Examination> getByPatientId(Long id) {
-        return examinationRepository.findByPatientId(id);
-    }*/
+    @Override
+    public Examination save(Examination e) {
+        return examinationRepository.save(e);
+    }
+
 }

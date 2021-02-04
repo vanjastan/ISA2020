@@ -15,11 +15,13 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   ExaminationList: Examinations[];
   ExaminationResults: Examinations[];
+  id:number;
   date: string;
   time: string;
   price: number;
   rate: string;
   search: string;
+  duration:string;
   ex:Examinations;
   exL: any=[]
   displayedColumns: string[] = ['date', 'time', 'price', 'rate', 'schedule'];
@@ -31,10 +33,12 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllExaminations();
+    this.id = this.ex.id;
     this.date = this.ex.date;
     this.time = this.ex.time;
     this.price = this.ex.price;
     this.rate = this.ex.rate;
+    this.duration = this.ex.duration;
   }
 
   ngAfterViewInit(): void{
@@ -68,10 +72,12 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   scheduleEx(){
     var val = {
+      id: this.exL.id,
       date: this.exL.date,
       time: this.exL.time,
       price: this.exL.price,
-      rate: this.exL.rate
+      rate: this.exL.rate,
+      duration: this.exL.duration
     }
     console.log(this.ex);
     this.service.schedule(val).subscribe(data => {

@@ -18,7 +18,7 @@ export class PrescriptionsComponent implements OnInit, AfterViewInit {
   status: string;
   patientId: number;
   search: string;
-  displayedColumns: string[] = ['date', 'status'];
+  displayedColumns: string[] = ['date_of_pub', 'status'];
   dataSource = new MatTableDataSource<Prescription>();
   @ViewChild(MatSort) sort: MatSort;
 
@@ -33,8 +33,7 @@ export class PrescriptionsComponent implements OnInit, AfterViewInit {
   }
 
   getPrescriptions(){
-    this.getPatientId();
-     this.pService.getPrescriptions(this.patientId).subscribe(data=>{
+     this.pService.getPrescriptions().subscribe(data=>{
       this.PrescriptionList = data;
       this.dataSource.data = data;
       console.log(data);
@@ -53,11 +52,5 @@ export class PrescriptionsComponent implements OnInit, AfterViewInit {
             this.dataSource.data = this.PrescriptionResults;
     }   
         this.dataSource.filter = value.trim().toLocaleLowerCase();
-    }
-
-    public getPatientId(){
-      this.pService.getPatient().subscribe(data =>{
-          this.patientId = data.id;
-      })
     }
 }
