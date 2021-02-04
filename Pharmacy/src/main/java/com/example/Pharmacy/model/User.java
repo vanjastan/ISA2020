@@ -69,17 +69,24 @@ public class User implements UserDetails, Serializable {
     @Column (name = "isAdmin")
     private boolean isAdmin;
 
-   /* @JsonIgnore
-    @ManyToOne( fetch = FetchType.EAGER)
-    @JoinColumn(name = "pharmacy_id")
-    private Pharmacies ph_admin;*/
-
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
+
+    @ManyToMany
+    @JoinTable(name = "pharmacy_dermatologist",
+            joinColumns = @JoinColumn(name = "dermatologist_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
+    private Set<Pharmacies> pharmaciesD = new HashSet<Pharmacies>();
+
+    @ManyToMany
+    @JoinTable(name = "pharmacy_pharmacists",
+            joinColumns = @JoinColumn(name = "pharmacist_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
+    private Set<Pharmacies> pharmaciesP = new HashSet<Pharmacies>();
+
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
@@ -100,6 +107,9 @@ public class User implements UserDetails, Serializable {
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
     private List<Meds> reservedMeds;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "adminPh", cascade = CascadeType.ALL)
+    private Pharmacies pharmacies;
 
     public User() {
 

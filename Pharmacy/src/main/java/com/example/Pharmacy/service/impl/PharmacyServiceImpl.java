@@ -29,4 +29,16 @@ public class PharmacyServiceImpl implements PharmacyService {
         Pharmacies ph = pharmacyRepository.findById(id).orElseGet(null);
         return ph;
     }
+
+    public Pharmacies findOne(Long id) {
+        return pharmacyRepository.findById(id).orElseGet(null);
+    }
+
+    public Pharmacies findOnee(Long id) {
+        return pharmacyRepository.findById(id).orElseGet(null);
+    }
+
+    public Pharmacies findOneee(Long id) {
+        return pharmacyRepository.findById(id).orElseGet(null);
+    }
 }
