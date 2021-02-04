@@ -6,6 +6,7 @@ import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ComplaintRepository;
 import com.example.Pharmacy.service.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 

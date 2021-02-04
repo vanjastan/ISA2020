@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -34,7 +36,7 @@ public class EPrescription {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "prescription", cascade = CascadeType.ALL)
-    private List<Meds> medsByEPrescription;
+    private Set<Meds> medsByEPrescription = new HashSet<Meds>();
 
     public Long getId() {
         return id;

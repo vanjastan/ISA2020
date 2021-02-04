@@ -13,7 +13,7 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
     constructor(private http: HttpClient) { 
     }
     
-    getAllMeds(): Observable<any> {
+    getAllMeds(): Observable<any>{
         return this.http.get(`http://localhost:8080/api/meds/all`);
       }
     

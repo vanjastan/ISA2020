@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ExaminationControllerTest{
+public class ExaminationControllerTest {
 
     private static final String URL_PREFIX = "/examinations";
 

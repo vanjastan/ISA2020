@@ -81,6 +81,7 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
 import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
 import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
+import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
 
 
 @NgModule({
@@ -139,7 +140,9 @@ import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist
 
    DermatologistComponent,
 
-   PharmacistComponent
+   PharmacistComponent,
+
+   ConfirmComponent
 
   ],
   entryComponents: [
@@ -149,7 +152,8 @@ import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist
     AddcomplaintComponent,
     AlergiesComponent,
     LoyaltyprogramComponent,
-    EditpassSupComponent
+    EditpassSupComponent,
+    ConfirmComponent
   ],
   imports: [
     AppRoutingModule,

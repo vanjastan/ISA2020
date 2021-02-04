@@ -60,4 +60,8 @@ import { User } from '../components/models/user';
     public getPharmacistt():Observable<any>{
       return this.http.get(`http://localhost:8080/pharmacies/2/pharmacist`);
     }
+
+    public getPatientSubscribedPharmacies(){
+
+    }
   }

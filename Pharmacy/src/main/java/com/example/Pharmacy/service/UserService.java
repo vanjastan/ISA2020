@@ -20,4 +20,5 @@ public interface UserService {
     User editUser(UserDTO user);
     void delete(Long id);
     void activateUser(Long id);
+    User findOne(Long id);
 }
