@@ -26,7 +26,7 @@ INSERT INTO `hospitals` (id, name, api) VALUES (1, 'Bolnica1', '12345');
 INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
 
 
-INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament');
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, patient_id) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', 3);
 
 INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments');
 INSERT INTO `pharmacies` (id, name, address, city, rate, description) VALUES (2,  'Jankovic', 'Preradoviceva 21a', 'Petrovaradin', 'Excellent', 'The cheapest pharmacy in town');

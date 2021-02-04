@@ -97,6 +97,10 @@ public class User implements UserDetails, Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
     private List<ExaminationPh> examinationsByPh;
 
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Meds> reservedMeds;
+
     public User() {
 
     }

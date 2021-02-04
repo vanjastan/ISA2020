@@ -53,4 +53,12 @@ public class Complaint {
     public void setContent(String content){
         this.content = content;
     }
+
+    public User getPatient() {
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
 }

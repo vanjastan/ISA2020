@@ -55,6 +55,10 @@ public class Meds {
     @Column(name = "notes")
     private String notes;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id")
+    private User patient;
+
     public Long getId() {
         return id;
     }
@@ -151,4 +155,11 @@ public class Meds {
         this.name = name;
     }
 
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
 }

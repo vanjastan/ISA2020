@@ -8,6 +8,7 @@ import com.example.Pharmacy.service.impl.ExaminationPhServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -28,19 +29,19 @@ public class ExaminationPhController {
     ExaminationPhServiceImpl phServiceImpl;
 
     @RequestMapping(value="", method = RequestMethod.GET)
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<ExaminationPh> loadAllExaminations() {
         return this.examinationPhRepository.findAll();
     }
 
     @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<ExaminationPh> findExamByPatientId(@PathVariable("id") Long id) {
         List<ExaminationPh> examinations = examinationPhService.findByPatientId(id);
         return examinations;
     }
 
     @RequestMapping(value="/scheduled/{patientId}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<ExaminationPh> findScheduledForPatient(@PathVariable("patientId") Long patientId) {
         List<ExaminationPh> patientExaminations = examinationPhService.findByPatientId(patientId);
         List<ExaminationPh> examinations = new ArrayList<>();
@@ -53,6 +54,7 @@ public class ExaminationPhController {
     }
 
     @RequestMapping(value="/notScheduled/{patientId}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<ExaminationPh> findNotScheduledExaminations(@PathVariable("patientId") Long patientId) {
         List<ExaminationPh> patientExaminations = examinationPhService.findByPatientId(patientId);
         List<ExaminationPh> examinations = new ArrayList<>();
@@ -65,6 +67,7 @@ public class ExaminationPhController {
     }
 
     @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<ExaminationPh> unsubscribeExamination(@PathVariable("id") Long id){
         ExaminationPh patientExamination = examinationPhService.findById(id);
         patientExamination.setPatient(null);

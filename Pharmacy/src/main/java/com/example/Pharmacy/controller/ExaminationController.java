@@ -1,10 +1,6 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.mappers.UserMapper;
-import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
 import com.example.Pharmacy.service.ExaminationService;
 import com.example.Pharmacy.service.UserService;
@@ -14,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
@@ -51,12 +48,14 @@ public class ExaminationController {
     }
 
     @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<Examination> findExaminationByPatientId(@PathVariable("id") Long id) {
         List<Examination> examinations = examinationService.findByPatientId(id);
         return examinations;
     }
 
     @RequestMapping(value="/scheduled/{patientId}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<Examination> findScheduledForPatient(@PathVariable("patientId") Long patientId) {
         List<Examination> patientExaminations = examinationService.findByPatientId(patientId);
         List<Examination> examinations = new ArrayList<>();
@@ -69,6 +68,7 @@ public class ExaminationController {
     }
 
     @RequestMapping(value="/notScheduled/{patientId}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<Examination> findNotScheduledExaminations(@PathVariable("patientId") Long patientId) {
         List<Examination> patientExaminations = examinationService.findByPatientId(patientId);
         List<Examination> examinations = new ArrayList<>();
@@ -82,6 +82,7 @@ public class ExaminationController {
 
     @CrossOrigin()
     @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<Examination> unsubscribeExamination(@PathVariable("id") Long id){
         Examination patientExamination = examinationService.findById(id);
         patientExamination.setPatient(null);

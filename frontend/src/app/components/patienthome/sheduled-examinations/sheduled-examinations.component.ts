@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './sheduled-examinations.component.html',
   styleUrls: ['./sheduled-examinations.component.css']
 })
-export class SheduledExaminationsComponent implements OnInit {
+export class SheduledExaminationsComponent implements OnInit, AfterViewInit {
 
   ExaminationList: Examinations[];
   ExaminationListResult: Examinations[];
@@ -98,7 +98,7 @@ export class SheduledExaminationsComponent implements OnInit {
       console.log(id);
       this.service.unscheduleExamination(id).subscribe(data => {
         console.log(data);
-        this.toastr.success('Successfully unscheduled!', '');
+        this.toastr.success('Successfully canceled!', '');
       }, 
       error => {
         console.log(error);
@@ -109,7 +109,7 @@ export class SheduledExaminationsComponent implements OnInit {
       console.log(id);
       this.service.unscheduleConsultation(id).subscribe(data => {
         console.log(data);
-        this.toastr.success('Successfully unscheduled!', '');
+        this.toastr.success('Successfully canceled!', '');
       }, 
       error => {
         console.log(error);

@@ -11,6 +11,7 @@ import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.ComplaintServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,12 +39,14 @@ public class ComplaintController {
     }
 
     @PostMapping("/addComplaint")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity addComplaint(@RequestBody ComplaintDTO dto) {
         complaintServiceImpl.addComplaint(dto);
         return ResponseEntity.ok().build();
     }
 
     @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<Complaint> findComplaintsByPatientId(@PathVariable("id") Long id) {
         List<Complaint> complaints = complaintService.findByPatientId(id);
         return complaints;
