@@ -15,9 +15,8 @@ export class ExaminationsComponent implements OnInit, AfterViewInit {
   date: string;
   duration: string;
   price: number;
-  scheduled: boolean;
   search: string;
-  displayedColumns = ['date', 'duration', 'price', 'scheduled'];
+  displayedColumns = ['date', 'duration', 'price'];
 
   dataSource = new MatTableDataSource<Examinations>();
   @ViewChild(MatSort) sort: MatSort;

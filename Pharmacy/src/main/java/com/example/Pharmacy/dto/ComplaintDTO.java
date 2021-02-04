@@ -1,19 +1,23 @@
 package com.example.Pharmacy.dto;
 
+import com.example.Pharmacy.model.User;
+
 public class ComplaintDTO {
 
     private Long id;
     private String date_of_complaint;
     private String content;
+    private User patient;
 
     public ComplaintDTO(){
 
     }
 
-    public ComplaintDTO(Long id, String date_of_complaint, String content) {
+    public ComplaintDTO(Long id, String date_of_complaint, String content, User patient) {
         this.id = id;
         this.date_of_complaint = date_of_complaint;
         this.content = content;
+        this.patient = patient;
     }
 
     public String getDate_of_complaint() {
@@ -38,5 +42,13 @@ public class ComplaintDTO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
     }
 }

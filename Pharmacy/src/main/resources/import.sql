@@ -28,6 +28,10 @@ INSERT INTO `user_authority` (user_id, authority_id) VALUES (7, 2);
 
 INSERT INTO `hospitals` (id, name, api) VALUES (1, 'Bolnica1', '12345');
 
+INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
+
+
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, patient_id, eprescription_id) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', 3, 1);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament');
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes) VALUES (2, 'Defrinol', 'Def', 'Antipireptik', 'Prehlada i malaksalost', 'Salicilat', '3 puta dnevno', 'Panadol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament');
 

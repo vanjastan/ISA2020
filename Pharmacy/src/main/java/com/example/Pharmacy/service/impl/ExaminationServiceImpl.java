@@ -37,5 +37,4 @@ public class ExaminationServiceImpl implements ExaminationService {
     public Examination save(Examination e) {
         return examinationRepository.save(e);
     }
-
 }

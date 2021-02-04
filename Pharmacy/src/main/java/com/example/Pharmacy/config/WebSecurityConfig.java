@@ -91,18 +91,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/medicament").permitAll()
 				.antMatchers("/pharmacies/**").permitAll()
 				.antMatchers("/examinations/unsubscribed/{id}").permitAll()
-				.antMatchers("/examinations/**").permitAll()
+				//.antMatchers("/examinations/**").permitAll()
+				.antMatchers("/api/meds/**").permitAll()
 				.antMatchers("/examinationsPh/**").permitAll()
 				.antMatchers("/prescriptions/**").permitAll()
 				.antMatchers("/api/users/{userId}").permitAll()
 				.antMatchers("/actions/**").permitAll()
-				.antMatchers("/complaints/**").permitAll()
+				//.antMatchers("/complaints/**").permitAll()
 				.antMatchers("/subscribed/**").permitAll()
 				.antMatchers("/**/dermatologist").permitAll()
 				.antMatchers("/{pharmacyId}/dermatologist").permitAll()
 				.antMatchers("/{pharmacyId}/meds").permitAll()
-
-
 
 
 				// All other requests must be authorized

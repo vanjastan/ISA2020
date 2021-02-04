@@ -1,11 +1,13 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,6 +31,10 @@ public class EPrescription {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "prescription", cascade = CascadeType.ALL)
+    private List<Meds> medsByEPrescription;
 
     public Long getId() {
         return id;

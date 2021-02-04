@@ -1,37 +1,36 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
-import java.io.IOException;
-
+import java.nio.charset.Charset;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class ExaminationControllerTest extends ApplicationTests {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ExaminationControllerTest{
+
+    private static final String URL_PREFIX = "/examinations";
+
+    private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
+            MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("UTF-8"));
 
     private MockMvc mvc;
 
     @Autowired
     private WebApplicationContext webApplicationContext;
-
-    private EmailServiceImpl emailService;
-
-    private JavaMailSender mailSender;
-
-    private MimeMessage mimeMessage;
 
     @Before
     public void setup() {
@@ -39,20 +38,30 @@ public class ExaminationControllerTest extends ApplicationTests {
     }
 
     @Test
-    public void loadAllExaminations() throws Exception {
+    public void testGetExamination() throws Exception {
 
-        mvc.perform(get("/examinations")).andExpect(status().isOk())
+        mvc.perform(get(URL_PREFIX)).andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].price").value(2000.0))
                 .andExpect(jsonPath("$[0].duration").value("1h"))
                 .andExpect(jsonPath("$[0].dateOfEx").value("11.11.2020."))
-                .andExpect(jsonPath("$[0].date").value("11.11.2020."));
+                .andExpect(jsonPath("$[0].rate").value("Excellent"))
+                .andExpect(jsonPath("$[0].time_exam").value("11:03"));
     }
 
-    @Test
-    public void sendNotification() throws MessagingException, IOException {
-
-    }
+   /* @Test
+    public void testGetExaminationByPatientId() throws Exception {
+        mvc.perform(get(URL_PREFIX + "/forPatient/" + ExaminationConstants.DB_REFERENCED_ID)).andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[0].price").value(2000.0))
+                .andExpect(jsonPath("$[0].duration").value("1h"))
+                .andExpect(jsonPath("$[0].dateOfEx").value("11.11.2020."))
+                .andExpect(jsonPath("$[0].rate").value("Excellent"))
+                .andExpect(jsonPath("$[0].time_exam").value("11:03"))
+                .andExpect(jsonPath("$[0].patient.id").value(hasItem(ExaminationConstants.DB_PATIENT_ID.intValue())));
+    }*/
 }

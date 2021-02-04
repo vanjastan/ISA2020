@@ -58,12 +58,20 @@ public class Meds {
     @Column(name = "notes")
     private String notes;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id")
+    private User patient;
+
+    //NECE DA DODA U BAZU BACI OKO!!!!!!!!!!!!!
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "eprescription_id")
+    private EPrescription prescription;
+
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
-
 
     public Long getId() {
         return id;
@@ -161,4 +169,19 @@ public class Meds {
         this.name = name;
     }
 
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
+
+    public EPrescription getPrescription(){
+        return prescription;
+    }
+
+    public void setPrescription(EPrescription prescription){
+        this.prescription = prescription;
+    }
 }
