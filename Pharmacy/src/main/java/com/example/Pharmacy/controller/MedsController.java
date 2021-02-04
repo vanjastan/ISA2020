@@ -54,4 +54,11 @@ public class MedsController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @RequestMapping(value="/prescription/{id}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public List<Meds> findMedsByPrescriptionId(@PathVariable("id") Long id) {
+        List<Meds> medsByPrescription = medsService.findByPrescriptionId(id);
+        return medsByPrescription;
+    }
 }

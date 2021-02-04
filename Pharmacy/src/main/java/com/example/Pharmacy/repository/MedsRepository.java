@@ -10,4 +10,5 @@ import java.util.List;
 public interface MedsRepository extends JpaRepository<Meds,Long> {
     Meds findByName(String name);
     List<Meds> findByPatientId(Long id);
+    List<Meds> findByPrescriptionId(Long id);
 }

@@ -44,6 +44,12 @@ public class MedsServiceImpl implements MedsService {
         return medsRepository.save(m);
     }
 
+    @Override
+    public List<Meds> findByPrescriptionId(Long id) {
+        List<Meds> result = medsRepository.findByPrescriptionId(id);
+        return result;
+    }
+
     public Meds addMeds(MedsDTO mdto) {
         Meds med = new Meds();
 

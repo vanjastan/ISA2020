@@ -10,4 +10,5 @@ public interface MedsService {
     Meds findByName(String name);
     Meds findById(Long id);
     Meds save(Meds m);
+    List<Meds> findByPrescriptionId(Long id);
 }

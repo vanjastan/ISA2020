@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -58,6 +56,11 @@ public class Meds {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
+
+    //NECE DA DODA U BAZU BACI OKO!!!!!!!!!!!!!
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "eprescription_id")
+    private EPrescription prescription;
 
     public Long getId() {
         return id;
@@ -161,5 +164,13 @@ public class Meds {
 
     public void setPatient(User patient){
         this.patient = patient;
+    }
+
+    public EPrescription getPrescription(){
+        return prescription;
+    }
+
+    public void setPrescription(EPrescription prescription){
+        this.prescription = prescription;
     }
 }
