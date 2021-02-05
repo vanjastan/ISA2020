@@ -1,19 +1,18 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.ComplaintDTO;
-import com.example.Pharmacy.dto.HospitalDTO;
 import com.example.Pharmacy.model.Complaint;
-import com.example.Pharmacy.model.EPrescription;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ComplaintRepository;
 import com.example.Pharmacy.service.ComplaintService;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.ComplaintServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -33,7 +32,7 @@ public class ComplaintController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value="", method = RequestMethod.GET)
+    @RequestMapping(value="/all", method = RequestMethod.GET)
     public List<Complaint> loadAllComplaints() {
         return this.complaintRepository.findAll();
     }

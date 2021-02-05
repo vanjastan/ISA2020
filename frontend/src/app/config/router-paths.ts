@@ -16,6 +16,7 @@ export const ADMIN_HOME_PATH = 'admin';
 export const ADMIN_REG_PATH = 'admin/adminreg';
 export const ADMIN_REG_DERM_PATH = 'admin/adminregderm';
 export const ADMIN_REG_ADMIN_PATH = 'admin/addadmin';
+export const ADMIN_COMPLAINTS = 'admin/complaintslist';
 
 //Pharmacy admin - AdminPH paths
 export const ADMINPH_HOME_PATH = 'adminph';

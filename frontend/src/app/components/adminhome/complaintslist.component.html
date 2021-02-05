@@ -1,0 +1,23 @@
+<div>
+    <form>
+        <h2 class="ui header" style="text-align:center">List of complaints</h2>
+                <table class="ui celled striped table">
+                    <colgroup>
+                        <col span="2" style="background-color:whitesmoke">
+                        <col style="background-color:whitesmoke">
+                    </colgroup>
+                    <thead>
+                        <th>Date</th>
+                        <th>Comment</th>
+                        <th>Answer</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let category of categories">
+                            <td>{{ category.date_of_complaint }}</td>
+                            <td>{{ category.content }}</td>
+                            <button mat-raised-button>Answer complaint</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+</div>

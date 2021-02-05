@@ -1,5 +1,6 @@
 package com.example.Pharmacy.dto;
 
+import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.User;
 
 public class ComplaintDTO {
@@ -50,5 +51,12 @@ public class ComplaintDTO {
 
     public void setPatient(User patient){
         this.patient = patient;
+    }
+
+    public ComplaintDTO(Complaint comp) {
+        this.id = comp.getId();
+        this.date_of_complaint = comp.getDate_of_complaint();
+        this.content = comp.getContent();
+        this.patient = comp.getPatient();
     }
 }

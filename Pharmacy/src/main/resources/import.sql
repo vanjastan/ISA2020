@@ -43,7 +43,7 @@ INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, ti
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (1, 2500, '1h', '08.12.2020.', 3);
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (2, 3000, '1h', '05.01.2021.', 5);
 
-INSERT INTO `oder_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
+INSERT INTO `order_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
 
 INSERT INTO `customer_order` (id, name, quantity) VALUES (2, 'Aspirin', 40);
 
