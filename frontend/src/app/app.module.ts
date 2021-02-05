@@ -21,6 +21,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -180,6 +181,7 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
     MatPaginatorModule,
     MatNativeDateModule,
     MatMomentDateModule,
+    MatTooltipModule,
     MatCardModule,
     MatCheckboxModule,
     ToastrModule.forRoot()

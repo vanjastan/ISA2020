@@ -19,6 +19,10 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
       return this.http.get(`http://localhost:8080/examinations/forPatient/${userId}`);
     }
 
+    public getFreeExaminations():Observable<any>{
+      return this.http.get(`http://localhost:8080/examinations/freeExaminations`);
+    }
+
     public getExaminationsPharm():Observable<any>{
       const userId = localStorage.getItem(USER_ID_KEY);
       return this.http.get(`http://localhost:8080/examinationsPh/forPatient/${userId}`);
