@@ -13,7 +13,7 @@ ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS, 
-PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, PATIENT_COMPLAINTS, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
+PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD, ADMIN_COMPLAINTS} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
@@ -35,7 +35,6 @@ import { ReservedMedsComponent } from './components/patienthome/reserved-meds/re
 import { PenalsComponent } from './components/patienthome/penals/penals.component';
 import { EMedsComponent } from './components/patienthome/e-meds/e-meds.component';
 import { SubscribedPharmaciesComponent } from './components/patienthome/subscribed-pharmacies/subscribed-pharmacies.component';
-import { ComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
@@ -43,7 +42,6 @@ import { PharmacyAdminPageComponent } from './components/pharmacy-admin-page/pha
 import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/pharmacy-profile.component';
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
-import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
 import { Header2Component } from './components/header2/header2.component';
 import { Header3Component } from './components/header3/header3.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
@@ -163,10 +161,6 @@ const routes: Routes = [
   {
     path: SUBSCRIBED_PHARMACIES,
     component: SubscribedPharmaciesComponent
-  },
-  {
-    path: PATIENT_COMPLAINTS,
-    component: ComplaintsComponent
   },
   {
     path: TAKE_MEDICINE,
