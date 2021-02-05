@@ -50,7 +50,7 @@ public class MedsController {
         return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
     @PostMapping("/add_meds")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity addMeds(@RequestBody MedsDTO mdto) {
         medsImpl.addMeds(mdto);
         return ResponseEntity.ok().build();

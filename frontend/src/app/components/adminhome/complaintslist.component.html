@@ -7,14 +7,14 @@
                         <col style="background-color:whitesmoke">
                     </colgroup>
                     <thead>
-                        <th>Date</th>
-                        <th>Comment</th>
+                        <th>Id</th>
+                        <th>Complaint</th>
                         <th>Answer</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let category of categories">
-                            <td>{{ category.date_of_complaint }}</td>
-                            <td>{{ category.content }}</td>
+                            <td>{{ category.complaintId }}</td>
+                            <td>{{ category.text }}</td>
                             <button mat-raised-button data-toggle="modal" data-target="#myModal">Answer complaint</button>
                         </tr>
                     </tbody>

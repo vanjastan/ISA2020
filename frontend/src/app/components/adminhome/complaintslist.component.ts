@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ComplaintService } from 'src/app/services/complaint.service';
-import { Complaints } from 'src/app/components/models/complaints';
 
 
 @Component({
