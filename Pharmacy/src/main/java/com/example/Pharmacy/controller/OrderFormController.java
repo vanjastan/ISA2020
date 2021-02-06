@@ -3,6 +3,7 @@ package com.example.Pharmacy.controller;
 import com.example.Pharmacy.dto.OrderFormDTO;
 import com.example.Pharmacy.model.OrderForm;
 import com.example.Pharmacy.repository.OrderFormRepository;
+import com.example.Pharmacy.service.impl.MedsServiceImpl;
 import com.example.Pharmacy.service.impl.OrderFormServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ public class OrderFormController {
     private OrderFormServiceImpl orderFormService;
 
     @Autowired
+    private MedsServiceImpl medsService;
+
+    @Autowired
     private OrderFormRepository orderFormRepository;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -27,7 +31,10 @@ public class OrderFormController {
     @PostMapping("/add")
     public ResponseEntity addOrderForm(@RequestBody OrderFormDTO dto) {
         orderFormService.addOrderForm(dto);
+        medsService.addMed(dto);
         return ResponseEntity.ok().build();
     }
+
+
 
 }
