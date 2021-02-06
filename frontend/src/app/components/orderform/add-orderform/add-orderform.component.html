@@ -1,0 +1,31 @@
+<div class="dialog" fxLayout="row" fxLayoutAlign="center center" >
+    <mat-card class="box">
+        <mat-card-header>
+          <mat-card-title>Add order form</mat-card-title>
+        </mat-card-header>
+        <hr/>
+            <form class="form" #formControl="ngForm" style="width: 600px; height: 350px;">
+                <mat-card-content>
+                <mat-form-field class="full-width">
+                  <mat-label>Medicament name</mat-label>
+                  <input matInput placeholder="name" name="name" required [(ngModel)]="orderform.medicament_name">
+                </mat-form-field>
+            </mat-card-content>
+            
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <mat-label>Quantity</mat-label>
+                    <textarea matInput placeholder="Enter quantity" name="quantity" required [(ngModel)]="orderform.quantity" ></textarea>
+                  </mat-form-field>
+                </mat-card-content>
+                <mat-card-content>
+                    <mat-form-field class="full-width">
+                      <mat-label>End date</mat-label>
+                      <input matInput placeholder="end date" name="end date" required [(ngModel)]="orderform.end_date">
+                    </mat-form-field>
+                </mat-card-content>
+                <button mat-raised-button [disabled]="!formControl.valid" (click)="saveOF()" style="background: rgb(179, 241, 220); margin-left: 10px; margin-top: 50px;">Save</button>
+                <button mat-raised-button (click)="cancelOF()" style="background: rgb(179, 241, 220); margin-left: 80px;">Cancel</button>
+            </form>
+    </mat-card>
+    </div>

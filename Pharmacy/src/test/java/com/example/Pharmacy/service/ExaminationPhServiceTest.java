@@ -46,7 +46,7 @@ public class ExaminationPhServiceTest {
         verify(examinationPhRepositoryMock, times(1)).findAll();
         verifyNoMoreInteractions(examinationPhRepositoryMock);
     }
-    
+
     @Test
     @Transactional
     public void saveExamination() {

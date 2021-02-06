@@ -1,9 +1,15 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.MedsDTO;
+import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.mappers.UserMapper;
+import com.example.Pharmacy.model.Complaint;
+import com.example.Pharmacy.model.Meds;
+import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
+import com.example.Pharmacy.service.MedsService;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +21,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 // Primer kontrolera cijim metodama mogu pristupiti samo autorizovani korisnici
 @RestController
@@ -24,6 +32,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private MedsService medsService;
 
 	private UserServiceImpl userImpl;
 
@@ -205,4 +216,19 @@ public class UserController {
 
 		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
 	}
+
+	@GetMapping(value = "/{dermatologistId}/pharmacy")
+	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForDermatologist(@PathVariable Long dermatologistId) {
+
+		User derm = userService.findOne(dermatologistId);
+
+		Set<Pharmacies> ph = derm.getPhDermatologist();
+		List<PharmaciesDTO> phDTO = new ArrayList<>();
+
+		for( Pharmacies c : ph) {
+			phDTO.add(new PharmaciesDTO(c));
+		}
+		return new ResponseEntity<>(phDTO, HttpStatus.OK);
+	}
+
 }

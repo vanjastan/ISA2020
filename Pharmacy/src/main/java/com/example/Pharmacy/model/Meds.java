@@ -82,6 +82,7 @@ public class Meds {
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
 
+
     public Long getId() {
         return id;
     }

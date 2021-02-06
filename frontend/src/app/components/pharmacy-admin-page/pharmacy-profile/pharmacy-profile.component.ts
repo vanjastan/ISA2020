@@ -11,20 +11,20 @@ import { PharmaciesService } from 'src/app/services/pharmacies.service';
 })
 export class PharmacyProfileComponent implements OnInit {
 
-  pharmacies: Pharmacies = new Pharmacies("", "", "", "", "");
+  //pharmacies: Pharmacies = new Pharmacies("", "", "", "", "");
 
   constructor(private pharmaciesService: PharmaciesService, private router: Router, public dialog: MatDialog,
     public dialogPass: MatDialog) { }
 
   ngOnInit(): void {
-    this.getPharmaciesInfo();
+    //this.getPharmaciesInfo();
   }
 
-  getPharmaciesInfo(){
-    this.pharmaciesService.getPharmacyInfo().subscribe(data => {
+ /* getPharmaciesInfo(){
+    this.pharmaciesService.getBenuInfo().subscribe(data => {
       this.pharmacies = data;
     }, error => {
       console.log("Error in getting pharmacies data!")
     });
-  }
+  }*/
 }

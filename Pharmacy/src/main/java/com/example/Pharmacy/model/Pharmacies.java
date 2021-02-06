@@ -1,14 +1,11 @@
 package com.example.Pharmacy.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,9 +29,6 @@ public class Pharmacies {
 
     @ManyToMany(mappedBy = "pharmaciesP")
     private Set<User> pharmacistPh = new HashSet<User>();
-
-    @ManyToMany(mappedBy = "pharmaciesMed")
-    private Set<Meds> medicamentPh = new HashSet<Meds>();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "dermatologist_id")
@@ -95,8 +89,6 @@ public class Pharmacies {
     }
 
     public Set<User> getPharmacistPh() { return pharmacistPh; }
-
-    public Set<Meds> getMedicamentPh() { return medicamentPh; }
 
     public String getAddress(){ return address; }
 
