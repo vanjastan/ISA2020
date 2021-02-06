@@ -31,6 +31,12 @@ public class ExaminationPh {
     @JoinColumn(name = "patient_id")
     private User patient;
 
+    public ExaminationPh(Long id, double price, String duration, String dateExamination) {
+        this.id = id;
+        this.price = price;
+        this.duration = duration;
+        this.dateExamination = dateExamination;
+    }
 
     public Long getId() {
         return id;
