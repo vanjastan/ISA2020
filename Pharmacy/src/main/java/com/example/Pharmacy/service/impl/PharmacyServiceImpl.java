@@ -1,5 +1,6 @@
 package com.example.Pharmacy.service.impl;
 
+import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.PharmacyRepository;
@@ -30,6 +31,11 @@ public class PharmacyServiceImpl implements PharmacyService {
         return ph;
     }
 
+    /*public List<Pharmacies> findByDermatologistId(Long id) {
+        List<Pharmacies> result = pharmacyRepository.findByDermId(id);
+        return result;
+    }*/
+
     public Pharmacies findOne(Long id) {
         return pharmacyRepository.findById(id).orElseGet(null);
     }
@@ -38,7 +44,9 @@ public class PharmacyServiceImpl implements PharmacyService {
         return pharmacyRepository.findById(id).orElseGet(null);
     }
 
-    public Pharmacies findOneee(Long id) {
-        return pharmacyRepository.findById(id).orElseGet(null);
+    @Override
+    public Pharmacies findOneee(Long pharmacyId) {
+        return null;
     }
+
 }

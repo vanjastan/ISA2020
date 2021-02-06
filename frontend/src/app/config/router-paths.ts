@@ -5,9 +5,11 @@ export const REGISTRATION_PATH = 'register';
 export const VERIFY_ACCOUNT = 'verify';
 export const HOSPITAL_REG = 'hospital';
 export const HEADER = 'mainpage';
-export const HEADER1 = 'mainpage1';
-export const HEADER2 = 'mainpage2';
+export const HEADER1 = 'adminph/mainpage1';
+export const HEADER2 = 'adminph/mainpage2';
 export const PHARMACY_HOMEPAGE = 'phhomepage';
+export const PHARMACY_PAGE = 'phpage';
+export const PHARMACY_INFO = 'adminph/phinfo';
 export const DERMATOLOGIST = "adminph/dermatologist";
 export const PHARMACIST = "adminph/pharmacist";
 
@@ -27,6 +29,8 @@ export const EDIT_ADMINPH_PROFILE = 'adminph/edit';
 export const CHANGE_ADMINPH_PASSWORD = 'adminph/changepassword';
 export const ACTIONS_AND_PROMOTIONS = 'adminph/action';
 export const ADD_ACTIONS_AND_PROMOTIONS = 'adminph/addAP';
+export const ADMINPH_ORDERFORM = 'adminph/orderform';
+export const ADMINPH_ADD_ORDERFORM = 'adminphp/addorderform';
 
 // User paths
 export const USER_HOME_PATH = 'user';

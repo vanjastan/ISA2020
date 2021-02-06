@@ -1,10 +1,14 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.MedicamentDTO;
+import com.example.Pharmacy.dto.OrderFormDTO;
 import com.example.Pharmacy.model.Medicament;
+import com.example.Pharmacy.model.OrderForm;
 import com.example.Pharmacy.repository.MedicamentRepository;
 import com.example.Pharmacy.service.MedicamentService;
 import com.example.Pharmacy.service.impl.MedicamentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +35,12 @@ public class MedicamentController {
     @GetMapping("/{name}")
     public Medicament loadByName(@PathVariable String name) {
         return this.medicamentService.findByName(name);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity addMedication (@RequestBody MedicamentDTO dto){
+        medicament.addMedicament(dto);
+        return  ResponseEntity.ok().build();
     }
 
 }

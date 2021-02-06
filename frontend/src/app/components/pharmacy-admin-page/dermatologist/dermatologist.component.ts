@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Dermatologist } from '../../models/dermatologist';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
+import { Pharmacies } from 'src/app/components/models/pharmacies';
 
 @Component({
   selector: 'app-dermatologist',
@@ -25,9 +26,11 @@ export class DermatologistComponent implements OnInit, AfterViewInit {
   city: string;
   country: string;
 
+
+
   search: string;
 
-  displayedColumns: string[] = ['name', 'surname'];
+  displayedColumns: string[] = ['name', 'surname', 'show'];
   dataSource = new MatTableDataSource<Dermatologist>();
   @ViewChild(MatSort) sort:MatSort;
 

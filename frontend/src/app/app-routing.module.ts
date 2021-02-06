@@ -6,8 +6,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE,
-DERMATOLOGIST, PHARMACIST,
+
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
+DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
 SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
@@ -15,7 +16,9 @@ PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS, 
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
-EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD, ADMIN_COMPLAINTS, PATIENT_COMPLAINTS} from './config/router-paths';
+EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
+// ADMIN_COMPLAINTS,
+  PATIENT_COMPLAINTS} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -51,8 +54,13 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
 import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
 import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
+import { PharmacyPageComponent } from './components/pharmacy-admin-page/pharmacy-page/pharmacy-page.component';
+import { PharmacysProfileComponent } from './components/pharmacy-admin-page/pharmacys-profile/pharmacys-profile.component';
+import { OrderformComponent } from 'src/app/components/orderform/orderform.component';
+import { AddOrderformComponent } from './components/orderform/add-orderform/add-orderform.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
-import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+
 
 const routes: Routes = [
   {
@@ -70,6 +78,14 @@ const routes: Routes = [
   {
     path: PHARMACY_HOMEPAGE,
     component: PharmacyProfilePageComponent
+  },
+  {
+    path: PHARMACY_PAGE,
+    component: PharmacyPageComponent
+  },
+  {
+    path: PHARMACY_INFO,
+    component: PharmacysProfileComponent
   },
   {
     path: HEADER1,
@@ -94,6 +110,14 @@ const routes: Routes = [
   {
     path: ADD_ACTIONS_AND_PROMOTIONS,
     component: AddActionsAndPromotionsComponent
+  },
+  {
+    path: ADMINPH_ORDERFORM,
+    component: OrderformComponent
+  },
+  {
+    path: ADMINPH_ADD_ORDERFORM,
+    component: AddOrderformComponent
   },
   {
     path: ADMIN_HOME_PATH,
@@ -207,14 +231,14 @@ const routes: Routes = [
     path: ADMINPH_PROFILEPAGE_PATH,
     component: PharmacyAdminProfileComponent
   },
-  {
+  /*{
     path: ADMIN_COMPLAINTS,
     component: ComplaintsListComponent
   },
   {
     path: PATIENT_COMPLAINTS,
     component: PatientComplaintsComponent
-  },
+  },*/
 ];
 
 @NgModule({

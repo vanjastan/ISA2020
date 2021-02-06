@@ -1,7 +1,9 @@
 package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.MedsDTO;
+import com.example.Pharmacy.dto.OrderFormDTO;
 import com.example.Pharmacy.model.Meds;
+import com.example.Pharmacy.model.OrderForm;
 import com.example.Pharmacy.repository.MedsRepository;
 import com.example.Pharmacy.service.MedsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,5 +76,19 @@ public class MedsServiceImpl implements MedsService {
 
         return med;
     }
+
+   /* public Meds addMed(OrderFormDTO dto){
+        Meds m = new Meds();
+        OrderForm of = new OrderForm();
+        OrderFormDTO odto = new OrderFormDTO();
+
+        if(of.getMedicamentName() != dto.getMeds_name().getName()){
+            m.setName(dto.getMeds_name().getName());
+            m = this.medsRepository.save(m);
+        }else{
+
+        }
+        return m;
+    }*/
 
 }

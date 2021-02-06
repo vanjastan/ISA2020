@@ -1,30 +1,39 @@
 package com.example.Pharmacy.dto;
 
+import com.example.Pharmacy.model.Meds;
+
 public class OrderFormDTO {
 
+    private Long id;
     private String medicament_name;
     private int quantity;
     private String end_date;
+
 
     public OrderFormDTO(){
 
     }
 
-    public OrderFormDTO(String medicament_name, int quantity, String end_date){
+    public OrderFormDTO(Long id, String medicament_name, int quantity, String end_date, Meds meds_name){
+        this.id = id;
         this.medicament_name = medicament_name;
         this.quantity = quantity;
         this.end_date = end_date;
     }
 
-    public String getMedicament_nameName(){
-        return medicament_name;
-    }
+    public Long getId() { return id; }
 
     public int getQuantity(){
         return quantity;
     }
 
-    public String getMedicament_name() { return  end_date;}
+    public String getMedicament_name() { return  medicament_name;}
+
+    public String getEnd_date() {return end_date;}
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setMedicament_name(String medicament_name){
         this.medicament_name = medicament_name;
