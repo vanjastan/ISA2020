@@ -35,6 +35,7 @@ INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) 
 INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 4);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', false, 3, true);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction) VALUES (2, 'Defrinol', 'Def', 'Antipireptik', 'Prehlada i malaksalost', 'Salicilat', '3 puta dnevno', 'Panadol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 5, false);
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction) VALUES (3, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 3, false);
 
 INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, medicine_id) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 4, 1);
 INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, medicine_id) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 5, 2);
@@ -47,6 +48,7 @@ INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, ti
 
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (1, 2500, '1h', '08.12.2020.', 3);
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (2, 3000, '1h', '05.01.2021.', 5);
+INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (3, 2000, '1h', '12.02.2021.', null);
 
 INSERT INTO `orderform` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
 

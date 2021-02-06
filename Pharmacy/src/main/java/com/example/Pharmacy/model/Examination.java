@@ -41,6 +41,15 @@ public class Examination {
     @JoinColumn(name = "patient_id")
     private User patient;
 
+    public Examination(Long id, double price, String duration, String dateOfEx, String rate, String time_exam){
+        this.id = id;
+        this.price = price;
+        this.time_exam = time_exam;
+        this.duration = duration;
+        this.dateOfEx = dateOfEx;
+        this.rate = rate;
+    }
+
     public Long getId() {
         return id;
     }

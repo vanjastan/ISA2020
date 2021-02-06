@@ -85,8 +85,9 @@ import { OrderformComponent } from 'src/app/components/orderform/orderform.compo
 import { AddOrderformComponent } from 'src/app/components/orderform/add-orderform/add-orderform.component';
 import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
+import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-consultations/pharmacies-free-derm/pharmacies-free-derm.component';
+import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 //import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
-
 
 @NgModule({
   declarations: [
@@ -154,6 +155,8 @@ import { ComplaintsListComponent } from './components/adminhome/complaintslist.c
 
    ConfirmComponent,
    ComplaintsListComponent,
+   PharmaciesFreeDermComponent,
+   AllpharmaciestComponent,
   // PatientComplaintsComponent,
   ],
   entryComponents: [
@@ -163,7 +166,8 @@ import { ComplaintsListComponent } from './components/adminhome/complaintslist.c
     LoyaltyprogramComponent,
     EditpassSupComponent,
     TakeMedicineComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    PharmaciesFreeDermComponent
   ],
   imports: [
     AppRoutingModule,
