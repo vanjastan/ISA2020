@@ -1,6 +1,5 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.ExaminationPh;
 import com.example.Pharmacy.repository.ExaminationPhRepository;
 import com.example.Pharmacy.service.ExaminationPhService;

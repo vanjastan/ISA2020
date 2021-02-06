@@ -1,44 +1,31 @@
-package com.example.Pharmacy.model;
+package com.example.Pharmacy.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.Pharmacy.model.Examination;
+import com.example.Pharmacy.model.User;
 
-import javax.persistence.*;
+public class ExaminationDTO {
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "examinations")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Examination {
-
-    @Id
-    @Column(name = "exam_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "price")
     private double price;
-
-    @Column(name = "duration")
     private String duration;
-
-    @Column(name = "date_examination")
     private String dateOfEx;
 
-    @Column(name = "rate")
+    public ExaminationDTO(){
+
+    }
+
+    public ExaminationDTO(Examination examination) {
+        id = examination.getId();
+        price = examination.getPrice();
+        duration = examination.getDuration();
+        dateOfEx = examination.getDate();
+        rate = examination.getRate();
+        time_exam = examination.getTime();
+        patient = examination.getPatient();
+    }
+
     private String rate;
-
-    @Column(name = "time_exam")
     private String time_exam;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "patient_id")
     private User patient;
 
     public Long getId() {

@@ -50,8 +50,16 @@ export class AlergiesComponent implements OnInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-    chooseMed(){
-      
+    chooseMed(id:number){
+      console.log(id);
+      this.service.addAllergy(id).subscribe(data => {
+        console.log(data);
+        this.toastr.success('Successfully added allergy!', '');
+        this.dialogRef.close();
+      }, 
+      error => {
+        console.log(error);
+      })
     }
 
     getAllMedicines(){
