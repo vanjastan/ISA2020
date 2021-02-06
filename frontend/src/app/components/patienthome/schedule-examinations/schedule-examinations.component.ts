@@ -33,12 +33,6 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllExaminations();
-    /*this.id = this.ex.id;
-    this.date = this.ex.date;
-    this.time = this.ex.time;
-    this.price = this.ex.price;
-    this.rate = this.ex.rate;
-    this.duration = this.ex.duration;*/
   }
 
   ngAfterViewInit(): void{
@@ -70,17 +64,8 @@ export class ScheduleExaminationsComponent implements OnInit, AfterViewInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-  scheduleEx(){
-    var val = {
-      id: this.exL.id,
-      date: this.exL.date,
-      time: this.exL.time,
-      price: this.exL.price,
-      rate: this.exL.rate,
-      duration: this.exL.duration
-    }
-    console.log(this.ex);
-    this.service.schedule(val).subscribe(data => {
+  scheduleEx(id:number){
+    this.service.schedule(id).subscribe(data => {
       this.exL = data;
       this.toastr.success('Successfully scheduled!', '');
     }, 

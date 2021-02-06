@@ -51,17 +51,13 @@ public class ExaminationController {
         return new ResponseEntity<>(examinationDTO, HttpStatus.OK);
     }
 
-   /* @RequestMapping(value="/schedule", method = RequestMethod.POST)
+    @RequestMapping(value="{patientId}/schedule/{id}", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public void sendNotification(Examination e) throws MessagingException {
-        serviceImpl.sendMessageWithAttachment("patientU45@gmail.com", "", e);
-    }*/
-//NE RADI PROVERI
-    @RequestMapping(value="/schedule/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Examination> scheduleExamination(@PathVariable("id") Long id, User user) throws MessagingException{
+    public ResponseEntity<Examination> scheduleExamination(@PathVariable("patientId") Long patientId, @PathVariable("id") Long id) throws MessagingException{
+
+        User user = userService.findById(patientId);
         Examination patientExamination = examinationService.findById(id);
         patientExamination.setPatient(user);
-        System.out.println(user);
         patientExamination = examinationService.save(patientExamination);
 
         try {
@@ -74,7 +70,7 @@ public class ExaminationController {
     }
 
     @GetMapping(value = "/freeExaminations")
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<ExaminationDTO>> getFreeExaminations() {
 
         List<Examination> examinations = examinationService.findAll();
@@ -123,9 +119,9 @@ public class ExaminationController {
     }
 
     @CrossOrigin()
-    @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
+    @RequestMapping(value="/cancel/{id}", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<Examination> unsubscribeExamination(@PathVariable("id") Long id){
+    public ResponseEntity<Examination> cancelExamination(@PathVariable("id") Long id){
         Examination patientExamination = examinationService.findById(id);
         patientExamination.setPatient(null);
         patientExamination = examinationService.save(patientExamination);

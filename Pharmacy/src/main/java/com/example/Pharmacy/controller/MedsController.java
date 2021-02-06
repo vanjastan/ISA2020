@@ -2,6 +2,7 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
+import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.Meds;
 import javax.mail.MessagingException;
 import com.example.Pharmacy.model.User;
@@ -66,16 +67,18 @@ public class MedsController {
         Set<Meds> reservedMeds = patient.getReservedMeds();
         List<MedsDTO> medsDTO = new ArrayList<>();
         for (Meds m : reservedMeds) {
-            MedsDTO medDTO = new MedsDTO();
-            medDTO.setId(m.getId());
-            medDTO.setAllergic(m.getAllergic());
-            medDTO.setName(m.getName());
-            medDTO.setType(m.getType());
-            medDTO.setShape(m.getShape());
-            medDTO.setIngredients(m.getIngredients());
-            medDTO.setPatient(new UserDTO(m.getPatient()));
+            if(m.isReserved() == true) {
+                MedsDTO medDTO = new MedsDTO();
+                medDTO.setId(m.getId());
+                medDTO.setAllergic(m.getAllergic());
+                medDTO.setName(m.getName());
+                medDTO.setType(m.getType());
+                medDTO.setShape(m.getShape());
+                medDTO.setIngredients(m.getIngredients());
+                medDTO.setPatient(new UserDTO(m.getPatient()));
 
-            medsDTO.add(medDTO);
+                medsDTO.add(medDTO);
+            }
         }
         return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
@@ -90,10 +93,15 @@ public class MedsController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value="/reserveMed", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public void sendNotification(Meds m) throws MessagingException {
-        serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", m);
+    @RequestMapping(value="/reserveMed/{id}", method = RequestMethod.POST)
+    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<Meds> reserveMedicine(@PathVariable("id") Long id) throws MessagingException {
+        Meds med = medsService.findById(id);
+        med.setReserved(true);
+        med.setPatient(med.getPatient());
+        med = medsService.save(med);
+        serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", med);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value="/addAllergy/{id}", method = RequestMethod.POST)

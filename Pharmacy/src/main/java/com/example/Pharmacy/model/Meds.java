@@ -58,6 +58,9 @@ public class Meds {
     @Column(name = "notes")
     private String notes;
 
+    @Column(name = "reserved")
+    private boolean reserved;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
@@ -65,7 +68,6 @@ public class Meds {
     @Column(name = "allergic_reaction")
     private boolean allergic;
 
-    //NECE DA DODA U BAZU BACI OKO!!!!!!!!!!!!!
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "p_id")
     private EPrescription prescription;
@@ -122,6 +124,14 @@ public class Meds {
 
     public String getDailydose() {
         return dailydose;
+    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
     }
 
     public void setDailydose(String dailydose) {

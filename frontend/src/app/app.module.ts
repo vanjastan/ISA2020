@@ -154,6 +154,7 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
     AlergiesComponent,
     LoyaltyprogramComponent,
     EditpassSupComponent,
+    TakeMedicineComponent,
     ConfirmComponent
   ],
   imports: [
