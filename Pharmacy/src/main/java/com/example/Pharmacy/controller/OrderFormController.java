@@ -31,10 +31,6 @@ public class OrderFormController {
     @PostMapping("/add")
     public ResponseEntity addOrderForm(@RequestBody OrderFormDTO dto) {
         orderFormService.addOrderForm(dto);
-        medsService.addMed(dto);
         return ResponseEntity.ok().build();
     }
-
-
-
 }

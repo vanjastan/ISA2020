@@ -27,9 +27,7 @@ public class OrderForm {
     @Column(name = "end_date")
     private String end_date;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name= "medicament_id")
-    private Meds meds;
+
 
     public int getId() {
         return id;

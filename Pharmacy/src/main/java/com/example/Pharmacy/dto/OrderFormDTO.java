@@ -8,7 +8,7 @@ public class OrderFormDTO {
     private String medicament_name;
     private int quantity;
     private String end_date;
-    private Meds meds_name;
+
 
     public OrderFormDTO(){
 
@@ -19,7 +19,6 @@ public class OrderFormDTO {
         this.medicament_name = medicament_name;
         this.quantity = quantity;
         this.end_date = end_date;
-        this.meds_name = meds_name;
     }
 
     public Long getId() { return id; }
@@ -35,10 +34,6 @@ public class OrderFormDTO {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Meds getMeds_name(){return  meds_name;}
-
-    public void setMeds_name(Meds meds_name){ this.meds_name = meds_name;}
 
     public void setMedicament_name(String medicament_name){
         this.medicament_name = medicament_name;

@@ -59,9 +59,6 @@ public class Meds {
     @Column(name = "notes")
     private String notes;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "meds", cascade = CascadeType.ALL)
-    private List<OrderForm> orderForm;
 
     public Long getId() {
         return id;

@@ -32,10 +32,4 @@ public class MedsController {
         return ResponseEntity.ok().build();
     }
 
-   /* @PostMapping("addByOrder")
-    @PreAuthorize("hasRole('ROLE_ADMINPH')")
-    public ResponseEntity addByOrder(@RequestBody MedsDTO dto){
-        medsImpl.addMed(dto);
-        return  ResponseEntity.ok().build();
-    }*/
 }

@@ -49,7 +49,7 @@ public class MedsServiceImpl implements MedsService {
         return med;
     }
 
-    public Meds addMed(OrderFormDTO dto){
+   /* public Meds addMed(OrderFormDTO dto){
         Meds m = new Meds();
         OrderForm of = new OrderForm();
         OrderFormDTO odto = new OrderFormDTO();
@@ -61,6 +61,6 @@ public class MedsServiceImpl implements MedsService {
 
         }
         return m;
-    }
+    }*/
 
 }
