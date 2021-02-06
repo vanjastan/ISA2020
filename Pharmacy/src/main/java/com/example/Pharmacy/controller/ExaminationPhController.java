@@ -76,9 +76,9 @@ public class ExaminationPhController {
         return examinations;
     }
 
-    @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<ExaminationPh> unsubscribeExamination(@PathVariable("id") Long id){
+    @RequestMapping(value="/cancel/{id}", method = RequestMethod.POST)
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<ExaminationPh> cancelExamination(@PathVariable("id") Long id){
         ExaminationPh patientExamination = examinationPhService.findById(id);
         patientExamination.setPatient(null);
         patientExamination = examinationPhService.save(patientExamination);

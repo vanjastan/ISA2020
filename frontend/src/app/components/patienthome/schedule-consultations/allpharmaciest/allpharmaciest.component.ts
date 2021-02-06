@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Pharmacist } from 'src/app/components/models/pharmacist';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ExaminationsService } from 'src/app/services/examinations.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-allpharmaciest',
@@ -17,7 +19,7 @@ export class AllpharmaciestComponent implements OnInit, AfterViewInit {
 
   dataSource = new MatTableDataSource<Pharmacist>();
   @ViewChild(MatSort) sort: MatSort;
-  constructor() { }
+  constructor(private service: ExaminationsService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +41,13 @@ export class AllpharmaciestComponent implements OnInit, AfterViewInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-    choose(){
-      
+    choose(id:number){
+      this.service.scheduleConsultation(id).subscribe(data => {
+        console.log(data);
+        this.toastr.success('Successfully scheduled!', '');
+      }, 
+      error => {
+        console.log(error);
+      })
     }
 }
