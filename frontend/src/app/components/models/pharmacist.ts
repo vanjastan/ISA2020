@@ -9,5 +9,6 @@ export class Pharmacist {
     public number: string,
     public city: string,
     public country: string,
+    public rate: string
     ){}
 }

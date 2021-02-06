@@ -54,4 +54,5 @@ export const SUBSCRIBED_PHARMACIES = 'patient/subscribedPharmacies';
 export const TAKE_MEDICINE = 'patient/takingMed';
 export const SCHEDULE_CONSULTATION = 'patient/schedulingConsulPh';
 export const SCHEDULE_EXAMINATION = 'patient/schedulingDer';
+export const FREE_PHARMACIEST = 'patient/schedulingConsulPh/choosePharmaciest';
 

@@ -12,7 +12,7 @@ SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
-PATIENT_PROFILE_EXAMINATIONS, 
+PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD, ADMIN_COMPLAINTS} from './config/router-paths';
@@ -52,6 +52,7 @@ import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page
 import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
+import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 
 const routes: Routes = [
   {
@@ -173,6 +174,10 @@ const routes: Routes = [
   {
     path: SCHEDULE_EXAMINATION,
     component: ScheduleExaminationsComponent
+  },
+  {
+    path: FREE_PHARMACIEST,
+    component: AllpharmaciestComponent
   },
   {
     path: ADMIN_REG_PATH,
