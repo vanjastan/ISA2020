@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,6 +39,9 @@ public class ExaminationServiceTest {
     @InjectMocks
     private ExaminationServiceImpl examinationService;
 
+    @Mock
+    private ExaminationService exService;
+
     @Test
     public void testFindAll() {
 
@@ -47,5 +51,17 @@ public class ExaminationServiceTest {
 
         verify(examinationRepositoryMock, times(1)).findAll();
         verifyNoMoreInteractions(examinationRepositoryMock);
+    }
+
+
+    @Test
+    @Transactional
+    public void saveExamination() {
+
+        when(examinationRepositoryMock.save(examinationMock)).thenReturn(examinationMock);
+
+        Examination savedExamination = examinationService.save(examinationMock);
+
+        assertThat(savedExamination, is(equalTo(examinationMock)));
     }
 }
