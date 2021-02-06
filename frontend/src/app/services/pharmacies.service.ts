@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Pharmacies } from '../components/models/pharmacies';
 import { USER_ID_KEY } from '../config/local-storage-keys';
 import { User } from '../components/models/user';
+import { Medicine } from '../components/models/medicine';
 
 
 @Injectable({
@@ -63,5 +64,9 @@ import { User } from '../components/models/user';
 
     public getPatientSubscribedPharmacies(){
 
+    }
+
+    public getPharmaciesByMedicineId(id: number):Observable<Pharmacies[]>{
+      return this.http.get<Pharmacies[]>(`http://localhost:8080/pharmacies/medicine/`+id);
     }
   }

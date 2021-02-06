@@ -4,11 +4,12 @@ import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.Meds;
-import com.example.Pharmacy.model.Pharmacies;
+import javax.mail.MessagingException;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.MedsRepository;
 import com.example.Pharmacy.service.MedsService;
 import com.example.Pharmacy.service.UserService;
+import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.MedsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,9 @@ public class MedsController {
 
     @Autowired
     private MedsService medsService;
+
+    @Autowired
+    private EmailServiceImpl serviceImpl;
 
     @Autowired
     private MedsRepository medsRepo;
@@ -63,15 +67,18 @@ public class MedsController {
         Set<Meds> reservedMeds = patient.getReservedMeds();
         List<MedsDTO> medsDTO = new ArrayList<>();
         for (Meds m : reservedMeds) {
-            MedsDTO medDTO = new MedsDTO();
-            medDTO.setId(m.getId());
-            medDTO.setName(m.getName());
-            medDTO.setType(m.getType());
-            medDTO.setShape(m.getShape());
-            medDTO.setIngredients(m.getIngredients());
-            medDTO.setPatient(new UserDTO(m.getPatient()));
+            if(m.isReserved() == true) {
+                MedsDTO medDTO = new MedsDTO();
+                medDTO.setId(m.getId());
+                medDTO.setAllergic(m.getAllergic());
+                medDTO.setName(m.getName());
+                medDTO.setType(m.getType());
+                medDTO.setShape(m.getShape());
+                medDTO.setIngredients(m.getIngredients());
+                medDTO.setPatient(new UserDTO(m.getPatient()));
 
-            medsDTO.add(medDTO);
+                medsDTO.add(medDTO);
+            }
         }
         return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
@@ -81,6 +88,27 @@ public class MedsController {
     public ResponseEntity<Meds> cancelMed(@PathVariable("id") Long id){
         Meds med = medsService.findById(id);
         med.setPatient(null);
+        med = medsService.save(med);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/reserveMed/{id}", method = RequestMethod.POST)
+    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<Meds> reserveMedicine(@PathVariable("id") Long id) throws MessagingException {
+        Meds med = medsService.findById(id);
+        med.setReserved(true);
+        med.setPatient(med.getPatient());
+        med = medsService.save(med);
+        serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", med);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/addAllergy/{id}", method = RequestMethod.POST)
+    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<Meds> addAllergy(@PathVariable("id") Long id){
+        Meds med = medsService.findById(id);
+        med.setAllergic(true);
         med = medsService.save(med);
 
         return new ResponseEntity<>(HttpStatus.OK);

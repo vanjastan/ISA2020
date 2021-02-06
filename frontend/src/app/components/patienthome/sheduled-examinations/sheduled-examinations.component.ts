@@ -5,6 +5,7 @@ import { Examinations } from '../../models/examination';
 import { ExaminationsPharmaciest } from '../../models/examinationPharm';
 import { MatSort } from '@angular/material/sort';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-sheduled-examinations',
@@ -24,6 +25,8 @@ export class SheduledExaminationsComponent implements OnInit, AfterViewInit {
   durationPh:string;
   pricePh: number;
   search: string;
+  dateExa = new Date();
+  today = moment(this.dateExa).format('DD.MM.YYYY');
   displayedColumns: string[] = ['date', 'duration', 'price', 'unschedule'];
 
   displayedColumnsPh: string[] = ['datePh', 'durationPh', 'pricePh', 'unschedule'];
@@ -114,5 +117,23 @@ export class SheduledExaminationsComponent implements OnInit, AfterViewInit {
       error => {
         console.log(error);
       })
+    }
+
+    checkDate(date:string){
+      let day = date.split('.')[0];
+      let month = date.split('.')[1];
+      let year = date.split('.')[2];
+      date = month + '.' + day + '.' + year;
+
+      let scheduled = new Date(date);
+
+      let scheduleDates = moment(scheduled).format('DD.MM.YYYY');
+      let scheduleDay = parseInt(scheduleDates.split('.')[0]);
+  
+      let todaysDate = parseInt(this.today.split('.')[0]);
+      if((scheduleDay) - (this.dateExa.getDate()) == 1){
+        return true;
+      }
+      return false;
     }
 }

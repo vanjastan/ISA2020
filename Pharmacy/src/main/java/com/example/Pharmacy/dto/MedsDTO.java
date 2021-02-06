@@ -20,6 +20,7 @@ public class MedsDTO {
     private String manufacturer;
     private String issuing;
     private String notes;
+    private boolean allergic;
 
     private UserDTO patient;
 
@@ -40,6 +41,7 @@ public class MedsDTO {
         this.manufacturer = meds.getManufacturer();
         this.issuing = meds.getIssuing();
         this.notes = meds.getNotes();
+        this.allergic = meds.getAllergic();
     }
 
     public Long getId() {
@@ -146,4 +148,11 @@ public class MedsDTO {
         this.patient = patient;
     }
 
+    public boolean getAllergic(){
+        return allergic;
+    }
+
+    public void setAllergic(boolean allergic) {
+        this.allergic = allergic;
+    }
 }

@@ -21,6 +21,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -148,6 +149,7 @@ import { PatientComplaintsComponent } from './components/patienthome/complaints/
     AlergiesComponent,
     LoyaltyprogramComponent,
     EditpassSupComponent,
+    TakeMedicineComponent,
     ConfirmComponent
   ],
   imports: [
@@ -175,6 +177,7 @@ import { PatientComplaintsComponent } from './components/patienthome/complaints/
     MatPaginatorModule,
     MatNativeDateModule,
     MatMomentDateModule,
+    MatTooltipModule,
     MatCardModule,
     MatCheckboxModule,
     ToastrModule.forRoot()
