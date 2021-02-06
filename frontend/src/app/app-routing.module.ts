@@ -6,8 +6,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE,
-DERMATOLOGIST, PHARMACIST,
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
+DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
 //SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
@@ -53,6 +53,10 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
 import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
 import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
+import { PharmacyPageComponent } from './components/pharmacy-admin-page/pharmacy-page/pharmacy-page.component';
+import { PharmacysProfileComponent } from './components/pharmacy-admin-page/pharmacys-profile/pharmacys-profile.component';
+import { OrderformComponent } from 'src/app/components/orderform/orderform.component';
+import { AddOrderformComponent } from './components/orderform/add-orderform/add-orderform.component';
 
 const routes: Routes = [
   {
@@ -70,6 +74,14 @@ const routes: Routes = [
   {
     path: PHARMACY_HOMEPAGE,
     component: PharmacyProfilePageComponent
+  },
+  {
+    path: PHARMACY_PAGE,
+    component: PharmacyPageComponent
+  },
+  {
+    path: PHARMACY_INFO,
+    component: PharmacysProfileComponent
   },
   {
     path: HEADER1,
@@ -94,6 +106,14 @@ const routes: Routes = [
   {
     path: ADD_ACTIONS_AND_PROMOTIONS,
     component: AddActionsAndPromotionsComponent
+  },
+  {
+    path: ADMINPH_ORDERFORM,
+    component: OrderformComponent
+  },
+  {
+    path: ADMINPH_ADD_ORDERFORM,
+    component: AddOrderformComponent
   },
   {
     path: ADMIN_HOME_PATH,

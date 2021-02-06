@@ -81,7 +81,10 @@ import { AddActionsAndPromotionsComponent } from './components/pharmacy-admin-pa
 import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page/pharmacy-profile-page.component';
 import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
-
+import { PharmacyPageComponent } from './components/pharmacy-admin-page/pharmacy-page/pharmacy-page.component';
+import { PharmacysProfileComponent } from './components/pharmacy-admin-page/pharmacys-profile/pharmacys-profile.component';
+import { OrderformComponent } from 'src/app/components/orderform/orderform.component';
+import { AddOrderformComponent } from 'src/app/components/orderform/add-orderform/add-orderform.component';
 
 @NgModule({
   declarations: [
@@ -139,7 +142,16 @@ import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist
 
    DermatologistComponent,
 
-   PharmacistComponent
+   PharmacistComponent,
+
+   PharmacyPageComponent,
+
+   PharmacysProfileComponent,
+
+   OrderformComponent,
+
+   AddOrderformComponent,
+
 
   ],
   entryComponents: [

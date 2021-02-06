@@ -5,13 +5,12 @@ import { Pharmacies } from 'src/app/components/models/pharmacies';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
 
 @Component({
-  selector: 'app-pharmacy-profile',
-  templateUrl: './pharmacy-profile.component.html',
-  styleUrls: ['./pharmacy-profile.component.css']
+  selector: 'app-pharmacys-profile',
+  templateUrl: './pharmacys-profile.component.html',
+  styleUrls: ['./pharmacys-profile.component.css']
 })
-export class PharmacyProfileComponent implements OnInit {
+export class PharmacysProfileComponent implements OnInit {
 
-  //pharmacies: Pharmacies = new Pharmacies("", "", "", "", "");
 
   constructor(private pharmaciesService: PharmaciesService, private router: Router, public dialog: MatDialog,
     public dialogPass: MatDialog) { }
@@ -21,7 +20,7 @@ export class PharmacyProfileComponent implements OnInit {
   }
 
  /* getPharmaciesInfo(){
-    this.pharmaciesService.getBenuInfo().subscribe(data => {
+    this.pharmaciesService.getBenu2Info().subscribe(data => {
       this.pharmacies = data;
     }, error => {
       console.log("Error in getting pharmacies data!")

@@ -31,7 +31,7 @@ public class PharmacyController {
     public List<Pharmacies> loadAllPh() {return this.pharmacyRepository.findAll();}
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ResponseEntity<PharmaciesDTO> getPharmacy(@PathVariable Long id){
+    public ResponseEntity<PharmaciesDTO> getPharmacy(@PathVariable("id") Long id){
 
         Pharmacies p = pharmacyService.findOne(id);
 
@@ -71,7 +71,7 @@ public class PharmacyController {
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{pharmacyId}/meds")
+   /* @GetMapping(value = "/{pharmacyId}/meds")
     public ResponseEntity<List<MedsDTO>> getPharmacyMeds(@PathVariable Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOneee(pharmacyId);
@@ -84,4 +84,10 @@ public class PharmacyController {
         }
         return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
+
+   /* @RequestMapping(value="/forDermatologist/{id}", method = RequestMethod.GET)
+    public List<Pharmacies> findPhByDermatologistId(@PathVariable("id") Long id) {
+        List<Pharmacies> ph = pharmacyService.findByDermtologistId(id);
+        return ph;
+    }*/
 }

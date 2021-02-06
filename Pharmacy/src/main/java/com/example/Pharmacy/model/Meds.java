@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Meds {
     private Long id;
 
     @Column(name = "name")
-    private String name;
+  private String name;
 
     @Column(name = "code")
     private String code;
@@ -58,12 +59,9 @@ public class Meds {
     @Column(name = "notes")
     private String notes;
 
-    @ManyToMany
-    @JoinTable(name = "pharmacy_meds",
-            joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
-    private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
-
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "meds", cascade = CascadeType.ALL)
+    private List<OrderForm> orderForm;
 
     public Long getId() {
         return id;

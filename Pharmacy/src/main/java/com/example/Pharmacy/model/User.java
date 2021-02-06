@@ -278,4 +278,8 @@ public class User implements UserDetails, Serializable {
         this.roleType = roleType;
         this.isAdmin = isAdmin;
     }
+
+    public Set<Pharmacies> getPhDermatologist() {
+        return pharmaciesD;
+    }
 }
