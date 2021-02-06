@@ -80,6 +80,7 @@ import { DermatologistComponent } from './components/pharmacy-admin-page/dermato
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
 import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
+import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 
 
 @NgModule({
@@ -139,7 +140,7 @@ import { ComplaintsListComponent } from './components/adminhome/complaintslist.c
 
    ConfirmComponent,
    ComplaintsListComponent,
-
+   PatientComplaintsComponent,
   ],
   entryComponents: [
     EditprofileComponent,
