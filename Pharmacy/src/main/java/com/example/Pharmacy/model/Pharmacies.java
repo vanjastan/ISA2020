@@ -30,10 +30,13 @@ public class Pharmacies {
     @ManyToMany(mappedBy = "pharmaciesP")
     private Set<User> pharmacistPh = new HashSet<User>();
 
-
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "dermatologist_id")
     private User dermatologist;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "medicine_id")
+    private Meds medicine;
 
     @Column(name = "name")
     private String name;
@@ -103,5 +106,11 @@ public class Pharmacies {
 
     public void setDescription(String description){ this.description = description; }
 
+    public Meds getMedicine() {
+        return medicine;
+    }
 
+    public void setMedicine(Meds medicine) {
+        this.medicine = medicine;
+    }
 }

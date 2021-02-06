@@ -21,6 +21,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -57,7 +58,6 @@ import { ReservedMedsComponent } from './components/patienthome/reserved-meds/re
 import { PenalsComponent } from './components/patienthome/penals/penals.component';
 import { EMedsComponent } from './components/patienthome/e-meds/e-meds.component';
 import { SubscribedPharmaciesComponent } from './components/patienthome/subscribed-pharmacies/subscribed-pharmacies.component';
-import { ComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
@@ -66,8 +66,6 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
-import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
-import { AddcomplaintComponent } from './components/patienthome/complaints/addcomplaint/addcomplaint.component';
 import { AlergiesComponent } from './components/patientprofile/alergies/alergies.component';
 import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprogram/loyaltyprogram.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
@@ -85,6 +83,10 @@ import { PharmacyPageComponent } from './components/pharmacy-admin-page/pharmacy
 import { PharmacysProfileComponent } from './components/pharmacy-admin-page/pharmacys-profile/pharmacys-profile.component';
 import { OrderformComponent } from 'src/app/components/orderform/orderform.component';
 import { AddOrderformComponent } from 'src/app/components/orderform/add-orderform/add-orderform.component';
+import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
+import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
+//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+
 
 @NgModule({
   declarations: [
@@ -114,7 +116,6 @@ import { AddOrderformComponent } from 'src/app/components/orderform/add-orderfor
     PenalsComponent,
     EMedsComponent,
     SubscribedPharmaciesComponent,
-    ComplaintsComponent,
     TakeMedicineComponent,
     ScheduleConsultationsComponent,
     ScheduleExaminationsComponent,
@@ -123,8 +124,6 @@ import { AddOrderformComponent } from 'src/app/components/orderform/add-orderfor
     MedicationListComponent,
     PharmacyAdminProfileComponent,
     EditPharmacyAdminComponent,
-    ShowcomplaintsComponent,
-    AddcomplaintComponent,
     AlergiesComponent,
     LoyaltyprogramComponent,
    // EditPharmacyProfileComponent,
@@ -153,15 +152,18 @@ import { AddOrderformComponent } from 'src/app/components/orderform/add-orderfor
    AddOrderformComponent,
 
 
+   ConfirmComponent,
+   ComplaintsListComponent,
+  // PatientComplaintsComponent,
   ],
   entryComponents: [
     EditprofileComponent,
     EditpassComponent,
-    ShowcomplaintsComponent,
-    AddcomplaintComponent,
     AlergiesComponent,
     LoyaltyprogramComponent,
-    EditpassSupComponent
+    EditpassSupComponent,
+    TakeMedicineComponent,
+    ConfirmComponent
   ],
   imports: [
     AppRoutingModule,
@@ -188,6 +190,7 @@ import { AddOrderformComponent } from 'src/app/components/orderform/add-orderfor
     MatPaginatorModule,
     MatNativeDateModule,
     MatMomentDateModule,
+    MatTooltipModule,
     MatCardModule,
     MatCheckboxModule,
     ToastrModule.forRoot()

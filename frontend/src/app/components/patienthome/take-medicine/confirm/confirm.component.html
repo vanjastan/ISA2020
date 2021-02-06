@@ -1,0 +1,29 @@
+<div class="dialog" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <form class="form" #formControl="ngForm">
+            <mat-card-content>
+                <p style="color: rgb(153, 152, 152);">Choose date for taking medicine:</p>
+                <mat-form-field class="full-width">
+                    <input [(ngModel)]="date" matInput placeholder="Date"
+                        [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <mat-label>Pharmacy</mat-label>
+                   <!-- <mat-select [(value)]="selectedPharmacy">
+                       <mat-option *ngFor="let ph of pharmacy" [value]="ph">{{ph.name}}
+                        </mat-option>
+                    </mat-select>--> 
+                   <select matNativeControl required>
+                        <option value="benu">Benu</option>
+                        <option value="jankovic">Jankovic</option>
+                      </select>
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-raised-button (click)="submit()"
+                [disabled]="!formControl.valid">Reserve</button>
+            <button mat-button (click)="cancel()">Cancel</button>
+        </form>
+    </mat-card>
+</div>

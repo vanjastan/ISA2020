@@ -1,6 +1,7 @@
 export class Complaints{
     constructor(
-        public date_of_complaint: string,
-        public content: string
+        public text: string,
+        public complaintId: number,
+        public patientId: number
         ){}
 }

@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
 public class MedsDTO {
 
     private Long id;
@@ -22,20 +20,30 @@ public class MedsDTO {
     private String manufacturer;
     private String issuing;
     private String notes;
+    private boolean allergic;
+
+    private UserDTO patient;
+
+    public MedsDTO(){
+
+    }
 
     public MedsDTO(Meds meds) {
-        id = meds.getId();
-        name = meds.getName();
-        code = meds.getCode();
-        type = meds.getType();
-        contradictions = meds.getContradictions();
-        ingredients = meds.getIngredients();
-        dailydose = meds.getDailydose();
-        replacement = meds.getReplacement();
-        shape = meds.getShape();
-        manufacturer = meds.getManufacturer();
-        issuing = meds.getIssuing();
-        notes = meds.getNotes();
+
+        this.id = meds.getId();
+        this.name = meds.getName();
+        this.code = meds.getCode();
+        this.type = meds.getType();
+        this.contradictions = meds.getContradictions();
+        this.ingredients = meds.getIngredients();
+        this.dailydose = meds.getDailydose();
+        this.replacement = meds.getReplacement();
+        this.shape = meds.getShape();
+        this.manufacturer = meds.getManufacturer();
+        this.issuing = meds.getIssuing();
+        this.notes = meds.getNotes();
+        this.allergic = meds.getAllergic();
+
     }
 
     public Long getId() {
@@ -134,4 +142,19 @@ public class MedsDTO {
         this.notes = notes;
     }
 
+    public UserDTO getPatient() {
+        return patient;
+    }
+
+    public void setPatient(UserDTO patient) {
+        this.patient = patient;
+    }
+
+    public boolean getAllergic(){
+        return allergic;
+    }
+
+    public void setAllergic(boolean allergic) {
+        this.allergic = allergic;
+    }
 }

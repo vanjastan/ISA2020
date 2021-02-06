@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Complaint {
     @Column(name = "content")
     private String content;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
@@ -52,5 +54,13 @@ public class Complaint {
 
     public void setContent(String content){
         this.content = content;
+    }
+
+    public User getPatient() {
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
     }
 }

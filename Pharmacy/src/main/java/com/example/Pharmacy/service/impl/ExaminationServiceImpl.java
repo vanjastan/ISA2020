@@ -1,6 +1,8 @@
 package com.example.Pharmacy.service.impl;
 
+import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.model.Examination;
+import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
 import com.example.Pharmacy.service.ExaminationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,6 @@ public class ExaminationServiceImpl implements ExaminationService {
         return result;
     }
 
-    @Override
     public Examination findById(Long id) throws AccessDeniedException {
         Examination e = examinationRepository.findById(id).orElseGet(null);
         return e;
@@ -37,5 +38,13 @@ public class ExaminationServiceImpl implements ExaminationService {
     public Examination save(Examination e) {
         return examinationRepository.save(e);
     }
+
+    /*public Examination addExamination(ExaminationDTO eDTO){
+        Examination examination = new Examination();
+        examination.setPatient(eDTO.getPatient());
+        examination = this.examinationRepository.save(examination);
+
+        return examination;
+    }*/
 
 }

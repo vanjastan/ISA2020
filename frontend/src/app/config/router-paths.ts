@@ -18,6 +18,7 @@ export const ADMIN_HOME_PATH = 'admin';
 export const ADMIN_REG_PATH = 'admin/adminreg';
 export const ADMIN_REG_DERM_PATH = 'admin/adminregderm';
 export const ADMIN_REG_ADMIN_PATH = 'admin/addadmin';
+export const ADMIN_COMPLAINTS = 'admin/complaintslist';
 
 //Pharmacy admin - AdminPH paths
 export const ADMINPH_HOME_PATH = 'adminph';
@@ -54,8 +55,7 @@ export const RESERVED_MEDS = 'patient/reservedMed';
 export const PATIENT_PENALS = 'patient/penals';
 export const PATIENT_E_MEDICINES = 'patient/eMedicines';
 export const SUBSCRIBED_PHARMACIES = 'patient/subscribedPharmacies';
-export const PATIENT_COMPLAINTS = 'patient/complaints';
 export const TAKE_MEDICINE = 'patient/takingMed';
 export const SCHEDULE_CONSULTATION = 'patient/schedulingConsulPh';
 export const SCHEDULE_EXAMINATION = 'patient/schedulingDer';
-
+export const PATIENT_COMPLAINTS = 'patient/complaints';

@@ -24,10 +24,38 @@ public class MedsServiceImpl implements MedsService {
         return result;
     }
 
+    @Override
+    public List<Meds> findByPatientId(Long id) {
+        List<Meds> result = medsRepository.findByPatientId(id);
+        return result;
+    }
+
     public Meds findByName(String name) throws UsernameNotFoundException {
         Meds m = medsRepository.findByName(name);
         return m;
     }
+
+    @Override
+    public Meds findById(Long id) throws AccessDeniedException {
+        Meds m = medsRepository.findById(id).orElseGet(null);
+        return m;
+    }
+
+    @Override
+    public Meds save(Meds m) {
+        return medsRepository.save(m);
+    }
+
+    @Override
+    public Meds findOne(Long id) {
+        return medsRepository.findById(id).orElseGet(null);
+    }
+
+   /* @Override
+    public List<Meds> findByPrescriptionId(Long id) {
+        List<Meds> result = medsRepository.findByPrescriptionId(id);
+        return result;
+    }*/
 
     public Meds addMeds(MedsDTO mdto) {
         Meds med = new Meds();

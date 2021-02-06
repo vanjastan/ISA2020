@@ -9,7 +9,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,7 +26,7 @@ public class Meds {
     private Long id;
 
     @Column(name = "name")
-  private String name;
+    private String name;
 
     @Column(name = "code")
     private String code;
@@ -58,6 +57,30 @@ public class Meds {
 
     @Column(name = "notes")
     private String notes;
+
+    @Column(name = "reserved")
+    private boolean reserved;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient_id")
+    private User patient;
+
+    @Column(name = "allergic_reaction")
+    private boolean allergic;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "p_id")
+    private EPrescription prescription;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
+    private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
+
+    @ManyToMany
+    @JoinTable(name = "pharmacy_meds",
+            joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
+    private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
 
 
     public Long getId() {
@@ -104,6 +127,14 @@ public class Meds {
         return dailydose;
     }
 
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     public void setDailydose(String dailydose) {
         this.dailydose = dailydose;
     }
@@ -148,6 +179,14 @@ public class Meds {
         this.notes = notes;
     }
 
+    public Set<Pharmacies> getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(Set<Pharmacies> pharmacies) {
+        this.pharmacies = pharmacies;
+    }
+
     public String getName() {
         return name;
     }
@@ -156,4 +195,19 @@ public class Meds {
         this.name = name;
     }
 
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
+
+    public boolean getAllergic(){
+        return allergic;
+    }
+
+    public void setAllergic(boolean allergic){
+        this.allergic = allergic;
+    }
 }
