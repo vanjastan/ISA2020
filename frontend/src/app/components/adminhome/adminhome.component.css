@@ -1,23 +1,31 @@
-.btn-group button {
-    background-color: #4CAF50; /* Green background */
-    border: 1px solid green; /* Green border */
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    width: 50%; /* Set a width if needed */
-    display: block; /* Make the buttons appear below each other */
-  }
-  
-  .btn-group button:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
-  }
-  
-  /* Add a background color on hover */
-  .btn-group button:hover {
-    background-color: #3e8e41;
-  }
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color:white !important;
+}
 
-  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color:  #BEF2DB !important;
-    width: 20em;
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color:  #BEF2DB !important;
+  width: 20em;
+}
+
+.container {
+height: 200px;
+position: relative;
+left: 50em;
+top: 5em;
+}
+
+.vertical-center {
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+}
+
+.pozadina {
+  height:60em;
+  background-size:cover;
+  width:auto;
+  background-position:50% 50%;
+  background-image:url('src\assets\img\pozadina1.jpg');
 }
