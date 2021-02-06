@@ -91,9 +91,6 @@ public class User implements UserDetails, Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
     private List<EPrescription> prescriptions;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Complaint> complaints;
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
@@ -109,6 +106,9 @@ public class User implements UserDetails, Serializable {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "adminPh", cascade = CascadeType.ALL)
     private Pharmacies pharmacies;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Complaints> complaints;
 
     public User() {
 

@@ -44,7 +44,7 @@ INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, ti
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (1, 2500, '1h', '08.12.2020.', 3);
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (2, 3000, '1h', '05.01.2021.', 5);
 
-INSERT INTO `oder_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
+INSERT INTO `order_form` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
 
 INSERT INTO `customer_order` (id, name, quantity) VALUES (2, 'Aspirin', 40);
 
@@ -59,6 +59,7 @@ INSERT INTO `actions_and_promotions` (name, end_date) VALUES ( "Akcija na sve 5%
 INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) VALUES (1, '12-01-2021.', 'Doctor Milan was very impolite.', 3);
 INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) VALUES (2, '03-11-2020.', 'Doctor Jovana was not paying attention to me at all.', 5);
 
+INSERT INTO `complaintss` (id, text, user_id, answered) VALUES (1, 'Dermatologist was wery impolite', 8, false);
 
 INSERT INTO `pricelist` (id,price, from_date, to_date) VALUES (1,  120, '15.09.2020.', '28.11.2021.');
 

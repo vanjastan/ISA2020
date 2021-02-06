@@ -21,4 +21,12 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
       return this.http.post(`http://localhost:8080/complaints/addComplaint`, val);
     }
 
+    public getAllComplaints(): Observable<any>{
+      return this.http.get(`http://localhost:8080/complaintss/all`);
+    }
+
+    sendAnswer(comp :Complaints): Observable<any> {
+      return this.http.put(`http://localhost:8080/complaintss/answer`, comp);
+    }
+
   }

@@ -58,7 +58,6 @@ import { ReservedMedsComponent } from './components/patienthome/reserved-meds/re
 import { PenalsComponent } from './components/patienthome/penals/penals.component';
 import { EMedsComponent } from './components/patienthome/e-meds/e-meds.component';
 import { SubscribedPharmaciesComponent } from './components/patienthome/subscribed-pharmacies/subscribed-pharmacies.component';
-import { ComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { TakeMedicineComponent } from './components/patienthome/take-medicine/take-medicine.component';
 import { ScheduleConsultationsComponent } from './components/patienthome/schedule-consultations/schedule-consultations.component';
 import { ScheduleExaminationsComponent } from './components/patienthome/schedule-examinations/schedule-examinations.component';
@@ -67,8 +66,6 @@ import { PharmacyProfileComponent } from './components/pharmacy-admin-page/pharm
 import { MedicationListComponent } from './components/pharmacy-admin-page/medication-list/medication-list.component';
 import { PharmacyAdminProfileComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/pharmacy-admin-profile.component';
 import { EditPharmacyAdminComponent } from './components/pharmacy-admin-page/pharmacy-admin-profile/edit-pharmacy-admin/edit-pharmacy-admin.component';
-import { ShowcomplaintsComponent } from './components/patienthome/complaints/showcomplaints/showcomplaints.component';
-import { AddcomplaintComponent } from './components/patienthome/complaints/addcomplaint/addcomplaint.component';
 import { AlergiesComponent } from './components/patientprofile/alergies/alergies.component';
 import { LoyaltyprogramComponent } from './components/patientprofile/loyaltyprogram/loyaltyprogram.component';
 //import { EditPharmacyProfileComponent } from './components/pharmacy-admin-page/pharmacy-profile/edit-pharmacy-profile/edit-pharmacy-profile.component';
@@ -83,6 +80,7 @@ import { PharmacyProfilePageComponent } from './components/pharmacy-profile-page
 import { DermatologistComponent } from './components/pharmacy-admin-page/dermatologist/dermatologist.component';
 import { PharmacistComponent } from './components/pharmacy-admin-page/pharmacist/pharmacist.component';
 import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
+import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 
 
 @NgModule({
@@ -113,7 +111,6 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
     PenalsComponent,
     EMedsComponent,
     SubscribedPharmaciesComponent,
-    ComplaintsComponent,
     TakeMedicineComponent,
     ScheduleConsultationsComponent,
     ScheduleExaminationsComponent,
@@ -122,8 +119,6 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
     MedicationListComponent,
     PharmacyAdminProfileComponent,
     EditPharmacyAdminComponent,
-    ShowcomplaintsComponent,
-    AddcomplaintComponent,
     AlergiesComponent,
     LoyaltyprogramComponent,
    // EditPharmacyProfileComponent,
@@ -143,14 +138,13 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
 
    PharmacistComponent,
 
-   ConfirmComponent
+   ConfirmComponent,
+   ComplaintsListComponent,
 
   ],
   entryComponents: [
     EditprofileComponent,
     EditpassComponent,
-    ShowcomplaintsComponent,
-    AddcomplaintComponent,
     AlergiesComponent,
     LoyaltyprogramComponent,
     EditpassSupComponent,

@@ -1,5 +1,6 @@
 package com.example.Pharmacy.repository;
 
+import com.example.Pharmacy.model.Patient;
 import com.example.Pharmacy.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -10,5 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User,Long> {
     User findByEmail(String email);
     User findByUsername(String username);
+
+    User findOneById(Long patientId);
 }
 
