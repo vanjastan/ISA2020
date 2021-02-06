@@ -28,8 +28,8 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
       return this.http.get(`http://localhost:8080/examinationsPh/forPatient/${userId}`);
     }
 
-    schedule(val:Examinations):Observable<any>{
-      return this.http.post(`http://localhost:8080/examinations/reserve`, val);
+    public schedule(val:Examinations):Observable<any>{
+      return this.http.post(`http://localhost:8080/examinations/schedule`, val);
     }
 
     public getScheduledEx():Observable<any>{

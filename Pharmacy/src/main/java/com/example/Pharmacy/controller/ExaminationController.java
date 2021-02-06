@@ -2,6 +2,7 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.model.Examination;
+import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
 import com.example.Pharmacy.service.ExaminationService;
 import com.example.Pharmacy.service.UserService;
@@ -50,14 +51,30 @@ public class ExaminationController {
         return new ResponseEntity<>(examinationDTO, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/reserve", method = RequestMethod.POST)
+   /* @RequestMapping(value="/schedule", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
     public void sendNotification(Examination e) throws MessagingException {
         serviceImpl.sendMessageWithAttachment("patientU45@gmail.com", "", e);
+    }*/
+//NE RADI PROVERI
+    @RequestMapping(value="/schedule/{id}", method = RequestMethod.POST)
+    public ResponseEntity<Examination> scheduleExamination(@PathVariable("id") Long id, User user) throws MessagingException{
+        Examination patientExamination = examinationService.findById(id);
+        patientExamination.setPatient(user);
+        System.out.println(user);
+        patientExamination = examinationService.save(patientExamination);
+
+        try {
+            serviceImpl.sendMessageWithAttachment("patientU45@gmail.com", "", patientExamination);
+        } catch (Exception e){
+            System.out.print("Message service does not work!");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping(value = "/freeExaminations")
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<ExaminationDTO>> getFreeExaminations() {
 
         List<Examination> examinations = examinationService.findAll();

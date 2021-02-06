@@ -2,13 +2,13 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.Meds;
-import com.example.Pharmacy.model.Pharmacies;
+import javax.mail.MessagingException;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.MedsRepository;
 import com.example.Pharmacy.service.MedsService;
 import com.example.Pharmacy.service.UserService;
+import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.MedsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +30,9 @@ public class MedsController {
 
     @Autowired
     private MedsService medsService;
+
+    @Autowired
+    private EmailServiceImpl serviceImpl;
 
     @Autowired
     private MedsRepository medsRepo;
@@ -65,6 +68,7 @@ public class MedsController {
         for (Meds m : reservedMeds) {
             MedsDTO medDTO = new MedsDTO();
             medDTO.setId(m.getId());
+            medDTO.setAllergic(m.getAllergic());
             medDTO.setName(m.getName());
             medDTO.setType(m.getType());
             medDTO.setShape(m.getShape());
@@ -81,6 +85,22 @@ public class MedsController {
     public ResponseEntity<Meds> cancelMed(@PathVariable("id") Long id){
         Meds med = medsService.findById(id);
         med.setPatient(null);
+        med = medsService.save(med);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/reserveMed", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public void sendNotification(Meds m) throws MessagingException {
+        serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", m);
+    }
+
+    @RequestMapping(value="/addAllergy/{id}", method = RequestMethod.POST)
+    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<Meds> addAllergy(@PathVariable("id") Long id){
+        Meds med = medsService.findById(id);
+        med.setAllergic(true);
         med = medsService.save(med);
 
         return new ResponseEntity<>(HttpStatus.OK);

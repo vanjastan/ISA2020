@@ -1,7 +1,9 @@
 package com.example.Pharmacy.service.impl;
 
+import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.dto.SubscribedDTO;
 import com.example.Pharmacy.model.Examination;
+import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Subscribed;
 import com.example.Pharmacy.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,20 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(message);
     }
 
+    public void sendMessageForReservedMed(String to, String pathToAttachment, Meds m) throws MessagingException {
+
+        String text = "You have successfully reserved medicine!" +
+                "Medicine name: " + m.getName();
+        MimeMessage message = emailSender.createMimeMessage();
+
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setTo("patientU45@gmail.com");
+        helper.setSubject("Reserved examination");
+        helper.setText(text);
+
+        emailSender.send(message);
+    }
 
     @Async
     public void sendActionsNotifications (Subscribed s) throws MessagingException{

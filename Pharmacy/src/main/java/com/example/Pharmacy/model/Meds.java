@@ -63,6 +63,9 @@ public class Meds {
     @JoinColumn(name = "patient_id")
     private User patient;
 
+    @Column(name = "allergic_reaction")
+    private boolean allergic;
+
     //NECE DA DODA U BAZU BACI OKO!!!!!!!!!!!!!
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "p_id")
@@ -190,11 +193,11 @@ public class Meds {
         this.patient = patient;
     }
 
-    /*public EPrescription getPrescription(){
-        return prescription;
+    public boolean getAllergic(){
+        return allergic;
     }
 
-    public void setPrescription(EPrescription prescription){
-        this.prescription = prescription;
-    }*/
+    public void setAllergic(boolean allergic){
+        this.allergic = allergic;
+    }
 }

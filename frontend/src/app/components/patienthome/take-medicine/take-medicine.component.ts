@@ -61,7 +61,7 @@ export class TakeMedicineComponent implements OnInit, AfterViewInit {
 
   reserve(){
     let dialogRef = this.dialog.open(ConfirmComponent, {
-      width: '1060px',
+      width: '800px',
       data: { }
     });
     dialogRef.afterClosed().subscribe(result => {
