@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Examinations } from '../components/models/examination';
 import { USER_ID_KEY } from '../config/local-storage-keys';
 
 @Injectable({
@@ -28,8 +27,9 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
       return this.http.get(`http://localhost:8080/examinationsPh/forPatient/${userId}`);
     }
 
-    public schedule(val:Examinations):Observable<any>{
-      return this.http.post(`http://localhost:8080/examinations/schedule`, val);
+    public schedule(id:number):Observable<any>{
+      const userId = localStorage.getItem(USER_ID_KEY);
+      return this.http.post(`http://localhost:8080/examinations/${userId}/schedule/` +id, {});
     }
 
     public getScheduledEx():Observable<any>{
@@ -43,7 +43,7 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
     }
 
     public unscheduleExamination(id:number){
-      return this.http.post(`http://localhost:8080/examinations/unsubscribe/`+ id, {});
+      return this.http.post(`http://localhost:8080/examinations/cancel/`+ id, {});
     }
 
     public unscheduleConsultation(id:number){
