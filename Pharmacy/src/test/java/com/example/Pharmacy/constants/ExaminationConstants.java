@@ -10,7 +10,7 @@ public class ExaminationConstants {
 
     public static final String DB_DATE_EXAMINATION = "11.11.2020.";
     public static final String DB_DURATION = "1h";
-    public static final String DB_PRICE = "2000";
+    public static final double DB_PRICE = 2000;
     public static final String DB_RATE = "Excellent";
     public static final String DB_TIME_EXAM = "11:03";
     public static final Long DB_ID = 1L;

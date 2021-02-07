@@ -32,6 +32,11 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
       return this.http.post(`http://localhost:8080/examinations/${userId}/schedule/` +id, {});
     }
 
+    public scheduleConsultation(id:number):Observable<any>{
+      const userId = localStorage.getItem(USER_ID_KEY);
+      return this.http.post(`http://localhost:8080/examinationsPh/${userId}/scheduleConsultation/` +id, {});
+    }
+
     public getScheduledEx():Observable<any>{
       const userId = localStorage.getItem(USER_ID_KEY);
       return this.http.get(`http://localhost:8080/examinations/scheduled/${userId}`);
@@ -47,6 +52,6 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
     }
 
     public unscheduleConsultation(id:number){
-      return this.http.post(`http://localhost:8080/examinationsPh/unsubscribe/`+ id, {});
+      return this.http.post(`http://localhost:8080/examinationsPh/cancel/`+ id, {});
     }
   }

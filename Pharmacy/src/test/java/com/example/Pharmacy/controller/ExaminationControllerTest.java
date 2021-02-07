@@ -50,18 +50,4 @@ public class ExaminationControllerTest {
                 .andExpect(jsonPath("$[0].rate").value("Excellent"))
                 .andExpect(jsonPath("$[0].time_exam").value("11:03"));
     }
-
-   /* @Test
-    public void testGetExaminationByPatientId() throws Exception {
-        mvc.perform(get(URL_PREFIX + "/forPatient/" + ExaminationConstants.DB_REFERENCED_ID)).andExpect(status().isOk())
-                .andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].price").value(2000.0))
-                .andExpect(jsonPath("$[0].duration").value("1h"))
-                .andExpect(jsonPath("$[0].dateOfEx").value("11.11.2020."))
-                .andExpect(jsonPath("$[0].rate").value("Excellent"))
-                .andExpect(jsonPath("$[0].time_exam").value("11:03"))
-                .andExpect(jsonPath("$[0].patient.id").value(hasItem(ExaminationConstants.DB_PATIENT_ID.intValue())));
-    }*/
 }

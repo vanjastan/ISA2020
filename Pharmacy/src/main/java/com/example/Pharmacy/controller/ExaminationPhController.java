@@ -1,5 +1,8 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.ExaminationDTO;
+import com.example.Pharmacy.dto.ExaminationPhDTO;
+import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.ExaminationPh;
 import com.example.Pharmacy.repository.ExaminationPhRepository;
 import com.example.Pharmacy.service.ExaminationPhService;
@@ -27,9 +30,17 @@ public class ExaminationPhController {
     @Autowired
     ExaminationPhServiceImpl phServiceImpl;
 
-    @RequestMapping(value="", method = RequestMethod.GET)
-    public List<ExaminationPh> loadAllExaminations() {
-        return this.examinationPhRepository.findAll();
+    @GetMapping(value = "/allConsultations")
+    public ResponseEntity<List<ExaminationPhDTO>> getAllConsultations() {
+
+        List<ExaminationPh> consultations = examinationPhService.findAll();
+
+        List<ExaminationPhDTO> examinationPhDTO = new ArrayList<>();
+        for (ExaminationPh e : consultations) {
+            examinationPhDTO.add(new ExaminationPhDTO(e));
+        }
+
+        return new ResponseEntity<>(examinationPhDTO, HttpStatus.OK);
     }
 
     @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
@@ -65,13 +76,29 @@ public class ExaminationPhController {
         return examinations;
     }
 
-    @RequestMapping(value="/unsubscribe/{id}", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<ExaminationPh> unsubscribeExamination(@PathVariable("id") Long id){
+    @RequestMapping(value="/cancel/{id}", method = RequestMethod.POST)
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<ExaminationPh> cancelExamination(@PathVariable("id") Long id){
         ExaminationPh patientExamination = examinationPhService.findById(id);
         patientExamination.setPatient(null);
         patientExamination = examinationPhService.save(patientExamination);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/freeConsultations")
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<List<ExaminationPhDTO>> getFreeConsultations() {
+
+        List<ExaminationPh> consultations = examinationPhService.findAll();
+
+        List<ExaminationPhDTO> freeConsultations = new ArrayList<>();
+        for (ExaminationPh e : consultations) {
+            if(e.getPatient() == null) {
+                freeConsultations.add(new ExaminationPhDTO(e));
+            }
+        }
+
+        return new ResponseEntity<>(freeConsultations, HttpStatus.OK);
     }
 }

@@ -39,6 +39,11 @@ public class ExaminationServiceImpl implements ExaminationService {
         return examinationRepository.save(e);
     }
 
+    @Override
+    public Examination findOne(Long id) {
+        return null;
+    }
+
     /*public Examination addExamination(ExaminationDTO eDTO){
         Examination examination = new Examination();
         examination.setPatient(eDTO.getPatient());
