@@ -68,6 +68,9 @@ public class Meds {
     @Column(name = "allergic_reaction")
     private boolean allergic;
 
+    @Column(name = "grade")
+    private Double grade;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "p_id")
     private EPrescription prescription;
@@ -82,6 +85,13 @@ public class Meds {
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
 
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
+    }
 
     public Long getId() {
         return id;

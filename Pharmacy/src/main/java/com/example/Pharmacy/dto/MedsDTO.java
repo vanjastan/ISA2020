@@ -21,6 +21,7 @@ public class MedsDTO {
     private String issuing;
     private String notes;
     private boolean allergic;
+    private Double grade;
 
     private UserDTO patient;
 
@@ -43,7 +44,7 @@ public class MedsDTO {
         this.issuing = meds.getIssuing();
         this.notes = meds.getNotes();
         this.allergic = meds.getAllergic();
-
+        this.grade = meds.getGrade();
     }
 
     public Long getId() {
@@ -156,5 +157,13 @@ public class MedsDTO {
 
     public void setAllergic(boolean allergic) {
         this.allergic = allergic;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
     }
 }

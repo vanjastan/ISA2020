@@ -18,7 +18,7 @@ PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULE
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
  ADMIN_COMPLAINTS,
-  PATIENT_COMPLAINTS} from './config/router-paths';
+  PATIENT_COMPLAINTS, MEDICAMENTS_PATH} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -61,6 +61,7 @@ import { AddOrderformComponent } from './components/orderform/add-orderform/add-
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 
 const routes: Routes = [
   {
@@ -242,6 +243,10 @@ const routes: Routes = [
   {
     path: PATIENT_COMPLAINTS,
     component: PatientComplaintsComponent
+  },
+  {
+    path: MEDICAMENTS_PATH,
+    component: MedicamentsComponent
   },
 ];
 
