@@ -87,7 +87,7 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-consultations/pharmacies-free-derm/pharmacies-free-derm.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
-//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 
 @NgModule({
   declarations: [
@@ -132,32 +132,22 @@ import { AllpharmaciestComponent } from './components/patienthome/schedule-consu
     Header2Component,
     Header3Component,
     EditpassSupComponent,
-   ChangeAdminphPasswordComponent,
-   ActionsAndPromotionsComponent,
-   AddActionsAndPromotionsComponent,
-
-   ChangeAdminphPasswordComponent,
-
-   PharmacyProfilePageComponent,
-
-   DermatologistComponent,
-
-   PharmacistComponent,
-
-   PharmacyPageComponent,
-
-   PharmacysProfileComponent,
-
-   OrderformComponent,
-
-   AddOrderformComponent,
-
-
-   ConfirmComponent,
-   ComplaintsListComponent,
-   PharmaciesFreeDermComponent,
-   AllpharmaciestComponent,
-  // PatientComplaintsComponent,
+    ChangeAdminphPasswordComponent,
+    ActionsAndPromotionsComponent,
+    AddActionsAndPromotionsComponent,
+    ChangeAdminphPasswordComponent,
+    PharmacyProfilePageComponent,
+    DermatologistComponent,
+    PharmacistComponent,
+    PharmacyPageComponent,
+    PharmacysProfileComponent,
+    OrderformComponent,
+    AddOrderformComponent,
+    ConfirmComponent,
+    ComplaintsListComponent,
+    PharmaciesFreeDermComponent,
+    AllpharmaciestComponent,
+    PatientComplaintsComponent,
   ],
   entryComponents: [
     EditprofileComponent,

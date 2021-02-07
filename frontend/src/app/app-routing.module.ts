@@ -17,7 +17,7 @@ PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
-// ADMIN_COMPLAINTS,
+ ADMIN_COMPLAINTS,
   PATIENT_COMPLAINTS} from './config/router-paths';
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
@@ -60,7 +60,7 @@ import { OrderformComponent } from 'src/app/components/orderform/orderform.compo
 import { AddOrderformComponent } from './components/orderform/add-orderform/add-orderform.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
-//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 
 const routes: Routes = [
   {
@@ -235,14 +235,14 @@ const routes: Routes = [
     path: ADMINPH_PROFILEPAGE_PATH,
     component: PharmacyAdminProfileComponent
   },
-  /*{
+  {
     path: ADMIN_COMPLAINTS,
     component: ComplaintsListComponent
   },
   {
     path: PATIENT_COMPLAINTS,
     component: PatientComplaintsComponent
-  },*/
+  }
 ];
 
 @NgModule({
