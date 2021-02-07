@@ -97,4 +97,25 @@ public class EmailServiceImpl implements EmailService {
 
         emailSender.send(mess);
     }
+
+    @Override
+    public void approveRegistrationMail(User patient) {
+        String to = patient.getEmail();
+        System.out.println(to);
+        String subject = "Your registration has been approved.";
+        Context context = new Context();
+        context.setVariable("name", String.format("%s %s", patient.getName(), patient.getSurname()));
+        context.setVariable("link", String.format("http://localhost:4200/frontpage/login/%s", patient.getId()));
+        _emailContext.send(to, subject, "approvedRegistration", context);
+    }
+
+    @Override
+    public void denyRegistrationMail(User patient) {
+        String to = patient.getEmail();
+        System.out.println(to);
+        String subject = "Your registration has been denied.";
+        Context context = new Context();
+        context.setVariable("name", String.format("%s %s", patient.getName(), patient.getSurname()));
+        _emailContext.send(to, subject, "deniedRegistration", context);
+    }
 }

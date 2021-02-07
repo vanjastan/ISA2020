@@ -42,6 +42,7 @@ export const SUPPLIER_TENDER = 'supplier/suppliertender';
 
 // Medicaments
 export const MEDICAMENTS_LIST_PATH = 'admin/medicamentslist';
+export const MEDICAMENTS_PATH = 'medicaments';
 
 //patient
 export const PATIENT_HOME_PATH = 'patient';

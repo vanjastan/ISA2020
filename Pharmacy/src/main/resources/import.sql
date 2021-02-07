@@ -32,13 +32,12 @@ INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, p_id) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', false, 3, true, null);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, p_id) VALUES (2, 'Defrinol', 'Def', 'Antipireptik', 'Prehlada i malaksalost', 'Salicilat', '3 puta dnevno', 'Panadol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 5, false, null);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, p_id) VALUES (3, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 3, false, null);
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', false, 3, true,5);
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade) VALUES (2, 'Defrinol', 'Def', 'Antipireptik', 'Prehlada i malaksalost', 'Salicilat', '3 puta dnevno', 'Panadol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 5, false, 4.5);
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade) VALUES (3, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 3, false, 4);
 
-
---INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 5);
---INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 4);
 INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, medicine_id) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 4, 1);
 INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, medicine_id) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 5, 2);
-
 
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (1, 2000, '1h', '11.11.2020.', 'Excellent', '11:03', 3);
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (2, 5000, '2h', '11.02.2021.', 'Not bad', '12:00', 5);
@@ -56,7 +55,6 @@ INSERT INTO `customer_order` (id, name, quantity) VALUES (2, 'Aspirin', 40);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (1, '05.01.2021.', 'NEW', 3);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (2, '12.12.2020.', 'REJECTED', 5);
 INSERT INTO `prescription` (prescription_id, date_of_pub, status, patient_id) VALUES (3, '10.11.2020.', 'PROCESSED', 5);
-
 
 INSERT INTO `actions_and_promotions` (name, end_date) VALUES ( "Brufen na akciji 20%", '05.04.2021.');
 INSERT INTO `actions_and_promotions` (name, end_date) VALUES ( "Akcija na sve 5%", '15.04.2021.');
