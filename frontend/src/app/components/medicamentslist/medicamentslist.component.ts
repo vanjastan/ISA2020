@@ -9,7 +9,7 @@ import { Meds } from './meds';
 })
 export class MedicamentsListComponent implements OnInit {
 
-  meds = new Meds(null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+  meds = new Meds(0,null,null,null,null,null,null,null,null,null,null,null,null,null);
 
   categories = [];
 

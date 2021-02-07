@@ -85,7 +85,7 @@ import { OrderformComponent } from 'src/app/components/orderform/orderform.compo
 import { AddOrderformComponent } from 'src/app/components/orderform/add-orderform/add-orderform.component';
 import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
-//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 
 
 @NgModule({
@@ -154,7 +154,7 @@ import { ComplaintsListComponent } from './components/adminhome/complaintslist.c
 
    ConfirmComponent,
    ComplaintsListComponent,
-  // PatientComplaintsComponent,
+   PatientComplaintsComponent,
   ],
   entryComponents: [
     EditprofileComponent,
