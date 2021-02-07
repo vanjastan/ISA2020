@@ -32,9 +32,7 @@ import { Medicine } from '../components/models/medicine';
     }
 
     getMedicinesWithEPrescriptions():Observable<any>{
-      const userId = localStorage.getItem(USER_ID_KEY);
-      //SREDI PUTANJU
-      return this.http.get(`http://localhost:8080/api/meds/forPatient/${userId}`);
+      return this.http.get(`http://localhost:8080/api/meds/byPrescription`);
     }
 
     public reserveMed(id:number):Observable<Medicine>{

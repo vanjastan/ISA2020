@@ -90,7 +90,6 @@ import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-c
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,33 +133,38 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
     Header2Component,
     Header3Component,
     EditpassSupComponent,
-   ChangeAdminphPasswordComponent,
-   ActionsAndPromotionsComponent,
-   AddActionsAndPromotionsComponent,
-
-   ChangeAdminphPasswordComponent,
-
-   PharmacyProfilePageComponent,
-
-   DermatologistComponent,
-
-   PharmacistComponent,
-
-   PharmacyPageComponent,
-
-   PharmacysProfileComponent,
-
-   OrderformComponent,
-
-   AddOrderformComponent,
-
-
-   ConfirmComponent,
-   ComplaintsListComponent,
-   PatientComplaintsComponent,
-   PharmaciesFreeDermComponent,
-   AllpharmaciestComponent,
-   MedicamentsComponent
+    ChangeAdminphPasswordComponent,
+    ActionsAndPromotionsComponent,
+    AddActionsAndPromotionsComponent,
+    ChangeAdminphPasswordComponent,
+    PharmacyProfilePageComponent,
+    DermatologistComponent,
+    PharmacistComponent,
+    PharmacyPageComponent,
+    PharmacysProfileComponent,
+    OrderformComponent,
+    AddOrderformComponent,
+    ConfirmComponent,
+    ComplaintsListComponent,
+    PharmaciesFreeDermComponent,
+    AllpharmaciestComponent,
+    PatientComplaintsComponent,
+	ChangeAdminphPasswordComponent,
+	ActionsAndPromotionsComponent,
+	AddActionsAndPromotionsComponent,
+	ChangeAdminphPasswordComponent,
+	PharmacyProfilePageComponent,
+	DermatologistComponent,
+	PharmacistComponent,
+	PharmacyPageComponent,
+	PharmacysProfileComponent,
+	OrderformComponent,
+	AddOrderformComponent,
+	ConfirmComponent,
+	ComplaintsListComponent,
+	PharmaciesFreeDermComponent,
+	AllpharmaciestComponent,
+	MedicamentsComponent
   ],
   entryComponents: [
     EditprofileComponent,
