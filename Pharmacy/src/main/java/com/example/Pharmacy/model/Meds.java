@@ -74,10 +74,6 @@ public class Meds {
     @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
     private EPrescription prescription;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
-    private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
-
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
@@ -103,6 +99,14 @@ public class Meds {
 
     public Meds() {
 
+    }
+
+    public Set<Pharmacies> getPharmaciesMed() {
+        return pharmaciesMed;
+    }
+
+    public void setPharmaciesMed(Set<Pharmacies> pharmaciesMed) {
+        this.pharmaciesMed = pharmaciesMed;
     }
 
     public Double getGrade() {
@@ -207,14 +211,6 @@ public class Meds {
 
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-
-    public Set<Pharmacies> getPharmacies() {
-        return pharmacies;
-    }
-
-    public void setPharmacies(Set<Pharmacies> pharmacies) {
-        this.pharmacies = pharmacies;
     }
 
     public String getName() {

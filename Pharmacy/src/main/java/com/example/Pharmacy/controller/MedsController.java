@@ -2,11 +2,16 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
+import com.example.Pharmacy.model.EPrescription;
 import com.example.Pharmacy.model.Meds;
 import javax.mail.MessagingException;
+
+import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.MedsRepository;
+import com.example.Pharmacy.service.EPrescriptionService;
 import com.example.Pharmacy.service.MedsService;
+import com.example.Pharmacy.service.PharmacyService;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.MedsServiceImpl;
@@ -39,6 +44,12 @@ public class MedsController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private EPrescriptionService prescriptionService;
+
+    @Autowired
+    private PharmacyService pharmacyService;
 
     @GetMapping(value = "/all")
     public ResponseEntity<List<MedsDTO>> getAllMeds() {
@@ -113,19 +124,39 @@ public class MedsController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/byPrescription")
+    @GetMapping(value = "/byPrescription/{id}")
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<List<MedsDTO>> getMedsByEPrescription() {
-
-        List<Meds> meds = medsService.findAll();
-
-        List<MedsDTO> medsPres = new ArrayList<>();
-        for (Meds m : meds) {
-            if(m.getPrescription() != null) {
-                medsPres.add(new MedsDTO(m));
-            }
+    public ResponseEntity<List<MedsDTO>> getMedsByEPrescription(@PathVariable("id") Long id) {
+        EPrescription ePrescription = prescriptionService.findOne(id);
+        Set<Meds> medicines = ePrescription.getMedsByEPrescription();
+        List<MedsDTO> medsDTO = new ArrayList<>();
+        for(Meds m: medicines) {
+            MedsDTO mDTO = new MedsDTO();
+            mDTO.setId(m.getId());
+            mDTO.setName(m.getName());
+            mDTO.setAllergic(m.getAllergic());
+            mDTO.setIngredients(m.getIngredients());
+            mDTO.setShape(m.getShape());
+            mDTO.setType(m.getType());
+            mDTO.setCode(m.getCode());
+            mDTO.setDailydose(m.getDailydose());
+            mDTO.setContradictions(m.getContradictions());
         }
 
-        return new ResponseEntity<>(medsPres, HttpStatus.OK);
+        return new ResponseEntity<>(medsDTO, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{pharmacyId}")
+    public ResponseEntity<List<MedsDTO>> getMedsByPharmacyId(@PathVariable("pharmacyId") Long pharmacyId) {
+
+        Pharmacies pharmacies = pharmacyService.findOne(pharmacyId);
+
+        Set<Meds> medicament = pharmacies.getMeds();
+        List<MedsDTO> medsDTO = new ArrayList<>();
+
+        for( Meds c : medicament) {
+            medsDTO.add(new MedsDTO(c));
+        }
+        return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
 }

@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @EnableJpaRepositories
 public interface SubscribedRepository extends JpaRepository<Subscribed, Long> {
+    Subscribed findByPatientId(Long patientId);
 }
