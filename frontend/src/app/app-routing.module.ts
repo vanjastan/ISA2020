@@ -10,7 +10,7 @@ import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH
 SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
 SUPPLIER_TENDER,
-ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
+ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS, 
@@ -60,6 +60,7 @@ import { OrderformComponent } from 'src/app/components/orderform/orderform.compo
 import { AddOrderformComponent } from './components/orderform/add-orderform/add-orderform.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 //import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
 
 
 const routes: Routes = [
@@ -110,6 +111,10 @@ const routes: Routes = [
   {
     path: ADD_ACTIONS_AND_PROMOTIONS,
     component: AddActionsAndPromotionsComponent
+  },
+  {
+    path: PRICELIST,
+    component: PricelistComponent
   },
   {
     path: ADMINPH_ORDERFORM,

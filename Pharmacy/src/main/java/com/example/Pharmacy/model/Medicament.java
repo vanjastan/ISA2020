@@ -29,9 +29,6 @@ public class Medicament {
     @Column(name = "quantity")
     private int quantity;
 
-    @OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-    private Pricelist pricelist;
 
     public String getName() {
         return name;
@@ -53,7 +50,4 @@ public class Medicament {
 
     public void setQuantity(int quantity) { this.quantity = quantity; }
 
-    public Pricelist getPricelist() { return pricelist; }
-
-    public void setPricelist(Pricelist pricelist) { this.pricelist = pricelist; }
 }

@@ -44,9 +44,9 @@ public class PharmacyServiceImpl implements PharmacyService {
         return pharmacyRepository.findById(id).orElseGet(null);
     }
 
-    @Override
+
     public Pharmacies findOneee(Long pharmacyId) {
-        return null;
+        return pharmacyRepository.findById(pharmacyId).orElseGet(null);
     }
 
 }

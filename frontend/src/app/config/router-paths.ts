@@ -31,6 +31,7 @@ export const ACTIONS_AND_PROMOTIONS = 'adminph/action';
 export const ADD_ACTIONS_AND_PROMOTIONS = 'adminph/addAP';
 export const ADMINPH_ORDERFORM = 'adminph/orderform';
 export const ADMINPH_ADD_ORDERFORM = 'adminphp/addorderform';
+export const PRICELIST = 'adminph/pricelist';
 
 // User paths
 export const USER_HOME_PATH = 'user';

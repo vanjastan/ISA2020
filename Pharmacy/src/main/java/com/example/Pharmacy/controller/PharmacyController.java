@@ -1,10 +1,8 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
@@ -87,12 +85,12 @@ public class PharmacyController {
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
-   /* @GetMapping(value = "/{pharmacyId}/meds")
+    @RequestMapping(value="/{pharmacyId}/meds", method=RequestMethod.GET)
     public ResponseEntity<List<MedsDTO>> getPharmacyMeds(@PathVariable Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOneee(pharmacyId);
 
-        Set<Meds> medicament = pharmacies.getMedicamentPh();
+        Set<Meds> medicament = pharmacies.getMedsPh();
         List<MedsDTO> medsDTO = new ArrayList<>();
 
         for( Meds c : medicament) {
@@ -107,7 +105,7 @@ public class PharmacyController {
         return ph;
     }*/
 
-    @GetMapping(value="/medicine/{id}")
+   /* @GetMapping(value="/medicine/{id}")
     // @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<PharmaciesDTO>> findPharmacyByMedsId(@PathVariable("id") Long id) {
         Meds med = medsService.findOne(id);
@@ -126,6 +124,6 @@ public class PharmacyController {
             pharmaciesDTO.add(phDTO);
         }
         return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
-    }
+    }*/
 
 }

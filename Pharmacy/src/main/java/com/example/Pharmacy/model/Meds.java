@@ -72,15 +72,19 @@ public class Meds {
     @JoinColumn(name = "p_id")
     private EPrescription prescription;
 
-    @JsonIgnore
+   /* @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
     private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
-
+*/
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
+
+    /*@OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Pricelist pricelist;*/
 
 
     public Long getId() {
@@ -179,13 +183,13 @@ public class Meds {
         this.notes = notes;
     }
 
-    public Set<Pharmacies> getPharmacies() {
+   /* public Set<Pharmacies> getPharmacies() {
         return pharmacies;
     }
 
     public void setPharmacies(Set<Pharmacies> pharmacies) {
         this.pharmacies = pharmacies;
-    }
+    }*/
 
     public String getName() {
         return name;

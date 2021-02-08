@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,13 +31,20 @@ public class Pharmacies {
     @ManyToMany(mappedBy = "pharmaciesP")
     private Set<User> pharmacistPh = new HashSet<User>();
 
+    @ManyToMany(mappedBy = "pharmaciesMed")
+    private Set<Meds> medsPh = new HashSet<Meds>();
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "dermatologist_id")
     private User dermatologist;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+  /*  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "medicine_id")
-    private Meds medicine;
+    private Meds medicine;*/
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    private Set<Pricelist> priceList = new HashSet<Pricelist>();
 
     @Column(name = "name")
     private String name;
@@ -90,6 +98,10 @@ public class Pharmacies {
 
     public Set<User> getPharmacistPh() { return pharmacistPh; }
 
+    public Set<Meds> getMedsPh() {
+        return medsPh;
+    }
+
     public String getAddress(){ return address; }
 
     public void setAddress(String address){ this.address = address; }
@@ -106,11 +118,20 @@ public class Pharmacies {
 
     public void setDescription(String description){ this.description = description; }
 
-    public Meds getMedicine() {
+   /* public Meds getMedicine() {
         return medicine;
     }
 
     public void setMedicine(Meds medicine) {
         this.medicine = medicine;
     }
+
+
+    /*public Pricelist getPricelist() {
+        return pricelist;
+    }
+
+    public void setPraselist(Pricelist pricelist) {
+        this.pricelist = pricelist;
+    }*/
 }

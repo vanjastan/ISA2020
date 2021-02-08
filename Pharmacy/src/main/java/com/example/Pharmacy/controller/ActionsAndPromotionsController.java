@@ -35,6 +35,7 @@ public class ActionsAndPromotionsController {
 
     @GetMapping("/all")
     public List<ActionsAndPromotions> loadAll(){
+
         return this.actionsAndPromotionsService.findAll();
     }
 

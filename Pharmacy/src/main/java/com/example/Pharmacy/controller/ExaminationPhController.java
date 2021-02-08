@@ -33,7 +33,7 @@ public class ExaminationPhController {
     }
 
     @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
     public List<ExaminationPh> findExamByPatientId(@PathVariable("id") Long id) {
         List<ExaminationPh> examinations = examinationPhService.findByPatientId(id);
         return examinations;
