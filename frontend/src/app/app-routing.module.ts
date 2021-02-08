@@ -13,12 +13,13 @@ SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
-PATIENT_PROFILE_EXAMINATIONS, 
+PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
-// ADMIN_COMPLAINTS,
-  PATIENT_COMPLAINTS} from './config/router-paths';
+ ADMIN_COMPLAINTS,
+  PATIENT_COMPLAINTS, MEDICAMENTS_PATH} from './config/router-paths';
+  
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -61,7 +62,9 @@ import { AddOrderformComponent } from './components/orderform/add-orderform/add-
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 //import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
-
+import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
+//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 
 const routes: Routes = [
   {
@@ -205,6 +208,10 @@ const routes: Routes = [
     component: ScheduleExaminationsComponent
   },
   {
+    path: FREE_PHARMACIEST,
+    component: AllpharmaciestComponent
+  },
+  {
     path: ADMIN_REG_PATH,
     component: AdminRegComponent
   },
@@ -236,14 +243,18 @@ const routes: Routes = [
     path: ADMINPH_PROFILEPAGE_PATH,
     component: PharmacyAdminProfileComponent
   },
-  /*{
+  {
     path: ADMIN_COMPLAINTS,
     component: ComplaintsListComponent
   },
-  {
+ /* {
     path: PATIENT_COMPLAINTS,
     component: PatientComplaintsComponent
   },*/
+  {
+    path: MEDICAMENTS_PATH,
+    component: MedicamentsComponent
+  }
 ];
 
 @NgModule({

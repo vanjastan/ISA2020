@@ -25,6 +25,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { TableFilterPipe } from './components/medicaments/table-filter.pipe';
 
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
@@ -87,6 +88,9 @@ import { ConfirmComponent } from './components/patienthome/take-medicine/confirm
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
 //import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-consultations/pharmacies-free-derm/pharmacies-free-derm.component';
+import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
+import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 
 
 @NgModule({
@@ -157,6 +161,27 @@ import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/p
    ComplaintsListComponent,
    PricelistComponent,
   // PatientComplaintsComponent,
+   PharmaciesFreeDermComponent,
+   AllpharmaciestComponent,
+   MedicamentsComponent,
+   TableFilterPipe,
+	ChangeAdminphPasswordComponent,
+	ActionsAndPromotionsComponent,
+	AddActionsAndPromotionsComponent,
+	ChangeAdminphPasswordComponent,
+	PharmacyProfilePageComponent,
+	DermatologistComponent,
+	PharmacistComponent,
+	PharmacyPageComponent,
+	PharmacysProfileComponent,
+	OrderformComponent,
+	AddOrderformComponent,
+	ConfirmComponent,
+	ComplaintsListComponent,
+	PharmaciesFreeDermComponent,
+	AllpharmaciestComponent,
+	MedicamentsComponent
+
   ],
   entryComponents: [
     EditprofileComponent,
@@ -165,7 +190,8 @@ import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/p
     LoyaltyprogramComponent,
     EditpassSupComponent,
     TakeMedicineComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    PharmaciesFreeDermComponent
   ],
   imports: [
     AppRoutingModule,
@@ -194,6 +220,8 @@ import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/p
     MatMomentDateModule,
     MatTooltipModule,
     MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCheckboxModule,
     ToastrModule.forRoot()
   ],

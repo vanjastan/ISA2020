@@ -1,6 +1,7 @@
 package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.SubscribedDTO;
+import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Subscribed;
 import com.example.Pharmacy.repository.SubscribedRepository;
 import com.example.Pharmacy.service.SubscribedService;
@@ -22,6 +23,17 @@ public class SubscribedServiceImpl implements SubscribedService {
 
     public List<Subscribed> findAll() throws AccessDeniedException {
         List<Subscribed> result = subscribedRepository.findAll();
+        return result;
+    }
+
+    @Override
+    public Subscribed findOne(Long id) {
+        return subscribedRepository.findById(id).orElseGet(null);
+    }
+
+    @Override
+    public Subscribed findByPatientId(Long patientId) {
+        Subscribed result = subscribedRepository.findByPatientId(patientId);
         return result;
     }
 

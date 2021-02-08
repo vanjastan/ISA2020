@@ -9,4 +9,5 @@ public interface ExaminationService {
     Examination findById(Long id);
     List<Examination> findByPatientId(Long id);
     Examination save(Examination e);
+    Examination findOne(Long id);
 }

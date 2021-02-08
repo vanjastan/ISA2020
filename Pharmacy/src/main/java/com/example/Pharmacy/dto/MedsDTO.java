@@ -21,6 +21,7 @@ public class MedsDTO {
     private String issuing;
     private String notes;
     private boolean allergic;
+    private Double grade;
 
     private UserDTO patient;
 
@@ -30,19 +31,21 @@ public class MedsDTO {
 
     public MedsDTO(Meds meds) {
 
-        id = meds.getId();
-        name = meds.getName();
-        code = meds.getCode();
-        type = meds.getType();
-        contradictions = meds.getContradictions();
-        ingredients = meds.getIngredients();
-        dailydose = meds.getDailydose();
-        replacement = meds.getReplacement();
-        shape = meds.getShape();
-        manufacturer = meds.getManufacturer();
-        issuing = meds.getIssuing();
-        notes = meds.getNotes();
-        allergic = meds.getAllergic();
+
+        this.id = meds.getId();
+        this.name = meds.getName();
+        this.code = meds.getCode();
+        this.type = meds.getType();
+        this.contradictions = meds.getContradictions();
+        this.ingredients = meds.getIngredients();
+        this.dailydose = meds.getDailydose();
+        this.replacement = meds.getReplacement();
+        this.shape = meds.getShape();
+        this.manufacturer = meds.getManufacturer();
+        this.issuing = meds.getIssuing();
+        this.notes = meds.getNotes();
+        this.allergic = meds.getAllergic();
+        this.grade = meds.getGrade();
 
     }
 
@@ -156,5 +159,13 @@ public class MedsDTO {
 
     public void setAllergic(boolean allergic) {
         this.allergic = allergic;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
     }
 }

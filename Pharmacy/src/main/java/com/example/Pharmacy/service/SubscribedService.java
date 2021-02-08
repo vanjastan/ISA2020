@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SubscribedService {
     List<Subscribed> findAll();
+    Subscribed findOne(Long id);
+    Subscribed findByPatientId(Long patientId);
 }

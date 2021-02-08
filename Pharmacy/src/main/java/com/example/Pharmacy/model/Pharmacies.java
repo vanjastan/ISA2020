@@ -46,6 +46,10 @@ public class Pharmacies {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Set<Pricelist> priceList = new HashSet<Pricelist>();
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "subscriber")
+    private Subscribed subscribed;
+
     @Column(name = "name")
     private String name;
 
@@ -62,6 +66,9 @@ public class Pharmacies {
     @Column(name = "description")
     private String description;
 
+    @ManyToMany(mappedBy = "pharmaciesMed")
+    private Set<Meds> meds;
+
     public Pharmacies(){
 
     }
@@ -77,6 +84,14 @@ public class Pharmacies {
 
     public String getName() {
         return name;
+    }
+
+    public Set<Meds> getMeds() {
+        return meds;
+    }
+
+    public void setMeds(Set<Meds> meds) {
+        this.meds = meds;
     }
 
     public void setName(String name) {
@@ -134,4 +149,5 @@ public class Pharmacies {
     public void setPraselist(Pricelist pricelist) {
         this.pricelist = pricelist;
     }*/
+
 }

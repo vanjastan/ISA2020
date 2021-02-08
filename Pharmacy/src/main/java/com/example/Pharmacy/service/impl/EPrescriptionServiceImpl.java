@@ -25,4 +25,9 @@ public class EPrescriptionServiceImpl implements EPrescriptionService {
         List<EPrescription> result = ePrescriptionRepo.findByPatientId(id);
         return result;
     }
+
+    @Override
+    public EPrescription findOne(Long id) {
+        return ePrescriptionRepo.findById(id).orElseGet(null);
+    }
 }

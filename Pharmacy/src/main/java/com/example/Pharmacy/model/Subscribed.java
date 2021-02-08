@@ -1,9 +1,14 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.parameters.P;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -19,6 +24,14 @@ public class Subscribed {
 
     @Column
     private String email;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_id", referencedColumnName = "id")
+    private User patient;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "subscribed", cascade = CascadeType.ALL)
+    private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
 
     public Subscribed(){
 
@@ -42,5 +55,13 @@ public class Subscribed {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Pharmacies> getPharmacies(){
+        return pharmacies;
+    }
+
+    public void setPharmacies(Set<Pharmacies> pharmacies){
+        this.pharmacies = pharmacies;
     }
 }

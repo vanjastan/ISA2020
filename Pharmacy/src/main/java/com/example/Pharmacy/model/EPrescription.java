@@ -54,6 +54,14 @@ public class EPrescription {
         this.date_of_pub = date_of_pub;
     }
 
+    public Set<Meds> getMedsByEPrescription() {
+        return medsByEPrescription;
+    }
+
+    public void setMedsByEPrescription(Set<Meds> medsByEPrescription) {
+        this.medsByEPrescription = medsByEPrescription;
+    }
+
     public EPrescriptionStatus getStatus(){
         return status;
     }

@@ -1,0 +1,124 @@
+<div class="apoteka2">
+    <div mat-dialog-content style="width: 300px; height: 300px;">
+      <form style="width:600px; position: absolute; margin: 5em;" novalidate
+      #form="ngForm">
+      <div class="form-group">
+      <p>
+      <strong>Full name</strong>
+        <mat-form-field style="left:2em;" class="input-field" appearance="outline" matTooltip="Name">
+            <input matInput type="text" placeholder="Name" name="name" [(ngModel)]="name" />
+        </mat-form-field>
+      </p>
+      <p>
+      <strong>Type</strong>
+      <select style="width:18em;" class="form-control"
+              name="type"
+              [(ngModel)]="type">
+        <option></option> 
+        <option [ngValue]="type" *ngFor="let type of allTypes">{{type}}</option>
+      </select>
+
+      <strong>Rate</strong>
+      <select style="width:18em;" class="form-control"
+              name="grade"
+              [(ngModel)]="grade">
+        <option></option> 
+        <option [ngValue]="1">1</option>
+        <option [ngValue]="2">2</option>
+        <option [ngValue]="3">3</option>     
+        <option [ngValue]="4">4</option>
+        <option [ngValue]="5">5</option>
+      </select>
+      </p>
+      </div>  
+
+
+      <br/><br/>
+      <h2 class="ui header" style="text-align:center">List of medications</h2>
+        <table class="ui celled striped table">
+            <colgroup>
+                <col span="3" style="background-color:whitesmoke">
+                <col style="background-color:whitesmoke">
+            </colgroup>
+            <thead>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Rate</th>
+                <th>Specification</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories | tableFilter: form.value">
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.type }}</td>
+                    <td>{{ category.grade }}</td>
+                    <button mat-raised-button data-toggle="modal" data-target="#myModal" (click)="setMedicine(category)">Specification</button>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <form>
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Specification</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+              <mat-form-field class="example-full-width">
+                      <mat-label>Ingredients</mat-label>
+                      <textarea matInput placeholder="Medication ingredients" id="ingredients" name="Ingredients" [(ngModel)]="ingredients"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="left:3em">
+                      <mat-label>Contradictions</mat-label>
+                      <textarea matInput placeholder="Medication contradictions" id="contradictions" name="Contradictions" [(ngModel)]="contradictions"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="left:6em">
+                      <mat-label>Daily dose</mat-label>
+                      <textarea matInput placeholder="Daily dose of medication" id="dailydose" name="DailyDose" [(ngModel)]="dailydose"></textarea>
+              </mat-form-field>
+                </p>
+                <p>
+              <mat-form-field class="example-full-width">
+                          <mat-label>Replacement</mat-label>
+                          <textarea matInput placeholder="Medication replacement" id="replacement" name="Replacement" [(ngModel)]="replacement"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="left:3em">
+                          <mat-label>Shape</mat-label>
+                          <textarea matInput placeholder="Medication shape" id="shape" name="Shape" [(ngModel)]="shape"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="left:6em">
+                          <mat-label>Manufacturer</mat-label>
+                          <textarea matInput placeholder="Medication manufacturer" id="manufacturer" name="Manufacturer" [(ngModel)]="manufacturer"></textarea>
+              </mat-form-field>
+                  </p>
+                  <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Perscription</mat-label>
+                <textarea matInput placeholder="Perscription" id="Perscription" name="Perscription" [(ngModel)]="issuing"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="left:3em">
+                <mat-label>Code</mat-label>
+                <textarea matInput placeholder="Medication code" id="CODE" name="Code" [(ngModel)]="code"></textarea>
+            </mat-form-field>
+                  </p>
+                  <p>
+              <mat-form-field class="example-full-width" style="width:630px">
+                          <mat-label>Notes</mat-label>
+                          <textarea matInput placeholder="Notes" id="notes" name="Notes" [(ngModel)]="notes"></textarea>
+              </mat-form-field>
+                  </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+
+        
+        </form>
+      </div>
+      </div>
+</div>

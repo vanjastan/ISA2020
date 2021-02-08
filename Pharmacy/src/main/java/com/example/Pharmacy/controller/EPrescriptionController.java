@@ -1,13 +1,17 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.model.EPrescription;
+import com.example.Pharmacy.model.Examination;
+import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.repository.EPrescriptionRepository;
 import com.example.Pharmacy.service.EPrescriptionService;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.EPrescriptionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin

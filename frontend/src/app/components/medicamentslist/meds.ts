@@ -1,6 +1,6 @@
 export class Meds {
     constructor(
-        public id: string,
+        public id: number,
         public name: string,
         public code: string,
         public type: string,

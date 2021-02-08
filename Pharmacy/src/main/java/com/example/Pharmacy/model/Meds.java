@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "medicaments")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -68,14 +67,18 @@ public class Meds {
     @Column(name = "allergic_reaction")
     private boolean allergic;
 
+    @Column(name = "grade")
+    private Double grade;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "p_id")
+    @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
     private EPrescription prescription;
 
    /* @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
     private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
 */
+
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
@@ -85,6 +88,43 @@ public class Meds {
     /*@OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     private Pricelist pricelist;*/
+
+    public Meds(Long id, String name, String code, String type, String contradictions, String ingredients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes, boolean reserved, boolean allergic) {
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.type = type;
+        this.contradictions = contradictions;
+        this.ingredients = ingredients;
+        this.dailydose = dailydose;
+        this.replacement = replacement;
+        this.shape = shape;
+        this.manufacturer = manufacturer;
+        this.issuing = issuing;
+        this.notes = notes;
+        this.reserved = reserved;
+        this.allergic = allergic;
+	}
+
+    public Meds() {
+
+    }
+
+    public Set<Pharmacies> getPharmaciesMed() {
+        return pharmaciesMed;
+    }
+
+    public void setPharmaciesMed(Set<Pharmacies> pharmaciesMed) {
+        this.pharmaciesMed = pharmaciesMed;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
+    }
 
 
     public Long getId() {
@@ -183,6 +223,7 @@ public class Meds {
         this.notes = notes;
     }
 
+
    /* public Set<Pharmacies> getPharmacies() {
         return pharmacies;
     }
@@ -197,6 +238,14 @@ public class Meds {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public EPrescription getPrescription(){
+        return prescription;
+    }
+
+    public void setPrescription(EPrescription prescription){
+        this.prescription = prescription;
     }
 
     public User getPatient(){
