@@ -1,6 +1,7 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.ExaminationDTO;
+import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -78,7 +80,15 @@ public class ExaminationController {
         List<ExaminationDTO> freeExaminations = new ArrayList<>();
         for (Examination e : examinations) {
             if(e.getPatient() == null) {
-                freeExaminations.add(new ExaminationDTO(e));
+                ExaminationDTO eDTO = new ExaminationDTO();
+                eDTO.setDate(e.getDate());
+                eDTO.setDuration(e.getDuration());
+                eDTO.setId(e.getId());
+                eDTO.setPrice(e.getPrice());
+                eDTO.setRate(e.getRate());
+                eDTO.setTime(e.getTime());
+
+                freeExaminations.add(eDTO);
             }
         }
 
@@ -87,35 +97,69 @@ public class ExaminationController {
 
     @RequestMapping(value="/forPatient/{id}", method = RequestMethod.GET)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public List<Examination> findExaminationByPatientId(@PathVariable("id") Long id) {
-        List<Examination> examinations = examinationService.findByPatientId(id);
-        return examinations;
+    public ResponseEntity<List<ExaminationDTO>> findExaminationByPatientId(@PathVariable("id") Long id) {
+       User user = userService.findOne(id);
+       Set<Examination> examinations = user.getExaminations();
+       List<ExaminationDTO> examinationDTOS = new ArrayList<>();
+       for(Examination e: examinations){
+            ExaminationDTO eDTO = new ExaminationDTO();
+            eDTO.setPatient(new UserDTO(e.getPatient()));
+            eDTO.setDate(e.getDate());
+            eDTO.setDuration(e.getDuration());
+            eDTO.setId(e.getId());
+            eDTO.setPrice(e.getPrice());
+            eDTO.setRate(e.getRate());
+            eDTO.setTime(e.getTime());
+
+            examinationDTOS.add(eDTO);
+       }
+       return new ResponseEntity<>(examinationDTOS, HttpStatus.OK);
     }
 
     @RequestMapping(value="/scheduled/{patientId}", method = RequestMethod.GET)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public List<Examination> findScheduledForPatient(@PathVariable("patientId") Long patientId) {
-        List<Examination> patientExaminations = examinationService.findByPatientId(patientId);
-        List<Examination> examinations = new ArrayList<>();
-        for(Examination e: patientExaminations){
+    public ResponseEntity<List<ExaminationDTO>> findScheduledForPatient(@PathVariable("patientId") Long patientId) {
+        User user = userService.findOne(patientId);
+        Set<Examination> examinations = user.getExaminations();
+        List<ExaminationDTO> examinationDTOS = new ArrayList<>();
+        for(Examination e: examinations){
             if(e.getPatient() != null) {
-                examinations.add(e);
+                ExaminationDTO eDTO = new ExaminationDTO();
+                eDTO.setPatient(new UserDTO(e.getPatient()));
+                eDTO.setDate(e.getDate());
+                eDTO.setDuration(e.getDuration());
+                eDTO.setId(e.getId());
+                eDTO.setPrice(e.getPrice());
+                eDTO.setRate(e.getRate());
+                eDTO.setTime(e.getTime());
+
+                examinationDTOS.add(eDTO);
             }
         }
-        return examinations;
+        return new ResponseEntity<>(examinationDTOS, HttpStatus.OK);
     }
 
     @RequestMapping(value="/notScheduled/{patientId}", method = RequestMethod.GET)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public List<Examination> findNotScheduledExaminations(@PathVariable("patientId") Long patientId) {
-        List<Examination> patientExaminations = examinationService.findByPatientId(patientId);
-        List<Examination> examinations = new ArrayList<>();
-        for(Examination e: patientExaminations){
+    public ResponseEntity<List<ExaminationDTO>> findNotScheduledExaminations(@PathVariable("patientId") Long patientId) {
+        User user = userService.findOne(patientId);
+        Set<Examination> examinations = user.getExaminations();
+        List<ExaminationDTO> examinationDTOS = new ArrayList<>();
+        for(Examination e: examinations){
             if(e.getPatient() == null) {
-                examinations.add(e);
+                ExaminationDTO eDTO = new ExaminationDTO();
+                eDTO.setPatient(new UserDTO(e.getPatient()));
+                eDTO.setDate(e.getDate());
+                eDTO.setDuration(e.getDuration());
+                eDTO.setId(e.getId());
+                eDTO.setPrice(e.getPrice());
+                eDTO.setRate(e.getRate());
+                eDTO.setTime(e.getTime());
+
+                examinationDTOS.add(eDTO);
             }
         }
-        return examinations;
+        return new ResponseEntity<>(examinationDTOS, HttpStatus.OK);
     }
 
     @CrossOrigin()

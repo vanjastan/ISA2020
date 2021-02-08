@@ -1,4 +1,5 @@
 package com.example.Pharmacy.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -90,16 +91,15 @@ public class User implements UserDetails, Serializable {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<EPrescription> prescriptions;
-
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Examination> examinations;
+    private Set<EPrescription> prescriptions = new HashSet<>();
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<ExaminationPh> examinationsByPh;
+    private Set<Examination> examinations = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
+    private Set<ExaminationPh> examinationsByPh = new HashSet<>();
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
@@ -113,6 +113,20 @@ public class User implements UserDetails, Serializable {
 
     public User() {
 
+    }
+
+    public User(String name, String surname, String username, String address, String city, String country, String number, String email, String password, String roleType, boolean isAdmin) {
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.number = number;
+        this.email = email;
+        this.password = password;
+        this.roleType = roleType;
+        this.isAdmin = isAdmin;
     }
 
     public String getUsername() {
@@ -151,6 +165,14 @@ public class User implements UserDetails, Serializable {
         this.name = name;
     }
 
+    public Set<EPrescription> getPrescriptions() {
+        return prescriptions;
+    }
+
+    public void setPrescriptions(Set<EPrescription> prescriptions) {
+        this.prescriptions = prescriptions;
+    }
+
     public Set<Meds> getReservedMeds() {
         return reservedMeds;
     }
@@ -171,6 +193,14 @@ public class User implements UserDetails, Serializable {
         return this.authorities;
     }
 
+    public Set<ExaminationPh> getExaminationsByPh() {
+        return examinationsByPh;
+    }
+
+    public void setExaminationsByPh(Set<ExaminationPh> examinationsByPh) {
+        this.examinationsByPh = examinationsByPh;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -185,6 +215,14 @@ public class User implements UserDetails, Serializable {
 
     public void setLastPasswordResetDate(Timestamp lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public Set<Examination> getExaminations() {
+        return examinations;
+    }
+
+    public void setExaminations(Set<Examination> examinations) {
+        this.examinations = examinations;
     }
 
     @Override
@@ -273,21 +311,6 @@ public class User implements UserDetails, Serializable {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-
-    public User(String name, String surname, String username, String address, String city, String country, String number, String email, String password, String roleType, boolean isAdmin) {
-        this.name = name;
-        this.surname = surname;
-        this.username = username;
-        this.address = address;
-        this.city = city;
-        this.country = country;
-        this.number = number;
-        this.email = email;
-        this.password = password;
-        this.roleType = roleType;
-        this.isAdmin = isAdmin;
     }
 
     public Set<Pharmacies> getPhDermatologist() {
