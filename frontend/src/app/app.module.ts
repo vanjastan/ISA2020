@@ -25,6 +25,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { TableFilterPipe } from './components/medicaments/table-filter.pipe';
 
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
@@ -133,22 +134,34 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
     Header2Component,
     Header3Component,
     EditpassSupComponent,
-    ChangeAdminphPasswordComponent,
-    ActionsAndPromotionsComponent,
-    AddActionsAndPromotionsComponent,
-    ChangeAdminphPasswordComponent,
-    PharmacyProfilePageComponent,
-    DermatologistComponent,
-    PharmacistComponent,
-    PharmacyPageComponent,
-    PharmacysProfileComponent,
-    OrderformComponent,
-    AddOrderformComponent,
-    ConfirmComponent,
-    ComplaintsListComponent,
-    PharmaciesFreeDermComponent,
-    AllpharmaciestComponent,
-    PatientComplaintsComponent,
+   ChangeAdminphPasswordComponent,
+   ActionsAndPromotionsComponent,
+   AddActionsAndPromotionsComponent,
+
+   ChangeAdminphPasswordComponent,
+
+   PharmacyProfilePageComponent,
+
+   DermatologistComponent,
+
+   PharmacistComponent,
+
+   PharmacyPageComponent,
+
+   PharmacysProfileComponent,
+
+   OrderformComponent,
+
+   AddOrderformComponent,
+
+
+   ConfirmComponent,
+   ComplaintsListComponent,
+   PatientComplaintsComponent,
+   PharmaciesFreeDermComponent,
+   AllpharmaciestComponent,
+   MedicamentsComponent,
+   TableFilterPipe,
 	ChangeAdminphPasswordComponent,
 	ActionsAndPromotionsComponent,
 	AddActionsAndPromotionsComponent,
@@ -203,6 +216,8 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
     MatMomentDateModule,
     MatTooltipModule,
     MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCheckboxModule,
     ToastrModule.forRoot()
   ],

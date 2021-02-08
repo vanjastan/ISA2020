@@ -1,13 +1,40 @@
 <div class="apoteka2">
-    <div style="width: 300px; height: 300px;">
-    <form style="width:600px; position: absolute; margin: 5em;">
-        <div>
-            <mat-label style="right:30em;">Search</mat-label>
-        </div>
-        <mat-form-field>
-            <input matInput type="text" placeholder="Enter name">
+    <div mat-dialog-content style="width: 300px; height: 300px;">
+      <form style="width:600px; position: absolute; margin: 5em;" novalidate
+      #form="ngForm">
+      <div class="form-group">
+      <p>
+      <strong>Full name</strong>
+        <mat-form-field style="left:2em;" class="input-field" appearance="outline" matTooltip="Name">
+            <input matInput type="text" placeholder="Name" name="name" [(ngModel)]="name" />
         </mat-form-field>
-        <h2 class="ui header" style="text-align:center">List of medications</h2>
+      </p>
+      <p>
+      <strong>Type</strong>
+      <select style="width:18em;" class="form-control"
+              name="type"
+              [(ngModel)]="type">
+        <option></option> 
+        <option [ngValue]="type" *ngFor="let type of allTypes">{{type}}</option>
+      </select>
+
+      <strong>Rate</strong>
+      <select style="width:18em;" class="form-control"
+              name="grade"
+              [(ngModel)]="grade">
+        <option></option> 
+        <option [ngValue]="1">1</option>
+        <option [ngValue]="2">2</option>
+        <option [ngValue]="3">3</option>     
+        <option [ngValue]="4">4</option>
+        <option [ngValue]="5">5</option>
+      </select>
+      </p>
+      </div>  
+
+
+      <br/><br/>
+      <h2 class="ui header" style="text-align:center">List of medications</h2>
         <table class="ui celled striped table">
             <colgroup>
                 <col span="3" style="background-color:whitesmoke">
@@ -20,7 +47,7 @@
                 <th>Specification</th>
             </thead>
             <tbody>
-                <tr *ngFor="let category of categories">
+                <tr *ngFor="let category of categories | tableFilter: form.value">
                     <td>{{ category.name }}</td>
                     <td>{{ category.type }}</td>
                     <td>{{ category.grade }}</td>
