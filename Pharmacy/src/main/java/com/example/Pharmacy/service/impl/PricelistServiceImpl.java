@@ -16,8 +16,8 @@ public class PricelistServiceImpl implements PricelistService {
     @Autowired
     private PricelistRepository pricelistRepository;
 
-    public Collection<Pricelist> getPricelist() {
-        Collection<Pricelist> p= pricelistRepository.findAll();
+    public List<Pricelist> getPricelist() {
+        List<Pricelist> p= pricelistRepository.findAll();
         return p;
     }
 

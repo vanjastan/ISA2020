@@ -77,4 +77,9 @@ import { Medicine } from '../components/models/medicine';
       return this.http.get(`http://localhost:8080/pricelist/all`);
     }
 
+    
+    public getPrice():Observable<any>{
+      return this.http.get(`http://localhost:8080/pricelist/1`);
+    }
+
   }

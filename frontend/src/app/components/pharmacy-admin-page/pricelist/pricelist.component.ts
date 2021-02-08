@@ -37,7 +37,7 @@ export class PricelistComponent implements OnInit, AfterViewInit {
   }
 
   getAllPrice(){
-    this.service.getPriceList().subscribe(data => {
+    this.service.getPrice().subscribe(data => {
       this.PriceList = data;
       this.dataSource = data;
       console.log(this.PriceList);

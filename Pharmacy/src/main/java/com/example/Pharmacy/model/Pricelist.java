@@ -26,9 +26,9 @@ public class Pricelist {
     @Column(name = "to_date", nullable = false)
     private String to_date;
 
-   /* @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medicament_id")
-    private Meds medicament;*/
+    private Meds medicament;
 
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)

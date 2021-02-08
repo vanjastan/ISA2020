@@ -147,6 +147,7 @@ public class MedsController {
     }
 
     @GetMapping(value = "/{pharmacyId}")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<List<MedsDTO>> getMedsByPharmacyId(@PathVariable("pharmacyId") Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOne(pharmacyId);
