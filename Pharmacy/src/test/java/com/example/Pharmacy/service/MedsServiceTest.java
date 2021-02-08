@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,5 +56,27 @@ public class MedsServiceTest {
         Meds savedMeds = medsService.save(medsMock);
 
         Assert.assertThat(savedMeds, is(equalTo(medsMock)));
+    }
+
+    @Test
+    public void testFindOne() {
+
+        when(medsRepositoryMock.findById(DB_ID)).thenReturn(java.util.Optional.of(medsMock));
+
+        Meds dbMeds = medsService.findOne(DB_ID);
+
+        assertEquals(medsMock, dbMeds);
+        verify(medsRepositoryMock, times(1)).findById(DB_ID);
+        verifyNoMoreInteractions(medsRepositoryMock);
+    }
+
+    @Test
+    public void testCancelMedicine() {
+
+        when(medsRepositoryMock.findById(DB_ID)).thenReturn(java.util.Optional.of((medsMock)));
+
+        Meds dbMeds = medsService.findById(DB_ID);
+
+        assertThat(dbMeds.getPatient()).isEqualTo(null);
     }
 }

@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.Pharmacy.constants.ExaminationConstants.*;
+import static com.example.Pharmacy.constants.ExaminationPhConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -32,9 +32,6 @@ public class ExaminationPhServiceTest {
 
     @InjectMocks
     private ExaminationPhServiceImpl examinationPhService;
-
-    @Mock
-    private ExaminationPhService exPhService;
 
     @Test
     public void testFindAll() {
@@ -56,6 +53,16 @@ public class ExaminationPhServiceTest {
         ExaminationPh savedExamination = examinationPhService.save(examinationPhMock);
 
         Assert.assertThat(savedExamination, is(equalTo(examinationPhMock)));
+    }
+
+    @Test
+    public void testCancelConsultation() {
+
+        when(examinationPhRepositoryMock.findById(DB_ID)).thenReturn(java.util.Optional.of((examinationPhMock)));
+
+        ExaminationPh dbConsultation = examinationPhService.findById(DB_ID);
+
+        assertThat(dbConsultation.getPatient()).isEqualTo(null);
     }
 }
 
