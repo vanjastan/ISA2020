@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "medicaments")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -101,7 +100,11 @@ public class Meds {
         this.reserved = reserved;
         this.allergic = allergic;
 	}
-	
+
+    public Meds() {
+
+    }
+
     public Double getGrade() {
         return grade;
     }
