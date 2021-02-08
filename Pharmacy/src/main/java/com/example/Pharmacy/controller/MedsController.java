@@ -2,7 +2,6 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.Meds;
 import javax.mail.MessagingException;
 import com.example.Pharmacy.model.User;
@@ -54,14 +53,14 @@ public class MedsController {
         return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
     @PostMapping("/add_meds")
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity addMeds(@RequestBody MedsDTO mdto) {
         medsImpl.addMeds(mdto);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping(value="/forPatient/{id}")
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<MedsDTO>> findMedsByPatientId(@PathVariable("id") Long id) {
         User patient = userService.findOne(id);
         Set<Meds> reservedMeds = patient.getReservedMeds();
@@ -94,7 +93,7 @@ public class MedsController {
     }
 
     @RequestMapping(value="/reserveMed/{id}", method = RequestMethod.POST)
-    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<Meds> reserveMedicine(@PathVariable("id") Long id) throws MessagingException {
         Meds med = medsService.findById(id);
         med.setReserved(true);
@@ -105,7 +104,7 @@ public class MedsController {
     }
 
     @RequestMapping(value="/addAllergy/{id}", method = RequestMethod.POST)
-    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<Meds> addAllergy(@PathVariable("id") Long id){
         Meds med = medsService.findById(id);
         med.setAllergic(true);
@@ -114,4 +113,19 @@ public class MedsController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping(value = "/byPrescription")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<List<MedsDTO>> getMedsByEPrescription() {
+
+        List<Meds> meds = medsService.findAll();
+
+        List<MedsDTO> medsPres = new ArrayList<>();
+        for (Meds m : meds) {
+            if(m.getPrescription() != null) {
+                medsPres.add(new MedsDTO(m));
+            }
+        }
+
+        return new ResponseEntity<>(medsPres, HttpStatus.OK);
+    }
 }

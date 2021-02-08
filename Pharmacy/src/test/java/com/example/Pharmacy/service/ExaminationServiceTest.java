@@ -18,9 +18,7 @@ import static com.example.Pharmacy.constants.ExaminationConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -53,7 +51,6 @@ public class ExaminationServiceTest {
         verifyNoMoreInteractions(examinationRepositoryMock);
     }
 
-
     @Test
     @Transactional
     public void saveExamination() {
@@ -63,5 +60,18 @@ public class ExaminationServiceTest {
         Examination savedExamination = examinationService.save(examinationMock);
 
         assertThat(savedExamination, is(equalTo(examinationMock)));
+    }
+
+    @Test
+    public void testFindFreeExaminations() {
+
+        List<Examination> examinations = examinationService.findAll();
+        Examination ex = new Examination(DB_ID, DB_PRICE, DB_DURATION, DB_DATE_EXAMINATION, DB_RATE, DB_TIME_EXAM);
+        ex.setPatient(null);
+        examinations.add(ex);
+        assertThat(examinations).hasSize(1);
+
+        verify(examinationRepositoryMock, times(1)).findAll();
+        verifyNoMoreInteractions(examinationRepositoryMock);
     }
 }

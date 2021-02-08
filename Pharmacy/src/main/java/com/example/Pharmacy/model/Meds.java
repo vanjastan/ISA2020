@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "medicaments")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -72,7 +71,7 @@ public class Meds {
     private Double grade;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "p_id")
+    @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
     private EPrescription prescription;
 
     @JsonIgnore
@@ -84,6 +83,27 @@ public class Meds {
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
+
+    public Meds(Long id, String name, String code, String type, String contradictions, String ingredients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes, boolean reserved, boolean allergic) {
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.type = type;
+        this.contradictions = contradictions;
+        this.ingredients = ingredients;
+        this.dailydose = dailydose;
+        this.replacement = replacement;
+        this.shape = shape;
+        this.manufacturer = manufacturer;
+        this.issuing = issuing;
+        this.notes = notes;
+        this.reserved = reserved;
+        this.allergic = allergic;
+	}
+
+    public Meds() {
+
+    }
 
     public Double getGrade() {
         return grade;
@@ -203,6 +223,14 @@ public class Meds {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public EPrescription getPrescription(){
+        return prescription;
+    }
+
+    public void setPrescription(EPrescription prescription){
+        this.prescription = prescription;
     }
 
     public User getPatient(){

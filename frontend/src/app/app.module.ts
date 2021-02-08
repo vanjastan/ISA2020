@@ -91,7 +91,6 @@ import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-c
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -163,6 +162,22 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
    AllpharmaciestComponent,
    MedicamentsComponent,
    TableFilterPipe,
+	ChangeAdminphPasswordComponent,
+	ActionsAndPromotionsComponent,
+	AddActionsAndPromotionsComponent,
+	ChangeAdminphPasswordComponent,
+	PharmacyProfilePageComponent,
+	DermatologistComponent,
+	PharmacistComponent,
+	PharmacyPageComponent,
+	PharmacysProfileComponent,
+	OrderformComponent,
+	AddOrderformComponent,
+	ConfirmComponent,
+	ComplaintsListComponent,
+	PharmaciesFreeDermComponent,
+	AllpharmaciestComponent,
+	MedicamentsComponent
   ],
   entryComponents: [
     EditprofileComponent,

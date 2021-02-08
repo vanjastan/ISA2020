@@ -19,6 +19,7 @@ ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFIL
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
  ADMIN_COMPLAINTS,
   PATIENT_COMPLAINTS, MEDICAMENTS_PATH} from './config/router-paths';
+  
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
 import {SupplierHomeComponent} from './components/supplierhome/supplierhome.component';
 import {SupplierProfileComponent} from './components/supplierprofile/supplierprofile.component';
@@ -247,7 +248,7 @@ const routes: Routes = [
   {
     path: MEDICAMENTS_PATH,
     component: MedicamentsComponent
-  },
+  }
 ];
 
 @NgModule({
