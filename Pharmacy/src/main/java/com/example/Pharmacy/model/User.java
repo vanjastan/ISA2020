@@ -23,7 +23,6 @@ import java.util.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User implements UserDetails, Serializable {
 
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,6 +73,9 @@ public class User implements UserDetails, Serializable {
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
 
+    @OneToOne(mappedBy = "patient")
+    private Subscribed subscribed;
+
     @ManyToMany
     @JoinTable(name = "pharmacy_dermatologist",
             joinColumns = @JoinColumn(name = "dermatologist_id", referencedColumnName = "id"),
@@ -85,7 +87,6 @@ public class User implements UserDetails, Serializable {
             joinColumns = @JoinColumn(name = "pharmacist_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesP = new HashSet<Pharmacies>();
-
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)

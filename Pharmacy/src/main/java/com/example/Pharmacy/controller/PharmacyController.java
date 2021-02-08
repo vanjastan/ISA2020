@@ -1,19 +1,18 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.ExaminationDTO;
-import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.Meds;
-import com.example.Pharmacy.model.Pharmacies;
-import com.example.Pharmacy.model.User;
+import com.example.Pharmacy.model.*;
 import com.example.Pharmacy.repository.PharmacyRepository;
+import com.example.Pharmacy.repository.SubscribedRepository;
 import com.example.Pharmacy.service.MedsService;
 import com.example.Pharmacy.service.PharmacyService;
+import com.example.Pharmacy.service.SubscribedService;
+import com.example.Pharmacy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,6 +28,15 @@ public class PharmacyController {
     private PharmacyRepository pharmacyRepository;
     @Autowired
     private PharmacyService pharmacyService;
+
+    @Autowired
+    private SubscribedService subscribedService;
+
+    @Autowired
+    private SubscribedRepository subscribedRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private MedsService medsService;
@@ -87,20 +95,6 @@ public class PharmacyController {
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
-   /* @GetMapping(value = "/{pharmacyId}/meds")
-    public ResponseEntity<List<MedsDTO>> getPharmacyMeds(@PathVariable Long pharmacyId) {
-
-        Pharmacies pharmacies = pharmacyService.findOneee(pharmacyId);
-
-        Set<Meds> medicament = pharmacies.getMedicamentPh();
-        List<MedsDTO> medsDTO = new ArrayList<>();
-
-        for( Meds c : medicament) {
-            medsDTO.add(new MedsDTO(c));
-        }
-        return new ResponseEntity<>(medsDTO, HttpStatus.OK);
-    }
-
    /* @RequestMapping(value="/forDermatologist/{id}", method = RequestMethod.GET)
     public List<Pharmacies> findPhByDermatologistId(@PathVariable("id") Long id) {
         List<Pharmacies> ph = pharmacyService.findByDermtologistId(id);
@@ -108,10 +102,10 @@ public class PharmacyController {
     }*/
 
     @GetMapping(value="/medicine/{id}")
-    // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<PharmaciesDTO>> findPharmacyByMedsId(@PathVariable("id") Long id) {
         Meds med = medsService.findOne(id);
-        Set<Pharmacies> pharmacies = med.getPharmacies();
+        Set<Pharmacies> pharmacies = med.getPharmaciesMed();
         List<PharmaciesDTO> pharmaciesDTO = new ArrayList<>();
         for (Pharmacies p : pharmacies) {
             PharmaciesDTO phDTO = new PharmaciesDTO();
@@ -121,11 +115,30 @@ public class PharmacyController {
             phDTO.setCity(p.getCity());
             phDTO.setDescription(p.getDescription());
             phDTO.setRate(p.getRate());
-            phDTO.setMedicine(new MedsDTO(p.getMedicine()));
 
             pharmaciesDTO.add(phDTO);
         }
         return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
     }
 
+    @GetMapping(value="/subscribed/{id}")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<List<PharmaciesDTO>> findPharmacyBySubscribedUser(@PathVariable("id") Long id) {
+        User user = userService.findOne(id);
+        Subscribed subsPatient = subscribedRepository.findByPatientId(user.getId());
+        Set<Pharmacies> pharmacies = subsPatient.getPharmacies();
+        List<PharmaciesDTO> pharmaciesDTO = new ArrayList<>();
+        for (Pharmacies p : pharmacies) {
+            PharmaciesDTO phDTO = new PharmaciesDTO();
+            phDTO.setId(p.getId());
+            phDTO.setName(p.getName());
+            phDTO.setAddress(p.getAddress());
+            phDTO.setCity(p.getCity());
+            phDTO.setDescription(p.getDescription());
+            phDTO.setRate(p.getRate());
+
+            pharmaciesDTO.add(phDTO);
+        }
+        return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
+    }
 }
