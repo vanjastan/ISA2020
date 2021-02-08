@@ -1,7 +1,6 @@
 package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.User;
 
 public class ExaminationDTO {
 
@@ -9,6 +8,9 @@ public class ExaminationDTO {
     private double price;
     private String duration;
     private String dateOfEx;
+    private String rate;
+    private String time_exam;
+    private UserDTO patient;
 
     public ExaminationDTO(){
 
@@ -21,12 +23,8 @@ public class ExaminationDTO {
         dateOfEx = examination.getDate();
         rate = examination.getRate();
         time_exam = examination.getTime();
-        patient = examination.getPatient();
+        patient = new UserDTO(examination.getPatient());
     }
-
-    private String rate;
-    private String time_exam;
-    private User patient;
 
     public Long getId() {
         return id;
@@ -76,11 +74,11 @@ public class ExaminationDTO {
         this.time_exam = time_exam;
     }
 
-    public User getPatient(){
+    public UserDTO getPatient(){
         return patient;
     }
 
-    public void setPatient(User patient){
+    public void setPatient(UserDTO patient){
         this.patient = patient;
     }
 }

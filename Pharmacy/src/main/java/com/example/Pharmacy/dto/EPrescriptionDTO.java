@@ -12,14 +12,18 @@ public class EPrescriptionDTO {
     private Long id;
     private String date_of_pub;
     private EPrescriptionStatus status;
-    private User patient;
+    private UserDTO patient;
     private Set<Meds> prescriptionMeds = new HashSet<Meds>();
+
+    public EPrescriptionDTO(){
+
+    }
 
     public EPrescriptionDTO(EPrescription ePrescription) {
         id = ePrescription.getId();
         date_of_pub = ePrescription.getDate_of_pub();
         status = ePrescription.getStatus();
-        patient = ePrescription.getPatient();
+        patient = new UserDTO(ePrescription.getPatient());
         prescriptionMeds = ePrescription.getMedsByEPrescription();
     }
 
@@ -47,11 +51,11 @@ public class EPrescriptionDTO {
         this.status = status;
     }
 
-    public User getPatient() {
+    public UserDTO getPatient() {
         return patient;
     }
 
-    public void setPatient(User patient) {
+    public void setPatient(UserDTO patient) {
         this.patient = patient;
     }
 

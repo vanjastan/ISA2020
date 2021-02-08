@@ -1,14 +1,13 @@
 package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.ExaminationPh;
-import com.example.Pharmacy.model.User;
 
 public class ExaminationPhDTO {
     private Long id;
     private double price;
     private String duration;
     private String dateExamination;
-    private User patient;
+    private UserDTO patient;
 
     public ExaminationPhDTO(){
 
@@ -19,7 +18,7 @@ public class ExaminationPhDTO {
         price = examination.getPrice();
         duration = examination.getDuration();
         dateExamination = examination.getDate();
-        patient = examination.getPatient();
+        patient = new UserDTO(examination.getPatient());
     }
 
     public Long getId() {
@@ -54,11 +53,11 @@ public class ExaminationPhDTO {
         this.dateExamination = dateOfEx;
     }
 
-    public User getPatient(){
+    public UserDTO getPatient(){
         return patient;
     }
 
-    public void setPatient(User patient){
+    public void setPatient(UserDTO patient){
         this.patient = patient;
     }
 }
