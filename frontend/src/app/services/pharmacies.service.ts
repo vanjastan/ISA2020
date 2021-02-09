@@ -73,4 +73,7 @@ import { Medicine } from '../components/models/medicine';
       return this.http.get<Pharmacies[]>(`http://localhost:8080/pharmacies/medicine/`+id);
     }
 
+    public getFreePharmaciest():Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/1/pharmacist`);
+    }
   }

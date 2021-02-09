@@ -5,6 +5,7 @@ import { Pharmacies } from 'src/app/components/models/pharmacies';
 import { MedsService } from 'src/app/services/meds.service';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
 import { ToastrService } from 'ngx-toastr';
+import { MedicineReservation } from 'src/app/components/models/medicineReservation';
 
 @Component({
   selector: 'app-confirm',
@@ -15,6 +16,7 @@ export class ConfirmComponent implements OnInit {
 
   selectedPharmacy: Pharmacies = new Pharmacies("", "", "", "", "");
   medicine: Medicine = new Medicine();
+  reservation = new MedicineReservation();
   pharmacy:Pharmacies[];
   date: string;
 
@@ -34,8 +36,10 @@ export class ConfirmComponent implements OnInit {
   }
 
   submit(){
-    this.service.reserveMed(this.medicine.id).subscribe(data =>{
-      this.medicine = data;
+    console.log(this.reservation);
+    this.service.reserveMed(this.reservation).subscribe(data =>{
+      this.reservation = data;
+      console.log(this.reservation);
       this.toastr.success('Successfully reserved medicine!', '');
       this.dialogRef.close();
     }, 

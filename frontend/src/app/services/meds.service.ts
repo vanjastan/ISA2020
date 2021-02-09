@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Meds } from '../components/medicamentslist/meds';
 import { USER_ID_KEY } from '../config/local-storage-keys';
 import { Medicine } from '../components/models/medicine';
+import { MedicineReservation } from '../components/models/medicineReservation';
 
 
 @Injectable({
@@ -35,8 +36,8 @@ import { Medicine } from '../components/models/medicine';
       return this.http.get(`http://localhost:8080/api/meds/byPrescription`);
     }
 
-    public reserveMed(id:number):Observable<Medicine>{
-      return this.http.post<Medicine>(`http://localhost:8080/api/meds/reserveMed/` + id, {});
+    reserveMed(reservation:MedicineReservation):Observable<any>{
+      return this.http.post(`http://localhost:8080/reservations/addReservation`, reservation);
     }
 
     public addAllergy(id:number){

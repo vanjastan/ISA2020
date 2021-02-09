@@ -1,12 +1,15 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.dto.ExaminationPhDTO;
 import com.example.Pharmacy.dto.UserDTO;
+import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.ExaminationPh;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationPhRepository;
 import com.example.Pharmacy.service.ExaminationPhService;
 import com.example.Pharmacy.service.UserService;
+import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.ExaminationPhServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -34,6 +38,9 @@ public class ExaminationPhController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    EmailServiceImpl serviceImpl;
 
     @RequestMapping(value="/allConsultations", method = RequestMethod.GET)
     public ResponseEntity<List<ExaminationPhDTO>> getAllConsultations() {
@@ -140,5 +147,24 @@ public class ExaminationPhController {
         }
 
         return new ResponseEntity<>(freeConsultations, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="{patientId}/schedule/{id}", method = RequestMethod.POST)
+    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<ExaminationPh> scheduleConsultation(@PathVariable("patientId") Long patientId, @PathVariable("id") Long id) throws MessagingException {
+
+      /*  User user = userService.findById(patientId);
+        ExaminationPh patientConsultation = examinationPhService.findById(id);
+        patientConsultation.setPatient(user);
+        patientConsultation = examinationPhService.save(patientConsultation);*/
+        ExaminationPh patientConsultation = new ExaminationPh();//DODATO KAO PROBA
+
+        try {
+            serviceImpl.sendMessageScheduledConsultation("patientU45@gmail.com", "", patientConsultation);
+        } catch (Exception e){
+            System.out.print("Message service does not work!");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

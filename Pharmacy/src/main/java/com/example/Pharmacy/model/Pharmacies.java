@@ -57,6 +57,9 @@ public class Pharmacies {
     @ManyToMany(mappedBy = "pharmaciesMed")
     private Set<Meds> meds;
 
+    @OneToOne(mappedBy = "pharmacies")
+    private MedsReservation reservation;
+
     public Pharmacies(){
 
     }
@@ -116,5 +119,4 @@ public class Pharmacies {
     public String getDescription(){ return description; }
 
     public void setDescription(String description){ this.description = description; }
-
 }

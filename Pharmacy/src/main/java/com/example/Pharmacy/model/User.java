@@ -304,6 +304,14 @@ public class User implements UserDetails, Serializable {
         isAdmin = admin;
     }
 
+    public Set<Pharmacies> getPharmaciesP() {
+        return pharmaciesP;
+    }
+
+    public void setPharmaciesP(Set<Pharmacies> pharmaciesP) {
+        this.pharmaciesP = pharmaciesP;
+    }
+
     @Override
     public boolean isEnabled() {
         return enabled;

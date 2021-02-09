@@ -1,16 +1,10 @@
 package com.example.Pharmacy.service.impl;
 
-import com.example.Pharmacy.dto.ExaminationDTO;
-import com.example.Pharmacy.dto.SubscribedDTO;
-import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.Meds;
+import com.example.Pharmacy.dto.*;
+import com.example.Pharmacy.model.*;
 import com.example.Pharmacy.config.EmailContext;
-import com.example.Pharmacy.dto.ComplaintsRequest;
 import com.example.Pharmacy.dto.SubscribedDTO;
 import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.Patient;
-import com.example.Pharmacy.model.Subscribed;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.PatientRepository;
 import com.example.Pharmacy.repository.UserRepository;
 import com.example.Pharmacy.service.EmailService;
@@ -69,16 +63,34 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(message);
     }
 
-    public void sendMessageForReservedMed(String to, String pathToAttachment, Meds m) throws MessagingException {
+    public void sendMessageForReservedMed(String to, String pathToAttachment, MedsReservationDTO m) throws MessagingException {
 
         String text = "You have successfully reserved medicine!" +
-                "Medicine name: " + m.getName();
+                "For date: " + m.getDateReservation()+
+                "Your number of reservation: " + m.getNumberOfReservation();
+        
         MimeMessage message = emailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
         helper.setTo("patientU45@gmail.com");
-        helper.setSubject("Reserved examination");
+        helper.setSubject("Reserved medicine");
+        helper.setText(text);
+
+        emailSender.send(message);
+    }
+
+    public void sendMessageScheduledConsultation(String to, String pathToAttachment, ExaminationPh e) throws MessagingException{
+        String text = "You have successfully reserved medicine!" +
+                "For date: " + e.getDate() +
+                "Price: " + e.getPrice();
+
+        MimeMessage message = emailSender.createMimeMessage();
+
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setTo("patientU45@gmail.com");
+        helper.setSubject("Reserved consultation");
         helper.setText(text);
 
         emailSender.send(message);

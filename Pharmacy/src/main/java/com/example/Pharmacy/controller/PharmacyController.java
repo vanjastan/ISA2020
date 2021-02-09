@@ -121,6 +121,25 @@ public class PharmacyController {
         return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
     }
 
+    //NADJI SLOBODNE FARMACEUTE U APOTECI
+
+    //NECEEEEEEEEEEEEEEEEEEEE PLAKY
+    @GetMapping(value = "/{pharmacyId}/freePharmaciest")
+    public ResponseEntity<List<UserDTO>> findFreePharmaciest(@PathVariable("pharmacyId") Long pharmacyId) {
+
+        Pharmacies pharmacies = pharmacyService.findOne(pharmacyId);
+
+        Set<User> pharmacist = pharmacies.getPharmacistPh();
+        List<UserDTO> userDTO = new ArrayList<>();
+
+        for(User c : pharmacist) {
+            if(c.getPharmaciesP() == null) {
+                userDTO.add(new UserDTO(c));
+            }
+        }
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
+    }
+
     @GetMapping(value="/subscribed/{id}")
     @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<PharmaciesDTO>> findPharmacyBySubscribedUser(@PathVariable("id") Long id) {

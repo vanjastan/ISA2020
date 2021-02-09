@@ -78,3 +78,6 @@ INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (1, 1);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (1, 2);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 1);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 2);
+
+INSERT INTO `reservation_med` (reservationId, date_reservation, number, medicine_id, pharmacy_id) VALUES (1, "01.01.2021.", 4, 2, 1);
+INSERT INTO `reservation_med` (reservationId, date_reservation, number, medicine_id, pharmacy_id) VALUES (2, "10.10.2020.", 10, 1, 2);
