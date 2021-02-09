@@ -74,4 +74,14 @@ public class ExaminationServiceTest {
         verify(examinationRepositoryMock, times(1)).findAll();
         verifyNoMoreInteractions(examinationRepositoryMock);
     }
+
+    @Test
+    public void testCancelExamination() {
+
+        when(examinationRepositoryMock.findById(DB_ID)).thenReturn(java.util.Optional.of((examinationMock)));
+
+        Examination dbEx = examinationService.findById(DB_ID);
+
+        assertThat(dbEx.getPatient()).isEqualTo(null);
+    }
 }

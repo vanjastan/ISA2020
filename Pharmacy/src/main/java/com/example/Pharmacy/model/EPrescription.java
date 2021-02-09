@@ -77,4 +77,10 @@ public class EPrescription {
     public void setPatient(User patient){
         this.patient = patient;
     }
+
+    public EPrescription(Long id, String date_of_pub, EPrescriptionStatus status) {
+        this.id = id;
+        this.date_of_pub = date_of_pub;
+        this.status = status;
+    }
 }

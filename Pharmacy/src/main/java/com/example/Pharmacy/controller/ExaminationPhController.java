@@ -42,7 +42,7 @@ public class ExaminationPhController {
     @Autowired
     EmailServiceImpl serviceImpl;
 
-    @RequestMapping(value="/allConsultations", method = RequestMethod.GET)
+    @RequestMapping(value="", method = RequestMethod.GET)
     public ResponseEntity<List<ExaminationPhDTO>> getAllConsultations() {
 
         List<ExaminationPh> consultations = examinationPhService.findAll();

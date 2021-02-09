@@ -40,7 +40,7 @@ public class ExaminationControllerTest {
     @Test
     public void testGetExamination() throws Exception {
 
-        mvc.perform(get(URL_PREFIX)).andExpect(status().isOk())
+        mvc.perform(get(URL_PREFIX + "/allExaminations")).andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$[0].id").value(1))
