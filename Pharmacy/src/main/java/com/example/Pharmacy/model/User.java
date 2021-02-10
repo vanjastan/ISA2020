@@ -316,4 +316,16 @@ public class User implements UserDetails, Serializable {
     public Set<Pharmacies> getPhDermatologist() {
         return pharmaciesD;
     }
+
+    public Set<Pharmacies> getPhPharmacist(){
+        return pharmaciesP;
+    }
+
+    public Pharmacies getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(Pharmacies pharmacies) {
+        this.pharmacies = pharmacies;
+    }
 }

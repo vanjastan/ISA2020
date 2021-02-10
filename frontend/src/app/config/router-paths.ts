@@ -34,6 +34,8 @@ export const ADMINPH_ADD_ORDERFORM = 'adminphp/addorderform';
 export const PRICELIST = 'adminph/pricelist';
 export const EDIT_PRICELIST = 'adminph/editpricelist';
 export const VACATION ='adminph/vacation';
+export const SHOW_PHARMACY = 'adminph/showph';
+export const SHOW_PH = 'adminph/shph';
 
 // User paths
 export const USER_HOME_PATH = 'user';

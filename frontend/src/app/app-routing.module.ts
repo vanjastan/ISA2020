@@ -13,7 +13,7 @@ SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
-PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST,
+PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST, SHOW_PHARMACY, SHOW_PH,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
@@ -67,6 +67,8 @@ import { AllpharmaciestComponent } from './components/patienthome/schedule-consu
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 import { VacationRequestsComponent } from 'src/app/components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
 import { EditPricelistComponent } from 'src/app/components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
+import { ShowPharmacyComponent } from 'src/app/components/pharmacy-admin-page/dermatologist/show-pharmacy/show-pharmacy.component';
+import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
 
 const routes: Routes = [
   {
@@ -92,6 +94,10 @@ const routes: Routes = [
   {
     path: PHARMACY_INFO,
     component: PharmacysProfileComponent
+  },
+  {
+    path: SHOW_PHARMACY,
+    component: ShowPharmacyComponent
   },
   {
     path: HEADER1,
@@ -188,6 +194,9 @@ const routes: Routes = [
   {
     path: VACATION,
     component: VacationRequestsComponent
+  },{
+    path: SHOW_PH,
+    component: ShowPHComponent
   },
   {
     path: PATIENT_PENALS,

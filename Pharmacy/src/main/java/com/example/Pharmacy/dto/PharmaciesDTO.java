@@ -15,6 +15,8 @@ public class PharmaciesDTO {
     private String description;
     private MedsDTO medicine;
 
+
+
     public PharmaciesDTO(){
 
     }

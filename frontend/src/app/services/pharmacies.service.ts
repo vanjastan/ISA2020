@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pharmacies } from '../components/models/pharmacies';
-import { USER_ID_KEY , PH_ID_KEY} from '../config/local-storage-keys';
+import { USER_ID_KEY } from '../config/local-storage-keys';
 import { User } from '../components/models/user';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Medicine } from '../components/models/medicine';
@@ -100,8 +100,12 @@ import { PriceList } from '../components/models/pricelist';
       return this.http.post<PriceList>(`http://localhost:8080/pricelist/editPricelist`, pricelist);
     }
 
-    editAdminPH(user: User) : Observable<User> {
-      return  this.http.post<User>(`http://localhost:8080/api/users/edit/adminph`, user);
+    public getPh():Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/8/pharmacy`); // {dermatologistId}
+    }
+
+    public getPhamr():Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/10/ph`); //{pharmacist_id}
     }
 
   }

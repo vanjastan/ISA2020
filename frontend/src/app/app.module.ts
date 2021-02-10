@@ -93,6 +93,8 @@ import { AllpharmaciestComponent } from './components/patienthome/schedule-consu
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 import { VacationRequestsComponent } from './components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
 import { EditPricelistComponent } from './components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
+import { ShowPharmacyComponent } from './components/pharmacy-admin-page/dermatologist/show-pharmacy/show-pharmacy.component';
+import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
 
 
 @NgModule({
@@ -184,7 +186,9 @@ import { EditPricelistComponent } from './components/pharmacy-admin-page/priceli
 	AllpharmaciestComponent,
 	MedicamentsComponent,
 	VacationRequestsComponent,
-	EditPricelistComponent
+	EditPricelistComponent,
+	ShowPharmacyComponent,
+	ShowPHComponent
 
   ],
   entryComponents: [
