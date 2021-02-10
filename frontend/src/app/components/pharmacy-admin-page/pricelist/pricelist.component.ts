@@ -1,9 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild, } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PriceList } from 'src/app/components/models/pricelist';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
+import { EditPricelistComponent } from 'src/app/components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
+import { ToastrService } from 'ngx-toastr';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-pricelist',
@@ -17,16 +23,22 @@ export class PricelistComponent implements OnInit, AfterViewInit {
   PriceListResults: PriceList[];
 
   price:number;
+  //id:number;
+
   from_date:string;
   to_date:string;
 
   search:string;
+  categories = [];
 
-  displayedColumns: string[] = ['price', 'from_date', 'to_date'];
+  pricelist: PriceList;
+
+  displayedColumns: string[] = ['name','price', 'from_date', 'to_date', 'edit'];
   dataSource = new MatTableDataSource<PriceList>();
   @ViewChild(MatSort) sort:MatSort;
 
-  constructor(private service: PharmaciesService, private http: HttpClient) { }
+  constructor(private service: PharmaciesService, private http: HttpClient,
+    public dialog: MatDialog, private toastr: ToastrService, private router: Router  ) { }
 
   ngOnInit(): void {
     this.getAllPrice();
@@ -38,16 +50,27 @@ export class PricelistComponent implements OnInit, AfterViewInit {
 
   getAllPrice(){
     this.service.getPrice().subscribe(data => {
-      this.PriceList = data;
+      this.pricelist = data;
       this.dataSource = data;
-      console.log(this.PriceList);
     },
     console=>{
       console.log("ERROR");
     });
   }
 
-  public doFilter = (value:string)=>{
+  edit(id: number, price: number, from_date:string, to_date:string): void{
+    console.log(id);
+    let dialogRef = this.dialog.open(EditPricelistComponent, {
+      width: '650px',
+      data: {id:id, price:price, from_date:from_date, to_date:to_date}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
+    });
+  }
+
+
+  doFilter = (value:string)=>{
     if(this.search == ""){
         this.dataSource.data = this.PriceList;
     }else{

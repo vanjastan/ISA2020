@@ -38,14 +38,22 @@ public class PricelistController {
        List<PricelistDTO> pricelistDTO = new ArrayList<>();
 
        for(Pricelist p : pricelists){
-           pricelistDTO.add(new PricelistDTO(p));
+          // pricelistDTO.add(new PricelistDTO(p));
+           PricelistDTO pl = new PricelistDTO();
+           pl.setId(p.getId());
+           pl.setPrice(p.getPrice());
+           pl.setFrom_date(p.getFrom_date());
+           pl.setTo_date(p.getTo_date_date());
+           pl.setName(p.getMedicament().getName());
+
+           pricelistDTO.add(pl);
        }
 
        return new ResponseEntity<>(pricelistDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{pharmacy_id}")
-    @PreAuthorize("hasRole('ROLE_ADMINPH')")
+   // @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<List<PricelistDTO>> getPLByPharmacyId(@PathVariable("pharmacy_id") Long pharmacy_id){
         List<Pricelist> pricelists = pricelistService.findAll();
 
@@ -62,11 +70,11 @@ public class PricelistController {
 
     @CrossOrigin
     @PostMapping(value = "editPricelist")
-    @PreAuthorize("hasRole('ROLE_ADMINPH')")
+    //@PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<PricelistDTO> editPricelist (@RequestBody PricelistDTO dto){
         Pricelist pricelistInfo = pricelistService.findById(dto.getId());
 
-        if(pricelistInfo == null){
+        if(pricelistInfo == null) {
             return null;
         }
 

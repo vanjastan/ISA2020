@@ -7,6 +7,7 @@ import { User } from '../components/models/user';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Medicine } from '../components/models/medicine';
 import { Vacation } from '../components/models/vacation';
+import { PriceList } from '../components/models/pricelist';
 
 
 
@@ -94,4 +95,13 @@ import { Vacation } from '../components/models/vacation';
     refuseVacation(val: Vacation): Observable<any> {
       return this.http.post(`http://localhost:8080/vacation/noholidays`, val);
     }
+
+    editPricelist(pricelist: PriceList): Observable<PriceList> {
+      return this.http.post<PriceList>(`http://localhost:8080/pricelist/editPricelist`, pricelist);
+    }
+
+    editAdminPH(user: User) : Observable<User> {
+      return  this.http.post<User>(`http://localhost:8080/api/users/edit/adminph`, user);
+    }
+
   }

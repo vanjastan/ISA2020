@@ -30,6 +30,8 @@ public class Pricelist {
     @JoinColumn(name = "medicament_id")
     private Meds medicament;
 
+    private String name;
+
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "pharmacy_id")
@@ -58,6 +60,22 @@ public class Pricelist {
     public int getPrice() { return price; }
 
     public void setPrice(int price) { this.price = price; }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Meds getMedicament() {
+        return medicament;
+    }
+
+    public void setMedicament(Meds medicament) {
+        this.medicament = medicament;
+    }
 
     public Pharmacies getPharm() {
         return pharm;

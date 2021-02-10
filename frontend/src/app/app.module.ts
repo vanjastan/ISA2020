@@ -92,6 +92,7 @@ import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-c
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 import { VacationRequestsComponent } from './components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
+import { EditPricelistComponent } from './components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
 
 
 @NgModule({
@@ -182,7 +183,8 @@ import { VacationRequestsComponent } from './components/pharmacy-admin-page/vaca
 	PharmaciesFreeDermComponent,
 	AllpharmaciestComponent,
 	MedicamentsComponent,
-	VacationRequestsComponent
+	VacationRequestsComponent,
+	EditPricelistComponent
 
   ],
   entryComponents: [
@@ -193,7 +195,8 @@ import { VacationRequestsComponent } from './components/pharmacy-admin-page/vaca
     EditpassSupComponent,
     TakeMedicineComponent,
     ConfirmComponent,
-    PharmaciesFreeDermComponent
+    PharmaciesFreeDermComponent,
+    EditPricelistComponent
   ],
   imports: [
     AppRoutingModule,

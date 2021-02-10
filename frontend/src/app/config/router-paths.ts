@@ -32,6 +32,7 @@ export const ADD_ACTIONS_AND_PROMOTIONS = 'adminph/addAP';
 export const ADMINPH_ORDERFORM = 'adminph/orderform';
 export const ADMINPH_ADD_ORDERFORM = 'adminphp/addorderform';
 export const PRICELIST = 'adminph/pricelist';
+export const EDIT_PRICELIST = 'adminph/editpricelist';
 export const VACATION ='adminph/vacation';
 
 // User paths
