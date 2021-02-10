@@ -23,7 +23,7 @@ export class PricelistComponent implements OnInit, AfterViewInit {
   PriceListResults: PriceList[];
 
   price:number;
-  //id:number;
+  id:number;
 
   from_date:string;
   to_date:string;
@@ -33,7 +33,7 @@ export class PricelistComponent implements OnInit, AfterViewInit {
 
   pricelist: PriceList;
 
-  displayedColumns: string[] = ['name','price', 'from_date', 'to_date', 'edit'];
+  displayedColumns: string[] = ['id','name','price', 'from_date', 'to_date', 'edit'];
   dataSource = new MatTableDataSource<PriceList>();
   @ViewChild(MatSort) sort:MatSort;
 
@@ -58,11 +58,11 @@ export class PricelistComponent implements OnInit, AfterViewInit {
     });
   }
 
-  edit(id: number, price: number, from_date:string, to_date:string): void{
+  edit(id: number, name:string,  price: number, from_date:string, to_date:string): void{
     console.log(id);
     let dialogRef = this.dialog.open(EditPricelistComponent, {
       width: '650px',
-      data: {id:id, price:price, from_date:from_date, to_date:to_date}
+      data: {id:id, name:name, price:price, from_date:from_date, to_date:to_date}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');

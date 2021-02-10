@@ -25,9 +25,10 @@ export class OrderformComponent implements OnInit {
   medicament_id: number;
   quantity:number;
   end_date:string;
+  status: string;
 
   search: string;
-  displayedColumns: string[] = ['name', 'end_date', 'quantity'];
+  displayedColumns: string[] = ['name', 'end_date', 'status', 'quantity'];
   dataSource = new MatTableDataSource<OrderForm>();
   @ViewChild(MatSort) sort: MatSort;
 
@@ -58,7 +59,7 @@ export class OrderformComponent implements OnInit {
     }else{
         this.OrderformResult = this.Orderform.filter( result =>
           { 
-            return result.end_date.toLocaleLowerCase().match(this.search.toLocaleLowerCase()) 
+            return result.status.toLocaleLowerCase().match(this.search.toLocaleLowerCase()) 
           } );
             this.dataSource.data = this.OrderformResult;
     }   

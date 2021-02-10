@@ -15,7 +15,7 @@ import { Medicine } from '../components/models/medicine';
     }
     
     getAllMeds(): Observable<any>{
-        return this.http.get(`http://localhost:8080/api/meds/all`);
+        return this.http.get(`http://localhost:8080/api/meds/1`);
     }
 
     getMeds(): Observable<any>{

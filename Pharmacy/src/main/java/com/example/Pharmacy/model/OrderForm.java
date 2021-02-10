@@ -1,10 +1,13 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -27,6 +30,13 @@ public class OrderForm {
     @Column(name = "end_date")
     private String end_date;
 
+    @Column(name = "status")
+    private String status;
+
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderForm", cascade = CascadeType.ALL)
+    private Set<OrderFormOffers> orderFormOffers = new HashSet<>();
 
 
     public int getId() {
@@ -57,4 +67,11 @@ public class OrderForm {
         this.end_date = end_date;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

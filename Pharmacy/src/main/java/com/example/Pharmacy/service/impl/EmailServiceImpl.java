@@ -147,4 +147,18 @@ public class EmailServiceImpl implements EmailService {
         _emailContext.send(to, subject, "deniedRegistration", context);
     }
 
+    @Async
+    public void sendForOrder (OrderFormOffers r) throws MessagingException{
+        String text = "Congratulations, your are winner of order.";
+
+        MimeMessage mess = emailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mess, true);
+
+        helper.setTo(r.getSupplier().getEmail());
+        helper.setSubject("Order confirmation");
+        helper.setText(text);
+
+        emailSender.send(mess);
+    }
+
 }

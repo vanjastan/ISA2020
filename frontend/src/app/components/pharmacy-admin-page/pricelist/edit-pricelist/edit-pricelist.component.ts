@@ -9,9 +9,6 @@ import { PharmaciesService } from 'src/app/services/pharmacies.service';
   styleUrls: ['./edit-pricelist.component.css']
 })
 export class EditPricelistComponent implements OnInit {
-
-  categories = [];
-
  
   constructor( public dialogRef: MatDialogRef<EditPricelistComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     private toastr: ToastrService, private service: PharmaciesService) { }
@@ -19,7 +16,7 @@ export class EditPricelistComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  savePL(): void{
+  savePLM(): void{
     console.log(this.data);
     this.service.editPricelist(this.data).subscribe(
       data => {

@@ -77,10 +77,10 @@ public class PricelistController {
         if(pricelistInfo == null) {
             return null;
         }
-
         pricelistInfo.setPrice(dto.getPrice());
         pricelistInfo.setFrom_date(dto.getFrom_date());
         pricelistInfo.setTo_date(dto.getTo_date());
+        pricelistInfo.setName(dto.getName());
 
         pricelistInfo = pricelistService.save(pricelistInfo);
 
