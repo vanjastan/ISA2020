@@ -26,6 +26,7 @@ public class OrderFormServiceImpl implements OrderFormService {
         OrderForm of = new OrderForm();
 
         of.setMedicamentName(dto.getMedicament_name());
+        of.setStatus("not processed");
         of.setQuantity(dto.getQuantity());
         of.setEnd_date(dto.getEnd_date());
 

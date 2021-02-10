@@ -6,7 +6,7 @@ INSERT INTO `authorities` (id, name) VALUES (5, 'ROLE_SUPPLIER');
 INSERT INTO `authorities` (id, name) VALUES (6, 'ROLE_ADMINPH');
 
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 1, 'Vanja', 'Stan', 'admin1', 'Olge Petrov 25', 'Novi Sad','Srbija' ,'890102', 'admin@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_ADMIN', '2017-10-01 21:58:58', true, true);
-INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 2, 'Pera', 'Peric', 'supplier1', 'Olge 25', 'Novi Sad','Srbija' ,'890106782', 'supplier@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_SUPPLIER', '2017-10-01 21:58:58', true, false);
+INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 2, 'Pera', 'Peric', 'supplier1', 'Olge 25', 'Novi Sad','Srbija' ,'890106782', 'dacaa9977@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_SUPPLIER', '2017-10-01 21:58:58', true, false);
 INSERT INTO users (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 3, 'Maja', 'Peric', 'patient1', 'Olge 25', 'Novi Sad','Srbija' ,'8901067889782', 'patient@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_PATIENT', '2017-10-01 21:58:58', true, false);
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 4, 'Perica', 'Peric', 'adminph1', 'Olge 25', 'Novi Sad','Srbija' ,'890106562', 'adminph@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_ADMINPH', '2017-10-01 21:58:58', true, false);
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 5, 'Petar', 'Perisic', 'adminph2', 'Kisacka 5', 'Novi Sad','Srbija' ,'895556562', 'adminph2@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_ADMINPH', '2017-10-01 21:58:58', true, false);
@@ -46,7 +46,8 @@ INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id)
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (2, 3000, '1h', '05.01.2021.', 5);
 INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (3, 2000, '1h', '12.02.2021.', null);
 
-INSERT INTO `orderform` (id, medicament_name, quantity, end_date) VALUES (1, 'Aspirin', 40, '12-03-2021.');
+INSERT INTO `orderform` (id, medicament_name, quantity, end_date, status) VALUES (1, 'Aspirin', 40, '12-03-2021.', ' not processed');
+INSERT INTO `orderform` (id, medicament_name, quantity, end_date, status) VALUES (2, 'Aspirin', 50, '12-12-2020.', 'processed');
 
 INSERT INTO `customer_order` (id, name, quantity) VALUES (2, 'Aspirin', 40);
 
@@ -85,3 +86,6 @@ INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 2);
 INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '12.07.2021', '31.07.2021', 8);
 INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '12.05.2021', '01.07.2021', 9);
 INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '10.08.2021', '01.09.2021', 10);
+
+INSERT INTO `order_form_offers` ( chosen, price, winner, admin_id, orderform_id, supplier_id) VALUES (false, 115, false, 4,  1, 2);
+INSERT INTO `order_form_offers` ( chosen, price, winner, admin_id, orderform_id, supplier_id) VALUES (false, 125, false, 4, 1, 2);

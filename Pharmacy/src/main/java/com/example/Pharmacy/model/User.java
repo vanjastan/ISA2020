@@ -77,6 +77,9 @@ public class User implements UserDetails, Serializable {
     @OneToOne(mappedBy = "patient")
     private Subscribed subscribed;
 
+    @OneToOne(mappedBy = "supplier")
+    private OrderFormOffers orderFormOffers;
+
     @ManyToMany
     @JoinTable(name = "pharmacy_dermatologist",
             joinColumns = @JoinColumn(name = "dermatologist_id", referencedColumnName = "id"),
@@ -110,6 +113,11 @@ public class User implements UserDetails, Serializable {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaints> complaints;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "adminph", cascade = CascadeType.ALL)
+    private Set<OrderFormOffers>  orderFormOffer = new HashSet<>();
+
 
     public User() {
 

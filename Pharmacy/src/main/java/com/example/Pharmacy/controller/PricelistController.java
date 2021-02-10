@@ -38,7 +38,6 @@ public class PricelistController {
        List<PricelistDTO> pricelistDTO = new ArrayList<>();
 
        for(Pricelist p : pricelists){
-          // pricelistDTO.add(new PricelistDTO(p));
            PricelistDTO pl = new PricelistDTO();
            pl.setId(p.getId());
            pl.setPrice(p.getPrice());
@@ -53,7 +52,7 @@ public class PricelistController {
     }
 
     @GetMapping(value = "/{pharmacy_id}")
-   // @PreAuthorize("hasRole('ROLE_ADMINPH')")
+    //@PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<List<PricelistDTO>> getPLByPharmacyId(@PathVariable("pharmacy_id") Long pharmacy_id){
         List<Pricelist> pricelists = pricelistService.findAll();
 
@@ -77,10 +76,10 @@ public class PricelistController {
         if(pricelistInfo == null) {
             return null;
         }
-
         pricelistInfo.setPrice(dto.getPrice());
         pricelistInfo.setFrom_date(dto.getFrom_date());
         pricelistInfo.setTo_date(dto.getTo_date());
+        pricelistInfo.setName(dto.getName());
 
         pricelistInfo = pricelistService.save(pricelistInfo);
 

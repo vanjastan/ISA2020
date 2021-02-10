@@ -14,6 +14,10 @@
             </mat-form-field>
             <hr>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
+              <ng-container matColumnDef="id">
+                <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+                <td mat-cell *matCellDef="let element">{{element.id}}</td>
+              </ng-container>
               <ng-container matColumnDef="name">
                 <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                 <td mat-cell *matCellDef="let element">{{element.name}}</td>
@@ -33,7 +37,7 @@
               <ng-container matColumnDef="edit">
                 <th style="width: 200px;"  mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let element">
-                  <button mat-raised-button (click)="edit(pricelist.id, pricelist.price, pricelist.from_date, pricelist.to_date)" > Edit price </button>
+                  <button mat-raised-button (click)="edit(pricelist.id, pricelist.name,  pricelist.price, pricelist.from_date, pricelist.to_date)" > Edit price </button>
                 </td>
               </ng-container>
               <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -26,7 +26,8 @@ public class OrderFormController {
     private OrderFormRepository orderFormRepository;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<OrderForm> loadAllOrderForms(){return  this.orderFormRepository.findAll();}
+    public List<OrderForm> loadAllOrderForms(){
+        return  this.orderFormRepository.findAll();}
 
     @PostMapping("/add")
     public ResponseEntity addOrderForm(@RequestBody OrderFormDTO dto) {
