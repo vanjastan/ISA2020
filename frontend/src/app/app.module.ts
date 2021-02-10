@@ -91,6 +91,7 @@ import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/p
 import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-consultations/pharmacies-free-derm/pharmacies-free-derm.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
+import { VacationRequestsComponent } from './components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
 
 
 @NgModule({
@@ -180,7 +181,8 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
 	ComplaintsListComponent,
 	PharmaciesFreeDermComponent,
 	AllpharmaciestComponent,
-	MedicamentsComponent
+	MedicamentsComponent,
+	VacationRequestsComponent
 
   ],
   entryComponents: [

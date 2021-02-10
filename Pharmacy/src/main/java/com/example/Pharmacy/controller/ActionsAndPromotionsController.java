@@ -27,6 +27,7 @@ public class ActionsAndPromotionsController {
     @Autowired
     EmailServiceImpl emailServiceImpl;
 
+
     @Autowired
     SubscribedService service;
 

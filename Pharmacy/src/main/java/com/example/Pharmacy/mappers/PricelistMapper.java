@@ -6,6 +6,7 @@ import com.example.Pharmacy.model.Pricelist;
 public class PricelistMapper {
 
     public static PricelistDTO toDTO(Pricelist pricelist){
+
         return new PricelistDTO(pricelist);
     }
 

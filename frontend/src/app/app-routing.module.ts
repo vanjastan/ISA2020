@@ -10,7 +10,7 @@ import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH
 SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
 SUPPLIER_TENDER,
-ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST,
+ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
 PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST,
@@ -65,6 +65,7 @@ import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/p
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 //import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
+import { VacationRequestsComponent } from 'src/app/components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
 
 const routes: Routes = [
   {
@@ -178,6 +179,10 @@ const routes: Routes = [
   {
     path: RESERVED_MEDS,
     component: ReservedMedsComponent
+  },
+  {
+    path: VACATION,
+    component: VacationRequestsComponent
   },
   {
     path: PATIENT_PENALS,

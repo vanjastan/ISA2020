@@ -6,6 +6,7 @@ import { USER_ID_KEY , PH_ID_KEY} from '../config/local-storage-keys';
 import { User } from '../components/models/user';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Medicine } from '../components/models/medicine';
+import { Vacation } from '../components/models/vacation';
 
 
 
@@ -82,4 +83,15 @@ import { Medicine } from '../components/models/medicine';
       return this.http.get(`http://localhost:8080/pricelist/1`);
     }
 
+    public getVacations():Observable<any>{
+      return this.http.get(`http://localhost:8080/vacation/request`);
+    }
+
+    confirmVacation(val: Vacation): Observable<any> {
+      return this.http.post(`http://localhost:8080/vacation/holidays`, val);
+    }
+
+    refuseVacation(val: Vacation): Observable<any> {
+      return this.http.post(`http://localhost:8080/vacation/noholidays`, val);
+    }
   }

@@ -34,6 +34,7 @@ public class PricelistServiceImpl implements PricelistService {
 
     @Override
     public Pricelist save(Pricelist p) {
+
         return pricelistRepository.save(p);
     }
 
