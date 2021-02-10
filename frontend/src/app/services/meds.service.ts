@@ -16,11 +16,15 @@ import { Medicine } from '../components/models/medicine';
     
     getAllMeds(): Observable<any>{
         return this.http.get(`http://localhost:8080/api/meds/all`);
-      }
+    }
+
+    getMeds(): Observable<any>{
+      return this.http.get(`http://localhost:8080/api/meds/{id}`);
+    }    
     
     addMeds(meds: Meds): Observable<any> {
         return this.http.post(`http://localhost:8080/api/meds/add_meds`, meds);
-      }
+    }
 
     public getResMedicines():Observable<any>{
       const userId = localStorage.getItem(USER_ID_KEY);

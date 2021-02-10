@@ -31,6 +31,7 @@ public class MedsDTO {
 
     public MedsDTO(Meds meds) {
 
+
         this.id = meds.getId();
         this.name = meds.getName();
         this.code = meds.getCode();
@@ -45,6 +46,7 @@ public class MedsDTO {
         this.notes = meds.getNotes();
         this.allergic = meds.getAllergic();
         this.grade = meds.getGrade();
+
     }
 
     public Long getId() {

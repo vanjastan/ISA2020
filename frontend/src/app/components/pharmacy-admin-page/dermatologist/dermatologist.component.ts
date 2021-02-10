@@ -5,6 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Dermatologist } from '../../models/dermatologist';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
 import { Pharmacies } from 'src/app/components/models/pharmacies';
+import { ShowPharmacyComponent } from './show-pharmacy/show-pharmacy.component';
+import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dermatologist',
@@ -34,7 +37,7 @@ export class DermatologistComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Dermatologist>();
   @ViewChild(MatSort) sort:MatSort;
 
-  constructor(private service: PharmaciesService, private http: HttpClient) { }
+  constructor(private service: PharmaciesService, private http: HttpClient, private toastr: ToastrService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAllDerm();
@@ -52,6 +55,17 @@ export class DermatologistComponent implements OnInit, AfterViewInit {
     },
     error => {
      console.log("ERROR");
+    });
+  }
+
+
+  show(){
+    let dialogRef = this.dialog.open(ShowPharmacyComponent, {
+      width: '1080px',
+      data: { }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
     });
   }
 

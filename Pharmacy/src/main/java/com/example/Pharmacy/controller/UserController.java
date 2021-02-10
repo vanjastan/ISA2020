@@ -218,11 +218,28 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/{dermatologistId}/pharmacy")
+	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForDermatologist(@PathVariable Long dermatologistId) {
 
 		User derm = userService.findOne(dermatologistId);
 
 		Set<Pharmacies> ph = derm.getPhDermatologist();
+		List<PharmaciesDTO> phDTO = new ArrayList<>();
+
+		for( Pharmacies c : ph) {
+			phDTO.add(new PharmaciesDTO(c));
+		}
+		return new ResponseEntity<>(phDTO, HttpStatus.OK);
+	}
+
+
+	@GetMapping(value = "/{pharmacist_id}/ph")
+	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForPharmacist(@PathVariable Long pharmacist_id) {
+
+		User pharmacist = userService.findOne(pharmacist_id);
+
+		Set<Pharmacies> ph = pharmacist.getPhPharmacist();
 		List<PharmaciesDTO> phDTO = new ArrayList<>();
 
 		for( Pharmacies c : ph) {

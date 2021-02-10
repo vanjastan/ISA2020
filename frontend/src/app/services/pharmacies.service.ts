@@ -2,10 +2,12 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pharmacies } from '../components/models/pharmacies';
-import { USER_ID_KEY , PH_ID_KEY} from '../config/local-storage-keys';
+import { USER_ID_KEY } from '../config/local-storage-keys';
 import { User } from '../components/models/user';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Medicine } from '../components/models/medicine';
+import { Vacation } from '../components/models/vacation';
+import { PriceList } from '../components/models/pricelist';
 
 
 
@@ -71,6 +73,39 @@ import { Medicine } from '../components/models/medicine';
 
     public getPharmaciesByMedicineId(id: number):Observable<Pharmacies[]>{
       return this.http.get<Pharmacies[]>(`http://localhost:8080/pharmacies/medicine/`+id);
+    }
+
+    public getPriceList():Observable<any>{
+      return this.http.get(`http://localhost:8080/pricelist/all`);
+    }
+
+    
+    public getPrice():Observable<any>{
+      return this.http.get(`http://localhost:8080/pricelist/1`);
+    }
+
+    public getVacations():Observable<any>{
+      return this.http.get(`http://localhost:8080/vacation/request`);
+    }
+
+    confirmVacation(val: Vacation): Observable<any> {
+      return this.http.post(`http://localhost:8080/vacation/holidays`, val);
+    }
+
+    refuseVacation(val: Vacation): Observable<any> {
+      return this.http.post(`http://localhost:8080/vacation/noholidays`, val);
+    }
+
+    editPricelist(pricelist: PriceList): Observable<PriceList> {
+      return this.http.post<PriceList>(`http://localhost:8080/pricelist/editPricelist`, pricelist);
+    }
+
+    public getPh():Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/8/pharmacy`); // {dermatologistId}
+    }
+
+    public getPhamr():Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/10/ph`); //{pharmacist_id}
     }
 
   }

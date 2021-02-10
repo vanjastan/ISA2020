@@ -12,8 +12,8 @@ INSERT INTO `users` (user_type, id, name, surname, username, address, city, coun
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 5, 'Petar', 'Perisic', 'adminph2', 'Kisacka 5', 'Novi Sad','Srbija' ,'895556562', 'adminph2@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_ADMINPH', '2017-10-01 21:58:58', true, false);
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 6, 'Petra', 'Sojic', 'adminph3', 'Kisacka 15', 'Novi Sad','Srbija' ,'844456562', 'adminph3@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_ADMINPH', '2017-10-01 21:58:58', true, false);
 INSERT INTO users (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 7, 'Jelena', 'Stojanovic', 'jeca', 'Jovana Cvijica 3', 'Novi Sad','Srbija' ,'065448224', 'jeca@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_PATIENT', '2020-10-10 10:00:58', true, false);
-INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 8, 'Milivoje', 'Kojic', 'dermatologist', 'Kisacka 25', 'Novi Sad','Srbija' ,'021556644', 'milivoje@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_DERMATOLOGIST', '2017-10-01 21:58:58', true, false);
-INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 9, 'Milunka', 'Bojic', 'dermatologist2', 'Cara Dusana 5', 'Novi Sad','Srbija' ,'021669977', 'milunka@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_DERMATOLOGIST', '2017-10-01 21:58:58', true, false);
+INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 8, 'Milivoje', 'Kojic', 'dermatologist', 'Kisacka 25', 'Novi Sad','Srbija' ,'021556644', 'dacaa9977@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_DERMATOLOGIST', '2017-10-01 21:58:58', true, false);
+INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 9, 'Milunka', 'Bojic', 'dermatologist2', 'Cara Dusana 5', 'Novi Sad','Srbija' ,'021669977', 'pharmacysistem@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_DERMATOLOGIST', '2017-10-01 21:58:58', true, false);
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 10, 'Spomenka', 'Predojevic', 'pharmacist', 'Temerinska 5', 'Novi Sad','Srbija' ,'021599874', 'spomenka@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_PHARMACIST', '2017-10-01 21:58:58', true, false);
 INSERT INTO `users` (user_type, id, name, surname, username, address, city, country, number, email, password, role_type, last_password_reset_date, enabled, is_admin) VALUES (0, 11, 'Jelisaveta', 'Milusnic', 'pharmacist2', 'Cara Dusana 25', 'Novi Sad','Srbija' ,'021663314', 'jelisaveta@gmail.com', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'ROLE_PHARMACIST', '2017-10-01 21:58:58', true, false);
 
@@ -62,7 +62,10 @@ INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) 
 
 INSERT INTO `complaintss` (id, text, user_id, answered) VALUES (1, 'Dermatologist was wery impolite', 8, false);
 
-INSERT INTO `pricelist` (id,price, from_date, to_date) VALUES (1,  120, '15.09.2020.', '28.11.2021.');
+INSERT INTO `pricelist` (price, from_date, to_date, medicament_id, pharmacy_id) VALUES ( 120, '15.09.2020.', '28.11.2021.', 1, 1);
+INSERT INTO `pricelist` (price, from_date, to_date, medicament_id, pharmacy_id) VALUES ( 130, '19.10.2020.', '19.10.2021.', 2, 1);
+INSERT INTO `pricelist` (price, from_date, to_date, medicament_id, pharmacy_id) VALUES ( 180, '12.10.2020.', '09.10.2021.', 2, 2);
+
 
 INSERT INTO `subscribed` (email, patient_id) VALUES ('dacaa9977@gmail.com', 3);
 
@@ -78,3 +81,7 @@ INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (1, 1);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (1, 2);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 1);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 2);
+
+INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '12.07.2021', '31.07.2021', 8);
+INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '12.05.2021', '01.07.2021', 9);
+INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '10.08.2021', '01.09.2021', 10);

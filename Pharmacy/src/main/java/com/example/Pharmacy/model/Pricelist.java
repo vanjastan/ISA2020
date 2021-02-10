@@ -28,8 +28,14 @@ public class Pricelist {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medicament_id")
-    private Medicament medicament;
+    private Meds medicament;
 
+    private String name;
+
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "pharmacy_id")
+    private Pharmacies pharm;
 
     public Pricelist(){
         super();
@@ -54,4 +60,28 @@ public class Pricelist {
     public int getPrice() { return price; }
 
     public void setPrice(int price) { this.price = price; }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Meds getMedicament() {
+        return medicament;
+    }
+
+    public void setMedicament(Meds medicament) {
+        this.medicament = medicament;
+    }
+
+    public Pharmacies getPharm() {
+        return pharm;
+    }
+
+    public void setPharm(Pharmacies pharm) {
+        this.pharm = pharm;
+    }
 }

@@ -86,10 +86,16 @@ import { OrderformComponent } from 'src/app/components/orderform/orderform.compo
 import { AddOrderformComponent } from 'src/app/components/orderform/add-orderform/add-orderform.component';
 import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
-import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
+//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-consultations/pharmacies-free-derm/pharmacies-free-derm.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
+import { VacationRequestsComponent } from './components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
+import { EditPricelistComponent } from './components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
+import { ShowPharmacyComponent } from './components/pharmacy-admin-page/dermatologist/show-pharmacy/show-pharmacy.component';
+import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
+
 
 @NgModule({
   declarations: [
@@ -157,7 +163,8 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
 
    ConfirmComponent,
    ComplaintsListComponent,
-   PatientComplaintsComponent,
+   PricelistComponent,
+  // PatientComplaintsComponent,
    PharmaciesFreeDermComponent,
    AllpharmaciestComponent,
    MedicamentsComponent,
@@ -177,7 +184,12 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
 	ComplaintsListComponent,
 	PharmaciesFreeDermComponent,
 	AllpharmaciestComponent,
-	MedicamentsComponent
+	MedicamentsComponent,
+	VacationRequestsComponent,
+	EditPricelistComponent,
+	ShowPharmacyComponent,
+	ShowPHComponent
+
   ],
   entryComponents: [
     EditprofileComponent,
@@ -187,7 +199,8 @@ import { MedicamentsComponent } from './components/medicaments/medicaments.compo
     EditpassSupComponent,
     TakeMedicineComponent,
     ConfirmComponent,
-    PharmaciesFreeDermComponent
+    PharmaciesFreeDermComponent,
+    EditPricelistComponent
   ],
   imports: [
     AppRoutingModule,

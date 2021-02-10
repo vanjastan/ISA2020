@@ -22,6 +22,7 @@ public class UserDTO {
     private List<String> authorities;
     private UserTokenDTO token;
 
+
     public UserDTO() {
     }
 
@@ -41,6 +42,8 @@ public class UserDTO {
         this.authorities = u.getAuthorities().stream()
                 .map(authority -> ((Authority) authority).getName()).collect(Collectors.toList());
     }
+
+
 
     public Long getId() {
         return id;
@@ -145,4 +148,5 @@ public class UserDTO {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }

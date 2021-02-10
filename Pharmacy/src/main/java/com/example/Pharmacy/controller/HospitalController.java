@@ -23,7 +23,8 @@ public class HospitalController {
     private HospitalRepository hospitalRepository;
 
     @GetMapping("/hospital/all")
-    public List<Hospital> loadAllHospitals() {return this.hospitalRepository.findAll(); }
+    public List<Hospital> loadAllHospitals() {
+        return this.hospitalRepository.findAll(); }
 
     @PostMapping("/hospital/add_hospital")
     public ResponseEntity addHospital(@RequestBody HospitalDTO hdto) {
