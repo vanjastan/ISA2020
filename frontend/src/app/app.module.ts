@@ -97,6 +97,10 @@ import { ShowPharmacyComponent } from './components/pharmacy-admin-page/dermatol
 import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
 import { OrderOffersComponent } from './components/orderform/order-offers/order-offers.component';
 import { EditOrderComponent } from './components/orderform/edit-order/edit-order.component';
+import { ShowingDermatologistsComponent } from './components/pharmacy-profile-page/showing-dermatologists/showing-dermatologists.component';
+import { ShowingPharmacistsComponent } from './components/pharmacy-profile-page/showing-pharmacists/showing-pharmacists.component';
+import { ShowingMedsComponent } from './components/pharmacy-profile-page/showing-meds/showing-meds.component';
+import { ShowingDermExaminationsComponent } from './components/pharmacy-profile-page/showing-derm-examinations/showing-derm-examinations.component';
 
 
 @NgModule({
@@ -183,6 +187,10 @@ import { EditOrderComponent } from './components/orderform/edit-order/edit-order
     ShowPHComponent,
     OrderOffersComponent,
     EditOrderComponent,
+    ShowingDermatologistsComponent,
+    ShowingPharmacistsComponent,
+    ShowingMedsComponent,
+    ShowingDermExaminationsComponent,
 
   ],
   entryComponents: [
@@ -194,7 +202,10 @@ import { EditOrderComponent } from './components/orderform/edit-order/edit-order
     TakeMedicineComponent,
     ConfirmComponent,
     PharmaciesFreeDermComponent,
-    EditPricelistComponent
+    EditPricelistComponent,
+    ShowingDermatologistsComponent,
+    ShowingPharmacistsComponent,
+    ShowingMedsComponent
   ],
   imports: [
     AppRoutingModule,

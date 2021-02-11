@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Dermatologist } from '../../models/dermatologist';
@@ -7,7 +7,7 @@ import { PharmaciesService } from 'src/app/services/pharmacies.service';
 import { Pharmacies } from 'src/app/components/models/pharmacies';
 import { ShowPharmacyComponent } from './show-pharmacy/show-pharmacy.component';
 import { ToastrService } from 'ngx-toastr';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dermatologist',
@@ -29,7 +29,9 @@ export class DermatologistComponent implements OnInit, AfterViewInit {
   city: string;
   country: string;
 
+  phh:Pharmacies;
 
+  id:number;
 
   search: string;
 
@@ -37,17 +39,20 @@ export class DermatologistComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Dermatologist>();
   @ViewChild(MatSort) sort:MatSort;
 
-  constructor(private service: PharmaciesService, private http: HttpClient, private toastr: ToastrService, public dialog: MatDialog) { }
+  constructor(private service: PharmaciesService, 
+    private http: HttpClient, private toastr: ToastrService, 
+    public dialog: MatDialog) {
+    }
 
   ngOnInit(): void {
-    this.getAllDerm();
+    this.getAllDermos();
   }
 
   ngAfterViewInit(): void{
     this.dataSource.sort = this.sort;
   }
 
-  getAllDerm(){
+  getAllDermos(){
     this.service.getDermatologist().subscribe(data => {
       this.Dermatologists = data;
       this.dataSource.data = data;

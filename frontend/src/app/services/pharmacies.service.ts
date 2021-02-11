@@ -20,8 +20,8 @@ import { PriceList } from '../components/models/pricelist';
         this.getPharmacies();
     }
 
-    getPharmacies():Observable<Pharmacies[]>{
-        return this.http.get<Pharmacies[]>(`http://localhost:8080/pharmacies`);
+    public getPharmacies():Observable<any>{
+        return this.http.get(`http://localhost:8080/pharmacies`);
     }
 
     public getPharmacyInfo(): Observable<any> {
@@ -52,19 +52,19 @@ import { PriceList } from '../components/models/pricelist';
     }
 
     public getDermatologist():Observable<any>{
-      return this.http.get(`http://localhost:8080/pharmacies/1/dermatologist`);
+      return this.http.get(`http://localhost:8080/pharmacies/dermatologist/1`);
     }
 
     public getDermatologistt():Observable<any>{
-      return this.http.get(`http://localhost:8080/pharmacies/2/dermatologist`);
+      return this.http.get(`http://localhost:8080/pharmacies/dermatologist/2`);
     }
 
     public getPharmacist():Observable<any>{
-      return this.http.get(`http://localhost:8080/pharmacies/1/pharmacist`);
+      return this.http.get(`http://localhost:8080/pharmacies/pharmacist/1`);
     }
 
     public getPharmacistt():Observable<any>{
-      return this.http.get(`http://localhost:8080/pharmacies/2/pharmacist`);
+      return this.http.get(`http://localhost:8080/pharmacies/pharmacist/2`);
     }
 
     public getPatientSubscribedPharmacies():Observable<any>{
@@ -111,4 +111,18 @@ import { PriceList } from '../components/models/pricelist';
     public getPhamr(id:number):Observable<any>{
       return this.http.get(`http://localhost:8080/api/users/ph/`+id, {}); //{pharmacist_id}
     }
+
+
+    public getDerma(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/dermatologist/` + id, {});
+    }
+
+    public getPharmaciests(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/pharmacist/` + id, {});
+    }
+
+    public getMeds(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/api/meds/` + id, {});
+    }
+  
   }
