@@ -11,6 +11,7 @@ import { Pharmacist } from '../models/pharmacist';
 import { ShowingMedsComponent} from 'src/app/components/pharmacy-profile-page/showing-meds/showing-meds.component';
 import { ShowingPharmacistsComponent } from 'src/app/components/pharmacy-profile-page/showing-pharmacists/showing-pharmacists.component';
 import { ShowingDermatologistsComponent } from 'src/app/components/pharmacy-profile-page/showing-dermatologists/showing-dermatologists.component';
+import { PATIENT_SUBSCRIBE } from 'src/app/config/router-paths';
 
 
 @Component({
@@ -104,6 +105,10 @@ export class PharmacyProfilePageComponent implements OnInit {
             this.dataSource.data = this.pharmacyResult;
     }   
         this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
+  showPA(){
+    this.router.navigate([PATIENT_SUBSCRIBE]);
   }
 
 }
