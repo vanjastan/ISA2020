@@ -342,12 +342,13 @@ public class User implements UserDetails, Serializable {
 
     public void setSubscribedPharmacies(Set<Pharmacies> subscribedPharmacies) {
         this.subscribedPharmacies = subscribedPharmacies;
+    }
 
     public Set<Pharmacies> getPhPharmacist(){
         return pharmaciesP;
     }
 
-    public Pharmacies getPharmacies() {
+    public Pharmacies getPharmacies(){
         return pharmacies;
     }
 
