@@ -72,10 +72,6 @@ public class Meds {
     @Column(name = "grade")
     private Double grade;
 
-    //OVO MOZDA MOZE DA SE OBRISE
-   /* @OneToOne(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
-    private MedsReservation reservation;*/
-
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
     private List<MedsReservation> reservations = new ArrayList<>();

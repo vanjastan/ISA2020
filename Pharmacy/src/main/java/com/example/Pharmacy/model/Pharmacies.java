@@ -50,10 +50,6 @@ public class Pharmacies {
     @JoinColumn(name = "subscriber")
     private Subscribed subscribed;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "patient")
-    private User patient;
-
     @Column(name = "name")
     private String name;
 
@@ -139,14 +135,6 @@ public class Pharmacies {
     public String getDescription(){ return description; }
 
     public void setDescription(String description){ this.description = description; }
-
-    public User getPatient(){
-        return patient;
-    }
-
-    public void setPatient(User patient){
-        this.patient = patient;
-    }
 
     public Subscribed getSubscribed() {
         return subscribed;

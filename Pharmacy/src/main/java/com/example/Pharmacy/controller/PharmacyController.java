@@ -1,12 +1,10 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
-import com.example.Pharmacy.model.*;
 import com.example.Pharmacy.repository.PharmacyRepository;
 import com.example.Pharmacy.repository.SubscribedRepository;
 import com.example.Pharmacy.service.MedsService;
@@ -99,16 +97,15 @@ public class PharmacyController {
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value="/subscribed/{id}")
-    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+   /* @GetMapping(value="/subscribed/{id}")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<PharmaciesDTO>> findPharmacyBySubscribedUser(@PathVariable("id") Long id) {
         User user = userService.findOne(id);
         Subscribed subsPatient = subscribedRepository.findByPatientId(user.getId());
-        //Set<Pharmacies> pharmacies = subsPatient.getPharmacies();
+        Set<Pharmacies> pharmacies = subsPatient.getPharmacies();
         Set<Pharmacies> pharmacies = user.getSubscribedPharmacies();
         List<PharmaciesDTO> pharmaciesDTO = new ArrayList<>();
         for (Pharmacies p : pharmacies) {
-            //if(p.getPatient().getId() == subsPatient.getPatient().getId()) {
             if(p.getPatient().getId() == user.getId()) {
                 PharmaciesDTO phDTO = new PharmaciesDTO();
                 phDTO.setId(p.getId());
@@ -124,10 +121,10 @@ public class PharmacyController {
             }
         }
         return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
-    }
+    }*/
 
     @GetMapping(value="/medicine/{id}")
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<PharmaciesDTO>> findPharmacyByMedsId(@PathVariable("id") Long id) {
         Meds med = medsService.findOne(id);
         Set<Pharmacies> pharmacies = med.getPharmaciesMed();
@@ -140,7 +137,7 @@ public class PharmacyController {
             phDTO.setCity(p.getCity());
             phDTO.setDescription(p.getDescription());
             phDTO.setRate(p.getRate());
-            phDTO.setPatient(new UserDTO(p.getPatient()));
+         //   phDTO.setPatient(new UserDTO(p.getPatient()));
 
             pharmaciesDTO.add(phDTO);
         }

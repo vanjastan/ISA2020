@@ -33,7 +33,7 @@ public class PharmaciesDTO {
         rate = ph.getRate();
         subscribed = ph.getSubscribed();
         description = ph.getDescription();
-        patient = new UserDTO(ph.getPatient());
+       // patient = new UserDTO(ph.getPatient());
     }
 
     public String getName() {

@@ -103,7 +103,6 @@ import { ShowingMedsComponent } from './components/pharmacy-profile-page/showing
 import { ShowingDermExaminationsComponent } from './components/pharmacy-profile-page/showing-derm-examinations/showing-derm-examinations.component';
 import { PatientSubscribeComponent } from './components/pharmacy-profile-page/patient-subscribe/patient-subscribe.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
