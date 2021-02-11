@@ -4,7 +4,7 @@
 
 This project is done as a part of course at Faculty of technical sciences in Novi Sad. It is developed as a two-part application consisting of Angular-based frontend [Angular CLI](https://github.com/angular/angular-cli) and Spring-boot based backend.
 
-##Download instructions
+## Download instructions
 
 These command will get you a copy of project for dev and testing purposes:
 
