@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,6 +38,10 @@ public class Pharmacies {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "subscriber")
     private Subscribed subscribed;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient")
+    private User patient;
 
     @Column(name = "name")
     private String name;
@@ -119,4 +124,20 @@ public class Pharmacies {
     public String getDescription(){ return description; }
 
     public void setDescription(String description){ this.description = description; }
+
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
+
+    public Subscribed getSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(Subscribed subscribed) {
+        this.subscribed = subscribed;
+    }
 }

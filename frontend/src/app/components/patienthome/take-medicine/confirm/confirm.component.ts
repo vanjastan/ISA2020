@@ -15,18 +15,20 @@ import { MedicineReservation } from 'src/app/components/models/medicineReservati
 export class ConfirmComponent implements OnInit {
 
   selectedPharmacy: Pharmacies = new Pharmacies("", "", "", "", "");
-  medicine: Medicine = new Medicine();
+  //medicine: Medicine = new Medicine();
+  medicine = new Medicine();
   reservation = new MedicineReservation();
   pharmacy:Pharmacies[];
   date: string;
+  id:number;
 
   constructor(public dialogRef: MatDialogRef<ConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private service: MedsService, 
     private servicePh: PharmaciesService, private toastr: ToastrService) {
+      this.medicine = data.Medicine;
+      this.id = data.id;
 
-    this.pharmacy = data.pharmacy;
-
-      servicePh.getPharmaciesByMedicineId(this.medicine.id).subscribe(data =>{
+      servicePh.getPharmaciesByMedicineId(this.id).subscribe(data =>{
         this.pharmacy = data;
          console.log(this.pharmacy);
       })
@@ -36,9 +38,9 @@ export class ConfirmComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.reservation);
-    this.service.reserveMed(this.reservation).subscribe(data =>{
-      this.reservation = data;
+    console.log(this.id);
+    this.service.reserveMed(this.reservation, this.id).subscribe(data =>{
+      console.log(data);
       console.log(this.reservation);
       this.toastr.success('Successfully reserved medicine!', '');
       this.dialogRef.close();

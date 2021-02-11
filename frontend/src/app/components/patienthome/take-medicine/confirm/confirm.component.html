@@ -11,14 +11,10 @@
             <mat-card-content>
                 <mat-form-field class="full-width">
                     <mat-label>Pharmacy</mat-label>
-                  <!--  <mat-select [(value)]="selectedPharmacy">
+                    <mat-select [(value)]="selectedPharmacy">
                        <mat-option *ngFor="let ph of pharmacy" [value]="ph">{{ph.name}}
                         </mat-option>
-                    </mat-select> -->
-                     <select matNativeControl required [(ngModel)]="reservation.selectedPharmacy" [ngModelOptions]="{standalone: true}">
-                        <option value="benu">Benu</option>
-                        <option value="jankovic">Jankovic</option>
-                      </select>
+                    </mat-select> 
                 </mat-form-field>
             </mat-card-content>
             <button mat-raised-button (click)="submit()"

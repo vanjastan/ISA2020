@@ -8,6 +8,7 @@ import com.example.Pharmacy.model.MedsReservation;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.service.MedsReservationService;
+import com.example.Pharmacy.service.MedsService;
 import com.example.Pharmacy.service.UserService;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import com.example.Pharmacy.service.impl.MedsReservationServiceImpl;
@@ -39,6 +40,9 @@ public class MedsReservationController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private MedsService medsService;
+
     @GetMapping(value = "/all")
     public ResponseEntity<List<MedsReservationDTO>> getAllReservations(){
 
@@ -52,17 +56,21 @@ public class MedsReservationController {
         return new ResponseEntity<>(medsReservationDTOS, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/addReservation", method = RequestMethod.POST)
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<MedsReservationDTO> addReservation(@RequestBody MedsReservationDTO reservationDTO) throws MessagingException {
-        //reservationServiceImpl.addReservation(reservationDTO);
+    @RequestMapping(value="/addReservation/{medicineId}", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<MedsReservationDTO> addReservation(@RequestBody MedsReservationDTO reservationDTO, @PathVariable("medicineId") Long medicineId) throws MessagingException {
+        Meds meds = medsService.findOne(medicineId);
         MedsReservation reservation = new MedsReservation();
-        Pharmacies p = reservationService.findByReservationId(reservation.getReservationId());
 
         reservation.setDateReservation(reservationDTO.getDateReservation());
         reservation.setNumberOfReservation(reservationDTO.getNumberOfReservation());
-        reservation.setPharmacies(p);
+        reservation.setMedicine(meds);
         reservation = reservationService.save(reservation);
+
+        if(reservation.getMedicine().getId() == meds.getId()) {
+            meds.setReserved(true);
+            medsService.save(meds);
+        }
 
         serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", reservationDTO);
         return new ResponseEntity<>(new MedsReservationDTO(reservation), HttpStatus.OK);

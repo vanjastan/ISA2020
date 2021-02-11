@@ -66,8 +66,7 @@ public class EmailServiceImpl implements EmailService {
     public void sendMessageForReservedMed(String to, String pathToAttachment, MedsReservationDTO m) throws MessagingException {
 
         String text = "You have successfully reserved medicine!" +
-                "For date: " + m.getDateReservation()+
-                "Your number of reservation: " + m.getNumberOfReservation();
+                "For date: " + m.getDateReservation();
         
         MimeMessage message = emailSender.createMimeMessage();
 

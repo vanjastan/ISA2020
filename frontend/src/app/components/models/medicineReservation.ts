@@ -1,3 +1,4 @@
+import { Medicine } from "./medicine";
 import { Pharmacies } from "./pharmacies";
 
 export class MedicineReservation{
@@ -5,4 +6,5 @@ export class MedicineReservation{
     public dateReservation: string;
     public numberReservation: number;
     public selectedPharmacy: Pharmacies;
+    public medicine: Medicine;
 }

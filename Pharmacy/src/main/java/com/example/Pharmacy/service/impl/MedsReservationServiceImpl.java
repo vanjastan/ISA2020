@@ -1,5 +1,6 @@
 package com.example.Pharmacy.service.impl;
 
+import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.MedsReservation;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.repository.MedsReservationRepository;
@@ -29,6 +30,11 @@ public class MedsReservationServiceImpl implements MedsReservationService {
 
     public Pharmacies findByReservationId(Long id) {
         return reservationRepository.findByReservationId(id);
+    }
+
+    @Override
+    public Meds findByMedicine(Long medicine) {
+        return reservationRepository.findByMedicine(medicine);
     }
 
     /*public MedsReservation addReservation(MedsReservationDTO reservationDTO){

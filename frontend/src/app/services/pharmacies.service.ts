@@ -65,8 +65,9 @@ import { Medicine } from '../components/models/medicine';
       return this.http.get(`http://localhost:8080/pharmacies/2/pharmacist`);
     }
 
-    public getPatientSubscribedPharmacies(){
-
+    public getPatientSubscribedPharmacies():Observable<any>{
+      const userId = localStorage.getItem(USER_ID_KEY);
+      return this.http.get(`http://localhost:8080/pharmacies/subscribed/${userId}`);
     }
 
     public getPharmaciesByMedicineId(id: number):Observable<Pharmacies[]>{

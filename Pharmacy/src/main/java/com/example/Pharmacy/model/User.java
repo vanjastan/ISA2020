@@ -111,6 +111,10 @@ public class User implements UserDetails, Serializable {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaints> complaints;
 
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
+    private Set<Pharmacies> subscribedPharmacies = new HashSet<Pharmacies>();
+
     public User() {
 
     }
@@ -323,5 +327,13 @@ public class User implements UserDetails, Serializable {
 
     public Set<Pharmacies> getPhDermatologist() {
         return pharmaciesD;
+    }
+
+    public Set<Pharmacies> getSubscribedPharmacies() {
+        return subscribedPharmacies;
+    }
+
+    public void setSubscribedPharmacies(Set<Pharmacies> subscribedPharmacies) {
+        this.subscribedPharmacies = subscribedPharmacies;
     }
 }

@@ -67,16 +67,13 @@ public class MedsController {
         medsImpl.addMeds(mdto);
         return ResponseEntity.ok().build();
     }
-    //PROVERI
-    //VRATI REZERVISANE
-    //Za sada je ovako, napraviti novu funkciju
+
     @GetMapping(value="/forPatient/{id}")
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<MedsDTO>> findMedsByPatientId(@PathVariable("id") Long id) {
         User patient = userService.findOne(id);
-        Set<Meds> reservedMeds = patient.getReservedMeds(); //lista lekova za pacijenta
+        Set<Meds> reservedMeds = patient.getReservedMeds();
 
-        //MedsReservation reservation = new MedsReservation();
         List<MedsDTO> medsDTO = new ArrayList<>();
         for (Meds m : reservedMeds) {
             if(m.isReserved() == true) {
@@ -104,17 +101,6 @@ public class MedsController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    /*@RequestMapping(value="/reserveMed/{id}", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<Meds> reserveMedicine(@PathVariable("id") Long id) throws MessagingException {
-        Meds med = medsService.findById(id);
-        med.setReserved(true);
-        med.setPatient(med.getPatient());
-        med = medsService.save(med);
-        serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", med);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }*/
 
     @RequestMapping(value="/addAllergy/{id}", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ROLE_PATIENT')")

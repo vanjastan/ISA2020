@@ -59,10 +59,11 @@ export class TakeMedicineComponent implements OnInit, AfterViewInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-  reserve(){
+  reserve(id:number){
+    console.log(id);
     let dialogRef = this.dialog.open(ConfirmComponent, {
       width: '800px',
-      data: {Medicine: this.Medicine }
+      data: {Medicine: this.Medicine, id: id}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');

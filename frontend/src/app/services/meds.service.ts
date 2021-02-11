@@ -36,8 +36,8 @@ import { MedicineReservation } from '../components/models/medicineReservation';
       return this.http.get(`http://localhost:8080/api/meds/byPrescription`);
     }
 
-    reserveMed(reservation:MedicineReservation):Observable<any>{
-      return this.http.post(`http://localhost:8080/reservations/addReservation`, reservation);
+    reserveMed(reservation:MedicineReservation, medicineId:number):Observable<any>{
+      return this.http.post(`http://localhost:8080/reservations/addReservation/` + medicineId, reservation);
     }
 
     public addAllergy(id:number){

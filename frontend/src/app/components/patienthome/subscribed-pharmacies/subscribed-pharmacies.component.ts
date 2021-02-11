@@ -27,10 +27,22 @@ export class SubscribedPharmaciesComponent implements OnInit, AfterViewInit {
   constructor(private service: PharmaciesService) { }
 
   ngOnInit(): void {
+    this.getSubscribedPharmacies();
   }
 
   ngAfterViewInit(): void{
     this.dataSource.sort = this.sort;
+  }
+
+  getSubscribedPharmacies(){
+    this.service.getPatientSubscribedPharmacies().subscribe(data => {
+      this.Pharmacies = data;
+      this.dataSource.data = data;
+      console.log(this.Pharmacies);
+    },
+    error => {
+      console.log("ERROR");
+    });
   }
 
   public doFilter = (value:string)=>{
@@ -45,16 +57,5 @@ export class SubscribedPharmaciesComponent implements OnInit, AfterViewInit {
             this.dataSource.data = this.PharmaciesResults;
     }   
         this.dataSource.filter = value.trim().toLocaleLowerCase();
-    }
-
-    getSubscribedPharmacies(){
-     /* this.service.getPatientSubscribedPharmacies().subscribe(data => {
-        this.Pharmacies = data;
-        this.dataSource.data = data;
-        console.log(this.Pharmacies);
-      },
-      error => {
-       console.log("ERROR");
-      });*/
     }
 }
