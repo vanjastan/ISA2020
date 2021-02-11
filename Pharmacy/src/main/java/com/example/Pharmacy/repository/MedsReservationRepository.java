@@ -1,5 +1,6 @@
 package com.example.Pharmacy.repository;
 
+import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.MedsReservation;
 import com.example.Pharmacy.model.Pharmacies;

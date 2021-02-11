@@ -125,4 +125,25 @@ public class PharmacyController {
         }
         return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
     }
+
+    @GetMapping(value="/medicine/{id}")
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<List<PharmaciesDTO>> findPharmacyByMedsId(@PathVariable("id") Long id) {
+        Meds med = medsService.findOne(id);
+        Set<Pharmacies> pharmacies = med.getPharmaciesMed();
+        List<PharmaciesDTO> pharmaciesDTO = new ArrayList<>();
+        for (Pharmacies p : pharmacies) {
+            PharmaciesDTO phDTO = new PharmaciesDTO();
+            phDTO.setId(p.getId());
+            phDTO.setName(p.getName());
+            phDTO.setAddress(p.getAddress());
+            phDTO.setCity(p.getCity());
+            phDTO.setDescription(p.getDescription());
+            phDTO.setRate(p.getRate());
+            phDTO.setPatient(new UserDTO(p.getPatient()));
+
+            pharmaciesDTO.add(phDTO);
+        }
+        return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
+    }
 }

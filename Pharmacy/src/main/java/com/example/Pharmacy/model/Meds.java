@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -70,8 +72,13 @@ public class Meds {
     @Column(name = "grade")
     private Double grade;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
-    private MedsReservation reservation;
+    //OVO MOZDA MOZE DA SE OBRISE
+   /* @OneToOne(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
+    private MedsReservation reservation;*/
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
+    private List<MedsReservation> reservations = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
@@ -129,12 +136,12 @@ public class Meds {
         this.grade = grade;
     }
 
-    public MedsReservation getReservation() {
-        return reservation;
+    public List<MedsReservation> getReservations() {
+        return reservations;
     }
 
-    public void setReservation(MedsReservation reservation) {
-        this.reservation = reservation;
+    public void setReservations(List<MedsReservation> reservations) {
+        this.reservations = reservations;
     }
 
     public Long getId() {
