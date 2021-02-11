@@ -69,7 +69,7 @@ public class PharmacyController {
     }
 
 
-    @GetMapping(value = "/{pharmacyId}/dermatologist")
+    @GetMapping(value = "/dermatologist/{pharmacyId}")
     public ResponseEntity<List<UserDTO>> getPharmacyDermatologist(@PathVariable Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOne(pharmacyId);
@@ -83,7 +83,7 @@ public class PharmacyController {
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{pharmacyId}/pharmacist")
+    @GetMapping(value = "/pharmacist/{pharmacyId}")
     public ResponseEntity<List<UserDTO>> getPharmacyPharmacist(@PathVariable Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOnee(pharmacyId);

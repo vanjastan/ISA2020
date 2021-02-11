@@ -9,7 +9,7 @@ import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH
 
 SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
-SUPPLIER_TENDER,
+SUPPLIER_TENDER, PATIENT_SUBSCRIBE,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES, EDIT_ORDER,
@@ -70,6 +70,7 @@ import { ShowPharmacyComponent } from 'src/app/components/pharmacy-admin-page/de
 import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
 import { OrderOffersComponent } from 'src/app/components/orderform/order-offers/order-offers.component';
 import { EditOrderComponent } from 'src/app/components/orderform/edit-order/edit-order.component';
+import { PatientSubscribeComponent } from 'src/app/components/pharmacy-profile-page/patient-subscribe/patient-subscribe.component';
 
 const routes: Routes = [
   {
@@ -99,6 +100,10 @@ const routes: Routes = [
   {
     path: SHOW_PHARMACY,
     component: ShowPharmacyComponent
+  },
+  {
+    path: PATIENT_SUBSCRIBE,
+    component: PatientSubscribeComponent
   },
   {
     path: HEADER1,
