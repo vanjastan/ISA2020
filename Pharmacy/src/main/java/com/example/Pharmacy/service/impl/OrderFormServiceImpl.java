@@ -1,6 +1,7 @@
 package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.OrderFormDTO;
+import com.example.Pharmacy.exception.ResourceNotFoundException;
 import com.example.Pharmacy.model.OrderForm;
 import com.example.Pharmacy.repository.OrderFormRepository;
 import com.example.Pharmacy.service.OrderFormService;
@@ -20,6 +21,24 @@ public class OrderFormServiceImpl implements OrderFormService {
     public List<OrderForm> findAll() throws AccessDeniedException{
         List<OrderForm> result = orderFormRepository.findAll();
         return result;
+    }
+
+    @Override
+    public OrderForm save(OrderForm orderForm) {
+
+        return orderFormRepository.save(orderForm);
+    }
+
+
+    public OrderForm findById(Long id){
+        OrderForm o = orderFormRepository.findById(id).orElseGet(null);
+        return o;
+    }
+
+    @Override
+    public void delete(Long id) {
+        OrderForm of = orderFormRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Order form with if " + id + " does not exist!"));
+        orderFormRepository.delete(of);
     }
 
     public OrderForm addOrderForm(OrderFormDTO dto){

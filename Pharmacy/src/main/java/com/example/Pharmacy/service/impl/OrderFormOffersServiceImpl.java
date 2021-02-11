@@ -27,4 +27,9 @@ public class OrderFormOffersServiceImpl implements OrderFormOffersService {
         OrderFormOffers result = orderFormOffersRepository.findById(id).orElseGet(null);
         return result;
     }
+
+    @Override
+    public OrderFormOffers save(OrderFormOffers orderFormOffers) {
+        return orderFormOffersRepository.save(orderFormOffers);
+    }
 }

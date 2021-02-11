@@ -7,4 +7,10 @@ import java.util.List;
 
 public interface OrderFormService {
     List<OrderForm> findAll() throws AccessDeniedException;
+
+    OrderForm save(OrderForm orderForm);
+
+    OrderForm findById(Long id);
+
+    void delete(Long id);
 }

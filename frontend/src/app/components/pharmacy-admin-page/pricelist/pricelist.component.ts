@@ -59,7 +59,6 @@ export class PricelistComponent implements OnInit, AfterViewInit {
   }
 
   edit(id: number, name:string,  price: number, from_date:string, to_date:string): void{
-    console.log(id);
     let dialogRef = this.dialog.open(EditPricelistComponent, {
       width: '650px',
       data: {id:id, name:name, price:price, from_date:from_date, to_date:to_date}

@@ -178,4 +178,18 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(mess);
     }
 
+    @Async
+    public void sendForOrders (OrderFormOffers r) throws MessagingException{
+        String text = "We are announcing,  order is now closed.";
+
+        MimeMessage mess = emailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mess, true);
+
+        helper.setTo(r.getSupplier().getEmail());
+        helper.setSubject("Order information");
+        helper.setText(text);
+
+        emailSender.send(mess);
+    }
+
 }

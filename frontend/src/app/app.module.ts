@@ -96,6 +96,7 @@ import { EditPricelistComponent } from './components/pharmacy-admin-page/priceli
 import { ShowPharmacyComponent } from './components/pharmacy-admin-page/dermatologist/show-pharmacy/show-pharmacy.component';
 import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
 import { OrderOffersComponent } from './components/orderform/order-offers/order-offers.component';
+import { EditOrderComponent } from './components/orderform/edit-order/edit-order.component';
 
 
 @NgModule({
@@ -180,7 +181,9 @@ import { OrderOffersComponent } from './components/orderform/order-offers/order-
     EditPricelistComponent,
     ShowPharmacyComponent,
     ShowPHComponent,
-    OrderOffersComponent
+    OrderOffersComponent,
+    EditOrderComponent,
+
   ],
   entryComponents: [
     EditprofileComponent,
