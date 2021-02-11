@@ -30,7 +30,7 @@ export class PharmaciesFreeDermComponent implements OnInit, AfterViewInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    this.getAllPharmacies();
+    this.getPharmaciesPharmaciest();
   }
 
   ngAfterViewInit(): void{
@@ -50,7 +50,7 @@ export class PharmaciesFreeDermComponent implements OnInit, AfterViewInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-    getAllPharmacies(){
+    getPharmaciesPharmaciest(){
       this.service.getPharmacies().subscribe(data => {
         this.Pharmacies = data;
         this.dataSource.data = data;

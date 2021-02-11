@@ -28,15 +28,15 @@ export class TakeMedicineComponent implements OnInit, AfterViewInit {
   constructor(private toastr: ToastrService, private service: MedsService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getAllMeds();
+    this.getAllMedicines();
   }
 
   ngAfterViewInit(): void{
     this.dataSource.sort = this.sort;
   }
 
-  getAllMeds(){
-    this.service.getAllMeds().subscribe(data => {
+  getAllMedicines(){
+    this.service.getAllMedicines().subscribe(data => {
       this.Medicine = data;
       this.dataSource.data = data;
       console.log(this.Medicine);
@@ -59,10 +59,11 @@ export class TakeMedicineComponent implements OnInit, AfterViewInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-  reserve(){
+  reserve(id:number){
+    console.log(id);
     let dialogRef = this.dialog.open(ConfirmComponent, {
       width: '800px',
-      data: {Medicine: this.Medicine }
+      data: {Medicine: this.Medicine, id: id}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');

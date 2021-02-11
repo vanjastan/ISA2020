@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @Table(name = "examinations_p")
 public class ExaminationPh {
 
@@ -30,6 +29,10 @@ public class ExaminationPh {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
+
+    public ExaminationPh(){
+
+    }
 
     public ExaminationPh(Long id, double price, String duration, String dateExamination) {
         this.id = id;

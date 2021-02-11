@@ -5,7 +5,9 @@ import com.example.Pharmacy.model.EPrescriptionStatus;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.User;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class EPrescriptionDTO {
@@ -13,7 +15,7 @@ public class EPrescriptionDTO {
     private String date_of_pub;
     private EPrescriptionStatus status;
     private UserDTO patient;
-    private Set<Meds> prescriptionMeds = new HashSet<Meds>();
+    private List<Meds> prescriptionMeds = new ArrayList<>();
 
     public EPrescriptionDTO(){
 
@@ -59,11 +61,11 @@ public class EPrescriptionDTO {
         this.patient = patient;
     }
 
-    public Set<Meds> getPrescriptionMeds() {
+    public List<Meds> getPrescriptionMeds() {
         return prescriptionMeds;
     }
 
-    public void setPrescriptionMeds(Set<Meds> prescriptionMeds) {
+    public void setPrescriptionMeds(List<Meds> prescriptionMeds) {
         this.prescriptionMeds = prescriptionMeds;
     }
 }

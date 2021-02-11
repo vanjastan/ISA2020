@@ -1,5 +1,6 @@
 package com.example.Pharmacy.model;
 
+import com.example.Pharmacy.dto.MedsDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,12 +27,9 @@ public class Pricelist {
     @Column(name = "to_date", nullable = false)
     private String to_date;
 
-    @OneToOne(fetch = FetchType.LAZY)
+   /* @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medicament_id")
-    private Meds medicament;
-
-    private String name;
-
+    private Meds medicament;*/
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "pharmacy_id")
@@ -61,22 +59,14 @@ public class Pricelist {
 
     public void setPrice(int price) { this.price = price; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Meds getMedicament() {
+/*    public Meds getMedicament() {
         return medicament;
     }
 
     public void setMedicament(Meds medicament) {
         this.medicament = medicament;
     }
-
+*/
     public Pharmacies getPharm() {
         return pharm;
     }

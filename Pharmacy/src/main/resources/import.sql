@@ -32,10 +32,10 @@ INSERT INTO `medicament` (id, name, quantity) VALUES (1, 'Aspirin', 40);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (1, 'Aspirin', 'Asp1', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Brufen', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', false, 3, true,5, null);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (2, 'Defrinol', 'Def', 'Antipireptik', 'Prehlada i malaksalost', 'Salicilat', '3 puta dnevno', 'Panadol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 5, false, 3, null);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (3, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 3, false, 4, null);
-INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (4, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 3, false, 5, null);
+INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (4, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 5, false, 5, null);
 
-INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 4);
-INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 5);
+INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, patient) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 4, 3);
+INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, patient) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 5, 5);
 
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (1, 2000, '1h', '11.11.2020.', 'Excellent', '11:03', 3);
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (2, 5000, '2h', '11.02.2021.', 'Not bad', '12:00', 5);
@@ -65,10 +65,9 @@ INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) 
 
 INSERT INTO `complaintss` (id, text, user_id, answered) VALUES (1, 'Dermatologist was wery impolite', 8, false);
 
-INSERT INTO `pricelist` (price, from_date, to_date, medicament_id, pharmacy_id) VALUES ( 120, '15.09.2020.', '28.11.2021.', 1, 1);
-INSERT INTO `pricelist` (price, from_date, to_date, medicament_id, pharmacy_id) VALUES ( 130, '19.10.2020.', '19.10.2021.', 2, 1);
-INSERT INTO `pricelist` (price, from_date, to_date, medicament_id, pharmacy_id) VALUES ( 180, '12.10.2020.', '09.10.2021.', 2, 2);
-
+INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 120, '15.09.2020.', '28.11.2021.', 1);
+INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 130, '19.10.2020.', '19.10.2021.', 1);
+INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 180, '12.10.2020.', '09.10.2021.', 2);
 
 INSERT INTO `subscribed` (email, patient_id) VALUES ('dacaa9977@gmail.com', 3);
 
@@ -85,9 +84,14 @@ INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (1, 2);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 1);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 2);
 
+INSERT INTO `reservation_med` (reservationId, date_reservation, number, medicine_id, pharmacy_id) VALUES (1, "01.01.2021.", 4, 1, 1);
+INSERT INTO `reservation_med` (reservationId, date_reservation, number, medicine_id, pharmacy_id) VALUES (2, "10.10.2020.", 10, 2, 2);
+
 INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '12.07.2021', '31.07.2021', 8);
 INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '12.05.2021', '01.07.2021', 9);
 INSERT INTO `vacation_request` ( confirmed, from_date, to_date, user_id) VALUES ( false, '10.08.2021', '01.09.2021', 10);
 
+
 INSERT INTO `order_form_offers` ( chosen, price, winner,  orderform_id, supplier_id) VALUES (false, 115, false,   1, 2);
 INSERT INTO `order_form_offers` ( chosen, price, winner,  orderform_id, supplier_id) VALUES (false, 125, false,  1, 2);
+

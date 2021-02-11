@@ -1,8 +1,11 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.dto.MedsDTO;
+import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.PricelistDTO;
 import com.example.Pharmacy.mappers.PricelistMapper;
 
+import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Pricelist;
 import com.example.Pharmacy.service.PharmacyService;
 import com.example.Pharmacy.service.PricelistService;
@@ -43,7 +46,7 @@ public class PricelistController {
            pl.setPrice(p.getPrice());
            pl.setFrom_date(p.getFrom_date());
            pl.setTo_date(p.getTo_date_date());
-           pl.setName(p.getMedicament().getName());
+           pl.setPharm(new PharmaciesDTO(p.getPharm()));
 
            pricelistDTO.add(pl);
        }
@@ -79,7 +82,6 @@ public class PricelistController {
         pricelistInfo.setPrice(dto.getPrice());
         pricelistInfo.setFrom_date(dto.getFrom_date());
         pricelistInfo.setTo_date(dto.getTo_date());
-        pricelistInfo.setName(dto.getName());
 
         pricelistInfo = pricelistService.save(pricelistInfo);
 

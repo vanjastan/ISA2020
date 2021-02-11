@@ -87,7 +87,7 @@ import { AddOrderformComponent } from 'src/app/components/orderform/add-orderfor
 import { ConfirmComponent } from './components/patienthome/take-medicine/confirm/confirm.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
 import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
-//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { PharmaciesFreeDermComponent } from './components/patienthome/schedule-consultations/pharmacies-free-derm/pharmacies-free-derm.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
@@ -142,57 +142,47 @@ import { EditOrderComponent } from './components/orderform/edit-order/edit-order
     Header2Component,
     Header3Component,
     EditpassSupComponent,
-   ChangeAdminphPasswordComponent,
-   ActionsAndPromotionsComponent,
-   AddActionsAndPromotionsComponent,
-
-   ChangeAdminphPasswordComponent,
-
-   PharmacyProfilePageComponent,
-
-   DermatologistComponent,
-
-   PharmacistComponent,
-
-   PharmacyPageComponent,
-
-   PharmacysProfileComponent,
-
-   OrderformComponent,
-
-   AddOrderformComponent,
-
-
-   ConfirmComponent,
-   ComplaintsListComponent,
-   PricelistComponent,
-  // PatientComplaintsComponent,
-   PharmaciesFreeDermComponent,
-   AllpharmaciestComponent,
-   MedicamentsComponent,
-   TableFilterPipe,
-	ChangeAdminphPasswordComponent,
-	ActionsAndPromotionsComponent,
-	AddActionsAndPromotionsComponent,
-	ChangeAdminphPasswordComponent,
-	PharmacyProfilePageComponent,
-	DermatologistComponent,
-	PharmacistComponent,
-	PharmacyPageComponent,
-	PharmacysProfileComponent,
-	OrderformComponent,
-	AddOrderformComponent,
-	ConfirmComponent,
-	ComplaintsListComponent,
-	PharmaciesFreeDermComponent,
-	AllpharmaciestComponent,
-	MedicamentsComponent,
-	VacationRequestsComponent,
-	EditPricelistComponent,
-	ShowPharmacyComponent,
-	ShowPHComponent,
-	OrderOffersComponent,
-	EditOrderComponent
+    ChangeAdminphPasswordComponent,
+    ActionsAndPromotionsComponent,
+    AddActionsAndPromotionsComponent,
+    ChangeAdminphPasswordComponent,
+    PharmacyProfilePageComponent,
+    DermatologistComponent,
+    PharmacistComponent,
+    PharmacyPageComponent,
+    PharmacysProfileComponent,
+    OrderformComponent,
+    AddOrderformComponent,
+    ConfirmComponent,
+    ComplaintsListComponent,
+    PricelistComponent,
+    PatientComplaintsComponent,
+    PharmaciesFreeDermComponent,
+    AllpharmaciestComponent,
+    MedicamentsComponent,
+    TableFilterPipe,
+    ChangeAdminphPasswordComponent,
+    ActionsAndPromotionsComponent,
+    AddActionsAndPromotionsComponent,
+    ChangeAdminphPasswordComponent,
+    PharmacyProfilePageComponent,
+    DermatologistComponent,
+    PharmacistComponent,
+    PharmacyPageComponent,
+    PharmacysProfileComponent,
+    OrderformComponent,
+    AddOrderformComponent,
+    ConfirmComponent,
+    ComplaintsListComponent,
+    PharmaciesFreeDermComponent,
+    AllpharmaciestComponent,
+    MedicamentsComponent,
+    VacationRequestsComponent,
+    EditPricelistComponent,
+    ShowPharmacyComponent,
+    ShowPHComponent,
+    OrderOffersComponent,
+    EditOrderComponent,
 
   ],
   entryComponents: [

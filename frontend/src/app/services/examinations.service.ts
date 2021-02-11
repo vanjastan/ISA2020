@@ -34,7 +34,7 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
 
     public scheduleConsultation(id:number):Observable<any>{
       const userId = localStorage.getItem(USER_ID_KEY);
-      return this.http.post(`http://localhost:8080/examinationsPh/${userId}/scheduleConsultation/` +id, {});
+      return this.http.post(`http://localhost:8080/examinationsPh/${userId}/schedule/` +id, {});
     }
 
     public getScheduledEx():Observable<any>{

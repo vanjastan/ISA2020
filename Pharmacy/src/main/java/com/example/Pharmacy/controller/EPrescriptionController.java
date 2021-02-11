@@ -38,7 +38,7 @@ public class EPrescriptionController {
     @Autowired
     EPrescriptionService ePrescriptionService;
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<EPrescriptionDTO>> getAllPrescriptions() {
 
        List<EPrescription> prescriptions = ePrescriptionService.findAll();

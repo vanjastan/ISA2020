@@ -114,14 +114,15 @@ public class User implements UserDetails, Serializable {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaints> complaints;
 
-/*    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "adminph", cascade = CascadeType.ALL)
-    private Set<OrderFormOffers>  orderFormOffer = new HashSet<>();
-*/
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
+    private Set<Pharmacies> subscribedPharmacies = new HashSet<Pharmacies>();
+
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "adminph", cascade = CascadeType.ALL)
     private Set<OrderForm>  orderForm = new HashSet<>();
-
 
     public User() {
 
@@ -316,6 +317,14 @@ public class User implements UserDetails, Serializable {
         isAdmin = admin;
     }
 
+    public Set<Pharmacies> getPharmaciesP() {
+        return pharmaciesP;
+    }
+
+    public void setPharmaciesP(Set<Pharmacies> pharmaciesP) {
+        this.pharmaciesP = pharmaciesP;
+    }
+
     @Override
     public boolean isEnabled() {
         return enabled;
@@ -329,11 +338,19 @@ public class User implements UserDetails, Serializable {
         return pharmaciesD;
     }
 
+    public Set<Pharmacies> getSubscribedPharmacies() {
+        return subscribedPharmacies;
+    }
+
+    public void setSubscribedPharmacies(Set<Pharmacies> subscribedPharmacies) {
+        this.subscribedPharmacies = subscribedPharmacies;
+    }
+
     public Set<Pharmacies> getPhPharmacist(){
         return pharmaciesP;
     }
 
-    public Pharmacies getPharmacies() {
+    public Pharmacies getPharmacies(){
         return pharmacies;
     }
 
