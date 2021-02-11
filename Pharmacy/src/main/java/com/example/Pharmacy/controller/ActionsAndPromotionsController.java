@@ -27,6 +27,7 @@ public class ActionsAndPromotionsController {
     @Autowired
     EmailServiceImpl emailServiceImpl;
 
+
     @Autowired
     SubscribedService service;
 
@@ -35,6 +36,7 @@ public class ActionsAndPromotionsController {
 
     @GetMapping("/all")
     public List<ActionsAndPromotions> loadAll(){
+
         return this.actionsAndPromotionsService.findAll();
     }
 

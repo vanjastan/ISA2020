@@ -77,11 +77,20 @@ public class Meds {
     @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
     private EPrescription prescription;
 
+   /* @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
+    private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
+*/
+
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
+
+    @OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private Pricelist pricelist;
 
     public Meds(Long id, String name, String code, String type, String contradictions, String ingredients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes, boolean reserved, boolean allergic) {
         this.id = id;
@@ -127,7 +136,6 @@ public class Meds {
     public void setReservation(MedsReservation reservation) {
         this.reservation = reservation;
     }
-
 
     public Long getId() {
         return id;
@@ -224,6 +232,15 @@ public class Meds {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+
+   /* public Set<Pharmacies> getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(Set<Pharmacies> pharmacies) {
+        this.pharmacies = pharmacies;
+    }*/
 
     public String getName() {
         return name;

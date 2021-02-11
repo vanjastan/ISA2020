@@ -18,6 +18,10 @@ import { OrderForm } from '../components/models/orderform';
         return this.http.get(`http://localhost:8080/orderform`);
     }
 
+    getAllOffer(): Observable<any> {
+      return this.http.get(`http://localhost:8080/ofers/all`);
+  }
+
     saveOrderForm(val:OrderForm):Observable<any>{
       return this.http.post(`http://localhost:8080/orderform/add`, val);
     }

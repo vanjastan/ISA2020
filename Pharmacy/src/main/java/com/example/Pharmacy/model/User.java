@@ -77,6 +77,9 @@ public class User implements UserDetails, Serializable {
     @OneToOne(mappedBy = "patient")
     private Subscribed subscribed;
 
+    @OneToOne(mappedBy = "supplier")
+    private OrderFormOffers orderFormOffers;
+
     @ManyToMany
     @JoinTable(name = "pharmacy_dermatologist",
             joinColumns = @JoinColumn(name = "dermatologist_id", referencedColumnName = "id"),
@@ -114,6 +117,10 @@ public class User implements UserDetails, Serializable {
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<Pharmacies> subscribedPharmacies = new HashSet<Pharmacies>();
+
+	@JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "adminph", cascade = CascadeType.ALL)
+    private Set<OrderFormOffers>  orderFormOffer = new HashSet<>();
 
     public User() {
 
@@ -335,5 +342,16 @@ public class User implements UserDetails, Serializable {
 
     public void setSubscribedPharmacies(Set<Pharmacies> subscribedPharmacies) {
         this.subscribedPharmacies = subscribedPharmacies;
+
+    public Set<Pharmacies> getPhPharmacist(){
+        return pharmaciesP;
+    }
+
+    public Pharmacies getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(Pharmacies pharmacies) {
+        this.pharmacies = pharmacies;
     }
 }

@@ -16,6 +16,7 @@ export class EditPharmacyAdminComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any, private toastr: ToastrService, private userService: UserService) { }
 
   ngOnInit(): void {
+    
   }
 
   closeDialog(){

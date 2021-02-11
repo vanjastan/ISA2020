@@ -10,10 +10,10 @@ import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH
 SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
 SUPPLIER_TENDER,
-ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS,
+ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES,
-PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST,
+PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST, SHOW_PHARMACY, SHOW_PH, ORDER_OFFERS,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
@@ -60,9 +60,16 @@ import { PharmacysProfileComponent } from './components/pharmacy-admin-page/phar
 import { OrderformComponent } from 'src/app/components/orderform/orderform.component';
 import { AddOrderformComponent } from './components/orderform/add-orderform/add-orderform.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
+//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
-import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
+import { VacationRequestsComponent } from 'src/app/components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
+import { EditPricelistComponent } from 'src/app/components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
+import { ShowPharmacyComponent } from 'src/app/components/pharmacy-admin-page/dermatologist/show-pharmacy/show-pharmacy.component';
+import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
+import { OrderOffersComponent } from 'src/app/components/orderform/order-offers/order-offers.component';
 
 const routes: Routes = [
   {
@@ -90,6 +97,10 @@ const routes: Routes = [
     component: PharmacysProfileComponent
   },
   {
+    path: SHOW_PHARMACY,
+    component: ShowPharmacyComponent
+  },
+  {
     path: HEADER1,
     component: Header2Component
   },
@@ -112,6 +123,14 @@ const routes: Routes = [
   {
     path: ADD_ACTIONS_AND_PROMOTIONS,
     component: AddActionsAndPromotionsComponent
+  },
+  {
+    path: PRICELIST,
+    component: PricelistComponent
+  },
+  {
+    path: EDIT_PRICELIST,
+    component: EditPricelistComponent
   },
   {
     path: ADMINPH_ORDERFORM,
@@ -172,6 +191,17 @@ const routes: Routes = [
   {
     path: RESERVED_MEDS,
     component: ReservedMedsComponent
+  },
+  {
+    path: VACATION,
+    component: VacationRequestsComponent
+  },{
+    path: SHOW_PH,
+    component: ShowPHComponent
+  },
+  {
+    path: ORDER_OFFERS,
+    component: OrderOffersComponent
   },
   {
     path: PATIENT_PENALS,
@@ -241,10 +271,10 @@ const routes: Routes = [
     path: ADMIN_COMPLAINTS,
     component: ComplaintsListComponent
   },
-  {
+ /* {
     path: PATIENT_COMPLAINTS,
     component: PatientComplaintsComponent
-  },
+  },*/
   {
     path: MEDICAMENTS_PATH,
     component: MedicamentsComponent

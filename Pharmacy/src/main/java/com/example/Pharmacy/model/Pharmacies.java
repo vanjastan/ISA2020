@@ -31,9 +31,20 @@ public class Pharmacies {
     @ManyToMany(mappedBy = "pharmaciesP")
     private Set<User> pharmacistPh = new HashSet<User>();
 
+    @ManyToMany(mappedBy = "pharmaciesMed")
+    private Set<Meds> medsPh = new HashSet<Meds>();
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "dermatologist_id")
     private User dermatologist;
+
+  /*  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "medicine_id")
+    private Meds medicine;*/
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    private Set<Pricelist> priceList = new HashSet<Pricelist>();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "subscriber")
@@ -109,6 +120,10 @@ public class Pharmacies {
 
     public Set<User> getPharmacistPh() { return pharmacistPh; }
 
+    public Set<Meds> getMedsPh() {
+        return medsPh;
+    }
+
     public String getAddress(){ return address; }
 
     public void setAddress(String address){ this.address = address; }
@@ -140,4 +155,21 @@ public class Pharmacies {
     public void setSubscribed(Subscribed subscribed) {
         this.subscribed = subscribed;
     }
+
+   /* public Meds getMedicine() {
+        return medicine;
+    }
+
+    public void setMedicine(Meds medicine) {
+        this.medicine = medicine;
+    }
+
+
+    /*public Pricelist getPricelist() {
+        return pricelist;
+    }
+
+    public void setPraselist(Pricelist pricelist) {
+        this.pricelist = pricelist;
+    }*/
 }

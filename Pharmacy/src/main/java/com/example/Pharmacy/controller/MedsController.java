@@ -25,7 +25,7 @@ import java.util.Set;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "api/meds")
+@RequestMapping(value = "/api/meds")
 public class MedsController {
 
     @Autowired
@@ -135,6 +135,7 @@ public class MedsController {
     }
 
     @GetMapping(value = "/{pharmacyId}")
+    //@PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<List<MedsDTO>> getMedsByPharmacyId(@PathVariable("pharmacyId") Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOne(pharmacyId);

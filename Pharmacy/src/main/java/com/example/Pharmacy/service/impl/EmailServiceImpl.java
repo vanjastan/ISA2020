@@ -1,6 +1,8 @@
 package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.*;
+import com.example.Pharmacy.dto.ExaminationDTO;
+import com.example.Pharmacy.dto.SubscribedDTO;
 import com.example.Pharmacy.model.*;
 import com.example.Pharmacy.config.EmailContext;
 import com.example.Pharmacy.dto.SubscribedDTO;
@@ -9,6 +11,8 @@ import com.example.Pharmacy.repository.PatientRepository;
 import com.example.Pharmacy.repository.UserRepository;
 import com.example.Pharmacy.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -109,6 +113,36 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(mess);
     }
 
+
+    @Async
+    public void sendVacationConfirmation (VacationRequest r) throws MessagingException{
+        String text = "Congratulations, your request for holiday has been approved. Enjoy your holiday.";
+
+        MimeMessage mess = emailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mess, true);
+
+        helper.setTo(r.getUser().getEmail());
+        helper.setSubject("Vacation confirmation");
+        helper.setText(text);
+
+        emailSender.send(mess);
+    }
+
+    @Async
+    public void sendVacationRefuse (VacationRequest r, String message) throws MessagingException{
+        String text = "We are sorry, your request for holiday has been refused.";
+
+        MimeMessage mess = emailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mess, true);
+
+        helper.setTo(r.getUser().getEmail());
+        helper.setSubject("Vacation request refused!");
+        helper.setText(text + message);
+
+        emailSender.send(mess);
+    }
+
+
     @Override
     public void approveRegistrationMail(User patient) {
         String to = patient.getEmail();
@@ -129,4 +163,19 @@ public class EmailServiceImpl implements EmailService {
         context.setVariable("name", String.format("%s %s", patient.getName(), patient.getSurname()));
         _emailContext.send(to, subject, "deniedRegistration", context);
     }
+
+    @Async
+    public void sendForOrder (OrderFormOffers r) throws MessagingException{
+        String text = "Congratulations, your are winner of order.";
+
+        MimeMessage mess = emailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mess, true);
+
+        helper.setTo(r.getSupplier().getEmail());
+        helper.setSubject("Order confirmation");
+        helper.setText(text);
+
+        emailSender.send(mess);
+    }
+
 }

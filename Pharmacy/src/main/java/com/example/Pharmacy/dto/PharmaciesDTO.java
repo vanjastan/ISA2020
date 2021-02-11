@@ -19,6 +19,8 @@ public class PharmaciesDTO {
     private Subscribed subscribed;
     private UserDTO patient;
 
+
+
     public PharmaciesDTO(){
 
     }

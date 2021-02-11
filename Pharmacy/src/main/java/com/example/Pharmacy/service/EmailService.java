@@ -13,4 +13,5 @@ public interface EmailService {
     void sendMessageForReservedMed(String to, String pathToAttachment, MedsReservationDTO m) throws MessagingException;
     void approveRegistrationMail(User patient);
     void denyRegistrationMail(User patient);
+
 }
