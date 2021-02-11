@@ -88,9 +88,9 @@ public class Meds {
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
 
-    @OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
+  /*  @OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
-    private Pricelist pricelist;
+    private Pricelist pricelist;*/
 
     public Meds(Long id, String name, String code, String type, String contradictions, String ingredients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes, boolean reserved, boolean allergic) {
         this.id = id;

@@ -20,6 +20,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -112,27 +113,36 @@ public class MedsController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/byPrescription/{id}")
+  /*  @GetMapping(value = "/byPrescription/{patientId}")
     @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<List<MedsDTO>> getMedsByEPrescription(@PathVariable("id") Long id) {
-        EPrescription ePrescription = prescriptionService.findOne(id);
-        Set<Meds> medicines = ePrescription.getMedsByEPrescription();
+    public ResponseEntity<List<Meds>> getMedsByEPrescription(@PathVariable("patientId") Long patientId) {
+        User user = userService.findOne(patientId);
+        List<EPrescription> ePrescriptions = prescriptionService.findByPatientId(user.getId());
+        Set<Meds> medicines = ePrescriptions.getMedsByEPrescription();
+        List<Meds> medicines = new ArrayList<>();
         List<MedsDTO> medsDTO = new ArrayList<>();
+        for(int i=0; i<ePrescriptions.size(); i++){
+            if(medicines.get(i).getPatient().getId() == ePrescriptions.get(i).getPatient().getId()){
+                medicines.add((Meds) ePrescriptions.get(i).getMedsByEPrescription());
+            }
+        }
         for(Meds m: medicines) {
-            MedsDTO mDTO = new MedsDTO();
-            mDTO.setId(m.getId());
-            mDTO.setName(m.getName());
-            mDTO.setAllergic(m.getAllergic());
-            mDTO.setIngredients(m.getIngredients());
-            mDTO.setShape(m.getShape());
-            mDTO.setType(m.getType());
-            mDTO.setCode(m.getCode());
-            mDTO.setDailydose(m.getDailydose());
-            mDTO.setContradictions(m.getContradictions());
+            if(m.getPatient().getId() == ) {
+                MedsDTO mDTO = new MedsDTO();
+                mDTO.setId(m.getId());
+                mDTO.setName(m.getName());
+                mDTO.setAllergic(m.getAllergic());
+                mDTO.setIngredients(m.getIngredients());
+                mDTO.setShape(m.getShape());
+                mDTO.setType(m.getType());
+                mDTO.setCode(m.getCode());
+                mDTO.setDailydose(m.getDailydose());
+                mDTO.setContradictions(m.getContradictions());
+            }
         }
 
-        return new ResponseEntity<>(medsDTO, HttpStatus.OK);
-    }
+        return new ResponseEntity<>(medicines, HttpStatus.OK);
+    }*/
 
     @GetMapping(value = "/{pharmacyId}")
     //@PreAuthorize("hasRole('ROLE_ADMINPH')")

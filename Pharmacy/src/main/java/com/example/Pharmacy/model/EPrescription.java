@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,10 +34,10 @@ public class EPrescription {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
-
+//PROMENILA U LISTU
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "prescription", cascade = CascadeType.ALL)
-    private Set<Meds> medsByEPrescription = new HashSet<Meds>();
+    private List<Meds> medsByEPrescription = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -54,11 +55,11 @@ public class EPrescription {
         this.date_of_pub = date_of_pub;
     }
 
-    public Set<Meds> getMedsByEPrescription() {
+    public List<Meds> getMedsByEPrescription() {
         return medsByEPrescription;
     }
 
-    public void setMedsByEPrescription(Set<Meds> medsByEPrescription) {
+    public void setMedsByEPrescription(List<Meds> medsByEPrescription) {
         this.medsByEPrescription = medsByEPrescription;
     }
 
