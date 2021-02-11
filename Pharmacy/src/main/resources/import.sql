@@ -34,8 +34,8 @@ INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, da
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (3, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 3, false, 4, null);
 INSERT INTO `medicaments` (id, name, code, type, contradictions, ingredients, dailydose, replacement, shape, manufacturer, issuing, notes, reserved, patient_id, allergic_reaction, grade, p_id) VALUES (4, 'Brufen', 'Brufen', 'Antipireptik', 'Umor i malaksalost', 'Salicilat', '2 puta dnevno', 'Paracetamol', 'Tableta', 'Bayer', 'Bez recepta', 'Herbal medicament', true, 5, false, 5, null);
 
-INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, patient) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 4, 3);
-INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id, patient) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 5, 5);
+INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (1,  'Benu', 'Jovana Cvijica 10', 'Beograd', 'Very well', 'Herbal medicaments', 4);
+INSERT INTO `pharmacies` (id, name, address, city, rate, description, admin_id) VALUES (2,  'Benu', 'Savanova 10', 'Beograd', 'Excellent', 'Medicaments on prescriptions', 5);
 
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (1, 2000, '1h', '11.11.2020.', 'Excellent', '11:03', 3);
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (2, 5000, '2h', '11.02.2021.', 'Not bad', '12:00', 5);
@@ -65,8 +65,8 @@ INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) 
 
 INSERT INTO `complaintss` (id, text, user_id, answered) VALUES (1, 'Dermatologist was wery impolite', 8, false);
 
-INSERT INTO `loyalty` (id, medicine_points, examination_points, consultation_points, category) VALUES (1, 12, 24, 20, 'GOLD');
-INSERT INTO `loyalty` (id, medicine_points, examination_points, consultation_points, category) VALUES (2, 22, 34, 15, 'SILVER');
+INSERT INTO `loyalty` (id, medicine_points, examination_points, consultation_points, category, user_id) VALUES (1, 12, 24, 20, 'GOLD', 3);
+INSERT INTO `loyalty` (id, medicine_points, examination_points, consultation_points, category, user_id) VALUES (2, 22, 34, 15, 'SILVER', 5);
 
 INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 120, '15.09.2020.', '28.11.2021.', 1);
 INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 130, '19.10.2020.', '19.10.2021.', 1);

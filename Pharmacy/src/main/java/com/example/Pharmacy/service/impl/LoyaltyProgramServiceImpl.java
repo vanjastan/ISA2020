@@ -20,4 +20,9 @@ public class LoyaltyProgramServiceImpl implements LoyaltyProgramService {
         List<LoyaltyProgram> result = loyaltyProgramRepository.findAll();
         return result;
     }
+
+    @Override
+    public LoyaltyProgram save(LoyaltyProgram loyaltyProgram) {
+        return loyaltyProgramRepository.save(loyaltyProgram);
+    }
 }

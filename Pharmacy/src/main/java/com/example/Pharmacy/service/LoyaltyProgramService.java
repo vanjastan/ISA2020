@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface LoyaltyProgramService {
     List<LoyaltyProgram> findAll();
+    LoyaltyProgram save(LoyaltyProgram loyaltyProgram);
 }

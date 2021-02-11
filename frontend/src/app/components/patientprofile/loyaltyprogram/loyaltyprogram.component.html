@@ -1,4 +1,4 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;" *ngIf="program">
     <mat-card class="box" style="width: 1000px;">
         <mat-card-header>
           <mat-card-title>Loyalty program</mat-card-title>
@@ -6,9 +6,13 @@
         <hr/>
         <mat-card-content>
             <mat-card>
-                <p style="font-size: 18px;">Points:</p>
+                <p style="font-size: 18px;">Points for reserving medicine: {{program.medicine_points}}</p>
                     <br/>
-                <p style="font-size: 18px;">Category: </p>
+                <p style="font-size: 18px;">Points for scheduling examinations: {{program.examination_points}}</p>
+                    <br/>
+                <p style="font-size: 18px;">Points for scheduling consultation: {{program.consultation_points}}</p>
+                    <br/>
+                <p style="font-size: 18px;">Category: {{program.category}}</p>
                     <br/>
             </mat-card>
         </mat-card-content>

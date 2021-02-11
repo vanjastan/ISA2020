@@ -10,6 +10,10 @@ public class LoyaltyProgramDTO {
     private int consultation_points;
     private String category;
 
+    public LoyaltyProgramDTO(){
+
+    }
+
     public LoyaltyProgramDTO(LoyaltyProgram loyaltyProgram) {
         this.id = loyaltyProgram.getId();
         this.medicine_points = loyaltyProgram.getMedicine_points();

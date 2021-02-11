@@ -37,18 +37,4 @@ public class MedsReservationServiceImpl implements MedsReservationService {
     public Meds findByMedicine(Long medicine) {
         return reservationRepository.findByMedicine(medicine);
     }
-
-    /*public MedsReservation addReservation(MedsReservationDTO reservationDTO){
-        MedsReservation reservation = new MedsReservation();
-
-        reservation.setDateReservation(reservationDTO.getDateReservation());
-        reservation.setNumberOfReservation(reservationDTO.getNumberOfReservation());
-        reservation.setId(reservationDTO.getId());
-        reservation.setMedicine(reservationDTO.getMedicine());
-        reservation.setPharmacy(reservationDTO.getPharmacy());
-
-        reservation = this.reservationRepository.save(reservation);
-
-        return reservation;
-    }*/
 }
