@@ -65,6 +65,9 @@ INSERT INTO `complaints` (complaint_id, date_of_complaint, content, patient_id) 
 
 INSERT INTO `complaintss` (id, text, user_id, answered) VALUES (1, 'Dermatologist was wery impolite', 8, false);
 
+INSERT INTO `loyalty` (id, medicine_points, examination_points, consultation_points, category) VALUES (1, 12, 24, 20, 'GOLD');
+INSERT INTO `loyalty` (id, medicine_points, examination_points, consultation_points, category) VALUES (2, 22, 34, 15, 'SILVER');
+
 INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 120, '15.09.2020.', '28.11.2021.', 1);
 INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 130, '19.10.2020.', '19.10.2021.', 1);
 INSERT INTO `pricelist` (price, from_date, to_date, pharmacy_id) VALUES ( 180, '12.10.2020.', '09.10.2021.', 2);

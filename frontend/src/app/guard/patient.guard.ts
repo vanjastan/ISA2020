@@ -1,4 +1,4 @@
-/*import {Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {UserService} from 'src/app/services/user.service';
 
@@ -21,4 +21,4 @@ export class PatientGuard implements CanActivate {
           return false;
         }
       }
-}*/
+}

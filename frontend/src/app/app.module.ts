@@ -98,7 +98,6 @@ import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmaci
 import { OrderOffersComponent } from './components/orderform/order-offers/order-offers.component';
 import { EditOrderComponent } from './components/orderform/edit-order/edit-order.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
