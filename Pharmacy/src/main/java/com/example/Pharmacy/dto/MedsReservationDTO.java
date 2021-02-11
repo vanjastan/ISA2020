@@ -1,16 +1,14 @@
 package com.example.Pharmacy.dto;
 
-import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.MedsReservation;
-import com.example.Pharmacy.model.Pharmacies;
 
 public class MedsReservationDTO {
 
     private Long reservationId;
     private String dateReservation;
     private Long numberOfReservation;
-    private Meds medicine;
-    private Pharmacies pharmacies;
+    private MedsDTO medicine;
+    private PharmaciesDTO pharmacies;
 
     public MedsReservationDTO(){
 
@@ -20,8 +18,8 @@ public class MedsReservationDTO {
         this.reservationId = medsReservation.getReservationId();
         this.dateReservation = medsReservation.getDateReservation();
         this.numberOfReservation = medsReservation.getNumberOfReservation();
-        this.medicine = medsReservation.getMedicine();
-        this.pharmacies = medsReservation.getPharmacies();
+        this.medicine = new MedsDTO(medsReservation.getMedicine());
+        this.pharmacies = new PharmaciesDTO(medsReservation.getPharmacies());
     }
 
     public Long getReservationId() {
@@ -48,19 +46,19 @@ public class MedsReservationDTO {
         this.numberOfReservation = numberOfReservation;
     }
 
-    public Meds getMedicine() {
+    public MedsDTO getMedicine() {
         return medicine;
     }
 
-    public void setMedicine(Meds medicine) {
+    public void setMedicine(MedsDTO medicine) {
         this.medicine = medicine;
     }
 
-    public Pharmacies getPharmacies() {
+    public PharmaciesDTO getPharmacies() {
         return pharmacies;
     }
 
-    public void setPharmacies(Pharmacies pharmacies) {
+    public void setPharmacies(PharmaciesDTO pharmacies) {
         this.pharmacies = pharmacies;
     }
 }

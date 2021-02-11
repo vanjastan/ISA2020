@@ -28,15 +28,15 @@ export class TakeMedicineComponent implements OnInit, AfterViewInit {
   constructor(private toastr: ToastrService, private service: MedsService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getAllMeds();
+    this.getAllMedicines();
   }
 
   ngAfterViewInit(): void{
     this.dataSource.sort = this.sort;
   }
 
-  getAllMeds(){
-    this.service.getAllMeds().subscribe(data => {
+  getAllMedicines(){
+    this.service.getAllMedicines().subscribe(data => {
       this.Medicine = data;
       this.dataSource.data = data;
       console.log(this.Medicine);

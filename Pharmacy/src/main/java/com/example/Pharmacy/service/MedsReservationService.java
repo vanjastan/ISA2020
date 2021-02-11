@@ -1,5 +1,6 @@
 package com.example.Pharmacy.service;
 
+import com.example.Pharmacy.dto.MedsReservationDTO;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.MedsReservation;
 import com.example.Pharmacy.model.Pharmacies;

@@ -26,7 +26,12 @@ public class MedsReservation {
     @Column(name = "number")
     private Long numberOfReservation;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    //LEK IMA VISE REZERVACIJA
+    /*@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="medicine_id", referencedColumnName = "id")
+    private Meds medicine;*/
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name="medicine_id", referencedColumnName = "id")
     private Meds medicine;
 

@@ -2,6 +2,7 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.MedsReservationDTO;
+import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.MedsReservation;
@@ -50,29 +51,45 @@ public class MedsReservationController {
 
         List<MedsReservationDTO> medsReservationDTOS = new ArrayList<>();
         for(MedsReservation mr: reservations){
-            medsReservationDTOS.add(new MedsReservationDTO(mr));
+            MedsReservationDTO mDTO = new MedsReservationDTO();
+            mDTO.setReservationId(mr.getReservationId());
+            mDTO.setNumberOfReservation(mr.getNumberOfReservation());
+            mDTO.setDateReservation(mr.getDateReservation());
+            mDTO.setMedicine(new MedsDTO(mr.getMedicine()));
+            mDTO.setPharmacies(new PharmaciesDTO(mr.getPharmacies()));
+
+            medsReservationDTOS.add(mDTO);
         }
 
         return new ResponseEntity<>(medsReservationDTOS, HttpStatus.OK);
     }
 
     @RequestMapping(value="/addReservation/{medicineId}", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<MedsReservationDTO> addReservation(@RequestBody MedsReservationDTO reservationDTO, @PathVariable("medicineId") Long medicineId) throws MessagingException {
+   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    public ResponseEntity<List<MedsReservationDTO>> addReservation(@RequestBody MedsReservationDTO reservationDTO, @PathVariable("medicineId") Long medicineId) throws MessagingException {
         Meds meds = medsService.findOne(medicineId);
-        MedsReservation reservation = new MedsReservation();
+        List<MedsReservation> medsReservations = meds.getReservations();
+        List<MedsReservationDTO> reservationsDTO = new ArrayList<>();
 
-        reservation.setDateReservation(reservationDTO.getDateReservation());
-        reservation.setNumberOfReservation(reservationDTO.getNumberOfReservation());
-        reservation.setMedicine(meds);
-        reservation = reservationService.save(reservation);
+        for(MedsReservation reservation: medsReservations) {
+          //  MedsReservationDTO reservationDTO = new MedsReservationDTO();
+            reservationDTO.setReservationId(reservation.getReservationId());
+            reservationDTO.setDateReservation(reservation.getDateReservation());
+            reservationDTO.setNumberOfReservation(reservation.getNumberOfReservation());
+            reservationDTO.setMedicine(new MedsDTO(reservation.getMedicine()));
+            reservationDTO.setPharmacies(new PharmaciesDTO(reservation.getPharmacies()));
 
-        if(reservation.getMedicine().getId() == meds.getId()) {
-            meds.setReserved(true);
-            medsService.save(meds);
+            reservationsDTO.add(reservationDTO);
+        }
+
+        for(int i=0; i<medsReservations.size();i++){
+            if(medsReservations.get(i).getMedicine().getId() == meds.getId()){
+                meds.setReserved(true);
+                medsService.save(meds);
+            }
         }
 
         serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", reservationDTO);
-        return new ResponseEntity<>(new MedsReservationDTO(reservation), HttpStatus.OK);
+        return new ResponseEntity<>(reservationsDTO, HttpStatus.OK);
     }
 }

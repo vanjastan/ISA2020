@@ -47,4 +47,8 @@ import { MedicineReservation } from '../components/models/medicineReservation';
     public addAllergy(id:number){
       return this.http.post(`http://localhost:8080/api/meds/addAllergy/`+ id, {});
     }
+
+    public getAllMedicines(): Observable<any>{
+      return this.http.get(`http://localhost:8080/api/meds/all`);
+    }
   }
