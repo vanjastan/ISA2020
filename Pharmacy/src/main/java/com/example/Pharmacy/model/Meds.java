@@ -70,6 +70,9 @@ public class Meds {
     @Column(name = "grade")
     private Double grade;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
+    private MedsReservation reservation;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
     private EPrescription prescription;
@@ -126,6 +129,13 @@ public class Meds {
         this.grade = grade;
     }
 
+    public MedsReservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(MedsReservation reservation) {
+        this.reservation = reservation;
+    }
 
     public Long getId() {
         return id;

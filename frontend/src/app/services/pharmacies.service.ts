@@ -10,10 +10,10 @@ import { Vacation } from '../components/models/vacation';
 import { PriceList } from '../components/models/pricelist';
 
 
-
 @Injectable({
     providedIn: 'root'
-  })
+ })
+ 
   export class PharmaciesService {
   
     constructor(private http: HttpClient) { 
@@ -67,18 +67,22 @@ import { PriceList } from '../components/models/pricelist';
       return this.http.get(`http://localhost:8080/pharmacies/2/pharmacist`);
     }
 
-    public getPatientSubscribedPharmacies(){
-
+    public getPatientSubscribedPharmacies():Observable<any>{
+      const userId = localStorage.getItem(USER_ID_KEY);
+      return this.http.get(`http://localhost:8080/pharmacies/subscribed/${userId}`);
     }
 
     public getPharmaciesByMedicineId(id: number):Observable<Pharmacies[]>{
       return this.http.get<Pharmacies[]>(`http://localhost:8080/pharmacies/medicine/`+id);
     }
 
+    public getFreePharmaciest():Observable<any>{
+      return this.http.get(`http://localhost:8080/pharmacies/1/pharmacist`);
+    }
+
     public getPriceList():Observable<any>{
       return this.http.get(`http://localhost:8080/pricelist/all`);
     }
-
     
     public getPrice():Observable<any>{
       return this.http.get(`http://localhost:8080/pricelist/1`);
@@ -107,5 +111,4 @@ import { PriceList } from '../components/models/pricelist';
     public getPhamr():Observable<any>{
       return this.http.get(`http://localhost:8080/api/users/10/ph`); //{pharmacist_id}
     }
-
   }

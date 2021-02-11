@@ -50,6 +50,10 @@ public class Pharmacies {
     @JoinColumn(name = "subscriber")
     private Subscribed subscribed;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "patient")
+    private User patient;
+
     @Column(name = "name")
     private String name;
 
@@ -68,6 +72,9 @@ public class Pharmacies {
 
     @ManyToMany(mappedBy = "pharmaciesMed")
     private Set<Meds> meds;
+
+    @OneToOne(mappedBy = "pharmacies")
+    private MedsReservation reservation;
 
     public Pharmacies(){
 
@@ -133,6 +140,22 @@ public class Pharmacies {
 
     public void setDescription(String description){ this.description = description; }
 
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
+
+    public Subscribed getSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(Subscribed subscribed) {
+        this.subscribed = subscribed;
+    }
+
    /* public Meds getMedicine() {
         return medicine;
     }
@@ -149,5 +172,4 @@ public class Pharmacies {
     public void setPraselist(Pricelist pricelist) {
         this.pricelist = pricelist;
     }*/
-
 }

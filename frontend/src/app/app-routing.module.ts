@@ -60,10 +60,9 @@ import { PharmacysProfileComponent } from './components/pharmacy-admin-page/phar
 import { OrderformComponent } from 'src/app/components/orderform/orderform.component';
 import { AddOrderformComponent } from './components/orderform/add-orderform/add-orderform.component';
 import { ComplaintsListComponent } from './components/adminhome/complaintslist.component';
-//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
+import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { PricelistComponent } from './components/pharmacy-admin-page/pricelist/pricelist.component';
 import { AllpharmaciestComponent } from './components/patienthome/schedule-consultations/allpharmaciest/allpharmaciest.component';
-//import { PatientComplaintsComponent } from './components/patienthome/complaints/complaints.component';
 import { MedicamentsComponent } from './components/medicaments/medicaments.component';
 import { VacationRequestsComponent } from 'src/app/components/pharmacy-admin-page/vacation-requests/vacation-requests.component';
 import { EditPricelistComponent } from 'src/app/components/pharmacy-admin-page/pricelist/edit-pricelist/edit-pricelist.component';
@@ -271,10 +270,10 @@ const routes: Routes = [
     path: ADMIN_COMPLAINTS,
     component: ComplaintsListComponent
   },
- /* {
+  {
     path: PATIENT_COMPLAINTS,
     component: PatientComplaintsComponent
-  },*/
+  },
   {
     path: MEDICAMENTS_PATH,
     component: MedicamentsComponent

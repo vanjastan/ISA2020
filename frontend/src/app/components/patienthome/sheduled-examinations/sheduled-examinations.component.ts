@@ -136,4 +136,22 @@ export class SheduledExaminationsComponent implements OnInit, AfterViewInit {
       }
       return false;
     }
+
+    checkDateOfConsultation(date:string){
+      let day = date.split('.')[0];
+      let month = date.split('.')[1];
+      let year = date.split('.')[2];
+      date = month + '.' + day + '.' + year;
+
+      let scheduled = new Date(date);
+
+      let scheduleDates = moment(scheduled).format('DD.MM.YYYY');
+      let scheduleDay = parseInt(scheduleDates.split('.')[0]);
+  
+      let todaysDate = parseInt(this.today.split('.')[0]);
+      if((scheduleDay) - (this.dateExa.getDate()) == 1){
+        return true;
+      }
+      return false;
+    }
 }

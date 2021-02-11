@@ -1,6 +1,8 @@
 package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.Pharmacies;
+import com.example.Pharmacy.model.Subscribed;
+import com.example.Pharmacy.model.User;
 
 import javax.persistence.Column;
 
@@ -14,6 +16,8 @@ public class PharmaciesDTO {
     private String rate;
     private String description;
     private MedsDTO medicine;
+    private Subscribed subscribed;
+    private UserDTO patient;
 
 
 
@@ -27,7 +31,9 @@ public class PharmaciesDTO {
         address = ph.getAddress();
         city = ph.getCity();
         rate = ph.getRate();
+        subscribed = ph.getSubscribed();
         description = ph.getDescription();
+        patient = new UserDTO(ph.getPatient());
     }
 
     public String getName() {
@@ -76,5 +82,21 @@ public class PharmaciesDTO {
 
     public void setMedicine(MedsDTO medicine){
         this.medicine = medicine;
+    }
+
+    public Subscribed getSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(Subscribed subscribed) {
+        this.subscribed = subscribed;
+    }
+
+    public UserDTO getPatient(){
+        return patient;
+    }
+
+    public void setPatient(UserDTO patient){
+        this.patient = patient;
     }
 }

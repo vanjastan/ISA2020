@@ -100,22 +100,28 @@ public class PharmacyController {
     }
 
     @GetMapping(value="/subscribed/{id}")
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
+    //@PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<PharmaciesDTO>> findPharmacyBySubscribedUser(@PathVariable("id") Long id) {
         User user = userService.findOne(id);
         Subscribed subsPatient = subscribedRepository.findByPatientId(user.getId());
-        Set<Pharmacies> pharmacies = subsPatient.getPharmacies();
+        //Set<Pharmacies> pharmacies = subsPatient.getPharmacies();
+        Set<Pharmacies> pharmacies = user.getSubscribedPharmacies();
         List<PharmaciesDTO> pharmaciesDTO = new ArrayList<>();
         for (Pharmacies p : pharmacies) {
-            PharmaciesDTO phDTO = new PharmaciesDTO();
-            phDTO.setId(p.getId());
-            phDTO.setName(p.getName());
-            phDTO.setAddress(p.getAddress());
-            phDTO.setCity(p.getCity());
-            phDTO.setDescription(p.getDescription());
-            phDTO.setRate(p.getRate());
+            //if(p.getPatient().getId() == subsPatient.getPatient().getId()) {
+            if(p.getPatient().getId() == user.getId()) {
+                PharmaciesDTO phDTO = new PharmaciesDTO();
+                phDTO.setId(p.getId());
+                phDTO.setName(p.getName());
+                phDTO.setAddress(p.getAddress());
+                phDTO.setCity(p.getCity());
+                phDTO.setDescription(p.getDescription());
+                phDTO.setRate(p.getRate());
+                phDTO.setSubscribed(subsPatient);
+                phDTO.setPatient(new UserDTO(p.getPatient()));
 
-            pharmaciesDTO.add(phDTO);
+                pharmaciesDTO.add(phDTO);
+            }
         }
         return new ResponseEntity<>(pharmaciesDTO, HttpStatus.OK);
     }

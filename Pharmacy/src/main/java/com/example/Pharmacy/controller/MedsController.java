@@ -2,12 +2,10 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.model.EPrescription;
-import com.example.Pharmacy.model.Meds;
+import com.example.Pharmacy.model.*;
+
 import javax.mail.MessagingException;
 
-import com.example.Pharmacy.model.Pharmacies;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.MedsRepository;
 import com.example.Pharmacy.service.EPrescriptionService;
 import com.example.Pharmacy.service.MedsService;
@@ -75,6 +73,7 @@ public class MedsController {
     public ResponseEntity<List<MedsDTO>> findMedsByPatientId(@PathVariable("id") Long id) {
         User patient = userService.findOne(id);
         Set<Meds> reservedMeds = patient.getReservedMeds();
+
         List<MedsDTO> medsDTO = new ArrayList<>();
         for (Meds m : reservedMeds) {
             if(m.isReserved() == true) {
@@ -100,17 +99,6 @@ public class MedsController {
         med.setPatient(null);
         med = medsService.save(med);
 
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @RequestMapping(value="/reserveMed/{id}", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_PATIENT')")
-    public ResponseEntity<Meds> reserveMedicine(@PathVariable("id") Long id) throws MessagingException {
-        Meds med = medsService.findById(id);
-        med.setReserved(true);
-        med.setPatient(med.getPatient());
-        med = medsService.save(med);
-        serviceImpl.sendMessageForReservedMed("patientU45@gmail.com", "", med);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

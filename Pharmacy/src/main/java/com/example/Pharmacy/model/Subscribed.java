@@ -64,4 +64,12 @@ public class Subscribed {
     public void setPharmacies(Set<Pharmacies> pharmacies){
         this.pharmacies = pharmacies;
     }
+
+    public User getPatient(){
+        return patient;
+    }
+
+    public void setPatient(User patient){
+        this.patient = patient;
+    }
 }

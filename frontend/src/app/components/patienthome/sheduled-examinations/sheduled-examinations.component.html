@@ -76,8 +76,10 @@
               </ng-container>
               <ng-container matColumnDef="unschedule">
                 <th style="width: 200px;" mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element">
-                  <button mat-raised-button (click)="unscheduleConsultation(element.id)">Cancel</button>
+                <td mat-cell *matCellDef="let elementPh">
+                  <div matTooltip="The deadline for canceling the appointment has passed!" [matTooltipDisabled]="!checkDate(elementPh.date)"> 
+                    <button mat-raised-button [disabled]="checkDateOfConsultation(elementPh.date)" (click)="unscheduleConsultation(elementPh.id)">Cancel</button>
+                   </div>
                 </td>
               </ng-container>
               <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumnsPh"></tr>
