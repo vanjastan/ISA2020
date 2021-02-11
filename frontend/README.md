@@ -1,27 +1,36 @@
-# AppFrontend
+# ISA-2020-Team56
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+## About 
 
-## Development server
+This project is done as a part of course at Faculty of technical sciences in Novi Sad. It is developed as
+a two-part application consisting of Angular-based frontend [Angular CLI](https://github.com/angular/angular-cli) and Spring-boot based backend.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Download instructions 
 
-## Code scaffolding
+These command will get you a copy of project for dev and testing purposes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+$ git clone https://github.com/vanjastan/ISA2020.git
 
-## Build
+## Prerequities
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To successfully run the application on your local machine please install following software 
 
-## Running unit tests
+* Java SDK v1.8
+* NodeJS v12.13.0
+* Npm v6.4
+* Apache Maven v4.0
+* Angular CLI
+* MySQL
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Starting 
 
-## Running end-to-end tests
+#### Build frontend
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Open cmd or terminal and navigate to frontend folder. When opened install the required dependencies using npm- `npm install`, then run `ng serve` and application should start.
+Navigate to `http://localhost:4200/`.
 
-## Further help
+#### Build backend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. If you are using Apache Maven, go to the psw-isa-back directory inside the application's root directory, open cmd or terminal and type: mvn spring-boot:run
+
+2. In case you are using ide, just open/import the psw-isa-back directory in it and run MedicalcenterApplication file.
