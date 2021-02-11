@@ -1,4 +1,4 @@
-<div class="action">
+<div class="order">
     <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center margin-top" style="margin-top: 40px;">
       <mat-card class="paper" style="width: 2000px;">
         <mat-card-header>
@@ -20,6 +20,10 @@
             </mat-form-field>
             <hr>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortStart="desc" style="width: 1000px;">
+              <ng-container matColumnDef="id">
+                <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header> Id</th>
+                <td mat-cell *matCellDef="let element">{{element.id}}</td>
+              </ng-container>
               <ng-container matColumnDef="name">
                 <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Medication name</th>
                 <td mat-cell *matCellDef="let element">{{element.medicament_name}}</td>
@@ -36,10 +40,16 @@
                 <th style="width: 200px;" mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
                 <td mat-cell *matCellDef="let element">{{element.quantity}}</td>
               </ng-container> 
-              <ng-container matColumnDef="add">
-                <th style="width: 200px;" mat-header-cell *matHeaderCellDef></th>
+              <ng-container matColumnDef="edit">
+                <th style="width: 200px;"  mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let element">
-                  
+                  <button mat-raised-button (click)="editEO(element.id, element.medicament_name,  element.quantity, element.end_date)" > Edit order </button>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="delete">
+                <th style="width: 200px;"  mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button (click)="deleteEO(element.id)" > Delete order </button>
                 </td>
               </ng-container>
               <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>

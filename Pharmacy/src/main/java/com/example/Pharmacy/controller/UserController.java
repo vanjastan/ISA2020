@@ -217,7 +217,7 @@ public class UserController {
 		return new ResponseEntity<>(UserMapper.toDto(userInfo), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/{dermatologistId}/pharmacy")
+	@GetMapping(value = "/pharmacy/{dermatologistId}")
 	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForDermatologist(@PathVariable Long dermatologistId) {
 
@@ -233,7 +233,7 @@ public class UserController {
 	}
 
 
-	@GetMapping(value = "/{pharmacist_id}/ph")
+	@GetMapping(value = "/ph/{pharmacist_id}")
 	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForPharmacist(@PathVariable Long pharmacist_id) {
 

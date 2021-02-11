@@ -12,7 +12,7 @@ DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFO
 SUPPLIER_TENDER,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
-PATIENT_PROFILE_PHARMACIES,
+PATIENT_PROFILE_PHARMACIES, EDIT_ORDER,
 PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST, SHOW_PHARMACY, SHOW_PH, ORDER_OFFERS,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
@@ -70,6 +70,7 @@ import { EditPricelistComponent } from 'src/app/components/pharmacy-admin-page/p
 import { ShowPharmacyComponent } from 'src/app/components/pharmacy-admin-page/dermatologist/show-pharmacy/show-pharmacy.component';
 import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmacist/show-ph/show-ph.component';
 import { OrderOffersComponent } from 'src/app/components/orderform/order-offers/order-offers.component';
+import { EditOrderComponent } from 'src/app/components/orderform/edit-order/edit-order.component';
 
 const routes: Routes = [
   {
@@ -147,6 +148,10 @@ const routes: Routes = [
   {
     path: EDIT_ADMINPH_PROFILE,
     component: EditPharmacyAdminComponent
+  },
+  {
+    path: EDIT_ORDER,
+    component: EditOrderComponent
   },
   {
     path: CHANGE_ADMINPH_PASSWORD,

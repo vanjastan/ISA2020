@@ -19,7 +19,7 @@ public class OrderForm {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "medicament_name")
     private String medicament_name;
@@ -33,17 +33,20 @@ public class OrderForm {
     @Column(name = "status")
     private String status;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "admin_id")
+    private User adminph;
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderForm", cascade = CascadeType.ALL)
     private Set<OrderFormOffers> orderFormOffers = new HashSet<>();
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,5 +76,21 @@ public class OrderForm {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public User getAdminph() {
+        return adminph;
+    }
+
+    public void setAdminph(User adminph) {
+        this.adminph = adminph;
+    }
+
+    public Set<OrderFormOffers> getOrderFormOffers() {
+        return orderFormOffers;
+    }
+
+    public void setOrderFormOffers(Set<OrderFormOffers> orderFormOffers) {
+        this.orderFormOffers = orderFormOffers;
     }
 }

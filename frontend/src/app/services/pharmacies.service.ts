@@ -100,12 +100,12 @@ import { PriceList } from '../components/models/pricelist';
       return this.http.post<PriceList>(`http://localhost:8080/pricelist/editPricelist`, pricelist);
     }
 
-    public getPh():Observable<any>{
-      return this.http.get(`http://localhost:8080/api/users/8/pharmacy`); // {dermatologistId}
+    public getPh(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/pharmacy/` + id, {}); // {dermatologistId}
     }
 
-    public getPhamr():Observable<any>{
-      return this.http.get(`http://localhost:8080/api/users/10/ph`); //{pharmacist_id}
+    public getPhamr(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/ph/`+id, {}); //{pharmacist_id}
     }
 
   }

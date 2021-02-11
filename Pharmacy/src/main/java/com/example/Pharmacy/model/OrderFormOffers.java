@@ -32,9 +32,9 @@ public class OrderFormOffers {
     @JoinColumn(name = "orderform_id")
     private OrderForm orderForm;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    /*ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "admin_id")
-    private User adminph;
+    private User adminph;*/
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "supplier_id", referencedColumnName = "id")
@@ -88,11 +88,4 @@ public class OrderFormOffers {
         this.orderForm = orderForm;
     }
 
-    public User getAdminph() {
-        return adminph;
-    }
-
-    public void setAdminph(User adminph) {
-        this.adminph = adminph;
-    }
 }

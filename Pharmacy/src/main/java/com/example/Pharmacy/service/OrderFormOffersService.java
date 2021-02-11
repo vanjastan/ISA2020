@@ -9,4 +9,6 @@ public interface OrderFormOffersService {
     List<OrderFormOffers> findAll() throws AccessDeniedException;
 
     OrderFormOffers findById(Long id);
+
+    OrderFormOffers save(OrderFormOffers orderFormOffers);
 }

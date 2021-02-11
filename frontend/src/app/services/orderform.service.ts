@@ -25,4 +25,17 @@ import { OrderForm } from '../components/models/orderform';
     saveOrderForm(val:OrderForm):Observable<any>{
       return this.http.post(`http://localhost:8080/orderform/add`, val);
     }
+
+    editOrder(orders: OrderForm): Observable<OrderForm> {
+      return this.http.post<OrderForm>(`http://localhost:8080/orderform/editOrder`, orders);
+    }
+
+    
+    deleteOF(id:number):Observable<any>{
+      return this.http.delete(`http://localhost:8080/orderform/` + id, {});
+    }
+
+    chooseOF(id:number):Observable<any>{
+      return this.http.post(`http://localhost:8080/ofers/choosen/` + id, {});
+    }
   }
