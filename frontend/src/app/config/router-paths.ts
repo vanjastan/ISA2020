@@ -69,3 +69,4 @@ export const SCHEDULE_EXAMINATION = 'patient/schedulingDer';
 export const FREE_PHARMACIEST = 'patient/schedulingConsulPh/choosePharmaciest';
 
 export const PATIENT_COMPLAINTS = 'patient/complaints';
+export const PATIENT_SUBSCRIBE = 'sub';
