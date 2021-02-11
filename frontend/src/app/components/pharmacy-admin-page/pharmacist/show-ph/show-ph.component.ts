@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
 import { Pharmacies } from '../../../models/pharmacies';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Pharmacist } from 'src/app/components/models/pharmacist';
 
 @Component({
   selector: 'app-show-ph',
@@ -17,6 +18,9 @@ export class ShowPHComponent implements OnInit {
   Pharmacies: Pharmacies[];
   PharmaciesResults: Pharmacies[];
 
+  pharm:Pharmacist;
+  id:number;
+
   displayedColumns: string[] = ['name', 'address', 'rate'];
   search: string;
 
@@ -26,10 +30,19 @@ export class ShowPHComponent implements OnInit {
 
   constructor(private service: PharmaciesService, private router: Router,
     public dialogRef: MatDialogRef<ShowPHComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { 
+        this.pharm = data.Pharmacist;
+        this.id = data.id;
+        service.getPhamr(this.id).subscribe(data =>{
+          this.Pharmacies = data;
+          this.dataSource.data = data;
+          console.log(this.Pharmacies)
+        });
+
+    }
 
   ngOnInit(): void {
-    this.getPharmacies();
+   // this.getPharmacies();
   }
 
   ngAfterViewInit(): void{
@@ -49,7 +62,7 @@ export class ShowPHComponent implements OnInit {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
 
-    getPharmacies(){
+   /* getPharmacies(){
       this.service.getPhamr().subscribe(data => {
         this.Pharmacies = data;
         this.dataSource.data = data;
@@ -58,6 +71,6 @@ export class ShowPHComponent implements OnInit {
       error => {
        console.log("ERROR");
       });
-    }
+    }*/
 
 }

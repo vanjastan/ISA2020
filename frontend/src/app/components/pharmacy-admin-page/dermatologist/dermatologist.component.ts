@@ -59,10 +59,12 @@ export class DermatologistComponent implements OnInit, AfterViewInit {
   }
 
 
-  show(){
+  show(id:number){
+    console.log(id);
     let dialogRef = this.dialog.open(ShowPharmacyComponent, {
       width: '1080px',
-      data: { }
+      data: { Dermatologist: this.Dermatologists, 
+              id: id}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');

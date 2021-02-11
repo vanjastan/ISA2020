@@ -12,6 +12,7 @@ export const PHARMACY_PAGE = 'phpage';
 export const PHARMACY_INFO = 'adminph/phinfo';
 export const DERMATOLOGIST = "adminph/dermatologist";
 export const PHARMACIST = "adminph/pharmacist";
+export const EDIT_ORDER = "adminph/eorder";
 
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';

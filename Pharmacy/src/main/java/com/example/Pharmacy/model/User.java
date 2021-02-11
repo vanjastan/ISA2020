@@ -114,13 +114,15 @@ public class User implements UserDetails, Serializable {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaints> complaints;
 
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<Pharmacies> subscribedPharmacies = new HashSet<Pharmacies>();
 
-	@JsonIgnore
+
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "adminph", cascade = CascadeType.ALL)
-    private Set<OrderFormOffers>  orderFormOffer = new HashSet<>();
+    private Set<OrderForm>  orderForm = new HashSet<>();
 
     public User() {
 

@@ -48,10 +48,10 @@ export class PharmacistComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  shows(){
+  shows(id:number){
     let dialogRef = this.dialog.open(ShowPHComponent, {
       width: '1080px',
-      data: { }
+      data: { Pharmacies: this.Pharmacists, id:id}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');

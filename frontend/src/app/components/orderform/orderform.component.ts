@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddOrderformComponent } from 'src/app/components/orderform/add-orderform/add-orderform.component';
 import { HttpClient } from '@angular/common/http';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 
 @Component({
@@ -27,12 +28,14 @@ export class OrderformComponent implements OnInit {
   end_date:string;
   status: string;
 
+  orders: OrderForm;
+
   search: string;
-  displayedColumns: string[] = ['name', 'end_date', 'status', 'quantity'];
+  displayedColumns: string[] = ['id', 'name', 'end_date', 'status', 'quantity', 'edit', 'delete'];
   dataSource = new MatTableDataSource<OrderForm>();
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private service: OrderFormService, public dialogMat: MatDialog, private http: HttpClient, private toastr: ToastrService,  private router: Router,) { }
+  constructor(private service: OrderFormService, public dialog: MatDialog, private http: HttpClient, private toastr: ToastrService,  private router: Router,) { }
 
   ngOnInit(): void {
     this.getAllOrder();
@@ -44,9 +47,8 @@ export class OrderformComponent implements OnInit {
 
   getAllOrder(){
     this.service.getAllOF().subscribe(data =>{
-      this.Orderform = data;
-      this.dataSource.data = data;
-      console.log(this.Orderform);
+      this.orders = data;
+      this.dataSource = data;
     },
     error =>{
       console.log("ERROR");
@@ -67,12 +69,34 @@ export class OrderformComponent implements OnInit {
   }
 
   order(): void{
-    let dialogRef = this.dialogMat.open(AddOrderformComponent, {
+    let dialogRef = this.dialog.open(AddOrderformComponent, {
       width: '800px',
       height: '500px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');
+    });
+  }
+
+  editEO(id:number, medicament_name:string,  quantity: number, end_date:string): void{
+    let dialogRef = this.dialog.open(EditOrderComponent, {
+      width: '650px',
+      data: {id:id, medicament_name:medicament_name, quantity:quantity, end_date:end_date}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
+    });
+  }
+
+
+  deleteEO(id:number){
+    this.service.deleteOF(id).subscribe( data =>{
+      console.log(data);
+      this.toastr.success('Successfully deleted!', '');
+    },
+    error => {
+      console.log(error);
+        
     });
   }
 

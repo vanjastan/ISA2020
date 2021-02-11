@@ -23,7 +23,7 @@ export class OrderOffersComponent implements OnInit {
   order:number;
   
   search: string;
-  displayedColumns: string[] = ['price', 'order', 'chooseOffer'];
+  displayedColumns: string[] = ['id', 'price', 'chooseOffer'];
   dataSource = new MatTableDataSource<OrderOffers>();
   @ViewChild(MatSort) sort: MatSort;
 
@@ -33,8 +33,11 @@ export class OrderOffersComponent implements OnInit {
     this.getAllOffers();
   }
 
-  chooseOffer(){
-
+  chooseOffer(id:number){
+      this.service.chooseOF(id).subscribe(data => {
+        console.log(data);
+        this.toastr.success('Successfully choosen!', '');
+      });
   }
 
   ngAfterViewInit(): void{
@@ -44,10 +47,25 @@ export class OrderOffersComponent implements OnInit {
   getAllOffers(){
     this.service.getAllOffer().subscribe(data =>{
       this.offers = data;
+      this.dataSource = data;
     },
     error =>{
       console.log("ERROR");
     });
+  }
+
+
+  public doFilter = (value:string)=>{
+    if(this.search == ""){
+        this.dataSource.data = this.offers;
+    }else{
+        this.offersResult = this.offers.filter( result =>
+          { 
+           
+          } );
+            this.dataSource.data = this.offersResult;
+    }   
+        this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 }
 

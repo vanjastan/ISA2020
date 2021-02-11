@@ -71,7 +71,7 @@ public class PricelistController {
     }
 
     @CrossOrigin
-    @PostMapping(value = "editPricelist")
+    @PostMapping(value = "/editPricelist")
     //@PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<PricelistDTO> editPricelist (@RequestBody PricelistDTO dto){
         Pricelist pricelistInfo = pricelistService.findById(dto.getId());
