@@ -44,6 +44,7 @@ export class AllpharmaciestComponent implements OnInit, AfterViewInit {
     }
 
     choose(id:number){
+      console.log(id);
       this.service.scheduleConsultation(id).subscribe(data => {
         console.log(data);
         this.toastr.success('Successfully scheduled!', '');
@@ -54,7 +55,7 @@ export class AllpharmaciestComponent implements OnInit, AfterViewInit {
     }
 
     getFreePharmaciests(){
-      this.pharmacyService.getFreePharmaciest().subscribe(data => {
+      this.pharmacyService.getAllP().subscribe(data => {
         this.Pharmacist = data;
         this.dataSource.data = data;
         console.log(this.Pharmacist);

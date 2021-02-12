@@ -24,7 +24,7 @@ export class ScheduleConsultationsComponent implements OnInit {
   submit(){
     let dialogRef = this.dialog.open(PharmaciesFreeDermComponent, {
       width: '1080px',
-      data: { }
+      data: { date: this.date, time: this.time}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result: ${result}');

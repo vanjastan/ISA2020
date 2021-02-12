@@ -42,7 +42,7 @@ public class ExaminationPhController {
     @Autowired
     EmailServiceImpl serviceImpl;
 
-    @RequestMapping(value="", method = RequestMethod.GET)
+    @RequestMapping(value="/all", method = RequestMethod.GET)
     public ResponseEntity<List<ExaminationPhDTO>> getAllConsultations() {
 
         List<ExaminationPh> consultations = examinationPhService.findAll();
@@ -153,11 +153,13 @@ public class ExaminationPhController {
     //@PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<ExaminationPh> scheduleConsultation(@PathVariable("patientId") Long patientId, @PathVariable("id") Long id) throws MessagingException {
 
-      /*  User user = userService.findById(patientId);
-        ExaminationPh patientConsultation = examinationPhService.findById(id);
+        User user = userService.findById(patientId);
+       // ExaminationPh patientConsultation = examinationPhService.findById(id);
+        User pharmacist = userService.findById(id);
+        ExaminationPh patientConsultation = new ExaminationPh();
         patientConsultation.setPatient(user);
-        patientConsultation = examinationPhService.save(patientConsultation);*/
-        ExaminationPh patientConsultation = new ExaminationPh();//DODATO KAO PROBA
+        patientConsultation = examinationPhService.save(patientConsultation);
+        //ExaminationPh patientConsultation = new ExaminationPh();//DODATO KAO PROBA
 
         try {
             serviceImpl.sendMessageScheduledConsultation("patientU45@gmail.com", "", patientConsultation);

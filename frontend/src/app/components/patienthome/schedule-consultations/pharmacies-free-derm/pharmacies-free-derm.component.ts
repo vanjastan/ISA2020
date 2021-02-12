@@ -61,7 +61,8 @@ export class PharmaciesFreeDermComponent implements OnInit, AfterViewInit {
       });
     }
 
-    choose(){
+    choose(id:number){
+      console.log(id);
       this.router.navigate([FREE_PHARMACIEST]);
       this.dialogRef.close();
     }

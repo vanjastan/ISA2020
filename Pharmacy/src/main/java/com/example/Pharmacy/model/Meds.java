@@ -76,15 +76,6 @@ public class Meds {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
     private List<MedsReservation> reservations = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "p_id", referencedColumnName = "prescription_id")
-    private EPrescription prescription;
-
-   /* @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine", cascade = CascadeType.ALL)
-    private Set<Pharmacies> pharmacies = new HashSet<Pharmacies>();
-*/
-
     @ManyToMany
     @JoinTable(name = "pharmacy_meds",
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
@@ -236,15 +227,6 @@ public class Meds {
         this.notes = notes;
     }
 
-
-   /* public Set<Pharmacies> getPharmacies() {
-        return pharmacies;
-    }
-
-    public void setPharmacies(Set<Pharmacies> pharmacies) {
-        this.pharmacies = pharmacies;
-    }*/
-
     public String getName() {
         return name;
     }
@@ -253,14 +235,14 @@ public class Meds {
         this.name = name;
     }
 
-    public EPrescription getPrescription(){
+   /* public EPrescription getPrescription(){
         return prescription;
     }
 
     public void setPrescription(EPrescription prescription){
         this.prescription = prescription;
     }
-
+*/
     public User getPatient(){
         return patient;
     }
