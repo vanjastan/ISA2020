@@ -111,6 +111,8 @@ import { GraphicsComponent } from './components/pharmacy-admin-page/graphics/gra
 import { ReportsComponent } from './components/pharmacy-admin-page/reports/reports.component';
 import { GraphicsMComponent } from './components/pharmacy-admin-page/graphics-m/graphics-m.component';
 import { GraphicsQComponent } from './components/pharmacy-admin-page/graphics-q/graphics-q.component';
+import { RateComponent } from './components/pharmacy-profile-page/showing-dermatologists/rate/rate.component';
+import { RatePComponent } from './components/pharmacy-profile-page/showing-pharmacists/rate-p/rate-p.component';
 
 @NgModule({
   declarations: [
@@ -210,6 +212,8 @@ import { GraphicsQComponent } from './components/pharmacy-admin-page/graphics-q/
     ReportsComponent,
     GraphicsMComponent,
     GraphicsQComponent,
+    RateComponent,
+    RatePComponent,
 
   ],
   entryComponents: [

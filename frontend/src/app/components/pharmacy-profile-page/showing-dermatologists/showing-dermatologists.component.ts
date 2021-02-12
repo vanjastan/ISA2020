@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
 import { Dermatologist } from '../../models/dermatologist';
 import { Pharmacies } from '../../models/pharmacies';
+import { RateComponent } from 'src/app/components/pharmacy-profile-page/showing-dermatologists/rate/rate.component';
 
 @Component({
   selector: 'app-showing-dermatologists',
@@ -35,7 +36,7 @@ export class ShowingDermatologistsComponent implements OnInit {
 
   search: string;
 
-  displayedColumns: string[] = ['name', 'surname'];
+  displayedColumns: string[] = ['name', 'surname', 'showR'];
   dataSource = new MatTableDataSource<Dermatologist>();
   @ViewChild(MatSort) sort:MatSort;
 
@@ -66,6 +67,19 @@ export class ShowingDermatologistsComponent implements OnInit {
             this.dataSource.data = this.DermatologistResults;
     }   
         this.dataSource.filter = value.trim().toLocaleLowerCase();
+    }
+
+    showR(id:number){
+      console.log(id);
+      let dialogRef = this.dialog.open(RateComponent, {
+        width: '1080px',
+        data: { Pharmacies: this.Dermatologists, 
+                id: id}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Dialog result: ${result}');
+      });
+
     }
 
 }

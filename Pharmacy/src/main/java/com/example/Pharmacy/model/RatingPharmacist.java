@@ -20,11 +20,11 @@ public class RatingPharmacist {
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
-    private Patient patient;
+    private User patient;
 
     @ManyToOne
     @JoinColumn(name = "pharmacist_id")
-    private Pharmacist pharmacist;
+    private User pharmacist;
 
     public RatingPharmacist(){
 
@@ -46,19 +46,19 @@ public class RatingPharmacist {
         this.rate = rate;
     }
 
-    public Patient getPatient() {
+    public User getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(User patient) {
         this.patient = patient;
     }
 
-    public Pharmacist getPharmacist() {
+    public User getPharmacist() {
         return pharmacist;
     }
 
-    public void setPharmacist(Pharmacist pharmacist) {
+    public void setPharmacist(User pharmacist) {
         this.pharmacist = pharmacist;
     }
 

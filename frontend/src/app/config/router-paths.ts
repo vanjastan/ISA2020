@@ -46,7 +46,8 @@ export const GRAFIC = 'adminph/gr';
 export const REPORT = 'adminph/report';
 export const REPORTM = 'adminph/reportm';
 export const REPORTQ = 'adminph/reportq';
-
+export const RATE = 'adminph/rate';
+export const RATE_P = 'adminph/ratep';
 
 // User paths
 export const USER_HOME_PATH = 'user';

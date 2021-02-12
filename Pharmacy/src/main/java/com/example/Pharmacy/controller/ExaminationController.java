@@ -174,6 +174,7 @@ public class ExaminationController {
     }
 
     @PostMapping("/addFreeAppointment")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity addFreeApp(@RequestBody ExaminationDTO dto){
         examinationServiceImpl.addFreeApp(dto);
         return ResponseEntity.ok().build();

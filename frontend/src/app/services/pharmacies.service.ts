@@ -129,6 +129,14 @@ import { PriceList } from '../components/models/pricelist';
       return this.http.get(`http://localhost:8080/api/meds/` + id, {});
     }
 
+    public getRate(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/ratingd/` + id, {});
+    }
+
+    public getRateP(id:number):Observable<any>{
+      return this.http.get(`http://localhost:8080/rating/` + id, {});
+    }
+
     public getAllD():Observable<any>{
       return this.http.get(`http://localhost:8080/api/users/derm/all`);
     }
