@@ -25,10 +25,8 @@ To successfully run the application on your local machine please install followi
 
 ### Build frontend
 
-Open cmd or terminal and navigate to frontend folder. When opened install the required dependencies using npm- `npm install`, then run `ng serve` and application should start. Navigate to `http://localhost:4200/`.
+Open cmd or terminal and navigate to frontend folder. When opened, install the required dependencies using `npm install`, then run `ng serve` and application should start. Navigate to `http://localhost:4200/`.
 
 ### Build backend
 
-1. If you are using Apache Maven, go to the Pharmacy directory inside the application's root directory, open cmd or terminal and type: mvn spring-boot:run
-
-2. In case you are using ide, just open/import the Pharmacy directory in it and run PharmacyApplication file.
+* Open/import the Pharmacy directory in IDE and run PharmacyApplication file.
