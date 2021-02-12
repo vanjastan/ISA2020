@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { USER_ID_KEY } from '../config/local-storage-keys';
+import { Examinations } from '../components/models/examination';
 
 @Injectable({
     providedIn: 'root'
@@ -53,5 +54,9 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
 
     public unscheduleConsultation(id:number){
       return this.http.post(`http://localhost:8080/examinationsPh/cancel/`+ id, {});
+    }
+
+    saveApp(val:Examinations):Observable<any>{
+      return this.http.post(`http://localhost:8080/examinations/addFreeAppointment`, val);
     }
   }

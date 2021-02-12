@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "examinations")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -48,6 +47,18 @@ public class Examination {
         this.duration = duration;
         this.dateOfEx = dateOfEx;
         this.rate = rate;
+    }
+
+    public Examination( double price, String duration, String dateOfEx, String rate, String time_exam){
+        this.price = price;
+        this.time_exam = time_exam;
+        this.duration = duration;
+        this.dateOfEx = dateOfEx;
+        this.rate = rate;
+    }
+
+    public Examination(){
+
     }
 
     public Long getId() {

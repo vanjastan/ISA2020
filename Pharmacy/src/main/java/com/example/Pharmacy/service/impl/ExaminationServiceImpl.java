@@ -44,6 +44,20 @@ public class ExaminationServiceImpl implements ExaminationService {
         return null;
     }
 
+
+    public Examination addFreeApp(ExaminationDTO dto) {
+        Examination ex = new Examination();
+
+        ex.setPrice(dto.getPrice());
+        ex.setDuration(dto.getDuration());
+        ex.setDate(dto.getDate());
+        ex.setRate(dto.getRate());
+        ex.setTime(dto.getTime());
+
+        ex = this.examinationRepository.save(ex);
+        return ex;
+    }
+
     /*public Examination addExamination(ExaminationDTO eDTO){
         Examination examination = new Examination();
         examination.setPatient(eDTO.getPatient());

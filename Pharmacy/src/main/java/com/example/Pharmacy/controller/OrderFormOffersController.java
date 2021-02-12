@@ -57,25 +57,9 @@ public class OrderFormOffersController {
         return new ResponseEntity<>(of, HttpStatus.OK);
     }
 
-
-
-  /* @PostMapping("/chosen")
-    public ResponseEntity<OrderFormOffersDTO> choseOrderOffer(@RequestBody OrderFormOffersDTO dto) throws MessagingException {
-        OrderFormOffers orderFormOffers = orderFormOffersService.findById(dto.getId());
-
-        orderFormOffers.setChosen(true);
-        orderFormOffers.setWinner(true);
-        emailServiceImpl.sendForOrder(orderFormOffers);
-
-        orderFormOffers = orderFormOffersService.save(orderFormOffers);
-
-        return  new ResponseEntity<>()
-    }*/
-
     @CrossOrigin
     @PostMapping(value = "/choosen/{offerId}")
     public ResponseEntity<OrderFormOffersDTO> chooseOffer(@RequestBody OrderFormOffersDTO dto, @PathVariable("offerId") Long offerId) throws AccessDeniedException, MessagingException {
-        //OrderFormOffers orderFormOffers = service.findById(dto.getId());
         OrderFormOffers orderFormOffers = service.findById(offerId);
 
         List<OrderForm> of = ooservice.findAll();
