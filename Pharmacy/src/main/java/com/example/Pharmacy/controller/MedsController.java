@@ -3,9 +3,6 @@ package com.example.Pharmacy.controller;
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.*;
-
-import javax.mail.MessagingException;
-
 import com.example.Pharmacy.repository.MedsRepository;
 import com.example.Pharmacy.service.EPrescriptionService;
 import com.example.Pharmacy.service.MedsService;
@@ -20,7 +17,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -62,6 +58,7 @@ public class MedsController {
 
         return new ResponseEntity<>(medsDTO, HttpStatus.OK);
     }
+
     @PostMapping("/add_meds")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity addMeds(@RequestBody MedsDTO mdto) {

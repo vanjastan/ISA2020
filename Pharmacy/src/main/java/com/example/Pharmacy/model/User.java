@@ -114,11 +114,8 @@ public class User implements UserDetails, Serializable {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaints> complaints;
 
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
-    private Set<Pharmacies> subscribedPharmacies = new HashSet<Pharmacies>();
-
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private LoyaltyProgram program;
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "adminph", cascade = CascadeType.ALL)
@@ -338,14 +335,6 @@ public class User implements UserDetails, Serializable {
         return pharmaciesD;
     }
 
-    public Set<Pharmacies> getSubscribedPharmacies() {
-        return subscribedPharmacies;
-    }
-
-    public void setSubscribedPharmacies(Set<Pharmacies> subscribedPharmacies) {
-        this.subscribedPharmacies = subscribedPharmacies;
-    }
-
     public Set<Pharmacies> getPhPharmacist(){
         return pharmaciesP;
     }
@@ -356,5 +345,13 @@ public class User implements UserDetails, Serializable {
 
     public void setPharmacies(Pharmacies pharmacies) {
         this.pharmacies = pharmacies;
+    }
+
+    public LoyaltyProgram getProgram() {
+        return program;
+    }
+
+    public void setProgram(LoyaltyProgram program) {
+        this.program = program;
     }
 }

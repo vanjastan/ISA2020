@@ -105,7 +105,6 @@ import { PatientSubscribeComponent } from './components/pharmacy-profile-page/pa
 import { DermAppointmentsComponent } from './components/pharmacy-profile-page/derm-appointments/derm-appointments.component';
 import { AddFreeAppComponent } from './components/pharmacy-profile-page/derm-appointments/add-free-app/add-free-app.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
