@@ -12,6 +12,7 @@ import { ShowingMedsComponent} from 'src/app/components/pharmacy-profile-page/sh
 import { ShowingPharmacistsComponent } from 'src/app/components/pharmacy-profile-page/showing-pharmacists/showing-pharmacists.component';
 import { ShowingDermatologistsComponent } from 'src/app/components/pharmacy-profile-page/showing-dermatologists/showing-dermatologists.component';
 import { PATIENT_SUBSCRIBE } from 'src/app/config/router-paths';
+import { FREE_D_APP } from 'src/app/config/router-paths';
 
 
 @Component({
@@ -90,8 +91,8 @@ export class PharmacyProfilePageComponent implements OnInit {
     });
   }
 
-  showDT(id:number){
-    
+  showDT(){
+    this.router.navigate([FREE_D_APP]);
   }
 
   public doFilter = (value:string)=>{

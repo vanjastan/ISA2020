@@ -34,6 +34,10 @@ import { PriceList } from '../components/models/pricelist';
       return this.http.get(`http://localhost:8080/pharmacies/${id}` );
     }
 
+    public getPhInfo(): Observable<any> {
+      return this.http.get(`http://localhost:8080/pharmacies/1`);
+    }
+
     public getBenu2Info(): Observable<any> {
       return this.http.get(`http://localhost:8080/pharmacies/2`);
     }

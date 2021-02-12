@@ -106,6 +106,7 @@ import { DermAppointmentsComponent } from './components/pharmacy-profile-page/de
 import { AddFreeAppComponent } from './components/pharmacy-profile-page/derm-appointments/add-free-app/add-free-app.component';
 import { AllDermComponent } from './components/pharmacy-admin-page/all-derm/all-derm.component';
 import { AllPharmacistComponent } from './components/pharmacy-admin-page/all-pharmacist/all-pharmacist.component';
+import { FreeAppDermComponent } from './components/pharmacy-admin-page/free-app-derm/free-app-derm.component';
 
 @NgModule({
   declarations: [
@@ -200,6 +201,7 @@ import { AllPharmacistComponent } from './components/pharmacy-admin-page/all-pha
     AddFreeAppComponent,
     AllDermComponent,
     AllPharmacistComponent,
+    FreeAppDermComponent,
 
   ],
   entryComponents: [
