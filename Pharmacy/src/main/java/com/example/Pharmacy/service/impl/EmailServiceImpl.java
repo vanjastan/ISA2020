@@ -84,9 +84,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     public void sendMessageScheduledConsultation(String to, String pathToAttachment, ExaminationPh e) throws MessagingException{
-        String text = "You have successfully reserved medicine!" +
-                "For date: " + e.getDate() +
-                "Price: " + e.getPrice();
+        String text = "You have successfully reserved consultation with pharmacist!" + e.getPharmacist();
 
         MimeMessage message = emailSender.createMimeMessage();
 

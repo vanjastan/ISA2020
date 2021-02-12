@@ -38,10 +38,6 @@ public class Pharmacies {
     @JoinColumn(name = "dermatologist_id")
     private User dermatologist;
 
-  /*  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "medicine_id")
-    private Meds medicine;*/
-
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Set<Pricelist> priceList = new HashSet<Pricelist>();
@@ -82,7 +78,6 @@ public class Pharmacies {
         this.city = city;
         this.rate = rate;
         this.description = description;
-
     }
 
     public String getName() {
@@ -100,7 +95,6 @@ public class Pharmacies {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public Long getId() {
         return id;
@@ -143,21 +137,4 @@ public class Pharmacies {
     public void setSubscribed(Subscribed subscribed) {
         this.subscribed = subscribed;
     }
-
-   /* public Meds getMedicine() {
-        return medicine;
-    }
-
-    public void setMedicine(Meds medicine) {
-        this.medicine = medicine;
-    }
-
-
-    /*public Pricelist getPricelist() {
-        return pricelist;
-    }
-
-    public void setPraselist(Pricelist pricelist) {
-        this.pricelist = pricelist;
-    }*/
 }

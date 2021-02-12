@@ -9,5 +9,4 @@ class PharmacyApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

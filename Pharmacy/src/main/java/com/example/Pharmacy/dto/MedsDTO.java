@@ -1,10 +1,6 @@
 package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.Meds;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 public class MedsDTO {
 

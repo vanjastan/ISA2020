@@ -36,4 +36,9 @@ public class ExaminationPhServiceImpl implements ExaminationPhService {
     public ExaminationPh save(ExaminationPh e) {
         return examinationPhRepository.save(e);
     }
+
+    @Override
+    public ExaminationPh findByDateExamination(String dateOfConsultation) {
+        return examinationPhRepository.findByDateExamination(dateOfConsultation);
+    }
 }

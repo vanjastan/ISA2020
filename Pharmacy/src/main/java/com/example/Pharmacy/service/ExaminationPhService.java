@@ -9,4 +9,5 @@ public interface ExaminationPhService {
     ExaminationPh findById(Long id);
     List<ExaminationPh> findByPatientId(Long id);
     ExaminationPh save(ExaminationPh e);
+    ExaminationPh findByDateExamination(String dateOfConsultation);
 }

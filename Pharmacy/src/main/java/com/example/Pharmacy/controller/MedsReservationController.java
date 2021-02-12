@@ -3,11 +3,8 @@ package com.example.Pharmacy.controller;
 import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.MedsReservationDTO;
 import com.example.Pharmacy.dto.PharmaciesDTO;
-import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.MedsReservation;
-import com.example.Pharmacy.model.Pharmacies;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.service.MedsReservationService;
 import com.example.Pharmacy.service.MedsService;
 import com.example.Pharmacy.service.UserService;
@@ -22,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -65,14 +61,13 @@ public class MedsReservationController {
     }
 
     @RequestMapping(value="/addReservation/{medicineId}", method = RequestMethod.POST)
-   // @PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<MedsReservationDTO>> addReservation(@RequestBody MedsReservationDTO reservationDTO, @PathVariable("medicineId") Long medicineId) throws MessagingException {
         Meds meds = medsService.findOne(medicineId);
         List<MedsReservation> medsReservations = meds.getReservations();
         List<MedsReservationDTO> reservationsDTO = new ArrayList<>();
 
         for(MedsReservation reservation: medsReservations) {
-          //  MedsReservationDTO reservationDTO = new MedsReservationDTO();
             reservationDTO.setReservationId(reservation.getReservationId());
             reservationDTO.setDateReservation(reservation.getDateReservation());
             reservationDTO.setNumberOfReservation(reservation.getNumberOfReservation());

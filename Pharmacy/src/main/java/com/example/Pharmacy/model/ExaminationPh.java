@@ -1,7 +1,6 @@
 package com.example.Pharmacy.model;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -29,6 +28,10 @@ public class ExaminationPh {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "pharmacist_id")
+    private User pharmacist;
 
     public ExaminationPh(){
 
@@ -79,5 +82,13 @@ public class ExaminationPh {
 
     public void setPatient(User patient){
         this.patient = patient;
+    }
+
+    public User getPharmacist() {
+        return pharmacist;
+    }
+
+    public void setPharmacist(User pharmacist) {
+        this.pharmacist = pharmacist;
     }
 }

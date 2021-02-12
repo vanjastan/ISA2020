@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ExaminationPhRepository extends JpaRepository<ExaminationPh, Long>{
     List<ExaminationPh> findByPatientId(Long id);
+    ExaminationPh findByDateExamination(String dateOfConsultation);
 }

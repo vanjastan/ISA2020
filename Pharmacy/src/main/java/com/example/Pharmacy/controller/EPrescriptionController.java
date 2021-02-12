@@ -1,11 +1,8 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.EPrescriptionDTO;
-import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.model.EPrescription;
-import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.EPrescriptionRepository;
 import com.example.Pharmacy.service.EPrescriptionService;

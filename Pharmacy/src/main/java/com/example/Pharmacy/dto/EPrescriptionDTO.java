@@ -3,12 +3,8 @@ package com.example.Pharmacy.dto;
 import com.example.Pharmacy.model.EPrescription;
 import com.example.Pharmacy.model.EPrescriptionStatus;
 import com.example.Pharmacy.model.Meds;
-import com.example.Pharmacy.model.User;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class EPrescriptionDTO {
     private Long id;
@@ -26,7 +22,6 @@ public class EPrescriptionDTO {
         date_of_pub = ePrescription.getDate_of_pub();
         status = ePrescription.getStatus();
         patient = new UserDTO(ePrescription.getPatient());
-      //  prescriptionMeds = ePrescription.getMedsByEPrescription();
     }
 
     public Long getId() {

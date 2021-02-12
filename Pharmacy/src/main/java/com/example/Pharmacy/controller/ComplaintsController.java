@@ -1,10 +1,7 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.ComplaintsRequest;
-import com.example.Pharmacy.dto.MedsDTO;
-import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Complaints;
-import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.repository.ComplaintsRepository;
 import com.example.Pharmacy.service.ComplaintsService;
 import org.springframework.beans.factory.annotation.Autowired;

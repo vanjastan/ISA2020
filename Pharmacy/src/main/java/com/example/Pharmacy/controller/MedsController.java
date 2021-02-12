@@ -17,7 +17,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -112,7 +111,7 @@ public class MedsController {
     }
 
     @GetMapping(value = "/{pharmacyId}")
-    //@PreAuthorize("hasRole('ROLE_ADMINPH')")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<List<MedsDTO>> getMedsByPharmacyId(@PathVariable("pharmacyId") Long pharmacyId) {
 
         Pharmacies pharmacies = pharmacyService.findOne(pharmacyId);
