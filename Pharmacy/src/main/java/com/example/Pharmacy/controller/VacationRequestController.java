@@ -10,6 +10,7 @@ import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
@@ -90,6 +91,7 @@ public class VacationRequestController {
 
     @CrossOrigin
     @PostMapping("/holidays/{requestId}")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<VacationRequestDTO> confirmationVacation(@RequestBody VacationRequestDTO dto, @PathVariable("requestId") Long requestId) throws MessagingException {
         VacationRequest vacationRequest = vacatioonRequestService.findById(requestId);
 
@@ -103,11 +105,11 @@ public class VacationRequestController {
     }
 
     @PostMapping("/noholidays/{requestId}")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<VacationRequestDTO> refuseVacation(@RequestBody VacationRequestDTO dto, @PathVariable("requestId") Long requestId) throws MessagingException {
         VacationRequest vacationRequest = vacatioonRequestService.findById(requestId);
 
-        //vacationRequest.setId(dto.getId());
-        //vacationRequest.setUser(dto.getUser());
+
         vacationRequest.setConfirmed(true);
 
         vacationRequest = vacatioonRequestService.save(vacationRequest);

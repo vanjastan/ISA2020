@@ -9,6 +9,7 @@ import com.example.Pharmacy.service.impl.ActionsAndPromotionsServiceImpl;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
@@ -39,6 +40,7 @@ public class ActionsAndPromotionsController {
     }
 
     @PostMapping("/addActionPromotion")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity addActionPromotion(@RequestBody ActionsAndPromotionsDTO dto) throws MessagingException {
         actionsAndPromotionsServiceimpl.addActions(dto);
         List<Subscribed> aa = service.findAll();

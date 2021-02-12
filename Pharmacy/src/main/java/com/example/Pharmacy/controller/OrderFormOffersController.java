@@ -12,6 +12,7 @@ import com.example.Pharmacy.service.impl.OrderFormOffersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
@@ -40,6 +41,7 @@ public class OrderFormOffersController {
     EmailServiceImpl emailServiceImpl;
 
     @GetMapping("/all")
+   // @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<List<OrderFormOffersDTO>> getOrderOffer(){
         List<OrderFormOffers> orderFormOffers = orderFormOffersService.findAll();
 
@@ -59,6 +61,7 @@ public class OrderFormOffersController {
 
     @CrossOrigin
     @PostMapping(value = "/choosen/{offerId}")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<OrderFormOffersDTO> chooseOffer(@RequestBody OrderFormOffersDTO dto, @PathVariable("offerId") Long offerId) throws AccessDeniedException, MessagingException {
         OrderFormOffers orderFormOffers = service.findById(offerId);
 

@@ -1,20 +1,20 @@
 package com.example.Pharmacy.dto;
 
-import com.example.Pharmacy.model.Patient;
-import com.example.Pharmacy.model.RatingDermatologist;
+import com.example.Pharmacy.model.RatingPharmacist;
 
-public class RatingDermatologistDTO {
+public class RatingPharmacistDTO {
 
     private Long id;
     private int rate;
     private UserDTO patient;
-    private UserDTO derm;
+    private UserDTO ph;
 
-    public RatingDermatologistDTO(RatingDermatologist r){
+
+    public RatingPharmacistDTO(RatingPharmacist r){
         id = r.getId();
         rate = r.getRate();
         patient = new UserDTO(r.getPatient());
-        derm = new UserDTO(r.getDermatologist());
+        ph = new UserDTO(r.getPharmacist());
     }
 
     public Long getId() {
@@ -31,13 +31,5 @@ public class RatingDermatologistDTO {
 
     public void setRate(int rate) {
         this.rate = rate;
-    }
-
-    public UserDTO getPatient() {
-        return patient;
-    }
-
-    public void setPatient(UserDTO patient) {
-        this.patient = patient;
     }
 }

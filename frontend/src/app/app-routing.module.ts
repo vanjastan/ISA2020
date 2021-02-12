@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {LoginComponent} from '../app/components/login/login.component';
@@ -7,10 +7,10 @@ import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE, 
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
-SUPPLIER_TENDER, PATIENT_SUBSCRIBE, FREE_D_APP,
-ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
+SUPPLIER_TENDER, PATIENT_SUBSCRIBE, FREE_D_APP, GRAFIC, RATE, RATE_P,
+ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST, REPORT, REPORTM, REPORTQ,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES, EDIT_ORDER, ALL_D, ALL_P,
 PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST, SHOW_PHARMACY, SHOW_PH, ORDER_OFFERS,
@@ -75,6 +75,12 @@ import { DermAppointmentsComponent} from 'src/app/components/pharmacy-profile-pa
 import { AllDermComponent } from 'src/app/components/pharmacy-admin-page/all-derm/all-derm.component';
 import { AllPharmacistComponent } from 'src/app/components/pharmacy-admin-page/all-pharmacist/all-pharmacist.component';
 import { FreeAppDermComponent } from 'src/app/components/pharmacy-admin-page/free-app-derm/free-app-derm.component';
+import { GraphicsComponent } from 'src/app/components/pharmacy-admin-page/graphics/graphics.component';
+import { ReportsComponent } from 'src/app/components/pharmacy-admin-page/reports/reports.component';
+import { GraphicsMComponent } from 'src/app/components/pharmacy-admin-page/graphics-m/graphics-m.component';
+import { GraphicsQComponent } from 'src/app/components/pharmacy-admin-page/graphics-q/graphics-q.component';
+import { RateComponent } from 'src/app/components/pharmacy-profile-page/showing-dermatologists/rate/rate.component';
+import { RatePComponent } from 'src/app/components/pharmacy-profile-page/showing-pharmacists/rate-p/rate-p.component';
 
 const routes: Routes = [
   {
@@ -102,12 +108,36 @@ const routes: Routes = [
     component: PharmacysProfileComponent
   },
   {
+    path: RATE,
+    component: RateComponent
+  },
+  {
     path: SHOW_PHARMACY,
     component: ShowPharmacyComponent
   },
   {
+    path: REPORT,
+    component:ReportsComponent
+  },
+  {
+    path: RATE_P,
+    component: RatePComponent
+  },
+  {
+    path: REPORTM,
+    component: GraphicsMComponent
+  },
+  {
+    path: REPORTQ,
+    component: GraphicsQComponent
+  },
+  {
     path: FREE_DERM_APP,
     component: DermAppointmentsComponent
+  }, 
+  {
+    path: GRAFIC,
+    component: GraphicsComponent
   },
   {
     path: PATIENT_SUBSCRIBE,

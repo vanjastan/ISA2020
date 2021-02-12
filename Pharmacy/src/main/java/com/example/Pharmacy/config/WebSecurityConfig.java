@@ -89,7 +89,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/auth/**").permitAll()
 				.antMatchers("/api/hospitals/**").permitAll()
 				.antMatchers("/medicament").permitAll()
-				.antMatchers("/pharmacies/**").permitAll() //dozvoljena pretraga svima
+				.antMatchers("/pharmacies/**").permitAll() 
+				.antMatchers("/api/meds/**").permitAll()
 				.antMatchers("/complaints/**").permitAll()
 				.antMatchers("/complaintss/**").permitAll()
 				.antMatchers("/prescriptions/all").permitAll()
@@ -98,6 +99,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/reservations/**").permitAll()
 				.antMatchers("/subscribed/**").permitAll()
 				.antMatchers("/**/dermatologist").permitAll()
+				.antMatchers("/pharmacies/**").permitAll()
 				.antMatchers("/{pharmacyId}/dermatologist").permitAll()
 				.antMatchers("/{pharmacyId}/meds").permitAll()
 				.antMatchers("/api/users/{dermatologistId}/pharmacy").permitAll()
@@ -110,7 +112,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/vacation/**").permitAll()
 				.antMatchers("/ofers/**").permitAll()
 				.antMatchers("/ofers/choosen/**").permitAll()
-
+				.antMatchers("/ratingd/**").permitAll()
+				.antMatchers("/rating/**").permitAll()
 
 				// All other requests must be authorized
 				.anyRequest().authenticated().and()

@@ -13,6 +13,7 @@ import org.hibernate.internal.CriteriaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.AccessDeniedException;
@@ -40,6 +41,7 @@ public class OrderFormController {
     private OrderFormRepository orderFormRepository;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
+   // @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public  ResponseEntity<List<OrderFormDTO>> getAllOrderForms() throws AccessDeniedException {
 
         List<OrderForm> orderForms = orderFormService.findAll();
@@ -62,6 +64,7 @@ public class OrderFormController {
     }
 
     @PostMapping("/add")
+    //@PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity addOrderForm(@RequestBody OrderFormDTO dto) {
         orderFormService.addOrderForm(dto);
         return ResponseEntity.ok().build();
@@ -69,6 +72,7 @@ public class OrderFormController {
 
     @CrossOrigin
     @PostMapping(value = "/editOrder")
+   // @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity<OrderFormDTO> editOrder(@RequestBody OrderFormDTO dto){
         OrderForm orderForm = service.findById(dto.getId());
         List<OrderFormOffers> of = ooservice.findAll();
@@ -96,6 +100,7 @@ public class OrderFormController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMINPH')")
     public ResponseEntity delete (@PathVariable Long id){
         OrderForm orderForm = service.findById(id);
         List<OrderFormOffers> ofers = ooservice.findAll();
