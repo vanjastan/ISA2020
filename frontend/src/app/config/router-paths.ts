@@ -6,7 +6,7 @@ export const VERIFY_ACCOUNT = 'verify';
 export const HOSPITAL_REG = 'hospital';
 export const HEADER = 'mainpage';
 export const HEADER1 = 'adminph/mainpage1';
-export const HEADER2 = 'adminph/mainpage2';
+export const HEADER2 = 'mainpage2';
 export const PHARMACY_HOMEPAGE = 'phhomepage';
 export const PHARMACY_PAGE = 'phpage';
 export const PHARMACY_INFO = 'adminph/phinfo';
@@ -14,6 +14,7 @@ export const DERMATOLOGIST = "adminph/dermatologist";
 export const PHARMACIST = "adminph/pharmacist";
 export const EDIT_ORDER = "adminph/eorder";
 export const FREE_DERM_APP = "adminph/dermapp";
+export const FREE_D_APP = "freedapp"
 
 // Admin paths
 export const ADMIN_HOME_PATH = 'admin';

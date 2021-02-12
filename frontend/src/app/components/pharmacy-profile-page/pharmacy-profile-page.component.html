@@ -3,6 +3,8 @@
           <mat-card class="paper" style="width: 5000px;">
             <mat-card-header>
             <mat-card-title style="font-size: 30px;">All pharmacies</mat-card-title>
+            <button mat-button style=" margin-left: 1cm; font-size: medium;"><a style="color: black;" href="http://localhost:4200/mainpage2"  >Pharmacies at map </a></button>
+
             </mat-card-header>
             <hr>
             <mat-card-content>
@@ -51,7 +53,7 @@
                   <ng-container matColumnDef="showDT">
                     <th style="width: 200px;" mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let element">
-                      <button mat-raised-button (click)="showDT(element.id)" >Dermatologists free appointments</button>
+                      <button mat-raised-button (click)="showDT()" >Dermatologists free appointments</button>
                     </td>
                   </ng-container>
                   <tr style="width: 200px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>

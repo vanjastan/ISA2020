@@ -7,9 +7,9 @@ import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE, 
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
-SUPPLIER_TENDER, PATIENT_SUBSCRIBE,
+SUPPLIER_TENDER, PATIENT_SUBSCRIBE, FREE_D_APP,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
 PATIENT_PROFILE_PHARMACIES, EDIT_ORDER, ALL_D, ALL_P,
@@ -74,6 +74,7 @@ import { PatientSubscribeComponent } from 'src/app/components/pharmacy-profile-p
 import { DermAppointmentsComponent} from 'src/app/components/pharmacy-profile-page/derm-appointments/derm-appointments.component';
 import { AllDermComponent } from 'src/app/components/pharmacy-admin-page/all-derm/all-derm.component';
 import { AllPharmacistComponent } from 'src/app/components/pharmacy-admin-page/all-pharmacist/all-pharmacist.component';
+import { FreeAppDermComponent } from 'src/app/components/pharmacy-admin-page/free-app-derm/free-app-derm.component';
 
 const routes: Routes = [
   {
@@ -111,6 +112,10 @@ const routes: Routes = [
   {
     path: PATIENT_SUBSCRIBE,
     component: PatientSubscribeComponent
+  },
+  {
+    path: FREE_D_APP,
+    component: FreeAppDermComponent
   },
   {
     path: HEADER1,
