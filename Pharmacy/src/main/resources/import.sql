@@ -92,6 +92,8 @@ INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (1, 2);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 1);
 INSERT INTO `pharmacy_meds` (medicament_id, pharmacy_id) VALUES (2, 2);
 
+INSERT INTO `rating_dermatologist` (id, rate, patient_id, dermatologist_id) VALUES (1, 5, 3, 12);
+
 INSERT INTO `reservation_med` (reservationId, date_reservation, number, medicine_id, pharmacy_id) VALUES (1, "01.01.2021.", 4, 1, 1);
 INSERT INTO `reservation_med` (reservationId, date_reservation, number, medicine_id, pharmacy_id) VALUES (2, "10.10.2020.", 10, 2, 2);
 
