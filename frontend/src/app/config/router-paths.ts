@@ -42,6 +42,10 @@ export const SHOW_PH = 'adminph/shph';
 export const ORDER_OFFERS = 'adminph/offers';
 export const ALL_D = 'adminph/alld';
 export const ALL_P = 'adminph/allp';
+export const GRAFIC = 'adminph/gr';
+export const REPORT = 'adminph/report';
+export const REPORTM = 'adminph/reportm';
+export const REPORTQ = 'adminph/reportq';
 
 
 // User paths
