@@ -39,6 +39,9 @@ export const VACATION ='adminph/vacation';
 export const SHOW_PHARMACY = 'adminph/showph';
 export const SHOW_PH = 'adminph/shph';
 export const ORDER_OFFERS = 'adminph/offers';
+export const ALL_D = 'adminph/alld';
+export const ALL_P = 'adminph/allp';
+
 
 // User paths
 export const USER_HOME_PATH = 'user';

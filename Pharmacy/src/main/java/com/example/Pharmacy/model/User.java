@@ -231,6 +231,14 @@ public class User implements UserDetails, Serializable {
         return examinations;
     }
 
+    public Set<Pharmacies> getPharmaciesD() {
+        return pharmaciesD;
+    }
+
+    public void setPharmaciesD(Set<Pharmacies> pharmaciesD) {
+        this.pharmaciesD = pharmaciesD;
+    }
+
     public void setExaminations(Set<Examination> examinations) {
         this.examinations = examinations;
     }

@@ -72,7 +72,7 @@ public class ExaminationController {
     }
 
     @GetMapping(value = "/freeExaminations")
-    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<List<ExaminationDTO>> getFreeExaminations() {
 
         List<Examination> examinations = examinationService.findAll();

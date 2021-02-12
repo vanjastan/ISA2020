@@ -218,7 +218,7 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/pharmacy/{dermatologistId}")
-	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForDermatologist(@PathVariable Long dermatologistId) {
 
 		User derm = userService.findOne(dermatologistId);
@@ -234,7 +234,7 @@ public class UserController {
 
 
 	@GetMapping(value = "/ph/{pharmacist_id}")
-	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForPharmacist(@PathVariable Long pharmacist_id) {
 
 		User pharmacist = userService.findOne(pharmacist_id);
@@ -247,5 +247,68 @@ public class UserController {
 		}
 		return new ResponseEntity<>(phDTO, HttpStatus.OK);
 	}
+
+	@GetMapping(value = "/derm/all")
+	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	public ResponseEntity<List<UserDTO>> getALLDerm() {
+
+		List<User> derm = userService.findAll();
+
+		List<UserDTO> uDTO = new ArrayList<>();
+
+		for( User c : derm) {
+			if(c.getRoleType().equals("ROLE_DERMATOLOGIST")){
+				UserDTO u = new UserDTO();
+				u.setId(c.getId());
+				u.setName(c.getName());
+				u.setEmail(c.getEmail());
+				u.setCity(c.getCity());
+				u.setCountry(c.getCountry());
+				u.setNumber(c.getNumber());
+				u.setSurname(c.getSurname());
+
+				uDTO.add(u);
+			}
+		}
+		return new ResponseEntity<>(uDTO, HttpStatus.OK);
+	}
+
+
+
+	@GetMapping(value = "/ph/all")
+	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	public ResponseEntity<List<UserDTO>> getALLPh() {
+
+		List<User> derm = userService.findAll();
+
+		List<UserDTO> uDTO = new ArrayList<>();
+
+		for( User c : derm) {
+			if(c.getRoleType().equals("ROLE_PHARMACIST")){
+				UserDTO u = new UserDTO();
+				u.setId(c.getId());
+				u.setName(c.getName());
+				u.setEmail(c.getEmail());
+				u.setCity(c.getCity());
+				u.setCountry(c.getCountry());
+				u.setNumber(c.getNumber());
+				u.setSurname(c.getSurname());
+
+
+				uDTO.add(u);
+			}
+		}
+		return new ResponseEntity<>(uDTO, HttpStatus.OK);
+	}
+
+
+	/*@PostMapping("/hirePh/{ph_id}")
+	public ResponseEntity<UserDTO> hirePh(@RequestBody UserDTO dto, @PathVariable("ph_id") Long ph_id){
+    	User user = userService.findById(ph_id);
+
+
+    	Set<User> u = user.getPharmaciesP();
+    	user.setPharmaciesP();
+	}*/
 
 }

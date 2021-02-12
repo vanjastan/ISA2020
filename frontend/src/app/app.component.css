@@ -4,3 +4,10 @@
       width: 1600x;
       height: 700px;
 }
+
+#map {
+      height: 60vh;
+      width: 80vh;
+      margin: auto;
+      margin-top: 100px;
+    }

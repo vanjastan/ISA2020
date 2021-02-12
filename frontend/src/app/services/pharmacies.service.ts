@@ -124,5 +124,13 @@ import { PriceList } from '../components/models/pricelist';
     public getMeds(id:number):Observable<any>{
       return this.http.get(`http://localhost:8080/api/meds/` + id, {});
     }
+
+    public getAllD():Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/derm/all`);
+    }
+
+    public getAllP():Observable<any>{
+      return this.http.get(`http://localhost:8080/api/users/ph/all`);
+    }
   
   }
