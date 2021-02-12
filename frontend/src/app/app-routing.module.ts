@@ -7,12 +7,12 @@ import { HospitalComponent } from './components/hospital/hospital.component';
 
 import { LOGIN_PATH, HEADER, HEADER1, HEADER2, REGISTRATION_PATH, USER_HOME_PATH, HOSPITAL_REG, ADMIN_HOME_PATH, 
 
-SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE,
+SUPPLIER_HOME_PATH, SUPPLIER_PROFILE_PATH, PHARMACY_HOMEPAGE, PHARMACY_PAGE, 
 DERMATOLOGIST, PHARMACIST, PHARMACY_INFO, ADMINPH_ORDERFORM, ADMINPH_ADD_ORDERFORM,
-SUPPLIER_TENDER, PATIENT_SUBSCRIBE,
+SUPPLIER_TENDER, PATIENT_SUBSCRIBE, FREE_D_APP,
 ACTIONS_AND_PROMOTIONS, ADD_ACTIONS_AND_PROMOTIONS, PRICELIST, VACATION, EDIT_PRICELIST,
 MEDICAMENTS_LIST_PATH, ADMIN_REG_PATH, ADMIN_REG_DERM_PATH, ADMIN_REG_ADMIN_PATH, PATIENT_HOME_PATH, PATIENT_PROFILE_PATH,
-PATIENT_PROFILE_PHARMACIES, EDIT_ORDER,
+PATIENT_PROFILE_PHARMACIES, EDIT_ORDER, ALL_D, ALL_P,
 PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST, SHOW_PHARMACY, SHOW_PH, ORDER_OFFERS,
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
@@ -72,6 +72,9 @@ import { OrderOffersComponent } from 'src/app/components/orderform/order-offers/
 import { EditOrderComponent } from 'src/app/components/orderform/edit-order/edit-order.component';
 import { PatientSubscribeComponent } from 'src/app/components/pharmacy-profile-page/patient-subscribe/patient-subscribe.component';
 import { DermAppointmentsComponent} from 'src/app/components/pharmacy-profile-page/derm-appointments/derm-appointments.component';
+import { AllDermComponent } from 'src/app/components/pharmacy-admin-page/all-derm/all-derm.component';
+import { AllPharmacistComponent } from 'src/app/components/pharmacy-admin-page/all-pharmacist/all-pharmacist.component';
+import { FreeAppDermComponent } from 'src/app/components/pharmacy-admin-page/free-app-derm/free-app-derm.component';
 
 const routes: Routes = [
   {
@@ -111,6 +114,10 @@ const routes: Routes = [
     component: PatientSubscribeComponent
   },
   {
+    path: FREE_D_APP,
+    component: FreeAppDermComponent
+  },
+  {
     path: HEADER1,
     component: Header2Component
   },
@@ -141,6 +148,14 @@ const routes: Routes = [
   {
     path: EDIT_PRICELIST,
     component: EditPricelistComponent
+  },
+  {
+    path: ALL_D,
+    component: AllDermComponent
+  },
+  {
+    path: ALL_P,
+    component: AllPharmacistComponent
   },
   {
     path: ADMINPH_ORDERFORM,

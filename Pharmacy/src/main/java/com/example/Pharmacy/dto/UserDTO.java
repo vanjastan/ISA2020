@@ -2,9 +2,12 @@ package com.example.Pharmacy.dto;
 
 
 import com.example.Pharmacy.model.Authority;
+import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class UserDTO {
@@ -22,6 +25,9 @@ public class UserDTO {
     private List<String> authorities;
     private UserTokenDTO token;
 
+    private Set<Pharmacies> ph;
+    private Set<Pharmacies> derm;
+
 
     public UserDTO() {
     }
@@ -38,6 +44,8 @@ public class UserDTO {
         email = u.getEmail();
         username = u.getUsername();
         roleType = u.getRoleType();
+        ph = new HashSet< Pharmacies>(u.getPharmaciesP());
+        derm = new HashSet<Pharmacies>(u.getPharmaciesD());
         this.token = null;
         this.authorities = u.getAuthorities().stream()
                 .map(authority -> ((Authority) authority).getName()).collect(Collectors.toList());

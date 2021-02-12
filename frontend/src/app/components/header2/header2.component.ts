@@ -21,11 +21,11 @@ export class Header2Component implements OnInit {
 
   pharmacyList : any = [];
   ngOnInit(): void {
-    this.getBenuInfo(this.id);
+    this.getBenuInfo();
   }
 
-  getBenuInfo(id:number){
-    this.pharmaciesService.getBenuInfo(id).subscribe(data => {
+  getBenuInfo(){
+    this.pharmaciesService.getPhInfo().subscribe(data => {
       this.pharmacies = data;
       console.log(this.pharmacies);
     }, error => {
