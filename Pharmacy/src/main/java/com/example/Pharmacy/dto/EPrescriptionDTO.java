@@ -26,7 +26,7 @@ public class EPrescriptionDTO {
         date_of_pub = ePrescription.getDate_of_pub();
         status = ePrescription.getStatus();
         patient = new UserDTO(ePrescription.getPatient());
-        prescriptionMeds = ePrescription.getMedsByEPrescription();
+      //  prescriptionMeds = ePrescription.getMedsByEPrescription();
     }
 
     public Long getId() {

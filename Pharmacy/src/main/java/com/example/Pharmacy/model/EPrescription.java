@@ -34,10 +34,6 @@ public class EPrescription {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "patient_id")
     private User patient;
-//PROMENILA U LISTU
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "prescription", cascade = CascadeType.ALL)
-    private List<Meds> medsByEPrescription = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -53,14 +49,6 @@ public class EPrescription {
 
     public void setDate_of_pub(String date_of_pub) {
         this.date_of_pub = date_of_pub;
-    }
-
-    public List<Meds> getMedsByEPrescription() {
-        return medsByEPrescription;
-    }
-
-    public void setMedsByEPrescription(List<Meds> medsByEPrescription) {
-        this.medsByEPrescription = medsByEPrescription;
     }
 
     public EPrescriptionStatus getStatus(){
