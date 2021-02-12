@@ -31,7 +31,6 @@ public class OrderFormDTO {
         end_date = o.getEnd_date();
         medicament_name = o.getMedicamentName();
         status = o.getStatus();
-        admin_id = o.getAdminph().getId();
 
     }
 

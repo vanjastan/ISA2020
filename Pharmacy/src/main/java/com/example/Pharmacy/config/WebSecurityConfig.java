@@ -84,16 +84,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 				// Allow all users to access URLs that have 'public' in them
 				// Allow auth
+
+
+				//Dodato zato sto @PreAuthorize nekada ne zeli da radi! :(
+
 				.authorizeRequests()
 				.antMatchers("**/public/**").permitAll()
 				.antMatchers("/auth/**").permitAll()
 				.antMatchers("/api/hospitals/**").permitAll()
 				.antMatchers("/medicament").permitAll()
-				.antMatchers("/pharmacies/**").permitAll() 
+				.antMatchers("/examinations/unsubscribed/{id}").permitAll()
+				.antMatchers("/examinations/**").permitAll()
 				.antMatchers("/api/meds/**").permitAll()
 				.antMatchers("/complaints/**").permitAll()
 				.antMatchers("/complaintss/**").permitAll()
-				.antMatchers("/prescriptions/all").permitAll()
+				.antMatchers("/loyalty/**").permitAll()
+				.antMatchers("/examinationsPh/**").permitAll()
+				.antMatchers("/prescriptions/**").permitAll()
 				.antMatchers("/api/users/{userId}").permitAll()
 				.antMatchers("/actions/**").permitAll()
 				.antMatchers("/reservations/**").permitAll()
@@ -114,6 +121,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/ofers/choosen/**").permitAll()
 				.antMatchers("/ratingd/**").permitAll()
 				.antMatchers("/rating/**").permitAll()
+
+
 
 				// All other requests must be authorized
 				.anyRequest().authenticated().and()

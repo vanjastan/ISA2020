@@ -55,7 +55,6 @@ public class OrderFormController {
             dto.setEnd_date(o.getEnd_date());
             dto.setQuantity(o.getQuantity());
             dto.setStatus(o.getStatus());
-            dto.setAdmin_id(o.getAdminph().getId());
 
             of.add(dto);
         }
