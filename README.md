@@ -15,11 +15,11 @@ $ git clone https://github.com/vanjastan/ISA2020.git
 To successfully run the application on your local machine please install following software:
 
 * Java SDK v1.8
-* NodeJS v12.13.0
-* Npm v6.4
+* NodeJS v14.15.2
+* Npm v6.14.9
 * Apache Maven v4.0
 * Angular CLI
-* MySQL
+* MySQL 8.0.22
 
 ## Starting
 
@@ -29,4 +29,4 @@ Open cmd or terminal and navigate to frontend folder. When opened, install the r
 
 ### Build backend
 
-* Open/import the Pharmacy directory in IDE and run PharmacyApplication file.
+Open/import the Pharmacy directory in IDE and run PharmacyApplication file.
