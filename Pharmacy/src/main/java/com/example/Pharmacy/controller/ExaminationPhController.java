@@ -147,7 +147,7 @@ public class ExaminationPhController {
         return new ResponseEntity<>(freeConsultations, HttpStatus.OK);
     }
 
-    @RequestMapping(value="{patientId}/schedule/{id}", method = RequestMethod.POST)
+    @RequestMapping(value="/{patientId}/schedule/{id}", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<ExaminationPh> scheduleConsultation(@PathVariable("patientId") Long patientId, @PathVariable("id") Long id) throws MessagingException {
 
@@ -155,6 +155,9 @@ public class ExaminationPhController {
         User pharmacist = userService.findById(id);
         ExaminationPh patientConsultation = new ExaminationPh();
         patientConsultation.setPatient(user);
+        patientConsultation.setDate(patientConsultation.getDate());
+        patientConsultation.setPrice(patientConsultation.getPrice());
+        patientConsultation.setPharmacist(pharmacist);
         patientConsultation = examinationPhService.save(patientConsultation);
 
         try {

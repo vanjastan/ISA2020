@@ -46,9 +46,9 @@ INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, ti
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (3, 4000, '1h', '08.01.2021.', 'Very good', '15:00', null);
 INSERT INTO `examinations` (exam_id, price, duration, date_examination, rate, time_exam, patient_id) VALUES (4, 2000, '1h', '21.11.2020.', 'Excellent', '15:30', null);
 
-INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (1, 2500, '1h', '08.12.2020.', 3);
-INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (2, 3000, '1h', '05.01.2021.', 7);
-INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id) VALUES (3, 2000, '1h', '01.02.2021.', null);
+INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id, pharmacist_id) VALUES (1, 2500, '1h', '08.12.2020.', 3, 10);
+INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id, pharmacist_id) VALUES (2, 3000, '1h', '05.01.2021.', 7, 11);
+INSERT INTO `examinations_p` (id, price, duration, date_examination, patient_id, pharmacist_id) VALUES (3, 2000, '1h', '01.02.2021.', null, 10);
 
 INSERT INTO `orderform` (id, medicament_name, quantity, end_date, status, admin_id) VALUES (1, 'Aspirin', 40, '12-03-2021.', ' not processed', 4);
 INSERT INTO `orderform` (id, medicament_name, quantity, end_date, status, admin_id) VALUES (2, 'Aspirin', 50, '12-12-2020.', 'processed', 4);
