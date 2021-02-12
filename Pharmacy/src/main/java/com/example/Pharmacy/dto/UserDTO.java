@@ -1,6 +1,5 @@
 package com.example.Pharmacy.dto;
 
-
 import com.example.Pharmacy.model.Authority;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
@@ -50,8 +49,6 @@ public class UserDTO {
         this.authorities = u.getAuthorities().stream()
                 .map(authority -> ((Authority) authority).getName()).collect(Collectors.toList());
     }
-
-
 
     public Long getId() {
         return id;

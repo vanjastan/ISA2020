@@ -1,15 +1,10 @@
 package com.example.Pharmacy.service.impl;
 
-import com.example.Pharmacy.model.Complaint;
 import com.example.Pharmacy.model.Pharmacies;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.PharmacyRepository;
-import com.example.Pharmacy.service.AuthorityService;
 import com.example.Pharmacy.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

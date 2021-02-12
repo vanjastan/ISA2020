@@ -1,9 +1,7 @@
 package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.MedsDTO;
-import com.example.Pharmacy.dto.OrderFormDTO;
 import com.example.Pharmacy.model.Meds;
-import com.example.Pharmacy.model.OrderForm;
 import com.example.Pharmacy.repository.MedsRepository;
 import com.example.Pharmacy.service.MedsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,12 +48,6 @@ public class MedsServiceImpl implements MedsService {
     public Meds findOne(Long id) {
         return medsRepository.findById(id).orElseGet(null);
     }
-
-   /* @Override
-    public List<Meds> findByPrescriptionId(Long id) {
-        List<Meds> result = medsRepository.findByPrescriptionId(id);
-        return result;
-    }*/
 
     public Meds addMeds(MedsDTO mdto) {
         Meds med = new Meds();

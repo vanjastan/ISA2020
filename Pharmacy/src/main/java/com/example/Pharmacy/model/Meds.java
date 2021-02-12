@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -81,10 +80,6 @@ public class Meds {
             joinColumns = @JoinColumn(name = "medicament_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacies> pharmaciesMed = new HashSet<Pharmacies>();
-
-  /*  @OneToOne(mappedBy = "medicament", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-    private Pricelist pricelist;*/
 
     public Meds(Long id, String name, String code, String type, String contradictions, String ingredients, String dailydose, String replacement, String shape, String manufacturer, String issuing, String notes, boolean reserved, boolean allergic) {
         this.id = id;
@@ -235,14 +230,6 @@ public class Meds {
         this.name = name;
     }
 
-   /* public EPrescription getPrescription(){
-        return prescription;
-    }
-
-    public void setPrescription(EPrescription prescription){
-        this.prescription = prescription;
-    }
-*/
     public User getPatient(){
         return patient;
     }

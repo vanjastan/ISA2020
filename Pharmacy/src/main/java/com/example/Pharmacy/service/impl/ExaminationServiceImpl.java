@@ -2,7 +2,6 @@ package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.model.Examination;
-import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationRepository;
 import com.example.Pharmacy.service.ExaminationService;
 import org.springframework.beans.factory.annotation.Autowired;

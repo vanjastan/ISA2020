@@ -1,12 +1,9 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.MedsDTO;
 import com.example.Pharmacy.dto.PharmaciesDTO;
 import com.example.Pharmacy.dto.UserDTO;
 import com.example.Pharmacy.dto.UserRegistrationDTO;
 import com.example.Pharmacy.mappers.UserMapper;
-import com.example.Pharmacy.model.Complaint;
-import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.service.MedsService;

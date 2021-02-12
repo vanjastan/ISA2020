@@ -1,9 +1,7 @@
 package com.example.Pharmacy.controller;
 
-import com.example.Pharmacy.dto.ExaminationDTO;
 import com.example.Pharmacy.dto.ExaminationPhDTO;
 import com.example.Pharmacy.dto.UserDTO;
-import com.example.Pharmacy.model.Examination;
 import com.example.Pharmacy.model.ExaminationPh;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.repository.ExaminationPhRepository;
@@ -150,16 +148,14 @@ public class ExaminationPhController {
     }
 
     @RequestMapping(value="{patientId}/schedule/{id}", method = RequestMethod.POST)
-    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<ExaminationPh> scheduleConsultation(@PathVariable("patientId") Long patientId, @PathVariable("id") Long id) throws MessagingException {
 
         User user = userService.findById(patientId);
-       // ExaminationPh patientConsultation = examinationPhService.findById(id);
         User pharmacist = userService.findById(id);
         ExaminationPh patientConsultation = new ExaminationPh();
         patientConsultation.setPatient(user);
         patientConsultation = examinationPhService.save(patientConsultation);
-        //ExaminationPh patientConsultation = new ExaminationPh();//DODATO KAO PROBA
 
         try {
             serviceImpl.sendMessageScheduledConsultation("patientU45@gmail.com", "", patientConsultation);

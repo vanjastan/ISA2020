@@ -1,7 +1,6 @@
 package com.example.Pharmacy.service.impl;
 
 import com.example.Pharmacy.dto.SubscribedDTO;
-import com.example.Pharmacy.model.Meds;
 import com.example.Pharmacy.model.Subscribed;
 import com.example.Pharmacy.repository.SubscribedRepository;
 import com.example.Pharmacy.service.SubscribedService;

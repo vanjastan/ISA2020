@@ -2,9 +2,6 @@ package com.example.Pharmacy.dto;
 
 import com.example.Pharmacy.model.Pharmacies;
 import com.example.Pharmacy.model.Subscribed;
-import com.example.Pharmacy.model.User;
-
-import javax.persistence.Column;
 
 public class PharmaciesDTO {
 
@@ -19,8 +16,6 @@ public class PharmaciesDTO {
     private Subscribed subscribed;
     private UserDTO patient;
 
-
-
     public PharmaciesDTO(){
 
     }
@@ -33,7 +28,6 @@ public class PharmaciesDTO {
         rate = ph.getRate();
         subscribed = ph.getSubscribed();
         description = ph.getDescription();
-       // patient = new UserDTO(ph.getPatient());
     }
 
     public String getName() {

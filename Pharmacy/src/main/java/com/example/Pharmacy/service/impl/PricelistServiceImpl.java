@@ -26,14 +26,13 @@ public class PricelistServiceImpl implements PricelistService {
         return result;
     }
 
-
     public Pricelist findById(Long id) throws  AccessDeniedException{
         Pricelist p = pricelistRepository.findById(id).orElseGet(null);
         return p;
     }
 
     @Override
-    public Pricelist save(Pricelist p) {
+    public Pricelist save(Pricelist p){
 
         return pricelistRepository.save(p);
     }
@@ -41,6 +40,4 @@ public class PricelistServiceImpl implements PricelistService {
     public Pricelist findOne(Long id){
         return pricelistRepository.findById(id).orElseGet(null);
     }
-
-
 }

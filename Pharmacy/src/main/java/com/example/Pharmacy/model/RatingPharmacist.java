@@ -61,5 +61,4 @@ public class RatingPharmacist {
     public void setPharmacist(Pharmacist pharmacist) {
         this.pharmacist = pharmacist;
     }
-
 }

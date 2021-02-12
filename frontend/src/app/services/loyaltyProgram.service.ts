@@ -8,8 +8,7 @@ import { USER_ID_KEY } from '../config/local-storage-keys';
 })
 
     export class LoyaltyProgramService {
-        constructor(private http: HttpClient) { 
-    }
+        constructor(private http: HttpClient) { }
 
     public getProgram(): Observable<any> {
         const userId = localStorage.getItem(USER_ID_KEY);

@@ -39,7 +39,7 @@ public class LoyaltyProgramController {
     }
 
     @GetMapping(value="/forPatient/{patientId}")
-    //@PreAuthorize("hasRole('ROLE_PATIENT')")
+    @PreAuthorize("hasRole('ROLE_PATIENT')")
     public ResponseEntity<LoyaltyProgramDTO> findProgramByPatient(@PathVariable("patientId") Long patientId) {
         User patient = userService.findOne(patientId);
         LoyaltyProgram programs = patient.getProgram();

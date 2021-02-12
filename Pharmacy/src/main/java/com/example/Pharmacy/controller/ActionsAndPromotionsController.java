@@ -8,12 +8,10 @@ import com.example.Pharmacy.service.SubscribedService;
 import com.example.Pharmacy.service.impl.ActionsAndPromotionsServiceImpl;
 import com.example.Pharmacy.service.impl.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -51,5 +49,4 @@ public class ActionsAndPromotionsController {
 
         return ResponseEntity.ok().build();
     }
-
 }

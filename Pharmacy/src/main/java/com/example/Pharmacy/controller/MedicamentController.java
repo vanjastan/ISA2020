@@ -1,9 +1,7 @@
 package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.dto.MedicamentDTO;
-import com.example.Pharmacy.dto.OrderFormDTO;
 import com.example.Pharmacy.model.Medicament;
-import com.example.Pharmacy.model.OrderForm;
 import com.example.Pharmacy.repository.MedicamentRepository;
 import com.example.Pharmacy.service.MedicamentService;
 import com.example.Pharmacy.service.impl.MedicamentServiceImpl;
@@ -42,5 +40,4 @@ public class MedicamentController {
         medicament.addMedicament(dto);
         return  ResponseEntity.ok().build();
     }
-
 }
