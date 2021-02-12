@@ -137,7 +137,6 @@ public class PharmacyController {
             phDTO.setCity(p.getCity());
             phDTO.setDescription(p.getDescription());
             phDTO.setRate(p.getRate());
-         //   phDTO.setPatient(new UserDTO(p.getPatient()));
 
             pharmaciesDTO.add(phDTO);
         }

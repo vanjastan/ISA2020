@@ -273,8 +273,6 @@ public class UserController {
 		return new ResponseEntity<>(uDTO, HttpStatus.OK);
 	}
 
-
-
 	@GetMapping(value = "/ph/all")
 	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<UserDTO>> getALLPh() {
@@ -310,5 +308,4 @@ public class UserController {
     	Set<User> u = user.getPharmaciesP();
     	user.setPharmaciesP();
 	}*/
-
 }
