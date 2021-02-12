@@ -128,6 +128,7 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(mess);
     }
 
+
     @Async
     public void sendVacationRefuse (VacationRequest r, String message) throws MessagingException{
         String text = "We are sorry, your request for holiday has been refused.";

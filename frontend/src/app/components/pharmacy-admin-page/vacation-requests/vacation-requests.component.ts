@@ -51,12 +51,17 @@ export class VacationRequestsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  refuse(){
-
+  refuse(id:number){
+    this.service.refuseVacation(id).subscribe(data =>{
+      console.log(data);
+      this.toastr.success('Successfully refused!', '');
+    }, error => {
+      console.log(error);
+    });
   }
 
-  confirm(){
-    this.service.confirmVacation(this.v).subscribe(data =>{
+  confirm(id:number){
+    this.service.confirmVacation(id).subscribe(data =>{
       console.log(data);
       this.toastr.success('Successfully confirmed!', '');
     }, error => {

@@ -88,31 +88,30 @@ public class VacationRequestController {
 
     }
 
-    @PostMapping("/holidays")
-    public ResponseEntity<VacationRequestDTO> confirmationVacation(@RequestBody VacationRequestDTO dto) throws MessagingException {
-        VacationRequest vacationRequest = vacatioonRequestService.findById(dto.getId());
+    @CrossOrigin
+    @PostMapping("/holidays/{requestId}")
+    public ResponseEntity<VacationRequestDTO> confirmationVacation(@RequestBody VacationRequestDTO dto, @PathVariable("requestId") Long requestId) throws MessagingException {
+        VacationRequest vacationRequest = vacatioonRequestService.findById(requestId);
 
         vacationRequest.setConfirmed(true);
 
-        emailServiceImpl.sendVacationConfirmation(vacationRequest);
-
         vacationRequest = vacatioonRequestService.save(vacationRequest);
+        emailServiceImpl.sendVacationConfirmation(vacationRequest);
 
         return new ResponseEntity<>(VacationRequestMapper.toDTO(vacationRequest), HttpStatus.OK);
 
     }
 
-    @PostMapping("/noholidays")
-    public ResponseEntity<VacationRequestDTO> refuseVacation(@RequestBody VacationRequestDTO dto) throws MessagingException {
-        VacationRequest vacationRequest = vacatioonRequestService.findById(dto.getId());
+    @PostMapping("/noholidays/{requestId}")
+    public ResponseEntity<VacationRequestDTO> refuseVacation(@RequestBody VacationRequestDTO dto, @PathVariable("requestId") Long requestId) throws MessagingException {
+        VacationRequest vacationRequest = vacatioonRequestService.findById(requestId);
 
-        vacationRequest.setId(dto.getId());
-        vacationRequest.setUser(dto.getUser());
+        //vacationRequest.setId(dto.getId());
+        //vacationRequest.setUser(dto.getUser());
         vacationRequest.setConfirmed(true);
 
-        emailServiceImpl.sendVacationRefuse(vacationRequest, "boom");
-
         vacationRequest = vacatioonRequestService.save(vacationRequest);
+        emailServiceImpl.sendVacationRefuse(vacationRequest, "Too many people are on vacation.");
 
         return new ResponseEntity<>(VacationRequestMapper.toDTO(vacationRequest), HttpStatus.OK);
 

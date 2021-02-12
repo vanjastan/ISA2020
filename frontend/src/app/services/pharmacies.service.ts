@@ -92,12 +92,12 @@ import { PriceList } from '../components/models/pricelist';
       return this.http.get(`http://localhost:8080/vacation/request`);
     }
 
-    confirmVacation(val: Vacation): Observable<any> {
-      return this.http.post(`http://localhost:8080/vacation/holidays`, val);
+    public confirmVacation(id:number): Observable<any> {
+      return this.http.post(`http://localhost:8080/vacation/holidays/` + id, {});
     }
 
-    refuseVacation(val: Vacation): Observable<any> {
-      return this.http.post(`http://localhost:8080/vacation/noholidays`, val);
+    public refuseVacation(id:number): Observable<any> {
+      return this.http.post(`http://localhost:8080/vacation/noholidays/` + id, {});
     }
 
     editPricelist(pricelist: PriceList): Observable<PriceList> {

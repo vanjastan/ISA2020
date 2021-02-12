@@ -17,7 +17,7 @@ PATIENT_PROFILE_EXAMINATIONS, FREE_PHARMACIEST, SHOW_PHARMACY, SHOW_PH, ORDER_OF
 PATIENT_PROFILE_EXAMINATIONS_PHARMACIEST, PATIENT_PROFILE_PRESCRIPTIONS, SHEDULED_EXAMINATIONS, RESERVED_MEDS, PATIENT_PENALS, PATIENT_E_MEDICINES, SUBSCRIBED_PHARMACIES, TAKE_MEDICINE, SCHEDULE_CONSULTATION, SCHEDULE_EXAMINATION, 
 ADMINPH_HOME_PATH, ADMINPH_PROFILE_PATH, ADMINPH_MEDICATION_LIST, ADMINPH_PROFILEPAGE_PATH,
 EDIT_ADMINPH_PROFILE, CHANGE_ADMINPH_PASSWORD,
- ADMIN_COMPLAINTS,
+ ADMIN_COMPLAINTS, FREE_DERM_APP,
   PATIENT_COMPLAINTS, MEDICAMENTS_PATH} from './config/router-paths';
   
 import { AdminHomeComponent} from './components/adminhome/adminhome.component';
@@ -71,6 +71,7 @@ import { ShowPHComponent } from 'src/app/components/pharmacy-admin-page/pharmaci
 import { OrderOffersComponent } from 'src/app/components/orderform/order-offers/order-offers.component';
 import { EditOrderComponent } from 'src/app/components/orderform/edit-order/edit-order.component';
 import { PatientSubscribeComponent } from 'src/app/components/pharmacy-profile-page/patient-subscribe/patient-subscribe.component';
+import { DermAppointmentsComponent} from 'src/app/components/pharmacy-profile-page/derm-appointments/derm-appointments.component';
 
 const routes: Routes = [
   {
@@ -100,6 +101,10 @@ const routes: Routes = [
   {
     path: SHOW_PHARMACY,
     component: ShowPharmacyComponent
+  },
+  {
+    path: FREE_DERM_APP,
+    component: DermAppointmentsComponent
   },
   {
     path: PATIENT_SUBSCRIBE,

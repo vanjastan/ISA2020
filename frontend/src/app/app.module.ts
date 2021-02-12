@@ -102,6 +102,8 @@ import { ShowingPharmacistsComponent } from './components/pharmacy-profile-page/
 import { ShowingMedsComponent } from './components/pharmacy-profile-page/showing-meds/showing-meds.component';
 import { ShowingDermExaminationsComponent } from './components/pharmacy-profile-page/showing-derm-examinations/showing-derm-examinations.component';
 import { PatientSubscribeComponent } from './components/pharmacy-profile-page/patient-subscribe/patient-subscribe.component';
+import { DermAppointmentsComponent } from './components/pharmacy-profile-page/derm-appointments/derm-appointments.component';
+import { AddFreeAppComponent } from './components/pharmacy-profile-page/derm-appointments/add-free-app/add-free-app.component';
 
 
 @NgModule({
@@ -193,6 +195,8 @@ import { PatientSubscribeComponent } from './components/pharmacy-profile-page/pa
     ShowingMedsComponent,
     ShowingDermExaminationsComponent,
     PatientSubscribeComponent,
+    DermAppointmentsComponent,
+    AddFreeAppComponent,
 
   ],
   entryComponents: [
@@ -208,6 +212,7 @@ import { PatientSubscribeComponent } from './components/pharmacy-profile-page/pa
     ShowingDermatologistsComponent,
     ShowingPharmacistsComponent,
     ShowingMedsComponent,
+    AddFreeAppComponent
     
   ],
   imports: [
