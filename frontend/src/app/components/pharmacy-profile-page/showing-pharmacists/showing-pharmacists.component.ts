@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { PharmaciesService } from 'src/app/services/pharmacies.service';
 import { Pharmacies } from '../../models/pharmacies';
 import { Pharmacist } from '../../models/pharmacist';
+import { RatePComponent } from 'src/app/components/pharmacy-profile-page/showing-pharmacists/rate-p/rate-p.component';
 
 @Component({
   selector: 'app-showing-pharmacists',
@@ -34,7 +35,7 @@ export class ShowingPharmacistsComponent implements OnInit {
 
   search: string;
 
-  displayedColumns: string[] = ['name', 'surname'];
+  displayedColumns: string[] = ['name', 'surname', 'showR'];
   dataSource = new MatTableDataSource<Pharmacist>();
   @ViewChild(MatSort) sort:MatSort;
 
@@ -64,6 +65,19 @@ export class ShowingPharmacistsComponent implements OnInit {
             this.dataSource.data = this.PhResults;
     }   
         this.dataSource.filter = value.trim().toLocaleLowerCase();
+    }
+
+    showR(id:number){
+      console.log(id);
+      let dialogRef = this.dialog.open(RatePComponent, {
+        width: '1080px',
+        data: { Pharmacies: this.Ph, 
+                id: id}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Dialog result: ${result}');
+      });
+
     }
 
 }

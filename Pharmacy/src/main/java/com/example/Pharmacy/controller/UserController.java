@@ -218,7 +218,7 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/pharmacy/{dermatologistId}")
-	@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForDermatologist(@PathVariable Long dermatologistId) {
 
 		User derm = userService.findOne(dermatologistId);
@@ -234,7 +234,7 @@ public class UserController {
 
 
 	@GetMapping(value = "/ph/{pharmacist_id}")
-	@PreAuthorize("hasRole('ROLE_ADMINPH')")
+	//@PreAuthorize("hasRole('ROLE_ADMINPH')")
 	public ResponseEntity<List<PharmaciesDTO>> getPharmacyForPharmacist(@PathVariable Long pharmacist_id) {
 
 		User pharmacist = userService.findOne(pharmacist_id);
@@ -300,12 +300,5 @@ public class UserController {
 	}
 
 
-	/*@PostMapping("/hirePh/{ph_id}")
-	public ResponseEntity<UserDTO> hirePh(@RequestBody UserDTO dto, @PathVariable("ph_id") Long ph_id){
-    	User user = userService.findById(ph_id);
 
-
-    	Set<User> u = user.getPharmaciesP();
-    	user.setPharmaciesP();
-	}*/
 }
